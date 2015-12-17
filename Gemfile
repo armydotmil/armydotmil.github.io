@@ -1,2 +1,9 @@
 source 'https://rubygems.org'
-gem 'github-pages'
+
+gem 'jekyll'
+gem 'json'
+
+gem 'rouge', '1.9'
+gem 'redcarpet'
+
+gem 'go_script'
