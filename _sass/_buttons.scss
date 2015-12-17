@@ -2,12 +2,21 @@
 
 .usa-button-active {
   appearance: none;
-  background-color: #ccc;
+  background-color: #0071bc;
+  border-radius: 0.3rem;
+  color: #ffffff;
   border: 0;
-  font-size: 18px;
   cursor: pointer;
   display: inline-block;
+  font-family: "Source Sans Pro","Helvetica","Arial",sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
   line-height: 1;
-  margin: 15px;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+  margin-top: 0.5em;
+  outline: medium none;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
   }
-
