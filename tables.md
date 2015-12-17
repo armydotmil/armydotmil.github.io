@@ -17,24 +17,24 @@ permalink: /tables/
   </thead>
   <tbody>
   <tr>
-  <td scope='row'>Declaration of Independence</td>
-  <td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
-  <td>1776</td>
+  <td scope='row'>Document 1</td>
+  <td>This is a description.</td>
+  <td>2015</td>
   </tr>
   <tr>
-  <td scope='row'>Bill of Rights</td>
-  <td>The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
-  <td>1791</td>
+  <td scope='row'>Document 2</td>
+  <td>This is a description.</td>
+  <td>2014</td>
   </tr>
   <tr>
-  <td scope='row'>Declaration of Sentiments</td>
-  <td>A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>
-  <td>1848</td>
+  <td scope='row'>Document 3</td>
+  <td>This is a description.</td>
+  <td>2013</td>
   </tr>
   <tr>
-  <td scope='row'>Emancipation Proclamation</td>
-  <td>An executive order granting freedom to slaves in designated southern states.</td>
-  <td>1863</td>
+  <td scope='row'>Document 4</td>
+  <td>This is a description.</td>
+  <td>2012</td>
   </tr>
   </tbody>
   </table>
