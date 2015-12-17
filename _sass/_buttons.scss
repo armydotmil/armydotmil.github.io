@@ -1,22 +1,18 @@
 // Buttons
 
 .usa-button-active {
-  appearance: none;
-  background-color: #0071bc;
-  border-radius: 0.3rem;
-  color: #ffffff;
-  border: 0;
+  background-color: #00823b;
+  border: medium none;
+  border-radius: 0;
+  box-shadow: 0 2px 0 #003618;
+  box-sizing: border-box;
+  color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: "Source Sans Pro","Helvetica","Arial",sans-serif;
-  font-size: 1.7rem;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 0.5em;
-  margin-right: 0.5em;
-  margin-top: 0.5em;
-  outline: medium none;
-  padding: 1rem 2rem;
-  text-align: center;
+  font-size: 1em;
+  line-height: 1.25;
+  padding: 0.526316em 0.789474em 0.263158em;
+  position: relative;
   text-decoration: none;
-  }
+  vertical-align: top;
+}
