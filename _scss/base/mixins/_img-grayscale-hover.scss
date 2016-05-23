@@ -1,0 +1,28 @@
+// ----------------------------------------------------------------------
+
+  // Consistent grayscale filter to be applied to images on hover
+
+// ----------------------------------------------------------------------
+
+// example: img-grayscale-hover($parent: 'a');
+
+@mixin img-grayscale-hover($parent: 'a') {
+  img {
+    bottom: -2000px;
+    margin: auto;
+    position: absolute;
+    top: -2000px;
+    width: 100%;
+    
+    @include custom-transition(filter 0.25s ease, opacity 0.25s ease);
+  }
+  
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    #{$parent}:focus,
+    #{$parent}:hover {
+      img {
+        @include grayscale();
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@mixin img-grayscale-hover($parent: 'a') {
+  img {
+    bottom: -2000px;
+    margin: auto;
+    position: absolute;
+    top: -2000px;
+    width: 100%;
+    
+    @include custom-transition(filter 0.25s ease, opacity 0.25s ease);
+  }
+  
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    #{$parent}:focus,
+    #{$parent}:hover {
+      img {
+        // TODO: this will use the @include grayscale(); mixin once it is merged with us-army-homepage master
+        
+        // not using the mixin since it will overwrite the other filter property here
+        // and we need to specify filter once for opacity in IE
+        // and again for the grayscale on browsers where it will work
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+        filter: alpha(opacity = 70);
+        -moz-filter: grayscale(75%);
+        -webkit-filter: grayscale(75%);
+        filter: grayscale(75%);
+        opacity: .7;
+      }
+    }
+  }
+}
+

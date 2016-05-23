@@ -1,0 +1,34 @@
+$image-sizes: 480px, 768px, 992px, 1200px, 1600px;
+
+@mixin masthead($size) {
+    @if $size == 1 {
+        @media (max-width: nth($image-sizes, 1)) {
+            @content;
+        }
+    }
+    @else if $size == 2 {
+        @media (min-width: nth($image-sizes, 1) + 1) and (max-width: nth($image-sizes, 2)) {
+            @content;
+        }
+    }
+    @else if $size == 3 {
+        @media (min-width: nth($image-sizes, 2) + 1) and (max-width: nth($image-sizes, 3)) {
+            @content;
+        }
+    }
+    @else if $size == 4 {
+        @media (min-width: nth($image-sizes, 3) + 1) and (max-width: nth($image-sizes, 4)) {
+            @content;
+        }
+    }
+    @else if $size == 5 {
+        @media (min-width: nth($image-sizes, 4) + 1) and (max-width: nth($image-sizes, 5)) {
+            @content;
+        }
+    }
+    @else if $size == 6 {
+        @media (min-width: nth($image-sizes, 5) + 1) {
+            @content;
+        }
+    }
+}

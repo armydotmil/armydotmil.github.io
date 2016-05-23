@@ -1,0 +1,71 @@
+@mixin breakpoints($points) {
+  @each $point in $points {
+    @include do-breakpoint(#{$point}) {
+      @content;
+    }
+  }
+}
+
+@mixin do-breakpoint($point) {
+  //Small devices (phones, less than 768px)
+  @if $point == sm_mobile {
+    // 384 and below
+    @media (max-width: $screen-mobile-sm) {
+      @content;
+    }
+  }
+  @else if $point == md_mobile {
+    // 385 - 450
+    @media (min-width: $screen-mobile-sm + 1) and (max-width: $screen-mobile-md) {
+      @content;
+    }
+  }
+  @else if $point == mobile {
+    //480 and below
+    @media (max-width: $screen-mobile-max) {
+      @content;
+    }
+  }
+  @else if $point == nav {
+    // 481 - 699
+    @media (min-width: $screen-mobile-max + 1) and (max-width: $screen-sm - 1) {
+      @content;
+    }
+  }
+  @else if $point == tablet {
+    // 700 - 768
+    @media (min-width: $screen-sm) and (max-width: $screen-sm-min) {
+      @content;
+    }
+  }
+  @else if $point == lg_tablet {
+    // 769 - 992
+    @media (min-width: $screen-sm-min + 1) and (max-width: $screen-md-min) {
+      @content;
+    }
+  }
+  @else if $point == sm_desktop {
+    // 993 - 1155
+    @media (min-width: $screen-md-min + 1) and (max-width: $screen-md-max) {
+      @content;
+    }
+  }
+  @else if $point == desktop {
+    // 1156 - 1210
+    @media (min-width: $screen-md-max + 1) and (max-width: $screen-lg-min) {
+      @content;
+    }
+  }
+  @else if $point == large {
+    // 1211 - 1600
+    @media (min-width: $screen-lg-min + 1) and (max-width: $screen-lg-md) {
+      @content;
+    }
+  }
+  @else if $point == really_big {
+    // 1601 and above
+    @media (min-width: $screen-lg-md + 1) {
+      @content;
+    }
+  }
+}
