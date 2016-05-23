@@ -1,0 +1,62 @@
+
+
+// Centered container element
+@mixin container-fixed($gutter: $grid-gutter-width) {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: floor(($gutter / 2));
+  padding-right: ceil(($gutter / 2));
+  @include clearfix();
+}
+
+// Creates a wrapper for a series of columns
+@mixin row($inside: false, $gutter: $grid-gutter-width) {
+  @if($inside == true) {
+    // Negative margin nested rows out to align the content of columns
+    margin-left: ceil(($gutter / -2));
+    margin-right: floor(($gutter / -2));
+  }
+  @else {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+  
+  @include clearfix();
+}
+
+@mixin span($columns, $gutter: $grid-gutter-width)
+{
+  float: left;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+  width: percentage(($columns / $grid-columns));
+}
+
+@mixin offset($columns)
+{
+  margin-left: percentage(($columns / $grid-columns));
+}
+
+// creates a class with row(true) from above
+.row {
+  @include row(true);
+}
+
+// creates a class with container-fixed() from above
+.container-fixed {
+  @include container-fixed();
+}
+
+// creates classes named .span1 through .span12
+// same as doing @include span(1);
+@for $i from 1 through $grid-columns {
+  .span#{$i} { @include span($i); }
+}
+
+
+
+
+
+

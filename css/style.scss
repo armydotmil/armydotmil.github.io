@@ -4,9 +4,17 @@
 
 @import "base/variables";
 @import "base/mixins/breakpoints";
+@import "base/mixins/clearfix";
 @import "base/reset";
 @import "base/colors";
 @import "base/fonts";
+
+// ----------------------------------------------------------------------
+// Layout
+// ----------------------------------------------------------------------
+@import 'layout/grid-system';
+@import 'layout/grid';
+
 
 //primary colors
 .white {
