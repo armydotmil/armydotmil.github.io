@@ -1,74 +1,103 @@
 body {
-  font: normal 1em/1.375em $font-family;
+  font: normal 1em / 1.375em $font-family;
 
   @include breakpoints(nav mobile md_mobile sm_mobile) {
-    font: normal 1em/1.25em $font-family;
+    font: normal 1em / 1.25em $font-family;
   }
 }
 
 h1 {
-  font: 700 3em/1.05em $font-family;
+  font: 700 3em / 1.05em $font-family;
 
   @include breakpoints(lg_tablet tablet) {
-    font: 700 2.5em/1.125em $font-family;
+    font: 700 2.5em / 1.125em $font-family;
   }
 
+
   @include breakpoints(nav mobile md_mobile sm_mobile) {
-    font: 700 2em/1.25em $font-family;
+    font: 700 2em / 1.25em $font-family;
   }
 }
 
 h2 {
-  font: 2.25em/1.25em $font-family;
+  font: 700 2.5em / 1.25em $font-family;
 
   @include breakpoints(lg_tablet tablet) {
-    font: 2em/1.25em $font-family;
+    font: 700 2em / 1.25em $font-family;
   }
 
 
   @include breakpoints(nav mobile md_mobile sm_mobile) {
-    font: 1.625em/1.15384615em $font-family;
+    font: 700 1.5em / 1.15385em $font-family;
   }
 }
 
 h3 {
-  font: 700 1.75em/1.25em $font-family;
+  font: 700 1.875em / 1.25em $font-family;
 
   @include breakpoints(lg_tablet tablet) {
-    font: 700 1.5em/1.25em $font-family;
+    font: 700 1.375em / 1.25em $font-family;
   }
 
 
   @include breakpoints(nav mobile md_mobile sm_mobile) {
-    font: 700 1.375em/1.13636364em $font-family;
+    font: 700 0.875em / 1.13636em $font-family;
   }
 }
 
 h4 {
-  font: 700 1.125em/1.22222222em $font-family;
+  font: 700 1.5em / 1.22222em $font-family;
+
+  @include breakpoints(lg_tablet tablet) {
+    font: 700 1em / 1.25em $font-family;
+  }
+
 
   @include breakpoints(nav mobile md_mobile sm_mobile) {
-    font: 700 1.125em/1.11111111em $font-family;
+    font: 700 0.5em / 1.11111em $font-family;
   }
 }
 
-a { color: #000000; }
+h5 {
+  font: 700 1.3125em / 1.22222em $font-family;
+
+  @include breakpoints(lg_tablet tablet) {
+    font: 700 0.8125em / 1.25em $font-family;
+  }
+
+
+  @include breakpoints(nav mobile md_mobile sm_mobile) {
+    font: 700 0.3125em / 1.11111em $font-family;
+  }
+}
+
+p.large {
+  font: 700 1.125em / 1.22222em $font-family;
+}
+
+p.small {
+  font: 0.875em / 1.22222em $font-family;
+}
+
+a {
+  color: #000000;
+}
 
 @mixin date {
-  font: 400 .813em/1.375em $font-family;
+  font: 400 0.813em / 1.375em $font-family;
   text-transform: uppercase;
 }
 
 @mixin article-header {
-  font: 700 1.625em/1.5em $font-family;
+  font: 700 1.625em / 1.5em $font-family;
 }
 
 @mixin strong {
-  font: 700 1.5em/1.5em $font-family;
+  font: 700 1.5em / 1.5em $font-family;
 }
 
 @mixin article-body {
-  font: 400 1em/1.625em $font-family;
+  font: 400 1em / 1.625em $font-family;
 }
 
 p.date {
@@ -94,5 +123,5 @@ p.article-body {
 }
 
 .top-stories-header {
-  font: 700 1.125em/1.25em $font-family;
+  font: 700 1.125em / 1.25em $font-family;
 }
