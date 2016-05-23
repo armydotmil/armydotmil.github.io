@@ -1,6 +1,9 @@
 ---
 # Front matter comment to ensure Jekyll properly reads file.
 ---
+section {
+  margin-bottom: 20px;
+}
 
 #colors {
   .color-list {
@@ -9,6 +12,7 @@
       margin: 20px;
     }
   }
+
   .color-box {
     height: 80px;
     width: 80px;
