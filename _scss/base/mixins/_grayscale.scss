@@ -1,0 +1,19 @@
+// ----------------------------------------------------------------------
+
+  // Consistent grayscale filter to be applied to images on hover
+
+// ----------------------------------------------------------------------
+
+// example: @include grayscale();
+
+@mixin grayscale() {
+  // not using the mixin since it will overwrite the other filter property here
+  // and we need to specify filter once for opacity in IE
+  // and again for the grayscale on browsers where it will work
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: alpha(opacity = 70);
+  -moz-filter: grayscale(75%);
+  -webkit-filter: grayscale(75%);
+  filter: grayscale(75%);
+  opacity: .7;
+}

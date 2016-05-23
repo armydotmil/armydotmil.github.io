@@ -1,0 +1,4 @@
+@mixin custom-filter($filters...) {
+    filter: $filters;
+    -webkit-filter: $filters;
+}

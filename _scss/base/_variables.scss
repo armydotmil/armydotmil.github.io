@@ -1,0 +1,210 @@
+/* https://github.com/RedHatBrand/overpass */
+
+/* Webfont: Overpass-Bold */
+@font-face {
+    font-family: 'Overpass';
+    src: url('/e2/fonts/rv7/overpass/Overpass-Bold.eot'); /* IE9 Compat Modes */
+    src: url('/e2/fonts/rv7/overpass/Overpass-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/e2/fonts/rv7/overpass/Overpass-Bold.woff') format('woff'), /* Modern Browsers */
+         url('/e2/fonts/rv7/overpass/Overpass-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/e2/fonts/rv7/overpass/Overpass-Bold.svg#Overpass-Bold') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Overpass-BoldItalic */
+@font-face {
+    font-family: 'Overpass';
+    src: url('/e2/fonts/rv7/overpass/Overpass-Bold-Italic.eot'); /* IE9 Compat Modes */
+    src: url('/e2/fonts/rv7/overpass/Overpass-Bold-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/e2/fonts/rv7/overpass/Overpass-Bold-Italic.woff') format('woff'), /* Modern Browsers */
+         url('/e2/fonts/rv7/overpass/Overpass-Bold-Italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/e2/fonts/rv7/overpass/Overpass-Bold-Italic.svg#Overpass-BoldItalic') format('svg'); /* Legacy iOS */
+    font-style: italic;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Overpass-Reg */
+@font-face {
+    font-family: 'Overpass';
+    src: url('/e2/fonts/rv7/overpass/Overpass-Regular.eot'); /* IE9 Compat Modes */
+    src: url('/e2/fonts/rv7/overpass/Overpass-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/e2/fonts/rv7/overpass/Overpass-Regular.woff') format('woff'), /* Modern Browsers */
+         url('/e2/fonts/rv7/overpass/Overpass-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/e2/fonts/rv7/overpass/Overpass-Regular.svg#Overpass-Regular') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Overpass-Italic */
+@font-face {
+    font-family: 'Overpass';
+    src: url('/e2/fonts/rv7/overpass/Overpass-Italic.eot'); /* IE9 Compat Modes */
+    src: url('/e2/fonts/rv7/overpass/Overpass-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/e2/fonts/rv7/overpass/Overpass-Italic.woff') format('woff'), /* Modern Browsers */
+         url('/e2/fonts/rv7/overpass/Overpass-Italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/e2/fonts/rv7/overpass/Overpass-Italic.svg#Overpass-Italic') format('svg'); /* Legacy iOS */
+    font-style: italic;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Overpass-Light */
+@font-face {
+    font-family: 'Overpass';
+    src: url('/e2/fonts/rv7/overpass/Overpass-Light.eot'); /* IE9 Compat Modes */
+    src: url('/e2/fonts/rv7/overpass/Overpass-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/e2/fonts/rv7/overpass/Overpass-Light.woff') format('woff'), /* Modern Browsers */
+         url('/e2/fonts/rv7/overpass/Overpass-Light.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/e2/fonts/rv7/overpass/Overpass-Light.svg#Overpass-Light') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Overpass-LightItalic */
+@font-face {
+    font-family: 'Overpass';
+    src: url('/e2/fonts/rv7/overpass/Overpass-Light-Italic.eot'); /* IE9 Compat Modes */
+    src: url('/e2/fonts/rv7/overpass/Overpass-Light-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/e2/fonts/rv7/overpass/Overpass-Light-Italic.woff') format('woff'), /* Modern Browsers */
+         url('/e2/fonts/rv7/overpass/Overpass-Light-Italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/e2/fonts/rv7/overpass/Overpass-Light-Italic.svg#Overpass-LightItalic') format('svg'); /* Legacy iOS */
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Overpass-ExtraLight */
+@font-face {
+    font-family: 'Overpass';
+    src: url('/e2/fonts/rv7/overpass/Overpass-ExtraLight.eot'); /* IE9 Compat Modes */
+    src: url('/e2/fonts/rv7/overpass/Overpass-ExtraLight.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/e2/fonts/rv7/overpass/Overpass-ExtraLight.woff') format('woff'), /* Modern Browsers */
+         url('/e2/fonts/rv7/overpass/Overpass-ExtraLight.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/e2/fonts/rv7/overpass/Overpass-ExtraLight.svg#Overpass-ExtraLight') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Overpass-ExtraLightItalic */
+@font-face {
+    font-family: 'Overpass';
+    src: url('/e2/fonts/rv7/overpass/Overpass-ExtraLight-Italic.eot'); /* IE9 Compat Modes */
+    src: url('/e2/fonts/rv7/overpass/Overpass-ExtraLight-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/e2/fonts/rv7/overpass/Overpass-ExtraLight-Italic.woff') format('woff'), /* Modern Browsers */
+         url('/e2/fonts/rv7/overpass/Overpass-ExtraLight-Italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/e2/fonts/rv7/overpass/Overpass-ExtraLight-Italic.svg#Overpass-ExtraLightItalic') format('svg'); /* Legacy iOS */
+    font-style: italic;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+// ----------------------------------------------------------------------
+// Breakpoints
+// ----------------------------------------------------------------------
+$screen-mobile-sm: 394px;
+$screen-mobile-md: 450px;
+$screen-mobile-max: 480px;
+$screen-sm: 700px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-md-max: 1155px;
+$screen-lg-min: 1210px;
+$screen-lg-md: 1600px;
+
+// was 1480
+
+// ----------------------------------------------------------------------
+// Layout Breakpoints
+// ----------------------------------------------------------------------
+$maxWidth: 1280;
+
+// ----------------------------------------------------------------------
+// Font Sizes
+// ----------------------------------------------------------------------
+$regularSize: 12;
+
+// ----------------------------------------------------------------------
+// Font Families
+// ----------------------------------------------------------------------
+$helvetica: Helvetica, Arial, sans-serif;
+$font-family: "Overpass", sans-serif;
+
+// ----------------------------------------------------------------------
+// Grid
+// ----------------------------------------------------------------------
+
+// Number of columns in the grid.
+$grid-columns: 12 !default;
+
+// Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width: 30px !default;
+
+$container: 1020px;
+$container-md: 740px;
+$container-sm: 670px;
+
+// ----------------------------------------------------------------------
+// Colors 
+// ----------------------------------------------------------------------
+$primary-text-color: #000;
+$secondary-background-color: #231F20;
+$secondary-text-color: #FFF;
+$secondary-border-color: #57584f;
+$tertiary-text-color: #57584f;
+$dark-gray-color: #57584F;
+$captions-background-color: #2F312B;
+$light-gray-color: #f7f7f7;
+$lighter-gray-color: #f2f2f2;
+
+// ----------------------------------------------------------------------
+// Official Army Branding Colors
+// ----------------------------------------------------------------------
+
+// according to the official colors that are published on the Enterprise Branding Portal,
+// the gold color here should be #ffd530
+// however, design team decided to match the gold in the army star logo, which is #fec325
+// which is also the gold color used in the sprite
+
+$army-branding: (
+    black: #030000,
+    armyblack: #231F20,
+    gold: #fec325,
+    white: #ffffff,
+    darkcamo: #333c33,
+    mediumcamo: #83847a,
+    lightcamo: #bfb8ab,
+    grey90: #1a1a1a,
+    grey80: #333333,
+    grey70: #4c4c4c,
+    grey60: #656565,
+    grey50: #7f7f7f,
+    grey40: #999999,
+    grey30: #b3b3b3,
+    grey20: #cccccc,
+    grey10: #e5e5e5
+);
+
+// ----------------------------------------------------------------------
+// Social Branding Colors
+// ----------------------------------------------------------------------
+
+$social-branding: (
+    twitter: #55acee,
+    google: #db4437,
+    facebook: #3b5999,
+    pinterest: #bd081c,
+    email: #2f2f2f,
+    print: #2f2f2f
+);
+
+// ----------------------------------------------------------------------
+// Images 
+// ----------------------------------------------------------------------
+$social-button-sprite: url("/e2/images/rv7/mobile_redesign_sprite_icons_v2.svg");
+$standto-image: url("/e2/images/rv7/stand_to_mosaic.jpg");

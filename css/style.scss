@@ -2,8 +2,11 @@
 # Front matter comment to ensure Jekyll properly reads file.
 ---
 
+@import "base/variables";
+@import "base/mixins/breakpoints";
 @import "base/reset";
 @import "base/colors";
+@import "base/fonts";
 
 //primary colors
 .white {

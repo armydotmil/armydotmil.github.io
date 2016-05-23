@@ -12,11 +12,18 @@ section {
       margin: 20px;
     }
   }
-
   .color-box {
     height: 80px;
     width: 80px;
     border: 1px solid #000;
     margin-bottom: 20px;
+  }
+}
+
+#typography {
+  .typography-list {
+    li {
+      margin: 20px;
+    }
   }
 }
