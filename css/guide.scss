@@ -5,6 +5,20 @@ section {
   margin-bottom: 20px;
 }
 
+#grid-example {
+  text-align: center;
+  .grid-example-container{
+    margin-bottom: 20px;
+  }
+  .row {
+    margin-bottom: 20px;
+    p {
+      padding: 10px 0;
+      border: 1px solid #000;
+    }
+  }
+}
+
 #colors {
   .color-list {
     li {
@@ -12,6 +26,7 @@ section {
       margin: 20px;
     }
   }
+
   .color-box {
     height: 80px;
     width: 80px;

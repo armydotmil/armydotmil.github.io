@@ -31,7 +31,7 @@
   float: left;
   padding-left: ($gutter / 2);
   padding-right: ($gutter / 2);
-  width: percentage(($columns / $grid-columns));
+  @include custom-calc(width, #{"#{percentage(($columns / $grid-columns))} - #{$gutter}"});
 }
 
 @mixin offset($columns)
