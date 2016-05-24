@@ -1,0 +1,34 @@
+// File Name: _usagov-sayt.scss
+// Description: overrides styles imported from sayt.css
+// Used by: _header.scss
+// Dependencies:
+// ------------------------------------------------------------
+
+body {
+  //Preloading this image reduces page load time     
+  #preload-01 {
+    background: url('https://dvf3ws998zno8.cloudfront.net/assets/legacy/sayt/ui-bg_flat_75_ffffff_40x100.png') no-repeat -9999px -9999px;
+  }
+
+  #usasearch_sayt .ui-menu {
+    a {
+      color: #111;
+    }
+
+    .ui-menu-item a {
+      line-height: 40px;
+      padding: 0 5px;
+    }
+
+    .ui-menu-item {
+      a.ui-state-hover, a.ui-state-active {
+        margin: 0;
+        border-width: 0;
+        background-color: #fff2bf;
+        background-image: none;
+        border-radius: 0;
+        font-weight: inherit;
+      }
+    }
+  }
+}
