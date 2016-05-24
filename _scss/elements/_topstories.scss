@@ -1,0 +1,28 @@
+// File Name: _topstories.scss
+// Description: article top stories
+// Used by: article.scss
+// Dependencies:
+// ------------------------------------------------------------
+
+@import "base/mixins/header-underline";
+
+.top-stories {
+  background-color: map-get($army-branding, grey10);
+  max-width: 350px;
+
+  .small, h4 {
+    text-transform: uppercase;
+  }
+
+  h4 {
+    @include header-underline(black);
+  }
+
+  li {
+    padding: 0 30px 30px;
+  }
+
+  li:first-child {
+    padding-top: 30px;
+  }
+}

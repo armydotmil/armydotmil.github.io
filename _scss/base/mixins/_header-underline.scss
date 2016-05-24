@@ -1,0 +1,10 @@
+@mixin header-underline($color) {
+    &::after {
+      background: map-get($army-branding, $color);
+      content: '';
+      display: block;
+      height: 5px;
+      margin: 20px 0 0;
+      width: 60px;
+    }
+}

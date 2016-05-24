@@ -47,28 +47,10 @@ h3 {
 
 h4 {
   font: 700 1.5em / 1.22222em $font-family;
-
-  @include breakpoints(lg_tablet tablet) {
-    font: 700 1em / 1.25em $font-family;
-  }
-
-
-  @include breakpoints(nav mobile md_mobile sm_mobile) {
-    font: 700 0.5em / 1.11111em $font-family;
-  }
 }
 
 h5 {
   font: 700 1.3125em / 1.22222em $font-family;
-
-  @include breakpoints(lg_tablet tablet) {
-    font: 700 0.8125em / 1.25em $font-family;
-  }
-
-
-  @include breakpoints(nav mobile md_mobile sm_mobile) {
-    font: 700 0.3125em / 1.11111em $font-family;
-  }
 }
 
 p.large {
