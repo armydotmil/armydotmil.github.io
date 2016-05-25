@@ -2,6 +2,7 @@
   @include row(true);
   ul {
     font-size: .875em;
+    margin-top: -7px;
     
     li {
       list-style-type: disc;
@@ -31,10 +32,15 @@
   
   @include breakpoints(mobile nav tablet) {
     ul {
+      margin: 0;
       
       &.link-column {
         float: none;
         width: auto;
+      }
+      
+      &:nth-of-type(1) {
+        margin-top: -7px;
       }
     }
   }
