@@ -1,15 +1,15 @@
 
 
-//*,
-//*:after,
-//*:before {
-//  @include box-sizing(border-box);
-//}
+*,
+*:after,
+*:before {
+  @include box-sizing(border-box);
+}
 
 .container {
   @include container-fixed();
   margin: 100px auto;
-  max-width: $container;
+  max-width: $container + $grid-gutter-width; // border-box includes padding in the width
   overflow: hidden;
   
   .inner-container {

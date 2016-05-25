@@ -1,0 +1,118 @@
+.news {
+  overflow: hidden;
+  
+  ul {
+    @include row(true);
+    
+    li {
+      margin: 30px 0 0;
+
+      a {
+        display: block;
+        position: relative;
+        
+        &:focus,
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      
+      @include img-grayscale-hover('a');
+      
+      .image {
+        @include row();
+        background: map-get($army-branding, black);
+        height: 0;
+        padding: 66.25% 0 0;
+        position: relative;
+        z-index: 0;
+      }
+      
+      .date {
+        font: 700 .875em $font-family;
+        display: block;
+        margin: -9px 0 0px;
+        position: relative;
+        text-transform: uppercase;
+        text-align: center;
+        
+        span {
+          background-color: map-get($army-branding, gold);
+          padding: 15px 30px 11px;
+        }
+      }
+      
+      .title {
+        color: map-get($army-branding, grey70);
+        display: block;
+        font: 400 1.125em/1.4em $font-family;
+        padding: 33px 15px 20px;
+        text-align: center;
+        
+        &:after {
+          background: map-get($army-branding, gold);
+          content: '';
+          height: 4px;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 0;
+          
+          @include custom-transition(width .25s ease);
+        }
+      }
+    }
+  } // end ul
+  
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    ul li a {
+      &:hover, &:focus {
+        .title:after { width: 100%; }
+      }
+    }
+  }
+  
+  @include breakpoints(sm_desktop desktop large really_big) {
+    ul li {
+      @include span-clear(4);
+
+      // remove top margin from top row elements
+      &:nth-child(-n+3) {
+        margin-top: 0;
+      }
+    }
+  }
+  
+  @include breakpoints(tablet lg_tablet) {
+    ul li {
+      @include span-clear(6);
+      
+      // remove top margin from top row elements
+      &:nth-child(-n+2) {
+        margin-top: 0;
+      }
+
+      .title {
+        font: 400 1em/1.3em $font-family;
+      }
+    }
+  }
+  
+  @include breakpoints(nav mobile) {
+    max-width: 446px;
+    margin: 0 auto;
+
+    ul li {
+      @include span(12);
+      margin-top: 15px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      .title {
+        font: 400 1em/1.3em $font-family;
+      }
+    }
+  }
+}

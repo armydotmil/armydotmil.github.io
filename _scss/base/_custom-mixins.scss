@@ -1,0 +1,13 @@
+//------ SASS Useful Mixins ---------------------------------------------
+
+// These are useful mixins for the rv7 redesign
+// They are included here if they're not part of, or not done well, 
+// in the default mixins
+
+// ----------------------------------------------------------------------
+
+@import "custom_mixins/custom-calc";
+@import "custom_mixins/custom-filter";
+@import "custom_mixins/custom-linear-gradient";
+@import "custom_mixins/custom-mastheads";
+@import "custom_mixins/custom-transition";

@@ -16,6 +16,8 @@
 
   h4 {
     @include header-underline(black);
+    margin-bottom: 0;
+    &:first-child { margin: 0; }
   }
 
   li {
@@ -24,5 +26,14 @@
 
   li:first-child {
     padding-top: 30px;
+  }
+}
+
+@include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+  .top-stories {
+    h4:after {
+      margin: 20px 0 0;
+      text-align: left;
+    }
   }
 }

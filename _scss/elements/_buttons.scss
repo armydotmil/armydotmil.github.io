@@ -1,0 +1,44 @@
+
+
+.btn {
+  padding: 20px 0 0;
+  
+  div {
+    background: map-get($army-branding, gold);
+    display: inline-block;
+    margin: 0 auto;
+    padding: 5px;
+    
+    @include link-transition('a');
+    
+    &.black {
+      background: map-get($army-branding, black);
+      
+      a {
+        color: map-get($army-branding, white);
+        
+        span { background: map-get($army-branding, white); }
+      }
+    }
+    
+    &.white {
+      background: map-get($army-branding, white);
+      border: 1px solid map-get($army-branding, black);
+      
+      a { color: map-get($army-branding, black); }
+    }
+  }
+  
+  a {
+    display: block;
+    font: 600 .875em $font-family;
+    padding: 11px 30px 9px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

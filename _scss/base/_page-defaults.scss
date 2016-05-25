@@ -1,0 +1,56 @@
+
+section {
+  h4 {
+    font: 700 1.3em $font-family;
+    margin: 50px 0 40px;
+    text-align: center;
+    text-transform: uppercase;
+    @include custom-transition(font-size .25s ease);
+    
+    &:first-child { margin: 0 0 40px; }
+    
+    @include header-underline(gold);
+  }
+  
+  @include breakpoints(mobile nav tablet) {
+    h1, h2, h3, h4, h5, h6 { text-align: center; }
+  }
+  
+  // mobile first approach
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    h4 {
+      font: 700 1.5em / 1.22222em $font-family;
+      margin: 60px 0 54px;
+      text-align: left;
+      
+      &:first-child { margin: 0 0 54px; }
+      
+      &:after {
+        margin: 20px 0 0;
+      }
+    }
+  }
+  
+  a {
+    font-weight: 600;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  ul,
+  p {
+    line-height: 1.625em;
+    margin-bottom: 1.25em;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  strong {
+    font-weight: 700;
+  }
+}

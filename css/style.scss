@@ -2,13 +2,20 @@
 # Front matter comment to ensure Jekyll properly reads file.
 ---
 
+// ----------------------------------------------------------------------
+// Mixins
+// ----------------------------------------------------------------------
+@import 'base/mixins';
+@import "base/custom-mixins";
+
+// ----------------------------------------------------------------------
+// Defaults
+// ----------------------------------------------------------------------
 @import "base/variables";
-@import "base/custom_mixins/custom-calc";
-@import "base/mixins/breakpoints";
-@import "base/mixins/clearfix";
 @import "base/reset";
 @import "base/colors";
 @import "base/fonts";
+@import "base/page-defaults";
 
 // ----------------------------------------------------------------------
 // Layout
@@ -16,11 +23,15 @@
 @import 'layout/grid-system';
 @import 'layout/grid';
 
-
 // ----------------------------------------------------------------------
 // Elements
 // ----------------------------------------------------------------------
 @import "elements/top-stories";
+@import "elements/nav";
+@import "elements/buttons";
+@import "elements/news";
+@import "elements/links";
+@import "elements/accordion";
 
 //primary colors
 .white {

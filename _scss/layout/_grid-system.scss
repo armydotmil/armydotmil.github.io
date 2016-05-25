@@ -1,5 +1,8 @@
 
 
+
+
+
 // Centered container element
 @mixin container-fixed($gutter: $grid-gutter-width) {
   margin-left: auto;
@@ -31,7 +34,21 @@
   float: left;
   padding-left: ($gutter / 2);
   padding-right: ($gutter / 2);
-  @include custom-calc(width, #{"#{percentage(($columns / $grid-columns))} - #{$gutter}"});
+  //@include custom-calc(width, #{"#{percentage(($columns / $grid-columns))} - #{$gutter}"});
+  width: percentage(($columns / $grid-columns));
+}
+
+// automatically adds a clear to the first element of each row
+// NOTE: must be set to specific breakpoints (if they overlap it will mess things up)
+@mixin span-clear($columns, $gutter: $grid-gutter-width)
+{
+  $numColumns: floor($grid-columns / $columns);
+  @include span($columns, $gutter: $grid-gutter-width);
+
+  // span-clear(4) -> nth-child(3n+4) or every 3rd starting at 4
+  &:nth-child(#{$numColumns}n+#{($numColumns + 1)}) {
+    clear: left;
+  }
 }
 
 @mixin offset($columns)
@@ -54,7 +71,6 @@
 @for $i from 1 through $grid-columns {
   .span#{$i} { @include span($i); }
 }
-
 
 
 

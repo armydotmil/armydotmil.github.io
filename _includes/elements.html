@@ -3,10 +3,40 @@
     <div class="container">
         <div class="inner-container">
             <h2>05 | ELEMENTS</h2>
-            <div id="name">
+            <div class="elem">
                 <div>LIST WIDGET</div>
                 {% include elements/top-stories.html %}
             </div>
+            <div class="elem">
+                <div>TAB BAR</div>
+                {% include elements/nav.html %}
+            </div>
+            <div class="elem">
+                <div>BUTTONS</div>
+                {% include elements/buttons.html %}
+            </div>
+            <div class="elem">
+                <div>ACCORDION</div>
+                {% include elements/accordion.html %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="news-elements">
+    <div class="container">
+        <div class="inner-container">
+            <h4>NEWS</h4>
+            {% include elements/news.html %}
+        </div>
+    </div>
+</section>
+
+<section id="news-elements">
+    <div class="container">
+        <div class="inner-container">
+            <h4>LIST</h4>
+            {% include elements/list.html %}
         </div>
     </div>
 </section>

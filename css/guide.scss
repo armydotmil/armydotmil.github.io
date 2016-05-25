@@ -45,6 +45,21 @@ section {
   .typography-list {
     li {
       margin: 20px;
+      
+      h4 {
+        margin: 0;
+        text-transform: none;
+        transition: none;
+        
+        &:after { display: none; }
+      }
     }
+  }
+}
+
+#elements {
+  .elem {
+    margin: 0 0 60px;
+    &:last-child { margin: 0; }
   }
 }

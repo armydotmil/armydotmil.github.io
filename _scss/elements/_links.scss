@@ -1,0 +1,43 @@
+.links-list {
+  @include row(true);
+  ul {
+    font-size: .875em;
+    
+    li {
+      list-style-type: disc;
+      margin: 0 0 0 15px;
+      padding: 0;
+      
+      &:first-child a { padding-top: 0; }
+      
+      a {
+        display: block;
+        font: 400 1.143em/1.375em $font-family;
+        padding: 7px 0 7px 5px;
+        position: relative;
+        vertical-align: top;
+        top: 2px;
+      }
+    }
+    
+    &.link-column {
+      @include span(6);
+    }
+  }
+  
+  &:after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+  
+  @include breakpoints(mobile nav tablet) {
+    ul {
+      
+      &.link-column {
+        float: none;
+        width: auto;
+      }
+    }
+  }
+}

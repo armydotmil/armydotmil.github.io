@@ -1,0 +1,55 @@
+
+
+nav {
+  
+  a {
+    display: block;
+    font: 700 1em $font-family;
+    padding: 16px 0 12px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    
+    &:hover { text-decoration: none; }
+    
+    &:after {
+      background: map-get($army-branding, gold);
+      bottom: -4px;
+      content: '';
+      height: 4px;
+      left: 0;
+      position: absolute;
+      width: 0;
+    }
+    
+    &.active:after { width: 100%; }
+    
+    //Prevents double click issue on iOS
+    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+      font: 700 1.125em $font-family;
+      
+      &.active, &:hover {
+        &:after {
+          @include custom-transition(width .25s ease);
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  li {
+    display: inline-block;
+    margin: 0 25px;
+    
+    @include breakpoints(mobile) {
+      margin: 0 10px;
+    }
+  }
+  
+  ul {
+    background: map-get($army-branding, grey10);
+    border-bottom: 4px solid map-get($army-branding, grey30);
+    text-align: center;
+  }
+}
