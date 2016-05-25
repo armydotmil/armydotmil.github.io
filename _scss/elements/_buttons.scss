@@ -51,8 +51,9 @@
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.05em;
+  line-height: 23px;
   outline: 0 none;
-  padding: 18px;
+  padding: 20px 20px 16px;
   position: absolute;
   text-decoration: none;
   text-indent: -99999px;
@@ -90,11 +91,11 @@
     }
 
     &.menu-button {
-      text-indent: 38px;
+      text-indent: 43px;
     }
 
     &.search-button {
-      text-indent: -88px;
+      text-indent: -97px;
     }
   }
 

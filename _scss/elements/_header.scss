@@ -3,12 +3,8 @@
 // Used by: Page.scss
 // Dependencies:
 // ------------------------------------------------------------
-@import "base/mixins/breakpoints";
-@import "base/mixins/opacity";
-@import "base/mixins/animations";
-@import "base/custom-mixins/custom-calc" ;
-@import "base/custom-mixins/custom-transition" ;
-
+@import "base/mixins";
+@import "base/custom-mixins";
 
 // ----------------------------------------------------------------------
 // Modules
@@ -26,6 +22,24 @@ body {
 
 body.menu-open header.scrolled-down .navbar {
   top: 0;
+}
+
+header,
+header *,
+header:after,
+header *:after,
+header:before,
+header *:before {
+  @include box-sizing(content-box);
+}
+
+section header a {
+  text-decoration: none;
+  
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 header {
