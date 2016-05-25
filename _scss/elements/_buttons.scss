@@ -1,5 +1,6 @@
 
 
+
 .btn {
   padding: 20px 0 0;
   
@@ -42,3 +43,287 @@
     }
   }
 }
+
+.nav-button {
+  border-style: solid;
+  border-color: #333;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  outline: 0 none;
+  padding: 18px;
+  position: absolute;
+  text-decoration: none;
+  text-indent: -99999px;
+  text-transform: uppercase;
+  width: 25px;
+
+  span {
+    display: block;
+    height: 24px;
+    width: 24px;
+  }
+
+  &.menu-button {
+    border-width: 0 1px 0 0;
+    left: 0;
+
+    span {
+      background: transparent $social-button-sprite no-repeat scroll -233px 0;
+      width: 25px;
+    }
+  }
+
+  &.search-button {
+    border-width: 0 0 0 1px;
+    right: 0;
+
+    span {
+      background: transparent $social-button-sprite no-repeat scroll -259px 0;
+    }
+  }
+
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    &.menu-button, &.search-button {
+      border: none;
+    }
+
+    &.menu-button {
+      text-indent: 38px;
+    }
+
+    &.search-button {
+      text-indent: -88px;
+    }
+  }
+
+
+  &.close-button {
+    span {
+      background: transparent $social-button-sprite no-repeat scroll -284px 1px;
+      width: 20px;
+    }
+    &.black-close span {
+      background-position: -284px -23px;
+    }
+  }
+}
+
+.notification-button {
+  @extend .nav-button;
+}
+
+.view-more-arrow-bg {
+  background: transparent $social-button-sprite no-repeat scroll -427px 0;
+  display: inline-block;
+  width: 14px;
+  height: 12px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.view-more-arrow-sm {
+  background: transparent $social-button-sprite no-repeat scroll -442px 0;
+  display: inline-block;
+  width: 14px;
+  height: 12px;
+  vertical-align: middle;
+  margin-left: 5px;
+
+  &.black-arrow {
+    background-position: -442px -13px;
+  }
+  &.gray-arrow {
+    background-position: -442px -26px;
+  }
+}
+
+.overlay-video .v-close {
+  span {
+    background: transparent $social-button-sprite no-repeat scroll -284px 0;
+    display: block;
+    height: 24px;
+    width: 20px;
+  }
+}
+
+.search-submit-button {
+  background: transparent $social-button-sprite no-repeat scroll -259px 0;
+  cursor: pointer;
+  border: 0 none;
+  height: 24px;
+  width: 24px;
+}
+
+.greater-than-button {
+  .greater-than-button-image {
+    background: transparent $social-button-sprite no-repeat scroll -341px 0;
+    height: 18px;
+    width: 11px;
+  }
+}
+
+.less-than-button {
+  .less-than-button {
+    background: transparent $social-button-sprite no-repeat scroll -331px 0;
+    height: 18px;
+    width: 10px;
+  }
+}
+
+.social-button {
+  span {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+  }
+
+  &.facebook-button span {
+    background: transparent $social-button-sprite no-repeat scroll -55px 0;
+    margin: 0 3px;
+    width: 12px;
+  }
+
+  &.twitter-button span {
+    background: transparent $social-button-sprite no-repeat scroll 0 0;
+    width: 29px;
+  }
+
+  &.googleplus-button span {
+    background: transparent $social-button-sprite no-repeat scroll -119px 0;
+    width: 36px;
+  }
+
+  &.pinterest-button span {
+    background: transparent $social-button-sprite no-repeat scroll -30px 0;
+  }
+
+  &.flickr-button span {
+    background: transparent $social-button-sprite no-repeat scroll -94px 0;
+  }
+
+  &.slideshare-button span {
+    background: transparent $social-button-sprite no-repeat scroll -181px 0;
+    width: 23px;
+  }
+
+  &.youtube-button span {
+    background: transparent $social-button-sprite no-repeat scroll -155px 0;
+    width: 25px;
+  }
+
+  &.email-button span {
+    background: transparent $social-button-sprite no-repeat scroll -206px 2px;
+    width: 25px;
+  }
+
+  &.instagram-button span {
+    background: transparent $social-button-sprite no-repeat scroll -69px 0;
+  }
+
+  &.vimeo-button span {
+    background: transparent $social-button-sprite no-repeat scroll -337px -26px;
+    width: 28px;
+  }
+
+  &.armylive-button span {
+    background: transparent $social-button-sprite no-repeat scroll -366px -26px;
+    width: 27px;
+  }
+}
+
+.social-button-sm {
+  span {
+    display: inline-block;
+    height: 20px;
+    width: 22px;
+  }
+
+  &.facebook-button span {
+    background: transparent $social-button-sprite no-repeat scroll -45px -50px;
+    width: 12px;
+  }
+
+  &.twitter-button span {
+    background: transparent $social-button-sprite no-repeat scroll 0 -50px;
+    width: 24px;
+  }
+
+  &.googleplus-button span {
+    background: transparent $social-button-sprite no-repeat scroll -57px -50px;
+    width: 30px;
+  }
+
+  &.pinterest-button span {
+    background: transparent $social-button-sprite no-repeat scroll -24px -50px;
+  }
+
+  &.email-button span {
+    background: transparent $social-button-sprite no-repeat scroll -88px -50px;
+    width: 23px;
+  }
+  
+  &.print-button span {
+    background: transparent $social-button-sprite no-repeat scroll -146px -50px;
+    width: 23px;
+  }
+}
+
+.play-button {
+  .play-button-image {
+    background: transparent $social-button-sprite no-repeat scroll -560px 4px;
+    height: 20px;
+    width: 14px;
+  }
+}
+
+.plus-thick {
+  background: transparent $social-button-sprite no-repeat scroll -305px 5px;
+  height: 24px;
+  width: 12px;
+}
+
+.minus-thick {
+  background: transparent $social-button-sprite no-repeat scroll -318px 10px;
+  height: 24px;
+  width: 12px;
+}
+
+.plus-black {
+  background: transparent $social-button-sprite no-repeat scroll -305px -13px;
+  height: 13px;
+  width: 12px;
+}
+
+.minus-black {
+  background: transparent $social-button-sprite no-repeat scroll -318px -9px;
+  height: 13px;
+  width: 12px;
+}
+
+.nav-army-star {
+  padding: 8px 10px 12px 12px;
+  text-indent: -99999px;
+
+  span {
+    background: transparent $social-button-sprite no-repeat scroll 0 -100px;
+    display: block;
+    height: 65px;
+    width: 52px;
+  }
+}
+
+.toggle-button {
+  background: transparent $social-button-sprite no-repeat scroll -168px -49px;
+  display: inline-block;
+  height: 11px;
+  margin-left: 15px;
+  vertical-align: middle;
+  width: 13px;
+  
+  &.active { background-position: -181px -49px; }
+}
+
+
+

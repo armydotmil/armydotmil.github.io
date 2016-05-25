@@ -1,0 +1,28 @@
+<script src="/e2/js/rv7/armydotmil/armydotmil.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    (function() {
+        var accordion = document.getElementsByClassName('accordion')[0],
+            i = 0,
+            len,
+            toggles = accordion.getElementsByClassName('toggle-list');
+
+        function addToggle(e) {
+            e.addEventListener(
+                'click',
+                function() {
+                    console.log(e.parentNode);
+                    if (e.parentNode.classList.contains('expanded')) {
+                        e.parentNode.classList.remove('expanded');
+                    } else {
+                        e.parentNode.classList.add('expanded');
+                    }
+                },
+                false
+            )
+        }
+
+        for (i, len = toggles.length; i < len; i++) {
+            addToggle(toggles[i]);
+        }
+    })();
+    </script>
