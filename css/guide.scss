@@ -62,4 +62,8 @@ section {
     margin: 0 0 60px;
     &:last-child { margin: 0; }
   }
+  
+  .container.no-bottom {
+    margin-bottom: 0;
+  }
 }

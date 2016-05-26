@@ -1,15 +1,16 @@
 
 
 nav {
-  
-  -webkit-user-select: none;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
   overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-user-select: none;
+  -webkit-overflow-scrolling: touch;
   white-space: nowrap;
   
-  &::-webkit-scrollbar { 
-    display: none; 
+  &::-webkit-scrollbar { display: none; }
+  
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    overflow-x: hidden;
   }
   
   a {
@@ -62,7 +63,7 @@ nav {
     display: inline-block;
     min-width: 100%;
     position: relative;
-    white-space: nowrap;
     text-align: center;
+    white-space: nowrap;
   }
 }

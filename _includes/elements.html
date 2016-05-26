@@ -1,19 +1,19 @@
 
 <section id="elements">
-    <div class="container">
+    <div class="container no-bottom">
         <div class="inner-container">
             <h2>05 | ELEMENTS</h2>
             <div class="elem">
                 <h4>LIST WIDGET</h4>
                 {% include elements/top-stories.html %}
             </div>
+            <div class="elem">
+                <h4>TAB BAR</h4>
+            </div>
         </div>
     </div>
     <!-- make tab bar full width -->
-    <div class="elem">
-        <h4>TAB BAR</h4>
-        {% include elements/nav.html %}
-    </div>
+    {% include elements/nav.html %}
     <div class="container">
         <div class="inner-container">
             <div class="elem">
