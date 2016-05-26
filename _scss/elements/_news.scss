@@ -6,7 +6,7 @@
     
     li {
       margin: 30px 0 0;
-
+      
       a {
         display: block;
         position: relative;
@@ -29,7 +29,7 @@
       }
       
       .date {
-        font: 700 .875em $font-family;
+        font: 700 .813em $font-family;
         display: block;
         margin: -9px 0 0px;
         position: relative;
@@ -45,7 +45,7 @@
       .title {
         color: map-get($army-branding, grey70);
         display: block;
-        font: 400 1.125em/1.4em $font-family;
+        font: 400 1em/1.3em $font-family;
         padding: 33px 15px 20px;
         text-align: center;
         
@@ -65,9 +65,11 @@
   } // end ul
   
   @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-    ul li a {
-      &:hover, &:focus {
-        .title:after { width: 100%; }
+    ul li {
+      a {
+        &:hover, &:focus {
+          .title:after { width: 100%; }
+        }
       }
     }
   }
@@ -75,11 +77,15 @@
   @include breakpoints(sm_desktop desktop large really_big) {
     ul li {
       @include span-clear(4);
-
+      
       // remove top margin from top row elements
       &:nth-child(-n+3) {
         margin-top: 0;
       }
+      
+      .date { font: 700 .875em $font-family; }
+      
+      .title { font: 400 1.125em/1.4em $font-family; }
     }
   }
   
@@ -90,10 +96,6 @@
       // remove top margin from top row elements
       &:nth-child(-n+2) {
         margin-top: 0;
-      }
-
-      .title {
-        font: 400 1em/1.3em $font-family;
       }
     }
   }
@@ -108,10 +110,6 @@
 
       &:first-child {
         margin-top: 0;
-      }
-
-      .title {
-        font: 400 1em/1.3em $font-family;
       }
     }
   }
