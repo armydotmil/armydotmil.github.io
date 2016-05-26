@@ -2,6 +2,16 @@
 
 nav {
   
+  -webkit-user-select: none;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  white-space: nowrap;
+  
+  &::-webkit-scrollbar { 
+    display: none; 
+  }
+  
   a {
     display: block;
     font: 700 1em $font-family;
@@ -9,7 +19,6 @@ nav {
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
-    white-space: nowrap;
     
     &:hover { text-decoration: none; }
     
@@ -50,6 +59,10 @@ nav {
   ul {
     background: map-get($army-branding, grey10);
     border-bottom: 4px solid map-get($army-branding, grey30);
+    display: inline-block;
+    min-width: 100%;
+    position: relative;
+    white-space: nowrap;
     text-align: center;
   }
 }

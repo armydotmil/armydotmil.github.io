@@ -1,0 +1,57 @@
+%list {
+  @include row(true);
+  
+  ul {
+    font-size: .875em;
+    margin: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    
+    &:nth-of-type(1) {
+      margin-top: -7px;
+    }
+    
+    li {
+      list-style-type: disc;
+      margin: 0 0 0 18px;
+    }
+  }
+  
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    ul {
+      margin-top: -7px;
+      
+      &[class*="column"] {
+        @include span(6);
+      }
+      
+      &[class*="column-full"] {
+        @include span(12);
+      }
+    }
+  }
+}
+
+.links-list,
+.simple-list {
+  @extend %list;
+}
+
+.links-list ul li {
+  padding: 0;
+  
+  a {
+    display: block;
+    font: 400 1.143em/1.375em $font-family;
+    padding: 7px 0 7px 5px;
+    position: relative;
+    vertical-align: top;
+    top: 2px;
+  }
+}
+
+.simple-list ul li {
+  font: 400 1.143em/1.375em $font-family;
+  padding: 7px 0 7px 5px;
+}
+

@@ -33,12 +33,18 @@ header *:before {
   @include box-sizing(content-box);
 }
 
-section header a {
-  text-decoration: none;
-  
-  &:focus,
-  &:hover {
+section header {
+  a {
     text-decoration: none;
+    
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  
+  ul {
+    line-height: 1.375em;
   }
 }
 
@@ -215,7 +221,7 @@ header {
               height: 18px;
               position: absolute;
               right: 12px;
-              top: 24px;
+              top: 26px;
               width: 12px;
             }
           }

@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------
 // Dependencies: base/elements/_links.scss
 // ----------------------------------------------------------------------
-@import 'links';
+@import 'lists';
 
 
 .accordion {
@@ -37,6 +37,10 @@
         
         @include breakpoints(mobile) {
           padding: 0 10px 0;
+          
+          &:nth-of-type(1) {
+            margin-top: 0;
+          }
         }
       }
       
@@ -82,10 +86,12 @@
           }
         }
         
-        &:hover {
-          span:before { transform: rotate(90deg); }
-          
-          span:after { transform: rotate(180deg); }
+        @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+          &:hover {
+            span:before { transform: rotate(90deg); }
+            
+            span:after { transform: rotate(180deg); }
+          }
         }
       }
     } // end li
