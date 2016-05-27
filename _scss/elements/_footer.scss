@@ -6,7 +6,6 @@
 
 .footer-bottom {
   font-size: .84em;
-  margin: 0;
   padding: 25px 0 50px;
   text-align: center;
   text-transform: uppercase;
@@ -65,4 +64,6 @@ footer {
   @include breakpoints(mobile nav tablet) {
     position: relative;
   }
+  
+  section { margin: 0; }
 }
