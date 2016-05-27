@@ -55,9 +55,10 @@
           border-radius: 50%;
           display: inline-block;
           height: 34px;
+          margin-top: -17px;
           position: absolute;
           right: 5px;
-          top: 20px;
+          top: 50%;
           width: 34px;
           
           &:before, &:after {
