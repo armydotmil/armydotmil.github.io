@@ -8,22 +8,21 @@
                 {% include elements/top-stories.html %}
             </div>
             <div class="elem">
-                <h4>TAB BAR</h4>
+                <h4>NAVIGATION</h4>
+                <p class="large">NAV BAR</p>
             </div>
         </div>
     </div>
     <!-- make tab bar full width -->
     {% include elements/nav.html %}
+    <div class="container no-bottom">
+        <div class="inner-container">
+            <p class="large">DROP DOWN NAV</p>
+        </div>
+    </div>
+    {% include elements/dropdown-nav.html %}
     <div class="container">
         <div class="inner-container">
-            <div class="elem">
-                <h4>BUTTONS</h4>
-                {% include elements/buttons.html %}
-            </div>
-            <div class="elem">
-                <h4>ACCORDION</h4>
-                {% include elements/accordion.html %}
-            </div>
             <div class="elem">
                 <h4>PARAGRAPH DEFAULTS</h4>
                 {% include elements/paragraph-defaults.html %}
@@ -33,11 +32,19 @@
                 {% include elements/list.html %}
             </div>
             <div class="elem">
+                <h4>BUTTONS</h4>
+                {% include elements/buttons.html %}
+            </div>
+            <div class="elem">
+                <h4>ACCORDION</h4>
+                {% include elements/accordion.html %}
+            </div>
+            <div class="elem">
                 <h4>NEWS</h4>
                 {% include elements/news.html %}
             </div>
             <div class="elem">
-                <h4>HEADLINES WITH DATE</h4>
+                <h4>TRANSCRIPTS/PRESS RELEASES</h4>
                 {% include elements/headlines.html %}
             </div>
         </div>

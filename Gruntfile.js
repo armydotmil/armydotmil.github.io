@@ -32,6 +32,14 @@ module.exports = function(grunt) {
                 options: {
                     transform: ['babelify']
                 }
+            },
+            navs: {
+                files: {
+                    '_js/bundled/navs.js': '_js/navs.js'
+                },
+                options: {
+                    transform: ['babelify']
+                }
             }
         },
         uglify: {
@@ -44,7 +52,8 @@ module.exports = function(grunt) {
             build: {
                 files: [{
                     src: [
-                        '_js/bundled/header.js'
+                        '_js/bundled/header.js',
+                        '_js/bundled/navs.js'
                     ],
                     dest: 'e2/js/rv7/armydotmil/<%= pkg.name %>.min.js'
                 }]

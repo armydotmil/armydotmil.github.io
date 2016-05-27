@@ -33,6 +33,8 @@ nav {
       width: 0;
     }
     
+    &.filter-btn:after { display: none; }
+    
     &.active:after { width: 100%; }
     
     //Prevents double click issue on iOS

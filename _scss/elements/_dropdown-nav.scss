@@ -1,0 +1,48 @@
+
+
+.dropdown-nav {
+  background: $lighter-gray-color;
+  max-height: 0;
+  overflow: hidden;
+  text-align: center;
+  
+  @include custom-transition(max-height .25s ease);
+  
+  &.opened { max-height: 1000px; }
+  
+  .container { margin: 45px auto 30px; }
+  
+  ul {
+    li {
+      background: map-get($army-branding, white);
+      border: 1px solid map-get($army-branding, grey30);
+      display: inline-block;
+      margin: 0 15px 15px 0;
+      
+      @include custom-transition(background .25s ease);
+      
+      a {
+        display: block;
+        font: 700 1.125em $font-family;
+        padding: 16px 20px 14px;
+        text-decoration: none;
+      }
+      
+      &:hover, &.active {
+        background: map-get($army-branding, gold);
+      }
+    }
+  }
+  
+  @include breakpoints(mobile) {
+    text-align: left;
+    
+    ul li {
+      @include span(12);
+      a { font: 700 1em $font-family; }
+    }
+  }
+}
+
+
+

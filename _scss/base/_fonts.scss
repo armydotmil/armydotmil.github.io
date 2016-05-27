@@ -7,15 +7,14 @@ body {
 }
 
 h1 {
-  font: 700 3em / 1.05em $font-family;
+  font: 600 2em / 1.25em $font-family;
 
-  @include breakpoints(lg_tablet tablet) {
-    font: 700 2.5em / 1.125em $font-family;
+  @include breakpoints(tablet lg_tablet) {
+    font: 600 2.5em / 1.125em $font-family;
   }
 
-
-  @include breakpoints(nav mobile md_mobile sm_mobile) {
-    font: 700 2em / 1.25em $font-family;
+  @include breakpoints(sm_desktop desktop large really_big) {
+    font: 600 3em / 1.05em $font-family;
   }
 }
 

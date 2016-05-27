@@ -8,19 +8,12 @@
 
 .container {
   @include container-fixed();
-  margin: 100px auto;
-  max-width: $container + $grid-gutter-width; // border-box includes padding in the width
+  margin: 50px auto;
   overflow: hidden;
   
   .inner-container {
     overflow: hidden;
-    padding: 0 15px;
-  }
-  
-  // 769 - 992
-  @include breakpoints(lg_tablet) {
-    margin: 60px auto;
-    max-width: $container-md;
+    padding: 0;
   }
   
   // 700 - 768
@@ -29,14 +22,18 @@
     max-width: $container-sm;
   }
   
-  // 480 - 699
-  @include breakpoints(nav mobile) {
-    margin: 50px auto;
+  // 769 - 992
+  @include breakpoints(lg_tablet) {
+    margin: 60px auto;
+    max-width: $container-md;
   }
   
-  // 480 - 768
-  @include breakpoints(tablet nav mobile) {
-    .inner-container { padding: 0; }
+  // 993+
+  @include breakpoints(sm_desktop desktop large really_big) {
+    margin: 100px auto;
+    max-width: $container + $grid-gutter-width; // border-box includes padding in the width
+    
+    .inner-container { padding: 0 15px; }
   }
 }
 
