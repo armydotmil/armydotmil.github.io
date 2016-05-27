@@ -1,10 +1,14 @@
 @mixin header-underline($color) {
-    &::after {
+    &:after {
       background: map-get($army-branding, $color);
       content: '';
       display: block;
       height: 5px;
       margin: 10px auto 0;
       width: 60px;
+    }
+    
+    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+      &:after { margin: 20px 0 0; }
     }
 }

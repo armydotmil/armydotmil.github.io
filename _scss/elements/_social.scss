@@ -1,0 +1,105 @@
+
+
+.social {
+  color: map-get($army-branding, white);
+  padding: 60px 15px 0;
+  text-align: center;
+  
+  .social-button {
+    display: inline-block;
+    
+    a {
+      display: block;
+      line-height: 0;
+      padding: 15px 16px;
+      width: 37px;
+    }
+  }
+}
+
+#social-id .social-button {
+  padding: 15px 16px;
+  
+  a { padding: 0; }
+}
+
+.social-bar.scrolled-down {
+  bottom: -50px;
+  visibility: hidden;
+}
+.social-bar {
+  background-color: $dark-gray-color;
+  bottom: 0;
+  height: 50px;
+  position: fixed;
+  text-align: center;
+  @include custom-transition(bottom 500ms);
+  visibility: visible;
+  width: 100%;
+  z-index: 1;
+  
+  .hidden { display: none; }
+  
+  .social-button {
+    float: left;
+    width: 20%;
+    a { padding: 15px; }
+  }
+}
+.social-bar, .alt-social-bar {
+  .social-button a,
+  .social-button-sm a {
+    display: block;
+    line-height: 0;
+  }
+  .social-button.twitter-button,
+  .social-button-sm.twitter-button {
+    background: map-get($social-branding, twitter);
+  }
+  .social-button.googleplus-button,
+  .social-button-sm.googleplus-button {
+    background: map-get($social-branding, google);
+  }
+  .social-button.facebook-button,
+  .social-button-sm.facebook-button {
+    background: map-get($social-branding, facebook);
+  }
+  .social-button.pinterest-button,
+  .social-button-sm.pinterest-button {
+    background: map-get($social-branding, pinterest);
+  }
+  .social-button.email-button,
+  .social-button-sm.email-button {
+    background: map-get($social-branding, email);
+  }
+  .social-button.print-button,
+  .social-button-sm.print-button {
+    background: map-get($social-branding, print);
+  }
+}
+
+.alt-social-bar {
+  display: none;
+  margin: 35px 0 0;
+  overflow: hidden;
+  
+  .social-button-sm {
+    float: left;
+    margin: 0 10px 0 0;
+    
+    a {
+      padding: 10px 0;
+      text-align: center;
+      width: 40px;
+    }
+  }
+}
+
+@include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+  .social-bar { display: none; }
+  .alt-social-bar { display: block; }
+}
+
+
+
+

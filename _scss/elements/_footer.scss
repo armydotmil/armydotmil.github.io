@@ -1,0 +1,68 @@
+// File Name: _footer.scss
+// Description: global footer styles
+// Used by: Page.scss
+// Dependencies:
+// ------------------------------------------------------------
+
+.footer-bottom {
+  font-size: .84em;
+  margin: 0;
+  padding: 25px 0 50px;
+  text-align: center;
+  text-transform: uppercase;
+  
+  ul {
+    padding: 0 20px;
+    
+    li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+    
+    a {
+      color: map-get($army-branding, white);
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+      
+      &:after {
+        background: map-get($army-branding, white);
+        bottom: 2px;
+        content: '';
+        height: 1px;
+        left: 0;
+        position: absolute;
+        width: 0;
+        
+        @include custom-transition(width .25s ease);
+      }
+    }
+  }
+}
+
+@include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+  .footer-bottom {
+    ul {
+      li {
+        a:hover {
+          &:after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background: map-get($army-branding, black);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: -1;
+  
+  @include breakpoints(mobile nav tablet) {
+    position: relative;
+  }
+}

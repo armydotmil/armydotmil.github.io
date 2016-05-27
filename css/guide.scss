@@ -1,8 +1,23 @@
 ---
 # Front matter comment to ensure Jekyll properly reads file.
 ---
+
+@import "base/variables";
+@import "base/mixins";
+
 section {
   margin-bottom: 20px;
+  overflow: hidden;
+  
+  &#main {
+    background: map-get($army-branding, white);
+    margin-bottom: 0;
+    z-index: 1;
+    
+    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+      margin-bottom: 14.313em;
+    }
+  }
 }
 
 .inner-container{
