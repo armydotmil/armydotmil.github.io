@@ -35,19 +35,17 @@
         padding: 0 30px 0;
         @include custom-transition(max-height .5s ease, padding .5s ease);
         
+        &:nth-of-type(1) { margin-top: 0; }
+        
         @include breakpoints(mobile) {
           padding: 0 10px 0;
-          
-          &:nth-of-type(1) {
-            margin-top: 0;
-          }
         }
       }
       
       > a {
         display: block;
         font: 600 1.125em $font-family;
-        padding: 28px 45px 26px 5px;
+        padding: 28px 45px 23px 5px;
         text-decoration: none;
         text-transform: uppercase;
         top: 0;
@@ -56,11 +54,11 @@
           background: map-get($army-branding, gold);
           border-radius: 50%;
           display: inline-block;
-          height: 35px;
+          height: 34px;
           position: absolute;
           right: 5px;
           top: 20px;
-          width: 35px;
+          width: 34px;
           
           &:before, &:after {
             background: map-get($army-branding, black);
@@ -83,14 +81,6 @@
             margin-top: -2px;
             top: 50%;
             width: 12px;
-          }
-        }
-        
-        @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-          &:hover {
-            span:before { transform: rotate(90deg); }
-            
-            span:after { transform: rotate(180deg); }
           }
         }
       }
