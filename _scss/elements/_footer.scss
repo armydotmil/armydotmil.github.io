@@ -6,7 +6,7 @@
 
 .footer-bottom {
   font-size: .84em;
-  padding: 25px 0 50px;
+  padding: 25px 0 0;
   text-align: center;
   text-transform: uppercase;
   
@@ -57,6 +57,7 @@ footer {
   background: map-get($army-branding, black);
   bottom: 0;
   left: 0;
+  padding: 60px 0;
   position: fixed;
   width: 100%;
   z-index: -1;
