@@ -63,23 +63,6 @@ nav {
       }
     }
   }
-  
-  // > 768
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-    ul li a,
-    label {
-      font-size: 1.125em;
-    }
-    //Prevents double click issue on iOS
-    ul li {
-      a::after {
-        @include custom-transition(width .25s ease);
-      }
-      a:hover::after {
-        width: 100%;
-      }
-    }
-  }
 }
 
 // extra markup overrides some of the nav behavior for dropdown
@@ -174,6 +157,23 @@ nav {
       // dropdown arrow ^
       &::after {
         background-position: -181px -50px;
+      }
+    }
+  }
+  
+  // > 768
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    ul li a,
+    label {
+      font-size: 1.125em;
+    }
+    //Prevents double click issue on iOS
+    ul li {
+      a::after {
+        @include custom-transition(width .25s ease);
+      }
+      a:hover::after {
+        width: 100%;
       }
     }
   }
