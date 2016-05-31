@@ -45,5 +45,29 @@ var Helper = require('./modules/Helper');
         },
         false
     );
+
+    var nav = document.getElementsByClassName('dropdown-nav')[0],
+        navItems = nav.getElementsByTagName('li'),
+        navLen,
+        x = 0;
+
+    function makeClickListener(el) {
+        el.addEventListener(
+            'click',
+            function() {
+                for (var j = 0, len = navItems.length; j < len; j++) {
+                    Helper.removeClass(navItems[j], 'active');
+                }
+                Helper.addClass(el, 'active');
+                Helper.removeClass(regionNav, 'opened');
+                Helper.removeClass(toggleBtn, 'active');
+            },
+            false
+        );
+    }
+
+    for (x, navLen = navItems.length; x < navLen; x++) {
+        makeClickListener(navItems[x]);
+    }
 })();
 
