@@ -2,7 +2,14 @@
 
 
 .btn {
-  padding: 20px 0 0;
+  margin: 0 0 20px;
+  text-align: center;
+  
+  &:last-child { margin: 0; }
+  
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    text-align: left;
+  }
   
   div {
     background: map-get($army-branding, gold);
@@ -127,10 +134,10 @@
 .view-more-arrow-sm {
   background: transparent $social-button-sprite no-repeat scroll -442px 0;
   display: inline-block;
-  width: 14px;
   height: 12px;
-  vertical-align: middle;
   margin-left: 5px;
+  vertical-align: middle;
+  width: 14px;
 
   &.black-arrow {
     background-position: -442px -13px;

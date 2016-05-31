@@ -15,9 +15,34 @@
 // CSS
 // ----------------------------------------------------------------------
 
+html.menu-open {
+  overflow-y: hidden!important;
+}
+
 body {
   // keeps the header from blocking anything at the top of the page
   padding-top: 68px;
+  
+  .menu-open {
+    overflow: hidden;
+    width: 100%;
+    
+    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+      overflow-y: scroll;
+      
+      header {
+        .navbar {
+          height: 86px;
+          overflow-y: scroll;
+        }
+        
+        .menu-window {
+          overflow-y: scroll;
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
 body.menu-open header.scrolled-down .navbar {

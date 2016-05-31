@@ -163,46 +163,7 @@ $captions-background-color: #2F312B;
 $light-gray-color: #f7f7f7;
 $lighter-gray-color: #f2f2f2;
 
-// ----------------------------------------------------------------------
-// Official Army Branding Colors
-// ----------------------------------------------------------------------
-
-// according to the official colors that are published on the Enterprise Branding Portal,
-// the gold color here should be #ffd530
-// however, design team decided to match the gold in the army star logo, which is #fec325
-// which is also the gold color used in the sprite
-
-$army-branding: (
-    black: #030000,
-    armyblack: #231F20,
-    gold: #fec325,
-    white: #ffffff,
-    darkcamo: #333c33,
-    mediumcamo: #83847a,
-    lightcamo: #bfb8ab,
-    grey90: #1a1a1a,
-    grey80: #333333,
-    grey70: #4c4c4c,
-    grey60: #656565,
-    grey50: #7f7f7f,
-    grey40: #999999,
-    grey30: #b3b3b3,
-    grey20: #cccccc,
-    grey10: #e5e5e5
-);
-
-// ----------------------------------------------------------------------
-// Social Branding Colors
-// ----------------------------------------------------------------------
-
-$social-branding: (
-    twitter: #55acee,
-    google: #db4437,
-    facebook: #3b5999,
-    pinterest: #bd081c,
-    email: #2f2f2f,
-    print: #2f2f2f
-);
+@import 'colors';
 
 // ----------------------------------------------------------------------
 // Images 

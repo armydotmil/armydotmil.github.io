@@ -4,6 +4,8 @@
   
   ul {
     li {
+      @include clearfix();
+      
       margin: 0 0 25px;
       overflow: hidden;
       
@@ -13,36 +15,51 @@
         color: map-get($army-branding, grey50);
         font: 600 1em/1.375em $font-family;
         text-transform: uppercase;
-        width: 130px;
       }
       
       a {
         font: 600 1em/1.375em $font-family;
-        position: relative;
-        @include custom-calc(width, #{"100% - 130px"});
+        padding-right: 19px;
+        
+        span {
+          margin-right: -19px;
+        }
         
         &:hover { text-decoration: none; }
       }
       
-      a, .date { float: left; }
+      a, .date { width: 100%; }
     }
   }
   
   @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-    ul li a {
-      span {
-        @include opacity(0);
-        position: inherit;
-        right: -40px;
-        @include custom-transition(opacity .25s ease, right .25s ease);
-      }
-      
-      &:hover, &:focus {
+    ul li {
+      a {
+        
         span {
-          @include opacity(1);
-          right: 0;
+          @include opacity(0);
+          position: inherit;
+          right: -40px;
+          @include custom-transition(opacity .25s ease, right .25s ease);
+        }
+        
+        &:hover, &:focus {
+          span {
+            @include opacity(1);
+            right: 0;
+          }
         }
       }
+    }
+  }
+  
+  @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+    ul li {
+      a, .date { float: left; }
+      
+      a { @include custom-calc(width, #{"100% - 130px"}); }
+      
+      .date { width: 130px; }
     }
   }
   
@@ -54,13 +71,9 @@
       &:last-child { border: 0; padding: 0; }
       
       .date {
+        display: inline-block;
         font: 400 .875em $font-family;
         margin: 0 0 5px;
-      }
-      
-      a, .date {
-        display: inline-block;
-        width: 100%;
       }
     }
   }

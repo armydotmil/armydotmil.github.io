@@ -1,0 +1,68 @@
+.leaders {
+  li {
+    border: 2px solid map-get($army-branding, grey50);
+    margin: 0 0 30px;
+    overflow: hidden;
+    position: relative;
+    
+    &:last-child { margin: 0; }
+    
+    .leaders-img {
+      float: left;
+      margin: 30px;
+      max-width: 100px;
+    }
+    
+    .leaders-text {
+      display: block;
+      padding: 30px 200px 30px 30px;
+      
+      &.no-bio { padding-right: 30px; }
+      
+      span { display: block; }
+      
+      .leaders-heading {
+        color: $dark-gray-color;
+        font: 400 1em $font-family;
+        margin: 0 0 10px;
+        text-transform: uppercase;
+      }
+      
+      .leaders-title {
+        color: $primary-text-color;
+        font: 700 1.313em $font-family;
+      }
+    }
+    
+    .leaders-bio {
+      margin-top: -25px;
+      padding: 0;
+      position: absolute;
+      right: 30px;
+      top: 50%;
+    }
+    
+    @include breakpoints(mobile nav) {
+      img {
+        display: none;
+      }
+    }
+    
+    @include breakpoints(mobile) {
+      .leaders-heading {
+        text-align: center;
+      }
+      .leaders-text {
+        padding: 30px;
+        text-align: center;
+      }
+      .leaders-bio {
+        display: block;
+        margin: 0 auto;
+        padding: 0 30px 30px;
+        position: static;
+        text-align: center;
+      }
+    }
+  }
+}
