@@ -1,17 +1,9 @@
 $submenu-height: 56px;
 
 nav {
-  background: $lighter-gray-color;
-  padding: 0px 15px;
+  background: map-get($army-branding, grey10);
   position: relative;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  -webkit-user-select: none;
-  -webkit-overflow-scrolling: touch;
-  white-space: nowrap;
   
-  &::-webkit-scrollbar { display: none; }
-
   // inside bottom border
   &::before {
     background-color: map-get($army-branding, grey30);
@@ -21,45 +13,51 @@ nav {
     left: 0;
     position: absolute;
     width: 100%;
+    z-index: 1;
   }
-
+  
   ul {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-user-select: none;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
     text-align: center;
-
+    
+    &::-webkit-scrollbar { display: none; }
+    
     li {
       display: inline-block;
       margin: 0 25px;
-      cursor: pointer;
       
-      // < 480
       @include breakpoints(mobile) {
         margin: 0 10px;
       }
+      
       a {
-        position: relative;
-        text-decoration: none;
         display: block;
         font: 700 1em/#{$submenu-height} $font-family;
+        position: relative;
+        text-decoration: none;
         text-transform: uppercase;
-        white-space: nowrap;
-
+        
+        &:hover { text-decoration: none; }
+        
         // gold bar
         &::after {
-          content: "";
-          position: absolute;
-          background-color: map-get($army-branding, gold);
+          background: map-get($army-branding, gold);
           bottom: 0;
-          left: 0;
+          content: '';
           height: 4px;
+          left: 0;
+          position: absolute;
           width: 0;
+          z-index: 1;
         }
-      }
-      a:hover {
-        text-decoration: none;
-        color: #000000;
-      }
-      a.active::after {
-        width: 100%;
+        
+        &.filter-btn:after { display: none; }
+        
+        &.active::after { width: 100%; }
       }
     }
   }
@@ -67,46 +65,50 @@ nav {
 
 // extra markup overrides some of the nav behavior for dropdown
 nav {
+  
   .submenu-container {
-    margin: 0 -15px;
-    padding: 0px 15px;
     max-height: $submenu-height;
     overflow: hidden;
-    white-space: normal;
+    
+    ul {
+      overflow: hidden;
+      white-space: normal;
+    }
   }
-
+  
   input[type=checkbox] {
     display: none;
   }
-
+  
   .submenu-inner {
     max-height: $submenu-height * 2;
     position: relative;
   }
-
+  
   label {
-    background-color: $lighter-gray-color;
+    background: map-get($army-branding, grey10);
     bottom: $submenu-height;
     left: -15px;
+    max-height: $submenu-height;
     right: -15px;
     position: absolute;
     text-align: center;
     text-transform: uppercase;
-    z-index: 1;
+    z-index: 2;
     font: 700 1em/#{$submenu-height} $font-family;
     cursor: pointer;
-
+    
     // inside bottom border
     &::before {
-      content: "";
-      position: absolute;
       background-color: map-get($army-branding, grey30);
       bottom: 0;
-      left: 0;
+      content: "";
       height: 4px;
+      left: 0;
+      position: absolute;
       width: 100%;
     }
-
+    
     // dropdown arrow toggle icon
     &::after {
       background: transparent $social-button-sprite no-repeat scroll -169px -50px;
@@ -117,43 +119,48 @@ nav {
       width: 11px;
     }
   }
-
+  
   // uses the checkbox to toggle the dropdown (no JS required!)
   input[type=checkbox]:checked ~ .submenu-container {
     max-height: none;
-
+    
     .submenu-inner {
+      background: $lighter-gray-color;
       max-height: none;
-      padding: ($submenu-height + 31px) 0 20px;
-
+      padding: ($submenu-height + 45px) 0 30px;
+      
       // mimic filter dropdown styling
       li {
         display: block;
-        margin: 0 0 15px;
-        border: 1px solid map-get($army-branding, grey30);
-
+        margin: 0 auto 15px;
+        padding: 0 15px;
+        
+        a.active:after { display: none; }
+        
         a {
-          padding: 3px 35px 0;
+          background: map-get($army-branding, white);
+          border: 1px solid map-get($army-branding, grey30);
           line-height: 47px;
+          padding: 3px 35px 0;
           text-align: left;
-          background-color: #ffffff;
-          font-size: 1em;
+          
+          @include custom-transition(background .25s ease);
         }
-
+        
         a::after {
           display: none;
         }
-
+        
         a.active, a:hover {
-          outline: none;
           background-color: map-get($army-branding, gold);
+          outline: none;
         }
       }
     }
     label {
       top: 0;
       bottom: auto;
-
+      
       // dropdown arrow ^
       &::after {
         background-position: -181px -50px;
@@ -161,7 +168,6 @@ nav {
     }
   }
   
-  // > 768
   @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
     ul li a,
     label {
