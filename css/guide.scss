@@ -11,6 +11,10 @@
 section {
   overflow: hidden;
   
+  .container.no-bottom {
+    margin-bottom: 0;
+  }
+  
   &#main {
     background: map-get($army-branding, white);
     margin-bottom: 0;
@@ -18,6 +22,22 @@ section {
     
     @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
       margin-bottom: 13.802em;
+    }
+  }
+  
+  .github-links {
+    @include row(true);
+    
+    li {
+      margin: 0 0 15px;
+      
+      @include span(12);
+      
+      &:last-child { margin: 0; }
+    }
+    
+    @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+      li { width: auto; }
     }
   }
   
@@ -191,9 +211,5 @@ section {
       margin: 0 0 100px;
       &:last-child { margin: 0; }
     }
-  }
-  
-  .container.no-bottom {
-    margin-bottom: 0;
   }
 }
