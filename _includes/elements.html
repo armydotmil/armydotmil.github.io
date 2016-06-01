@@ -27,7 +27,7 @@
         </div>
     </div>
     {% include elements/nav-mobile-dropdown.html dropdown="true" %}
-    <div class="container">
+    <div class="container no-bottom">
         <div class="inner-container">
             <div class="elem">
                 <h4>PARAGRAPH DEFAULTS</h4>
@@ -60,6 +60,22 @@
             <div class="elem">
                 <h4>VIDEO PLAYLIST</h4>
                 {% include elements/playlist.html %}
+            </div>
+        </div>
+    </div>
+    <div class="container no-bottom">
+        <div class="inner-container">
+            <div class="elem">
+                <h4>Quotes</h4>
+            </div>
+        </div>
+    </div>
+    {% include elements/quotes.html %}
+    <div class="container">
+        <div class="inner-container">
+            <div class="elem">
+                <h4>Hot Topic Bar</h4>
+                {% include elements/hot-topic.html %}
             </div>
         </div>
     </div>

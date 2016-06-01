@@ -1,0 +1,87 @@
+.notification-contain {
+  background-color: lighten(map-get($army-branding, gold), 20);
+  position: relative;
+}
+
+.notification {
+  display: table;
+  height: 60px;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  
+  &:hover { text-decoration: none; }
+  
+  .view-more-arrow-sm {
+    margin: 5px 0 0 5px;
+    position: absolute;
+  }
+  
+  &.hide { display: none; }
+  
+  .notification-title {
+    font: 700 1em/1.3em $font-family;
+    display: table-cell;
+    letter-spacing: 0.04em;
+    padding: 0 60px 0 15px;
+    vertical-align: middle;
+  }
+  
+  &:hover .notification-title,
+  &:focus .notification-title { color: map-get($army-branding, mediumcamo); }
+  
+  .notification-header {
+    background: map-get($army-branding, gold);
+    font: 700 1.25em/1.3em $font-family;
+    display: table-cell;
+    overflow: hidden;
+    padding: 0 15px;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 1px;
+    
+    @include breakpoints(nav) {
+      max-width: 160px;
+    }
+    @include breakpoints(tablet) {
+      max-width: 250px;
+    }
+    @include breakpoints(lg_tablet) {
+      max-width: 350px;
+    }
+  }
+  
+  @include breakpoints(mobile) {
+    display: block;
+    height: auto;
+    
+    .notification-header,
+    .notification-title { display: block; }
+    
+    .notification-title { padding: 10px; }
+    
+    .notification-header {
+      line-height: 40px;
+      padding: 0 45px 0 10px;
+      width: auto;
+    }
+  }
+}
+.notification-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  
+  a.notification-button.close-button {
+    display: block;
+    position: static;
+    width: auto;
+    
+    @include breakpoints(mobile) {
+      padding: 8px 15px;
+    }
+  }
+}
+
