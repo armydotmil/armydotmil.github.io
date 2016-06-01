@@ -5,6 +5,10 @@
 
 
 .accordion {
+  input[type=checkbox] {
+    display: none;
+  }
+  
   > a {
     font: 600 1em/1.375em $font-family;
     text-decoration: none;
@@ -24,7 +28,6 @@
     
     > li {
       border-top: 1px solid map-get($army-branding, grey50);
-      position: relative;
       list-style-type: none;
       margin: 0;
       
@@ -42,15 +45,17 @@
         }
       }
       
-      > a {
+      > label {
+        cursor: pointer;
         display: block;
         font: 600 1.125em $font-family;
         padding: 28px 45px 23px 5px;
+        position: relative;
         text-decoration: none;
         text-transform: uppercase;
         top: 0;
         
-        .toggle-btn {
+        span {
           background: map-get($army-branding, gold);
           border-radius: 50%;
           display: inline-block;
@@ -89,25 +94,23 @@
     
     > li:last-child { border-bottom: 1px solid map-get($army-branding, grey50); }
     
-    > li.expanded {
-      .plus-black { opacity: 0; }
+    > li input[type=checkbox]:checked ~ ul {
+      max-height: 1000px;
+      padding: 0 30px 1.5em;
       
-      .minus-black { opacity: 1; }
-      
-      a .toggle-btn {
-        &:before { transform: rotate(90deg); }
-        
-        &:after { transform: rotate(180deg); }
+      @include breakpoints(mobile) {
+        padding: 0 10px 1.5em;
       }
+    }
+    
+    > li input[type=checkbox]:checked ~ .plus-black { opacity: 0; }
       
-      ul {
-        max-height: 1000px;
-        padding: 0 30px 1.5em;
-        
-        @include breakpoints(mobile) {
-          padding: 0 10px 1.5em;
-        }
-      }
+    > li input[type=checkbox]:checked ~ .minus-black { opacity: 1; }
+      
+    > li input[type=checkbox]:checked ~ label span {
+      &:before { transform: rotate(90deg); }
+      
+      &:after { transform: rotate(180deg); }
     }
   }
 }
