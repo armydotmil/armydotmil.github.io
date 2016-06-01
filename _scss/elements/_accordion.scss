@@ -103,9 +103,9 @@
       }
     }
     
-    > li input[type=checkbox]:checked ~ .plus-black { opacity: 0; }
+    > li input[type=checkbox]:checked ~ label .plus-black { opacity: 0; }
       
-    > li input[type=checkbox]:checked ~ .minus-black { opacity: 1; }
+    > li input[type=checkbox]:checked ~ label .minus-black { opacity: 1; }
       
     > li input[type=checkbox]:checked ~ label span {
       &:before { transform: rotate(90deg); }
