@@ -1,13 +1,19 @@
-<nav>
-    <input type="checkbox" id="submenu-toggle">
+<nav{% if include.dropdown %} class="dropdown"{% endif %}>
+    <input type="checkbox" id="submenu-toggle{% if include.dropdown %}1{% endif %}">
     <div class="submenu-container">
         <div class="submenu-inner">
-            <label for="submenu-toggle">News</label>
-            <ul>
-                <li><a class="active" href="javascript:void(0);">Option 1</a></li>
-                <li><a href="javascript:void(0);">Option 2</a></li>
-                <li><a href="javascript:void(0);">Option 3</a></li>
-                <li><a href="javascript:void(0);">Option 4</a></li>
+            <label for="submenu-toggle{% if include.dropdown %}1{% endif %}">News Filters</label>
+            <ul class="container">
+                <li><a class="active" href="#">Option 1</a></li>
+                <li><a href="#">Option 2</a></li>
+                <li><a href="#">Option 3</a></li>
+                <li><a href="#">Option 4</a></li>
+                <li><a href="#">Option 5</a></li>
+                {% if include.dropdown %}
+                <li><a href="#">Option 6</a></li>
+                <li><a href="#">Option 7</a></li>
+                <li><a href="#">Option 8</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

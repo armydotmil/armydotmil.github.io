@@ -8,7 +8,8 @@ var Helper = require('./modules/Helper');
     var accordion = document.getElementsByClassName('accordion')[0],
         i = 0,
         len,
-        toggles = accordion.getElementsByClassName('toggle-list');
+        toggles = accordion.getElementsByClassName('toggle-list'),
+        navs = document.getElementsByTagName('nav');
 
     function addToggle(e) {
         e.addEventListener(
@@ -28,46 +29,32 @@ var Helper = require('./modules/Helper');
         addToggle(toggles[i]);
     }
 
-    var regionNav = document.getElementsByClassName('dropdown-nav')[0],
-        filterBtn = document.getElementsByClassName('filter-btn')[0],
-        toggleBtn = filterBtn.getElementsByTagName('span')[0];
+    for (i = 0; i < navs.length; i++) {
+        addNavClicks(navs[i]);
+    }
 
-    filterBtn.addEventListener(
-        'click',
-        function() {
-            if (!Helper.hasClass(regionNav, 'opened')) {
-                Helper.addClass(regionNav, 'opened');
-                Helper.addClass(toggleBtn, 'active');
-            } else {
-                Helper.removeClass(regionNav, 'opened');
-                Helper.removeClass(toggleBtn, 'active');
-            }
-        },
-        false
-    );
-
-    var nav = document.getElementsByClassName('dropdown-nav')[0],
-        navItems = nav.getElementsByTagName('li'),
-        navLen,
-        x = 0;
-
-    function makeClickListener(el) {
-        el.addEventListener(
-            'click',
-            function() {
-                for (var j = 0, len = navItems.length; j < len; j++) {
-                    Helper.removeClass(navItems[j], 'active');
+    function addNavClicks(nav) {
+        var menuItems = nav.getElementsByTagName('a'),
+            check = nav.getElementsByTagName('input')[0],
+            j;
+        
+        if (check) check.checked = false;
+        for (j = 0; j < menuItems.length; j++) {
+            menuItems[j].addEventListener('click',
+                function(e) {
+                    var k;
+                    e.preventDefault();
+                    for (k = 0; k < menuItems.length; k++) {
+                        if (menuItems[k] === this) {
+                            Helper.addClass(this, 'active');
+                        } else {
+                            Helper.removeClass(menuItems[k], 'active');
+                        }
+                    }
                 }
-                Helper.addClass(el, 'active');
-                Helper.removeClass(regionNav, 'opened');
-                Helper.removeClass(toggleBtn, 'active');
-            },
-            false
-        );
+            );
+        }
     }
 
-    for (x, navLen = navItems.length; x < navLen; x++) {
-        makeClickListener(navItems[x]);
-    }
 })();
 

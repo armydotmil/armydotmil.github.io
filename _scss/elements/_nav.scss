@@ -4,18 +4,6 @@ nav {
   background: map-get($army-branding, grey10);
   position: relative;
   
-  // inside bottom border
-  &::before {
-    background-color: map-get($army-branding, grey30);
-    bottom: 0;
-    content: "";
-    height: 4px;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    z-index: 1;
-  }
-  
   ul {
     overflow-x: scroll;
     overflow-y: hidden;
@@ -26,6 +14,18 @@ nav {
     
     &::-webkit-scrollbar { display: none; }
     
+    // inside bottom border
+    &::before {
+      background-color: map-get($army-branding, grey30);
+      bottom: 0;
+      content: "";
+      height: 4px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+  
     li {
       display: inline-block;
       margin: 0 25px;
@@ -73,6 +73,9 @@ nav {
     ul {
       overflow: hidden;
       white-space: normal;
+      &.container {
+        margin: 0 auto;
+      }      
     }
   }
   
@@ -83,6 +86,10 @@ nav {
   .submenu-inner {
     max-height: $submenu-height * 2;
     position: relative;
+  }
+
+  &.dropdown .submenu-inner {
+    height: $submenu-height * 2;
   }
   
   label {
@@ -127,13 +134,18 @@ nav {
     .submenu-inner {
       background: $lighter-gray-color;
       max-height: none;
+      height: auto;
       padding: ($submenu-height + 45px) 0 30px;
       
+      ul::before {
+        display: none;
+      }
+
       // mimic filter dropdown styling
       li {
-        display: block;
+        display: inline-block;
         margin: 0 auto 15px;
-        padding: 0 15px;
+        padding: 0 8px;
         
         a.active:after { display: none; }
         
@@ -141,7 +153,7 @@ nav {
           background: map-get($army-branding, white);
           border: 1px solid map-get($army-branding, grey30);
           line-height: 47px;
-          padding: 3px 35px 0;
+          padding: 3px 20px 0;
           text-align: left;
           
           @include custom-transition(background .25s ease);
@@ -154,6 +166,17 @@ nav {
         a.active, a:hover {
           background-color: map-get($army-branding, gold);
           outline: none;
+        }
+      }
+
+      @include breakpoints(mobile) {
+        li {
+          display: block;
+          padding: 0;
+
+          a {
+            padding: 3px 35px 0;
+          }
         }
       }
     }
