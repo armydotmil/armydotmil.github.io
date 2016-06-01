@@ -1,0 +1,318 @@
+@import "base/custom-mixins";
+
+.playlist *,
+.main .playlist * {
+  @include box-sizing(content-box);
+}
+.playlist {
+  &.playlist-ready .playlist-player.custom-playlist .playlist-panel {
+    display: block;
+  }
+  .playlist-player {
+    background-color: map-get($army-branding, black);
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &.custom-playlist {
+      .video-player,
+      .playlist-panel {
+        -webkit-transition: margin 500ms;
+        transition: margin 500ms;
+        margin-right: 0;
+      }
+      .playlist-panel {
+        display: none;
+        margin-right: 50px;
+      }
+      &.open-playlist {
+        .video-player {
+          margin-right: 350px;
+        }
+        .playlist-panel {
+          margin-right: 0px;
+        }
+      }
+      .playlist-toggle {
+        background-color: map-get($army-branding, black);
+        line-height: 0;
+        position: absolute;
+        right: -50px;
+        text-align: center;
+        z-index: 1;
+
+        a {
+          display: block;
+          padding: 12px 0;
+          width: 50px;
+        }
+
+        span {
+          background: transparent $social-button-sprite no-repeat scroll -305px -26px;
+          display: inline-block;
+          height: 22px;
+          width: 31px;
+        }
+        &:hover span {
+          background-position: -305px -51px;
+        }
+      }
+
+      @include breakpoints(mobile nav tablet) {
+        .video-player,
+        .playlist-panel {
+          margin: 0;
+          position: relative;
+          width: 100%;
+
+          .videos {
+            display: none;
+            max-height: 300px;
+            position: static;
+            border-top: 1px solid map-get($army-branding, gold);
+          }
+
+          .playlist-info h5 {
+            border-width: 0;
+
+            span:first-child {
+              border-radius: 0;
+              background-position: -181px -59px;
+              margin-top: 2px;
+              width: 11px;
+            }
+          }
+        }
+        &.open-playlist {
+          .playlist-panel {
+            .videos {
+              display: block;
+            }
+            .playlist-info h5 span {
+              background-position: -169px -59px;
+            }
+          }
+        }
+      }
+
+      @include breakpoints(lg_tablet) {
+        &.open-playlist {
+          .video-player {
+            margin-right: 300px;
+          }
+          .playlist-panel {
+            width: 300px;
+          }
+        }
+      }
+
+      @include breakpoints(mobile nav tablet lg_tablet) {
+        .playlist-panel {
+          .videos {
+            font-size: 15px;
+            .video-item {
+              td {
+                padding: 7px 0 7px 15px;
+
+                &.v-title {
+                  padding: 8px 15px 6px;
+                }
+              }
+
+              &:first-child {
+                td {
+                  padding-top: 14px;
+
+                  &.v-title {
+                    padding-top: 16px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    .yt-overlay, .playlist-overlay {
+      background-color: #CCC;
+      height: 100%;
+      left: 0;
+      // @include Opacity(0.7);
+      opacity: 0.7;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
+    .playlist-overlay {
+      display: none;
+    }
+    
+    .video-player {
+      position: relative;
+      z-index: 1;
+      
+      .playlist-wrapper {
+        height: 0;
+        overflow: hidden;
+        padding-bottom: 56.4%;
+        
+        iframe {
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+      }
+    }
+    
+    .playlist-panel {
+      background-color: map-get($army-branding, black);
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 350px;
+      
+      .playlist-info {
+        margin: 0 15px;
+        position: relative;
+        cursor: pointer;
+
+        a {
+          color: #ffffff;
+          text-decoration: none;
+        }
+
+        .table {
+          display: table;
+          width: 100%;
+        }
+        
+        h5 {
+          display: table-cell;
+          height: 56px;
+          font: 700 21px/22px $font-family;
+          border-bottom: 5px solid #ffcc00;
+          padding: 2px 16px 0 0;
+          vertical-align: middle;
+
+          span:first-child {
+            background: transparent $social-button-sprite no-repeat scroll -287px -3px;
+            height: 15px;
+            position: absolute;
+            right: 0;
+            width: 15px;
+            top: 21px;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .videos {
+        border-bottom: 1px solid map-get($army-branding, black);
+        bottom: 0;
+        font: 600 16px $font-family;
+        left: 0;
+        list-style: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: absolute;
+        text-align: left;
+        top: 63px;
+        width: 100%;
+        
+        table {
+          width: 100%;
+        }
+        tr td.filler {
+          height: 15px;
+        }
+        .video-item {
+          td {
+            vertical-align: middle;
+            padding: 15px 0 15px 15px;
+
+            &.v-title {
+              padding: 16px 15px 14px;
+            }
+
+            // ensures that the first column collapses to fit content...
+            &:first-child {
+              width: 10px;
+            }
+          }
+
+          &:first-child {
+            td {
+              padding-top: 30px;
+
+              &.v-title {
+                padding-top: 32px;
+              }
+            }
+          }
+          
+          .v-position, .v-play-icon {
+            color: map-get($army-branding, white);
+            display: block;
+            font-weight: 700;
+            margin: 0;
+            padding: 8px;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            line-height: 22px;
+            position: relative;
+            
+            border: 1px solid map-get($army-branding, white);
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+          }
+          .v-position {
+            padding: 9px 7px 7px 9px;
+          }
+          
+          .v-play-icon {
+            display: none;
+              
+            span {
+              background: transparent $social-button-sprite no-repeat scroll -19px -71px;
+              display: block;
+              height: 11px;
+              width: 10px;
+              position: absolute;
+              top: 13px;
+              left: 14px;
+            }
+          }
+          
+          &:hover, &:focus, &.active {
+            background: map-get($army-branding, grey70);
+            color: map-get($army-branding, white);
+            cursor: pointer;
+            
+            .v-play-icon { display: block; }
+            .v-position { display: none; }
+          }
+                
+          &.playing.active {
+            .v-play-icon {
+              span {
+                background-position: 0 -71px;
+                height: 16px;
+                width: 19px;
+                top: 10px;
+                left: 9px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

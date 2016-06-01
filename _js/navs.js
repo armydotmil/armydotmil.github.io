@@ -42,15 +42,10 @@ var Helper = require('./modules/Helper');
         for (j = 0; j < menuItems.length; j++) {
             menuItems[j].addEventListener('click',
                 function(e) {
-                    var k;
+                    var active = nav.getElementsByClassName('active')[0];
                     e.preventDefault();
-                    for (k = 0; k < menuItems.length; k++) {
-                        if (menuItems[k] === this) {
-                            Helper.addClass(this, 'active');
-                        } else {
-                            Helper.removeClass(menuItems[k], 'active');
-                        }
-                    }
+                    if (active) Helper.removeClass(active, 'active');
+                    Helper.addClass(this, 'active');
                 }
             );
         }
