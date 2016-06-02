@@ -23,7 +23,7 @@ body {
   // keeps the header from blocking anything at the top of the page
   padding-top: 68px;
   
-  .menu-open {
+  &.menu-open {
     overflow: hidden;
     width: 100%;
     
