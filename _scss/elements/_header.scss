@@ -15,8 +15,14 @@
 // CSS
 // ----------------------------------------------------------------------
 
+
+%menu-open {
+  overflow: hidden;
+}
+
+body.menu-open,
 html.menu-open {
-  overflow-y: hidden!important;
+  @extend %menu-open;
 }
 
 body {
@@ -24,18 +30,17 @@ body {
   padding-top: 68px;
   
   &.menu-open {
-    overflow: hidden;
     width: 100%;
-    
+
     @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
       overflow-y: scroll;
-      
+
       header {
         .navbar {
           height: 86px;
           overflow-y: scroll;
         }
-        
+
         .menu-window {
           overflow-y: scroll;
           width: 100%;
@@ -152,11 +157,10 @@ header {
   .nav-window {
     background-color: map-get($army-branding, grey90);
     left: 0;
-    overflow: auto;
     position: fixed;
     right: 0;
 
-    @include custom-transition(top 0.25s linear 0s);
+    @include custom-transition(top 0.25s ease);
 
     /**
      * Fixes the "Size tap targets appropriately" issue 
@@ -177,7 +181,9 @@ header {
 
     &.menu-window {
       height: 100%;
+      overflow: scroll;
       top: -100%;
+      -webkit-overflow-scrolling:touch;
     }
 
     &.open-window {
