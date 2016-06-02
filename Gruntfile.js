@@ -41,6 +41,14 @@ module.exports = function(grunt) {
                     transform: ['babelify']
                 }
             },
+            slideshow: {
+                files: {
+                    '_js/bundled/slideshow.js': '_js/slideshow.js'
+                },
+                options: {
+                    transform: ['babelify']
+                }
+            },
             video: {
                 files: {
                     '_js/bundled/playlist.js': '_js/playlist.js'
@@ -62,6 +70,7 @@ module.exports = function(grunt) {
                     src: [
                         '_js/bundled/header.js',
                         '_js/bundled/navs.js',
+                        '_js/bundled/slideshow.js',
                         '_js/bundled/playlist.js'
                     ],
                     dest: 'e2/js/rv7/armydotmil/<%= pkg.name %>.min.js'
