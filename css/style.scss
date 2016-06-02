@@ -5,7 +5,7 @@
 // ----------------------------------------------------------------------
 // Mixins
 // ----------------------------------------------------------------------
-@import 'base/mixins';
+@import "base/mixins";
 @import "base/custom-mixins";
 
 // ----------------------------------------------------------------------
@@ -20,8 +20,8 @@
 // ----------------------------------------------------------------------
 // Layout
 // ----------------------------------------------------------------------
-@import 'layout/grid-system';
-@import 'layout/grid';
+@import "layout/grid-system";
+@import "layout/grid";
 
 // ----------------------------------------------------------------------
 // Elements
@@ -29,6 +29,7 @@
 @import "elements/buttons";
 @import "elements/header";
 @import "elements/social";
+@import "elements/parallax-footer";
 @import "elements/footer";
 @import "elements/top-stories";
 @import "elements/nav";

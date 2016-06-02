@@ -4,46 +4,40 @@
 
 @import "base/variables";
 @import "base/mixins";
-@import 'base/custom-mixins';
-@import 'layout/grid-system';
-@import 'layout/grid';
+@import "base/custom-mixins";
+@import "layout/grid-system";
+@import "layout/grid";
 
 section {
   overflow: hidden;
-  
+
   .container.no-bottom {
     margin-bottom: 0;
   }
-  
-  &#main {
-    background: map-get($army-branding, white);
-    margin-bottom: 0;
-    z-index: 1;
-    
-    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-      margin-bottom: 13.802em;
-    }
-  }
-  
+
   .github-links {
     @include row(true);
-    
+
     li {
       margin: 0 0 15px;
-      
+
       @include span(12);
-      
-      &:last-child { margin: 0; }
+
+      &:last-child {
+        margin: 0;
+      }
     }
-    
+
     @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
-      li { width: auto; }
+      li {
+        width: auto;
+      }
     }
   }
-  
+
   .section-break {
     position: relative;
-    
+
     &:after,
     &:before {
       background: map-get($army-branding, gold);
@@ -53,18 +47,34 @@ section {
       position: absolute;
       right: 0;
     }
-    
-    &:after { top: 0; }
-    &:before { top: 15px; }
-    
-    @include breakpoints(tablet lg_tablet) {
-      &:after { top: 10px; }
-      &:before { top: 25px; }
+
+    &:after {
+      top: 0;
     }
-    
+
+    &:before {
+      top: 15px;
+    }
+
+    @include breakpoints(tablet lg_tablet) {
+      &:after {
+        top: 10px;
+      }
+
+      &:before {
+        top: 25px;
+      }
+    }
+
+
     @include breakpoints(sm_desktop desktop large really_big) {
-      &:after { top: 30px; }
-      &:before { top: 45px; }
+      &:after {
+        top: 30px;
+      }
+
+      &:before {
+        top: 45px;
+      }
     }
   }
 }
@@ -73,6 +83,7 @@ section {
   h2 {
     margin-bottom: 60px;
   }
+
   p.large {
     margin-bottom: 1.25em;
   }
@@ -80,44 +91,66 @@ section {
 
 #grid-example {
   text-align: center;
-  
+
   .grid-example-container {
     display: none;
     margin-bottom: 20px;
-    
-    &.mobile { display: block; }
+
+    &.mobile {
+      display: block;
+    }
   }
-  
+
   .row {
     margin-bottom: 20px;
-    
-    &:last-child { margin-bottom: 0; }
-    
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
     &.hide-mobile,
-    &.hide-tablet { display: none; }
-    
+    &.hide-tablet {
+      display: none;
+    }
+
     p {
       border: 1px solid #000;
       color: #000;
       padding: 10px 0;
     }
   }
-  
+
   @include breakpoints(sm_desktop desktop large really_big) {
     .row.hide-mobile,
-    .row.hide-tablet { display: block; }
-    
+    .row.hide-tablet {
+      display: block;
+    }
+
     .grid-example-container {
-      &.desktop { display: block; }
-      &.mobile { display: none; }
+      &.desktop {
+        display: block;
+      }
+
+      &.mobile {
+        display: none;
+      }
     }
   }
+
+
   @include breakpoints(lg_tablet) {
-    .row.hide-mobile { display: block; }
-    
+    .row.hide-mobile {
+      display: block;
+    }
+
     .grid-example-container {
-      &.tablet { display: block; }
-      &.mobile { display: none; }
+      &.tablet {
+        display: block;
+      }
+
+      &.mobile {
+        display: none;
+      }
     }
   }
 }
@@ -126,51 +159,63 @@ section {
   .color-group {
     margin: 0 0 60px;
     max-width: 730px;
-    
-    &:last-child { margin-bottom: 0; }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
-  
+
   .color-list {
     li {
       display: inline-block;
       margin: 0 40px 20px 0px;
-      
-      span { display: block; }
+
+      span {
+        display: block;
+      }
     }
   }
-  
+
   .color-box {
     border: 1px solid #000;
     height: 80px;
     margin-bottom: 15px;
     width: 80px;
   }
-  
+
   @include breakpoints(nav mobile) {
-    .color-list li { margin: 0 20px 20px 0px; }
+    .color-list li {
+      margin: 0 20px 20px 0px;
+    }
   }
-  
+
+
   @include breakpoints(nav) {
     .color-group {
       margin: 0 auto 60px;
       max-width: 400px;
     }
-    
+
     .color-list li {
       &:last-child,
-      &:nth-child(4n) { margin-right: 0; }
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
     }
   }
-  
+
+
   @include breakpoints(mobile) {
     .color-group {
       margin: 0 auto 60px;
       max-width: 290px;
     }
-    
+
     .color-list li {
       &:last-child,
-      &:nth-child(3n) { margin-right: 0; }
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -179,15 +224,19 @@ section {
   .typography-list {
     li {
       margin: 0 0 20px;
-      
-      h2 { margin: 0; }
-      
+
+      h2 {
+        margin: 0;
+      }
+
       h4 {
         margin: 0;
         text-transform: none;
         transition: none;
-        
-        &:after { display: none; }
+
+        &:after {
+          display: none;
+        }
       }
     }
   }
@@ -196,20 +245,30 @@ section {
 #elements {
   .elem {
     margin: 0 0 50px;
-    &:last-child { margin: 0; }
+
+    &:last-child {
+      margin: 0;
+    }
   }
-  
+
   @include breakpoints(tablet lg_tablet) {
     .elem {
       margin: 0 0 60px;
-      &:last-child { margin: 0; }
+
+      &:last-child {
+        margin: 0;
+      }
     }
   }
-  
+
+
   @include breakpoints(sm_desktop desktop large really_big) {
     .elem {
       margin: 0 0 100px;
-      &:last-child { margin: 0; }
+
+      &:last-child {
+        margin: 0;
+      }
     }
   }
 }
