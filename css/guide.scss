@@ -86,19 +86,13 @@ section {
 }
 
 #grid {
-  p.responsive-grid { margin-bottom: 1.25em; }
+  p.responsive-grid {
+    margin-bottom: 1.25em;
+    text-align: left;
+  }
 
   .grid-example {
-    margin-bottom: 50px;
     text-align: center;
-
-    @include breakpoints(tablet lg_tablet) {
-      margin-bottom: 60px;
-    }
-
-    @include breakpoints(sm_desktop desktop large really_big) {
-      margin-bottom: 100px;
-    }
 
     .grid-example-container {
       display: none;
