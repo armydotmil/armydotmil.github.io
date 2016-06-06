@@ -1,4 +1,4 @@
-$subnav-height: 56px;
+$submenu-height: 56px;
 
 nav {
   background: map-get($army-branding, grey10);
@@ -35,8 +35,9 @@ nav {
       }
       
       a {
+        @extend %h5;
         display: block;
-        font: 700 1em/#{$subnav-height} $font-family;
+        line-height: #{$submenu-height};
         position: relative;
         text-decoration: none;
         text-transform: uppercase;
@@ -67,7 +68,7 @@ nav {
 nav {
   
   .subnav-container {
-    max-height: $subnav-height;
+    max-height: $submenu-height;
     overflow: hidden;
     
     ul {
@@ -75,35 +76,34 @@ nav {
       white-space: normal;
       &.container {
         margin: 0 auto;
-      }      
+      }
     }
   }
   
-  input[type=checkbox] {
-    display: none;
-  }
+  input[type=checkbox] { display: none; }
   
   .subnav-inner {
-    max-height: $subnav-height * 2;
+    max-height: $submenu-height * 2;
     position: relative;
   }
 
   &.dropdown .subnav-inner {
-    height: $subnav-height * 2;
+    height: $submenu-height * 2;
   }
   
   label {
+    @extend %h5;
     background: map-get($army-branding, grey10);
-    bottom: $subnav-height;
+    bottom: $submenu-height;
+    cursor: pointer;
     left: -15px;
-    max-height: $subnav-height;
+    line-height: #{$submenu-height};
+    max-height: $submenu-height;
     right: -15px;
     position: absolute;
     text-align: center;
     text-transform: uppercase;
     z-index: 2;
-    font: 700 1em/#{$subnav-height} $font-family;
-    cursor: pointer;
     
     // inside bottom border
     &::before {
@@ -135,7 +135,7 @@ nav {
       background: $lighter-gray-color;
       max-height: none;
       height: auto;
-      padding: ($subnav-height + 45px) 0 30px;
+      padding: ($submenu-height + 45px) 0 30px;
       
       ul::before {
         display: none;
@@ -192,10 +192,6 @@ nav {
   }
   
   @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-    ul li a,
-    label {
-      font-size: 1.125em;
-    }
     //Prevents double click issue on iOS
     ul li {
       a::after {

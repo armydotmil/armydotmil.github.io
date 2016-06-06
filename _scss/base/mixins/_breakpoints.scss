@@ -7,20 +7,7 @@
 }
 
 @mixin do-breakpoint($point) {
-  //Small devices (phones, less than 768px)
-  @if $point == sm_mobile {
-    // 384 and below
-    @media (max-width: $screen-mobile-sm) {
-      @content;
-    }
-  }
-  @else if $point == md_mobile {
-    // 385 - 450
-    @media (min-width: $screen-mobile-sm + 1) and (max-width: $screen-mobile-md) {
-      @content;
-    }
-  }
-  @else if $point == mobile {
+  @if $point == mobile {
     //480 and below
     @media (max-width: $screen-mobile-max) {
       @content;
