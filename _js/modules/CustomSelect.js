@@ -26,7 +26,7 @@ class CustomSelect {
 
     hideOptions(e) {
         if (this.opened && e.target.className !== 'custom-overlay') {
-            Helper.removeClass(this.optionBox, 'show-options');
+            Helper.removeClass(this.cselect, 'show-options');
             this.opened = false;
         }
     }
