@@ -1,0 +1,51 @@
+@mixin custom-expandable-span($radius: 34px, $right: 5px) {
+  > span {
+    border-radius: 50%;
+    display: inline-block;
+    height: $radius;
+    margin-top: floor($radius / -2);
+    position: absolute;
+    right: $right;
+    top: 50%;
+    width: $radius;
+    
+    &:before, &:after {
+      background-color: map-get($army-branding, black);
+      content: '';
+      position: absolute;
+      @include custom-transition(transform .25s ease);
+    }
+
+    &:before {
+      height: 12px;
+      left: 50%;
+      margin-left: -2px;
+      margin-top: -6px;
+      top: 50%;
+      width: 4px;
+    }
+
+    &:after {
+      height: 4px;
+      left: 50%;
+      margin-left: -6px;
+      margin-top: -2px;
+      top: 50%;
+      width: 12px;
+    }
+  }
+
+  &:hover > span, &:focus > span {
+    background-color: map-get($army-branding, gold);
+  }
+}
+
+@mixin custom-expandable-span-engaged() {
+  &:before {
+    transform: rotate(90deg);
+  }
+    
+  &:after {
+    transform: rotate(180deg);
+  }
+}
