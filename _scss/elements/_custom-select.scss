@@ -9,10 +9,9 @@
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
-    @include custom-linear-gradient(to left, transparent 45px, map-get($army-branding, grey30) 1px, transparent 46px);
-    // background-image: linear-gradient(to left, transparent 45px, map-get($army-branding, grey30) 1px, transparent 46px);
+    // creates 1px wide grey bar, 45px from right side...
+    @include custom-linear-gradient(to left, transparent 45px, map-get($army-branding, grey30) 45px, map-get($army-branding, grey30) 46px, transparent 46px);
     border-radius: 0;
-    // border-right: 1px solid #ccc;
     border-width: 0;
     font: 600 1.125em $font-family;
     height: 50px;
