@@ -1,4 +1,4 @@
-$submenu-height: 56px;
+$subnav-height: 56px;
 
 nav {
   background: map-get($army-branding, grey10);
@@ -36,7 +36,7 @@ nav {
       
       a {
         display: block;
-        font: 700 1em/#{$submenu-height} $font-family;
+        font: 700 1em/#{$subnav-height} $font-family;
         position: relative;
         text-decoration: none;
         text-transform: uppercase;
@@ -66,8 +66,8 @@ nav {
 // extra markup overrides some of the nav behavior for dropdown
 nav {
   
-  .submenu-container {
-    max-height: $submenu-height;
+  .subnav-container {
+    max-height: $subnav-height;
     overflow: hidden;
     
     ul {
@@ -83,26 +83,26 @@ nav {
     display: none;
   }
   
-  .submenu-inner {
-    max-height: $submenu-height * 2;
+  .subnav-inner {
+    max-height: $subnav-height * 2;
     position: relative;
   }
 
-  &.dropdown .submenu-inner {
-    height: $submenu-height * 2;
+  &.dropdown .subnav-inner {
+    height: $subnav-height * 2;
   }
   
   label {
     background: map-get($army-branding, grey10);
-    bottom: $submenu-height;
+    bottom: $subnav-height;
     left: -15px;
-    max-height: $submenu-height;
+    max-height: $subnav-height;
     right: -15px;
     position: absolute;
     text-align: center;
     text-transform: uppercase;
     z-index: 2;
-    font: 700 1em/#{$submenu-height} $font-family;
+    font: 700 1em/#{$subnav-height} $font-family;
     cursor: pointer;
     
     // inside bottom border
@@ -128,14 +128,14 @@ nav {
   }
   
   // uses the checkbox to toggle the dropdown (no JS required!)
-  input[type=checkbox]:checked ~ .submenu-container {
+  input[type=checkbox]:checked ~ .subnav-container {
     max-height: none;
     
-    .submenu-inner {
+    .subnav-inner {
       background: $lighter-gray-color;
       max-height: none;
       height: auto;
-      padding: ($submenu-height + 45px) 0 30px;
+      padding: ($subnav-height + 45px) 0 30px;
       
       ul::before {
         display: none;
@@ -209,10 +209,10 @@ nav {
 }
 
 // DOM elements the menu open/closes
-.submenu-selectable {
+.subnav-selectable {
   display: none;
 
-  &.submenu-selected {
+  &.subnav-selected {
     display: block;
   }
 }
