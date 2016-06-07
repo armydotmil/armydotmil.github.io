@@ -237,19 +237,20 @@ section {
     li {
       @include clearfix();
       border-bottom: 1px solid map-get($army-branding, grey30);
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      
+      &:last-child { margin: 0; }
       
       .span6.lg *,
       .span6.md2 *,
       .span7.lg *,
       .span7.md2 * { float: right; }
       
-      h1,
       h2,
-      h3,
       h4,
       h5,
-      p { margin: 0 auto 15px; }
+      p { margin: 0; }
       
       .sm-md,
       .md1,
