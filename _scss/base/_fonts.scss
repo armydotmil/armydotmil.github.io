@@ -46,7 +46,7 @@ body {
   font: 700 1.313em/1.25 $font-family;
   
   @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
-    font: 700 1.375em/1.25 $font-family;
+    font: 700 1.5em/1.25 $font-family;
   }
 }
 
@@ -64,23 +64,6 @@ h3 { @extend %h3; }
 h4 { @extend %h4; }
 h5 { @extend %h5; }
 
-h2,
-h3,
-h4,
-h5 { text-transform: uppercase; }
-
-p {
-  font: 400 1em/1.625 $font-family;
-  
-  &.large { @extend %h5; }
-  
-  &.small {
-    font: 400 .813em/1.25 $font-family;
-    
-    @include breakpoints(lg_tablet tablet sm_desktop desktop large really_big) {
-      font: 400 .875em/1.25 $font-family;
-    }
-  }
-}
+@import "page-defaults";
 
 

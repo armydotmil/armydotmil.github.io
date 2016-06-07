@@ -54,28 +54,17 @@ body.menu-open header.scrolled-down .navbar {
   top: 0;
 }
 
-header,
 header *,
-header:after,
 header *:after,
-header:before,
 header *:before {
   @include box-sizing(content-box);
 }
 
-section header {
-  a {
-    text-decoration: none;
-    
-    &:focus,
-    &:hover {
-      text-decoration: none;
-    }
-  }
+header {
+  a:focus,
+  a:hover { text-decoration: none; }
   
-  ul {
-    line-height: 1.375em;
-  }
+  ul { line-height: 1.375em; }
 }
 
 header {

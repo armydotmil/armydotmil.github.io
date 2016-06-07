@@ -9,8 +9,6 @@
 @import "layout/grid";
 
 section {
-  overflow: hidden;
-
   .container.no-bottom {
     margin-bottom: 0;
   }
@@ -225,7 +223,7 @@ section {
 
 #typography {
   .font-info {
-    border-bottom: 1px solid map-get($army-branding, grey10);
+    border-bottom: 1px solid map-get($army-branding, grey30);
     @include clearfix();
     margin-bottom: 1.25em;
     padding-bottom: 1.25em;
@@ -235,11 +233,11 @@ section {
     }
   }
   
-  ul {
+  .fonts-list {
     @include row();
     li {
       @include clearfix();
-      border-bottom: 1px solid map-get($army-branding, grey10);
+      border-bottom: 1px solid map-get($army-branding, grey30);
       margin-bottom: 20px;
       
       h1,
@@ -260,31 +258,31 @@ section {
   }
   
   @include breakpoints(mobile nav tablet) {
-    ul li { .span4 { width: 100%; } }
+    .fonts-list li { .span4 { width: 100%; } }
   }
   
   @include breakpoints(nav) {
-    ul li {
+    .fonts-list li {
       .sm { display: none; }
       .sm-md { display: block; }
     }
   }
   
   @include breakpoints(tablet lg_tablet) {
-    ul li {
+    .fonts-list li {
       .sm,
       .sm-nav { display: none; }
     }
   }
   
   @include breakpoints(tablet) {
-    ul li {
+    .fonts-list li {
       .md1 { display: block; }
     }
   }
   
   @include breakpoints(lg_tablet) {
-    ul li {
+    .fonts-list li {
       .md2 { display: block; }
       .weight { display: block; }
     }
@@ -302,7 +300,7 @@ section {
         }
       }
     }
-    ul li {
+    .fonts-list li {
       .sm,
       .sm-nav { display: none; }
       .lg { display: block; }
@@ -339,5 +337,17 @@ section {
         margin: 0;
       }
     }
+  }
+}
+
+// ----------------------------------------------------------------------
+// overwrite top stories css here
+// so that we don't have a box fixed on the guide
+// ----------------------------------------------------------------------
+@include breakpoints(sm_desktop desktop large really_big) {
+  .top-stories {
+    float: none;
+    
+    .fixed { position: static; }
   }
 }

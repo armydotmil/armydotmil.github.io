@@ -1,39 +1,57 @@
 // File Name: _topstories.scss
 // Description: article top stories
 // Used by: article.scss
-// Dependencies:
+// Dependencies: base/mixins/header-underline
 // ------------------------------------------------------------
 
 @import "base/mixins/header-underline";
 
 .top-stories {
-  background-color: map-get($army-branding, grey10);
-  max-width: 350px;
-
-  .small, h4 {
-    text-transform: uppercase;
+  .fixed {
+    background: $light-gray-color;
+    padding: 30px;
   }
-
+  
   h4 {
     @include header-underline(black);
-    margin-bottom: 0;
-    &:first-child { margin: 0; }
+    
+    &:first-child { margin-bottom: 30px; }
   }
-
-  li {
-    padding: 0 30px 30px;
-  }
-
-  li:first-child {
-    padding-top: 30px;
+  
+  ul li {
+    margin: 0 0 30px;
+    
+    &:last-child { margin: 0; }
+    
+    a {
+      display: block;
+      
+      &:focus,
+      &:hover { text-decoration: none; }
+      
+      span {
+        display: inline-block;
+        width: 100%;
+        
+        &:first-child {
+          font: 400 .813em/1.375em $font-family;
+          text-transform: uppercase;
+        }
+      }
+    }
   }
 }
 
-@include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+@include breakpoints(sm_desktop desktop large really_big) {
   .top-stories {
-    h4:after {
-      margin: 20px 0 0;
-      text-align: left;
+    float: right;
+    width: 35%;
+    
+    ul li:last-child { margin: 0; }
+    
+    .fixed {
+      max-width: 350px;
+      position: fixed;
     }
   }
 }

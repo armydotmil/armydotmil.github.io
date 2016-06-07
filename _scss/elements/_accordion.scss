@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------
-// Dependencies: base/elements/_links.scss
+// Dependencies: base/elements/_lists.scss
 // ----------------------------------------------------------------------
-@import 'lists';
+//@import 'lists';
 
 
 .accordion {
@@ -25,7 +25,7 @@
     font-size: 1em;
     
     > li {
-      border-top: 1px solid map-get($army-branding, grey50);
+      border-top: 1px solid map-get($army-branding, grey30);
       list-style-type: none;
       margin: 0;
       
@@ -89,7 +89,7 @@
       }
     } // end li
     
-    > li:last-child { border-bottom: 1px solid map-get($army-branding, grey50); }
+    > li:last-child { border-bottom: 1px solid map-get($army-branding, grey30); }
     
     > li input[type=checkbox]:checked ~ ul {
       max-height: 1000px;
