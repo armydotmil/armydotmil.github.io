@@ -46,10 +46,10 @@ p {
   &.large { @extend %h5; }
   
   &.small {
-    font: 400 .813em/1.25 $font-family;
+    font: 400 .813em/1.5 $font-family;
     
     @include breakpoints(lg_tablet tablet sm_desktop desktop large really_big) {
-      font: 400 .875em/1.25 $font-family;
+      font: 400 .875em/1.5 $font-family;
     }
   }
   

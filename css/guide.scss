@@ -223,7 +223,6 @@ section {
 
 #typography {
   .font-info {
-    border-bottom: 1px solid map-get($army-branding, grey30);
     @include clearfix();
     margin-bottom: 1.25em;
     padding-bottom: 1.25em;
@@ -240,25 +239,41 @@ section {
       border-bottom: 1px solid map-get($army-branding, grey30);
       margin-bottom: 20px;
       
+      .span6.lg *,
+      .span6.md2 *,
+      .span7.lg *,
+      .span7.md2 * { float: right; }
+      
       h1,
       h2,
       h3,
       h4,
       h5,
-      p { margin: 0 0 15px; }
+      p { margin: 0 auto 15px; }
       
       .sm-md,
       .md1,
       .md2,
-      .lg,
-      .weight { display: none; }
+      .lg { display: none; }
       
       h4:after { display: none; }
     }
   }
   
   @include breakpoints(mobile nav tablet) {
-    .fonts-list li { .span4 { width: 100%; } }
+    .fonts-list {
+      text-align: center;
+      
+      li {
+        .span5,
+        .span6 {
+          float: none;
+          width: 100%;
+        }
+        
+        &.table-headers { display: none; }
+      }
+    }
   }
   
   @include breakpoints(nav) {
@@ -284,7 +299,6 @@ section {
   @include breakpoints(lg_tablet) {
     .fonts-list li {
       .md2 { display: block; }
-      .weight { display: block; }
     }
   }
   
@@ -304,7 +318,6 @@ section {
       .sm,
       .sm-nav { display: none; }
       .lg { display: block; }
-      .weight { display: block; }
     }
   }
 }
