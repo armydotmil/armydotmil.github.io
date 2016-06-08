@@ -1,7 +1,7 @@
 .custom-select {
   background-color: #fff;
   border: 1px solid map-get($army-branding, grey30);
-  font: 600 0.875em $font-family;
+  font: 700 0.875em $font-family;
   position: relative;
   @include box-sizing(content-box);
 
@@ -16,8 +16,9 @@
     border-width: 0;
     font: inherit;
     height: 54px;
-    padding: 3px 60px 0 20px;
+    padding: 0 50px 0 20px;
     position: relative;
+    text-transform: uppercase;
     width: 100%;
     z-index: 1;
 
@@ -48,10 +49,10 @@
   // grey line
   &::before {
     background-color: map-get($army-branding, grey30);
-    content: "";
+    content: '';
     display: block;
-    height: 36px;
-    margin-top: -18px;
+    height: 24px;
+    margin-top: -12px;
     position: absolute;
     right: 49px;
     top: 50%;
@@ -99,7 +100,8 @@
           border-bottom: 1px solid map-get($army-branding, grey30);
           cursor: pointer;
           font-weight: 600;
-          padding: 11px 25px 8px;
+          padding: 11px 20px 8px;
+          text-transform: uppercase;
 
           @include custom-transition(background-color .25s ease);
 
