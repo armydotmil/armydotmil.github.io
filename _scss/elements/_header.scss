@@ -75,6 +75,10 @@ header {
   top: 0;
   z-index: 100;
 
+  &.scrolled-down {
+    min-height: 0;
+  }
+
   .nav-army-star {
     background-color: #000;
     border-radius: 10px;
