@@ -1,8 +1,8 @@
 .custom-select {
   background-color: #fff;
   border: 1px solid map-get($army-branding, grey30);
+  font: 600 0.875em $font-family;
   position: relative;
-  padding: 5px;
   @include box-sizing(content-box);
 
   select {
@@ -11,12 +11,12 @@
     appearance: none;
     background-color: transparent;
     // creates 1px wide grey bar, 45px from right side...
-    @include custom-linear-gradient(to left, transparent 45px, map-get($army-branding, grey30) 45px, map-get($army-branding, grey30) 46px, transparent 46px);
+    // @include custom-linear-gradient(to left, transparent 45px, map-get($army-branding, grey30) 45px, map-get($army-branding, grey30) 46px, transparent 46px);
     border-radius: 0;
     border-width: 0;
-    font: 600 1.125em $font-family;
-    height: 50px;
-    padding: 3px 56px 0 15px;
+    font: inherit;
+    height: 54px;
+    padding: 3px 60px 0 20px;
     position: relative;
     width: 100%;
     z-index: 1;
@@ -33,17 +33,29 @@
   }
 
   // gold circle
+  // &::before {
+  //   background-color: map-get($army-branding, gold);
+  //   border-radius: 50%;
+  //   content: "";
+  //   display: inline-block;
+  //   height: 34px;
+  //   margin-top: -17px;
+  //   position: absolute;
+  //   right: 8px;
+  //   top: 50%;
+  //   width: 34px;
+  // }
+  // grey line
   &::before {
-    background-color: map-get($army-branding, gold);
-    border-radius: 50%;
+    background-color: map-get($army-branding, grey30);
     content: "";
-    display: inline-block;
-    height: 34px;
-    margin-top: -17px;
+    display: block;
+    height: 36px;
+    margin-top: -18px;
     position: absolute;
-    right: 8px;
+    right: 49px;
     top: 50%;
-    width: 34px;
+    width: 1px;
   }
   // down arrow
   &::after {
@@ -74,7 +86,6 @@
       background-color: #ffffff;
       border: 1px solid map-get($army-branding, grey30);
       left: -1px;
-      margin-top: 5px;
       max-height: 275px;
       overflow-x: hidden;
       overflow-y: auto;
