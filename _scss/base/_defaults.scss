@@ -71,8 +71,6 @@ section {
 h4 {
   margin: 50px 0 40px;
   
-  &:first-child { margin: 0 0 40px; }
-  
   &.subhead { margin-top: 0; }
   
   @include header-underline(gold);
@@ -82,8 +80,6 @@ h4 {
 @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
   h4 {
     margin: 60px 0 54px;
-    
-    &:first-child { margin: 0 0 54px; }
   }
 }
 

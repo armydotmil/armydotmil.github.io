@@ -37,4 +37,12 @@
   }
 }
 
-
+// let the container define the top margin, not the first heading
+.container .inner-container {
+  @for $i from 1 through 6 {
+    > h#{$i}:first-child,
+    > :first-child > h#{$i}:first-child {
+      margin-top: 0;
+    }
+  }
+}
