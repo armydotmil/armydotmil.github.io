@@ -7,10 +7,6 @@
   
   &:last-child { margin: 0; }
   
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-    text-align: left;
-  }
-  
   div {
     background: map-get($army-branding, gold);
     display: inline-block;
