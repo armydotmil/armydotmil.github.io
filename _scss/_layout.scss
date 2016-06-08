@@ -1,8 +1,5 @@
----
-# Front matter comment to ensure Jekyll properly reads file.
----
-
 // ----------------------------------------------------------------------
-// The whole shebang!
+// Layout
 // ----------------------------------------------------------------------
-@import "all";
+@import "layout/grid-system";
+@import "layout/grid";

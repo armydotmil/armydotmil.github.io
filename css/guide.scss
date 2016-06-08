@@ -2,11 +2,7 @@
 # Front matter comment to ensure Jekyll properly reads file.
 ---
 
-@import "base/variables";
-@import "base/mixins";
-@import "base/custom-mixins";
-@import "layout/grid-system";
-@import "layout/grid";
+@import "all";
 
 section {
   .container.no-bottom {
