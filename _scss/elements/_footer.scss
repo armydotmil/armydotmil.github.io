@@ -4,50 +4,14 @@
 // Dependencies:
 // ------------------------------------------------------------
 
-.footer-bottom {
-  font-size: .84em;
-  padding: 25px 0 0;
-  text-align: center;
-  text-transform: uppercase;
-  
-  ul {
-    li {
-      display: inline-block;
-      margin: 0 10px;
-    }
-    
-    a {
-      color: map-get($army-branding, white);
-      display: inline-block;
-      position: relative;
-      text-decoration: none;
-      
-      &:after {
-        background: map-get($army-branding, white);
-        bottom: 2px;
-        content: '';
-        height: 1px;
-        left: 0;
-        position: absolute;
-        width: 0;
-        
-        @include custom-transition(width .25s ease);
-      }
-    }
-  }
-}
+.main {
+  background: map-get($army-branding, white);
+  margin-bottom: 0;
+  overflow: hidden;
+  z-index: 1;
 
-@include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-  .footer-bottom {
-    ul {
-      li {
-        a:hover {
-          &:after {
-            width: 100%;
-          }
-        }
-      }
-    }
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    margin-bottom: 13.802em;
   }
 }
 
@@ -65,4 +29,51 @@ footer {
   }
   
   section { margin: 0; }
+  
+  .footer-bottom {
+    font-size: .84em;
+    padding: 25px 0 0;
+    text-align: center;
+    text-transform: uppercase;
+  
+    ul {
+      li {
+        display: inline-block;
+        margin: 0 10px;
+      }
+    
+      a {
+        color: map-get($army-branding, white);
+        display: inline-block;
+        position: relative;
+        text-decoration: none;
+      
+        &:after {
+          background: map-get($army-branding, white);
+          bottom: 2px;
+          content: '';
+          height: 1px;
+          left: 0;
+          position: absolute;
+          width: 0;
+        
+          @include custom-transition(width .25s ease);
+        }
+      }
+    }
+  }
+
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    .footer-bottom {
+      ul {
+        li {
+          a:hover {
+            &:after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
 }

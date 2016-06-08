@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="/css/guide.css" type="text/css" media="screen">
 </head>
 <body>
-    <section id="main" class="main-content" role="main">
+    {% include elements/header.html %}
+    <div class="main" role="main">
         {{ content }}
-    </section>
+    </div>
     {% include elements/footer.html %}
     {% include scripts.html %}
  </body>
