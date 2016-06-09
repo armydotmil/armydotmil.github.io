@@ -1,7 +1,11 @@
 // ----------------------------------------------------------------------
-// Dependencies: base/_variables.scss
+// Dependencies: base/_variables.scss,
+// base/custom-mixins/custom-transition,
+// base/mixins/opacity
 // ----------------------------------------------------------------------
 // @import 'base/variables';
+// @import 'base/custom-mixins/custom-transition';
+// @import 'base/mixins/opacity';
 
 
 //primary colors
@@ -55,7 +59,6 @@
 }
 
 //accent colors
-
 .black {
   color: map-get($army-branding, black);
 }
@@ -136,4 +139,12 @@
   background-color: map-get($army-branding, grey10);
 }
 
+//generic helper classes
+.hidden {
+    height: 0;
+    min-height: 0;
+    max-height: 0;
+    @include opacity(1);
+    @include custom-transition(opacity .25s ease, height .25s ease, min-height .25s ease, max-height .25s ease);
+}
 
