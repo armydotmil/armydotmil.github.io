@@ -15,7 +15,7 @@
   h4 {
     @include header-underline(black);
     
-    &:first-child { margin-bottom: 30px; }
+    &:first-child { margin: 0 0 30px; }
   }
   
   ul li {
