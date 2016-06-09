@@ -27,7 +27,9 @@
     &.black {
       background: map-get($army-branding, black);
       
-      a, input[type="button"] {
+      a,
+      input[type="button"],
+      input[type="submit"] {
         color: map-get($army-branding, white);
       }
 
@@ -40,7 +42,9 @@
     }
   }
   
-  a, input[type="button"] {
+  a,
+  input[type="button"],
+  input[type="submit"] {
     background-color: transparent;
     border-width: 0;
     display: block;
