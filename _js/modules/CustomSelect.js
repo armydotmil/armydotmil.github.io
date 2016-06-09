@@ -21,7 +21,7 @@ class CustomSelect {
         } else {
             this.opened = false;
         }
-        Helper.toggleClass(this.cselect, 'show-options');        
+        Helper.toggleClass(this.cselect, 'show-options');
     }
 
     hideOptions(e) {
@@ -40,7 +40,8 @@ class CustomSelect {
     }
 
     createOptionsElement() {
-        var select = this.cselect.getElementsByTagName('select')[0],
+        var evt = document.createEvent('HTMLEvents'),
+            select = this.cselect.getElementsByTagName('select')[0],
             options = this.cselect.getElementsByTagName('option'),
             optionBox = document.createElement('div'),
             optionUl = document.createElement('ul'),
@@ -56,7 +57,9 @@ class CustomSelect {
             optionLi.setAttribute('class', 'custom-select-option');
             optionLi.innerHTML = options[i].textContent;
             optionLi.addEventListener('click', function() {
+                evt.initEvent('change', false, true);
                 select.value = this.getAttribute("data-value");
+                select.dispatchEvent(evt);
             });
             optionUl.appendChild(optionLi);
         }
