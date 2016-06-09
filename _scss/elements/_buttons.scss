@@ -47,15 +47,20 @@
   input[type="submit"] {
     background-color: transparent;
     border-width: 0;
-    display: inline-block;
+    display: block;
     cursor: pointer;
     font: 600 .875em $font-family;
+    min-width: 100%; // if containing div is set to block
     padding: 11px 30px 9px;
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
     
     &:hover { text-decoration: none; }
+  }
+  input[type="button"],
+  input[type="submit"] {
+    display: inline; // block adds mystery bottom margin
   }
 }
 
