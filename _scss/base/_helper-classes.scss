@@ -141,6 +141,6 @@
     min-height: 0;
     max-height: 0;
     @include opacity(1);
-    @include transition(opacity .25s ease, height .25s ease, min-height .25s ease, max-height .25s ease);
+    @include custom-transition(opacity .25s ease, height .25s ease, min-height .25s ease, max-height .25s ease);
 }
 
