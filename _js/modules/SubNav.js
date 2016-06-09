@@ -8,7 +8,7 @@ class SubNav {
     /**
      * Initialize the sub navigation links
      */
-    constructor(el, callbackFn) {
+    constructor(el, callbackFn, elLabel) {
         var _this = this,
             i,
             mDiv,
@@ -27,6 +27,7 @@ class SubNav {
         this.menuDivs = [];
         this.currentSelect = '';
         this.toggleLabel = subnav.getElementsByTagName('label');
+        this.persistentLabel = (elLabel);
 
         if (this.toggleLabel.length > 0) {
             this.toggleLabel = this.toggleLabel[0];
@@ -87,7 +88,7 @@ class SubNav {
                     Helper.addClass(menuItem, 'active');
                     // only change the menu button and div, if a div exists
                     if (this.menuDivs[i]) {
-                        this.toggleLabel.innerHTML = this.menuItems[i].innerHTML;
+                        if (!this.persistentLabel) this.toggleLabel.innerHTML = this.menuItems[i].innerHTML;
                         this.showMenuDiv(this.menuDivs[i], true);
                     } else {
                         this.toggleLabel.innerHTML = this.toggleLabelDefault;
