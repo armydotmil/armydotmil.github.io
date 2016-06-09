@@ -33,22 +33,10 @@
     }
   }
 
-  // gold circle
-  // &::before {
-  //   background-color: map-get($army-branding, gold);
-  //   border-radius: 50%;
-  //   content: "";
-  //   display: inline-block;
-  //   height: 34px;
-  //   margin-top: -17px;
-  //   position: absolute;
-  //   right: 8px;
-  //   top: 50%;
-  //   width: 34px;
-  // }
   // grey line
   &::before {
-    background-color: map-get($army-branding, grey30);
+    border-right: 1px solid map-get($army-branding, grey30);
+    background-color: #fff;
     content: '';
     display: block;
     height: 24px;
@@ -57,6 +45,14 @@
     right: 49px;
     top: 50%;
     width: 1px;
+    z-index: 2;
+  }
+  // ie9 hack to hide the default select dropdown arrow
+  &.ie9::before {
+    height: 100%;
+    margin-top: 0;
+    top: 0;
+    width: 20px;
   }
   // down arrow
   &::after {
