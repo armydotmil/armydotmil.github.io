@@ -55,7 +55,6 @@
 }
 
 //accent colors
-
 .black {
   color: map-get($army-branding, black);
 }
@@ -136,4 +135,12 @@
   background-color: map-get($army-branding, grey10);
 }
 
+//generic helper classes
+.hidden {
+    height: 0;
+    min-height: 0;
+    max-height: 0;
+    @include opacity(1);
+    @include transition(opacity .25s ease, height .25s ease, min-height .25s ease, max-height .25s ease);
+}
 
