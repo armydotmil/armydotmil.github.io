@@ -7,22 +7,31 @@
   
   &:last-child { margin: 0; }
   
-  div {
+  @include link-transition('> div');
+
+  > div {
     background: map-get($army-branding, gold);
     display: inline-block;
     margin: 0 auto;
     padding: 5px;
-    
-    @include link-transition('a');
+    position: relative;
+
+    > div {
+      bottom: 5px;
+      left: 5px;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
     
     &.black {
       background: map-get($army-branding, black);
       
-      a {
+      a, input[type="button"] {
         color: map-get($army-branding, white);
-        
-        span { background: map-get($army-branding, white); }
       }
+
+      span { background: map-get($army-branding, white); }
     }
     
     &.white {
@@ -31,8 +40,11 @@
     }
   }
   
-  a {
+  a, input[type="button"] {
+    background-color: transparent;
+    border-width: 0;
     display: block;
+    cursor: pointer;
     font: 600 .875em $font-family;
     padding: 11px 30px 9px;
     position: relative;
