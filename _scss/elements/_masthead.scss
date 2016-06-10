@@ -1,0 +1,5 @@
+.main-intro {
+  background: $secondary-background-color;
+  
+  .container h2 { color: map-get($army-branding, gold); }
+}
