@@ -3,6 +3,7 @@ $submenu-height: 56px;
 nav {
   background: map-get($army-branding, grey10);
   position: relative;
+  z-index: 1;
   
   ul {
     overflow-x: auto;

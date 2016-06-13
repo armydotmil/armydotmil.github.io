@@ -1,5 +1,7 @@
 .main-intro {
   background: $secondary-background-color;
+  position: relative;
+  z-index: 1;
   
   .container h2 { color: map-get($army-branding, gold); }
 }
