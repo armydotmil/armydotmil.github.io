@@ -35,9 +35,8 @@ blockquote {
     font: 600 1.5em/1.5em $font-family;
     margin: 20px 0;
     
-    span {
-      display: inline-block;
-      padding: 0 30px;
+    p {
+      margin: 0 30px;
       position: relative;
       z-index: 1;
     }
