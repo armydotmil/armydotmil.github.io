@@ -240,6 +240,10 @@ header {
             position: relative;
             text-decoration: none;
 
+            // iOS Safari had an issue where it would resize the text automatically.
+            // This should prevent it.
+            -webkit-text-size-adjust: none;
+
             span {
               background: transparent $social-button-sprite no-repeat scroll -305px 5px;
               height: 18px;
