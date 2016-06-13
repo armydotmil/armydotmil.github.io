@@ -9,7 +9,8 @@
   margin-bottom: 0;
   overflow: hidden;
   z-index: 1;
-
+  position: relative;
+  
   @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
     margin-bottom: 13.750em;
   }
@@ -22,11 +23,10 @@ footer {
   padding: 60px 0;
   position: fixed;
   width: 100%;
-  z-index: -1;
+  z-index: 0;
   
   @include breakpoints(mobile nav tablet) {
     position: relative;
-    z-index: 0;
   }
   
   section { margin: 0; }
