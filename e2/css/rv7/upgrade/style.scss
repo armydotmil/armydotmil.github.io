@@ -16,6 +16,10 @@
 // CSS
 // ----------------------------------------------------------------------
 
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
 body {
   padding-top: 0px;
 }
@@ -91,32 +95,33 @@ body {
   }
 }
 
-.navbar .navbar-container {
-  background-color: #000;
-  height: 60px;
-  border-bottom: 8px solid #fec325;
-}
+.navbar {
+  .navbar-container {
+    background-color: #000;
+    height: 60px;
+    border-bottom: 8px solid #fec325;
+  }
 
-.nav-army-star {
-  width: 52px;
-  padding: 8px 10px 12px 12px;
-  text-indent: -99999px;
-}
+  .nav-army-star {
+    padding: 8px 10px 12px 12px;
+    text-indent: -99999px;
+  }
 
-.nav-army-star span {
-  background: transparent url(/e2/images/rv7/army_star.png) no-repeat;
-  height: 65px;
-  width: 52px;
-  display: block;
-}
+  .nav-army-star span {
+    background: transparent url(/e2/images/rv7/army_star.png) no-repeat;
+    height: 65px;
+    width: 52px;
+    display: block;
+  }
 
-.nav-army-star {
-  background-color: #000;
-  border-radius: 10px;
-  display: block;
-  left: 50%;
-  margin: 0 0 0 -35px;
-  position: absolute;
-  z-index: 1;
-  line-height: 0;
+  .nav-army-star {
+    background-color: #000;
+    border-radius: 10px;
+    display: block;
+    left: 50%;
+    margin: 0 0 0 -35px;
+    position: absolute;
+    z-index: 1;
+    line-height: 0;
+  }
 }
