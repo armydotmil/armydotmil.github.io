@@ -3,5 +3,4 @@ _site
 node_modules
 _js/bundled/
 Gemfile.lock
-e2/images
 .DS_Store
