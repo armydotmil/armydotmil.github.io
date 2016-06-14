@@ -1,0 +1,32 @@
+.oldie-warning {
+    background-color: #f2d4df;
+    border: 1px solid #aaaaaa;
+    font-size: 1.3em;
+    line-height: normal;
+    margin: 0px 20px 50px;
+    padding: 30px 4% 30px 8%;
+    position: relative;
+
+    a {
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    p {
+        margin: 20px 0;
+
+        &.warning {
+            color: #ff0000;
+            font-family: "Times New Roman";
+            font-size: 4em;
+            font-weight: bold;
+            margin: 0;
+            left: 0;
+            line-height: 60px;
+            position: absolute;
+            text-align: center;
+            top: 50px;
+            width: 8%;
+        }
+    }
+}
