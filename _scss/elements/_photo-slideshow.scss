@@ -75,6 +75,8 @@
         .caption-author {
           font-style: italic;
         }
+        
+        a { color: $secondary-text-color; }
       }
     } // end figcaption
   }
