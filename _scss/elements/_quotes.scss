@@ -41,6 +41,15 @@ blockquote {
       z-index: 1;
     }
   }
+
+  h4 {
+    text-align: center;
+
+    &::after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
   
   p {
     font: 600 1.125em $font-family;
@@ -48,7 +57,10 @@ blockquote {
   }
   
   @include breakpoints(tablet nav mobile) {
-    blockquote { font: 600 1.3em $font-family; }
+    blockquote { 
+      font: 600 1.3em $font-family;
+      p { margin: 0 10px; }
+    }
     p { font: 600 1em $font-family; }
   }
 }
