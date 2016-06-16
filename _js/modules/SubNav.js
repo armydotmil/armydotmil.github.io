@@ -10,18 +10,18 @@ class SubNav {
      */
     constructor(el, callbackFn, options) {
         var _this = this,
-            i,
+            i, j,
             mDiv,
             urlArr = document.URL.split('#'),
             url = urlArr[0],
-            hash = window.location.hash,
+            hash = window.location.hash.toLowerCase(),
             hashItem,
             subnavCheck,
-            subnav = el; // document.getElementsByTagName('nav')[0]
+            subnav = el,
+            menuLink; // document.getElementsByTagName('nav')[0]
 
         this.defaults = this.initDefaults(options);
         this.callback = callbackFn;
-        if (hash !== '') hash = hash.substr(1); // remove '#'
 
         subnavCheck = subnav.getElementsByTagName('input');
         this.menuItems = subnav.querySelectorAll('ul a');
@@ -44,12 +44,15 @@ class SubNav {
 
         for (i = 0; i < this.menuItems.length; i++) {
             // each menu item has a corresponding div
-            // (menuItem.id = div.className)
-            mDiv = document.getElementsByClassName(this.menuItems[i].id)[0];
-            if (this.menuItems[i].id === hash && hash) hashItem = this.menuItems[i];
+            // (menuItem href = div.className)
+            menuLink = this.menuItems[i].getAttribute('href').toLowerCase();
+            mDiv = (menuLink === '') ?
+                [] :
+                document.getElementsByClassName(menuLink.substr(1));
+            if (menuLink === hash && hash) hashItem = this.menuItems[i];
             this.menuDivs.push(mDiv);
-            if (mDiv) {
-                Helper.addClass(mDiv, 'subnav-selectable');
+            for (j = 0; j < mDiv.length; j++) {
+                Helper.addClass(mDiv[j], 'subnav-selectable');
             }
 
             // click event for menu item
@@ -104,14 +107,19 @@ class SubNav {
         var i;
 
         if (this.currentSelect !== menuItem) {
-            if (typeof this.callback === 'function' && menuItem !== 'empty') this.callback(menuItem);
+            if (typeof this.callback === 'function' && menuItem !== 'empty') {
+                this.callback(menuItem);
+            }
             for (i = 0; i < this.menuItems.length; i++) {
                 if (this.menuItems[i] === menuItem) {
                     this.currentSelect = menuItem;
                     Helper.addClass(menuItem, 'active');
                     // only change the menu button and div, if a div exists
                     if (this.menuDivs[i]) {
-                        if (!this.defaults.persistentLabel) this.toggleLabel.innerHTML = this.menuItems[i].innerHTML;
+                        if (!this.defaults.persistentLabel) {
+                            this.toggleLabel.innerHTML =
+                                this.menuItems[i].innerHTML;
+                        }
                         this.showMenuDiv(this.menuDivs[i], true);
                     } else {
                         this.toggleLabel.innerHTML = this.toggleLabelDefault;
@@ -124,12 +132,14 @@ class SubNav {
         }
     }
 
-    showMenuDiv(elem, add) {
-        if (elem) {
+    showMenuDiv(divs, add) {
+        var i;
+
+        for (i = 0; i < divs.length; i++) {
             if (add === true) {
-                Helper.addClass(elem, 'subnav-selected');
+                Helper.addClass(divs[i], 'subnav-selected');
             } else {
-                Helper.removeClass(elem, 'subnav-selected');
+                Helper.removeClass(divs[i], 'subnav-selected');
             }
         }
     }

@@ -1,5 +1,5 @@
 .photo-slideshow {
-  margin: 40px 0;
+  margin: 0 0 40px;
   overflow: hidden;
   position: relative;
 
@@ -74,6 +74,11 @@
         
         .caption-author {
           font-style: italic;
+        }
+        
+        a {
+          color: $secondary-text-color;
+          font-weight: 400;
         }
       }
     } // end figcaption
