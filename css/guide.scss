@@ -322,7 +322,30 @@ section {
 #elements {
   .elem {
     margin: 0 0 50px;
-
+    
+    .social {
+      overflow: auto;
+      .social-button, .social-button-black {
+        float: left;
+        margin: 0 10px 10px 0;
+      
+        a {
+          padding: 12px 0;
+          width: 50px;
+          text-align: center;
+          display: block;
+        
+          span {
+            vertical-align: middle;
+          }
+        }
+      
+      }
+      .social-button {
+        background: map-get($army-branding, armyblack);
+      }
+    }
+    
     &:last-child {
       margin: 0;
     }
