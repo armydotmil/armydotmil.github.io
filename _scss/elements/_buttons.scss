@@ -196,41 +196,42 @@
 .social-button {
   span {
     display: inline-block;
-    height: 24px;
+    height: 25px;
     width: 24px;
   }
 
   &.facebook-button span {
-    background: transparent $social-button-sprite no-repeat scroll -55px 0;
+    background: transparent $social-button-sprite no-repeat scroll -55px -216px;
     margin: 0 3px;
     width: 12px;
   }
 
   &.twitter-button span {
-    background: transparent $social-button-sprite no-repeat scroll 0 0;
+    background: transparent $social-button-sprite no-repeat scroll 0 -216px;
     width: 29px;
   }
 
   &.googleplus-button span {
-    background: transparent $social-button-sprite no-repeat scroll -119px 0;
+    background: transparent $social-button-sprite no-repeat scroll -118px -216px;
     width: 36px;
   }
 
   &.pinterest-button span {
-    background: transparent $social-button-sprite no-repeat scroll -30px 0;
+    background: transparent $social-button-sprite no-repeat scroll -29px -216px;
+    width: 25px;
   }
 
   &.flickr-button span {
-    background: transparent $social-button-sprite no-repeat scroll -94px 0;
+    background: transparent $social-button-sprite no-repeat scroll -93px -216px;
+    width: 25px;
   }
 
   &.slideshare-button span {
-    background: transparent $social-button-sprite no-repeat scroll -181px 0;
-    width: 23px;
+    background: transparent $social-button-sprite no-repeat scroll -180px -216px;
   }
 
   &.youtube-button span {
-    background: transparent $social-button-sprite no-repeat scroll -155px 0;
+    background: transparent $social-button-sprite no-repeat scroll -155px -216px;
     width: 25px;
   }
 
@@ -240,50 +241,319 @@
   }
 
   &.instagram-button span {
-    background: transparent $social-button-sprite no-repeat scroll -69px 0;
+    background: transparent $social-button-sprite no-repeat scroll -68px -216px;
+    width: 25px;
   }
 
   &.vimeo-button span {
-    background: transparent $social-button-sprite no-repeat scroll -337px -26px;
+    background: transparent $social-button-sprite no-repeat scroll -205px -216px;
     width: 28px;
   }
 
   &.armylive-button span {
-    background: transparent $social-button-sprite no-repeat scroll -366px -26px;
-    width: 27px;
+    background: transparent $social-button-sprite no-repeat scroll -233px -216px;
+    width: 28px;
+  }
+  
+  &.linkedin-button span {
+    background: transparent $social-button-sprite no-repeat scroll -261px -216px;
+    width: 25px;
+  }
+  
+  &.ustream-button span {
+    background: transparent $social-button-sprite no-repeat scroll -286px -216px;
+    width: 25px;
+  }
+  
+  &.smugmug-button span {
+    background: transparent $social-button-sprite no-repeat scroll -311px -216px;
+    width: 22px;
+  }
+  
+  &.issuu-button span {
+    background: transparent $social-button-sprite no-repeat scroll -333px -216px;
+    width: 25px;
+  }
+  
+  &.soundcloud-button span {
+    background: transparent $social-button-sprite no-repeat scroll -358px -216px;
+    width: 56px;
+  }
+  
+  &.googlemaps-button span {
+    background: transparent $social-button-sprite no-repeat scroll -414px -216px;
+    width: 20px;
+  }
+  
+  &.blogger-button span {
+    background: transparent $social-button-sprite no-repeat scroll -434px -216px;
+    width: 25px;
+  }
+
+}
+
+.social-button-black {
+  
+  span {
+    display: inline-block;
+    height: 25px;
+    width: 24px;
+  }
+  
+  &.facebook-button span {
+    background: transparent $social-button-sprite no-repeat scroll -55px -166px;
+    margin: 0 3px;
+    width: 12px;
+  }
+  
+  &.twitter-button span {
+    background: transparent $social-button-sprite no-repeat scroll 0 -166px;
+    width: 29px;
+  }
+  
+  &.flickr-button span {
+    background: transparent $social-button-sprite no-repeat scroll -93px -166px;
+    width: 25px;
+  }
+  
+  &.youtube-button span {
+    background: transparent $social-button-sprite no-repeat scroll -155px -166px;
+    width: 25px;
+  }
+  
+  &.vimeo-button span {
+    background: transparent $social-button-sprite no-repeat scroll -205px -166px;
+    width: 28px;
+  }
+  
+  &.slideshare-button span {
+    background: transparent $social-button-sprite no-repeat scroll -180px -166px;
+    width: 24px;
+  }
+  
+  &.armylive-button span {
+    background: transparent $social-button-sprite no-repeat scroll -233px -166px;
+    width: 28px;
+  }
+  
+  &.instagram-button span {
+    background: transparent $social-button-sprite no-repeat scroll -68px -166px;
+    width: 25px;
+  }
+  
+  &.pinterest-button span {
+    background: transparent $social-button-sprite no-repeat scroll -29px -166px;
+    width: 25px;
+  }
+  
+  &.googleplus-button span {
+    background: transparent $social-button-sprite no-repeat scroll -118px -166px;
+    width: 36px;
+  }
+  
+  &.linkedin-button span {
+    background: transparent $social-button-sprite no-repeat scroll -261px -166px;
+    width: 25px;
+  }
+  
+  &.ustream-button span {
+    background: transparent $social-button-sprite no-repeat scroll -286px -166px;
+    width: 25px;
+  }
+  
+  &.smugmug-button span {
+    background: transparent $social-button-sprite no-repeat scroll -311px -166px;
+    width: 22px;
+  }
+  
+  &.issuu-button span {
+    background: transparent $social-button-sprite no-repeat scroll -333px -166px;
+    width: 25px;
+  }
+  
+  &.soundcloud-button span {
+    background: transparent $social-button-sprite no-repeat scroll -358px -166px;
+    width: 56px;
+  }
+  
+  &.googlemaps-button span {
+    background: transparent $social-button-sprite no-repeat scroll -414px -166px;
+    width: 20px;
+  }
+  
+  &.blogger-button span {
+    background: transparent $social-button-sprite no-repeat scroll -434px -166px;
+    width: 25px;
+  }
+    
+}
+
+.social-button, .social-button-black {
+  
+  &.facebook-button a:hover span {
+    background-position: -55px -191px;
+  }
+  
+  &.twitter-button a:hover span {
+    background-position: 0 -191px;
+  }
+  
+  &.flickr-button a:hover span {
+    background-position: -93px -191px;
+  }
+  
+  &.youtube-button a:hover span {
+    background-position: -155px -191px;
+  }
+  
+  &.vimeo-button a:hover span {
+    background-position: -205px -191px;
+  }
+  
+  &.slideshare-button a:hover span {
+    background-position: -180px -191px;
+  }
+  
+  &.armylive-button a:hover span {
+    background-position: -233px -191px;
+  }
+  
+  &.instagram-button a:hover span {
+    background-position: -68px -191px;
+  }
+  
+  &.pinterest-button a:hover span {
+    background-position: -29px -191px;
+  }
+  
+  &.googleplus-button a:hover span {
+    background-position: -118px -191px;
+  }
+  
+  &.linkedin-button a:hover span {
+    background-position: -261px -191px;
+  }
+  
+  &.ustream-button a:hover span {
+    background-position: -286px -191px;
+  }
+  
+  &.smugmug-button a:hover span {
+    background-position: -311px -191px;
+  }
+  
+  &.issuu-button a:hover span {
+    background-position: -333px -191px;
+  }
+  
+  &.soundcloud-button a:hover span {
+    background-position: -358px -191px;
+  }
+  
+  &.googlemaps-button a:hover span {
+    background-position: -414px -191px;
+  }
+  
+  &.blogger-button a:hover span {
+    background-position: -434px -191px;
+  }
+  
+}
+
+.social-button-gold-lg {
+  span {
+    height: 30px;
+    width: 31px;
+    display: inline-block;
+  }
+
+  &.facebook-button span {
+    background: transparent $social-button-sprite no-repeat scroll -496px -101px;
+    margin: 0 3px;
+    width: 17px;
+  }
+
+  &.twitter-button span {
+    background: transparent $social-button-sprite no-repeat scroll -512px -101px;
+    width: 37px;
+  }
+
+  &.googleplus-button span {
+    background: transparent $social-button-sprite no-repeat scroll -643px -101px;
+    width: 46px;
+  }
+
+  &.pinterest-button span {
+    background: transparent $social-button-sprite no-repeat scroll -581px -101px;
+  }
+
+  &.flickr-button span {
+    background: transparent $social-button-sprite no-repeat scroll -612px -101px;
+  }
+
+  &.slideshare-button span {
+    background: transparent $social-button-sprite no-repeat scroll -689px -101px;
+    width: 30px;
+  }
+
+  &.youtube-button span {
+    background: transparent $social-button-sprite no-repeat scroll -754px -101px;
+  }
+
+  &.instagram-button span {
+    background: transparent $social-button-sprite no-repeat scroll -550px -101px;
+  }
+
+  &.vimeo-button span {
+    background: transparent $social-button-sprite no-repeat scroll -785px -101px;
+    width: 35px;
+  }
+
+  &.armylive-button span {
+    background: transparent $social-button-sprite no-repeat scroll -719px -101px;
+    width: 34px;
   }
   
   &.facebook-button a:hover span {
-    background-position: -55px -25px;
+    background-position: -496px -132px;
   }
-
+  
   &.twitter-button a:hover span {
-    background-position: 0 -25px;
+    background-position: -512px -132px;
   }
-
-  &.googleplus-button a:hover span {
-    background-position: -119px -25px;
-  }
-
-  &.pinterest-button a:hover span {
-    background-position: -30px -25px;
-  }
-
+  
   &.flickr-button a:hover span {
-    background-position: -94px -25px;
+    background-position: -612px -132px;
   }
-
-  &.slideshare-button a:hover span {
-    background-position: -181px -25px;
-  }
-
+  
   &.youtube-button a:hover span {
-    background-position: -155px -25px;
+    background-position: -754px -132px;
+  }
+  
+  &.slideshare-button a:hover span {
+    background-position: -689px -132px;
+  }
+  
+  &.armylive-button a:hover span {
+    background-position: -719px -132px;
+  }
+  
+  &.instagram-button a:hover span {
+    background-position: -550px -132px;
+  }
+  
+  &.pinterest-button a:hover span {
+    background-position: -581px -132px;
+  }
+  
+  &.googleplus-button a:hover span {
+    background-position: -643px -132px;
+  }
+  
+  &.vimeo-button a:hover span {
+    background-position: -785px -132px;
   }
 
-  &.instagram-button a:hover span {
-    background-position: -69px -25px;
-  }
 }
 
 .social-button-sm {
