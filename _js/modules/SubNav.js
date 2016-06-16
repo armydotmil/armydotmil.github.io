@@ -49,6 +49,11 @@ class SubNav {
             mDiv = (menuLink === '') ?
                 [] :
                 document.getElementsByClassName(menuLink.substr(1));
+            // fallback to ID if href hash not found
+            if (mDiv.length === 0 && this.menuItems[i].id) {
+                mDiv = document.getElementsByClassName(this.menuItems[i].id);
+                menuLink = '#' + this.menuItems[i].id;
+            }
             if (menuLink === hash && hash) hashItem = this.menuItems[i];
             this.menuDivs.push(mDiv);
             for (j = 0; j < mDiv.length; j++) {
@@ -57,7 +62,7 @@ class SubNav {
 
             // click event for menu item
             this.menuItems[i].onclick = function(e) {
-                var hashval = this.href.substr(url.length);
+                var hashval = this.getAttribute('href');
                 if (_this.defaults.preventDefault) e.preventDefault();
                 if (hashval === '') hashval = url;
                 if (history.pushState) {
