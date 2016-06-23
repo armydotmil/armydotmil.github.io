@@ -204,23 +204,23 @@ header {
           ul {
             display: block;
             margin: 0 auto;
-            max-width: 200px;
+            max-width: 210px;
             padding: 18px 0 8px;
 
             // 8px + 15px padding on the anchor + 10px padding top on .quicklink-row makes it even
-            text-align: left;
+            text-align: center;
 
             li {
               display: inline-block;
 
               a {
                 line-height: 0;
-                padding: 15px 10px 15px 9px;
+                padding: 15px 10px;
                 width: 28px;
                 text-align: center;
 
                 &::after {
-                  background: none;
+                  display: none;
                 }
               }
             }
@@ -345,14 +345,17 @@ header {
           width: 33.3333%;
 
           &.social ul {
+            margin-left: -5px;
             max-width: 150px;
             padding: 0;
+            text-align: left;
 
             li {
-              padding: 0 9px 24px 0;
+              padding: 0;
+              margin: 0 9px 24px 0;
 
               a {
-                padding: 3px 10px 3px 0;
+                padding: 3px 5px;
               }
 
             }
