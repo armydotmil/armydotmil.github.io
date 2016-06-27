@@ -1,10 +1,25 @@
-// ----------------------------------------------------------------------
-// Dependencies: base/elements/_lists.scss
-// ----------------------------------------------------------------------
-//@import 'lists';
-
-
 .accordion {
+  @include bodytext-list();
+  @include row(true);
+
+  ul {
+    @include span(12);
+
+    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+      &[class*="column"] {
+        @include span(6);
+      }
+    }
+  }
+
+  ul li a {
+    display: block;
+    font-weight: 400;
+    position: relative;
+    vertical-align: top;
+    top: 2px;
+  }
+
   input[type=checkbox] { display: none; }
   
   > a {
@@ -21,25 +36,26 @@
   }
   
   > ul {
-    @include span(12);
-    font-size: 1em;
-    
     > li {
       border-top: 1px solid map-get($army-branding, grey30);
       list-style-type: none;
       margin: 0;
+      padding: 0;
       
       ul {
+        float: none;
         margin-top: 0;
         max-height: 0;
         overflow: hidden;
-        padding: 0 30px 0;
+        padding: 0 30px;
+        
         @include custom-transition(max-height .5s ease, padding .5s ease);
         
         &:nth-of-type(1) { margin-top: 0; }
         
         @include breakpoints(mobile) {
-          padding: 0 10px 0;
+          padding-left: 10px;
+          padding-right: 10px;
         }
       }
       
@@ -93,11 +109,7 @@
     
     > li input[type=checkbox]:checked ~ ul {
       max-height: 1000px;
-      padding: 0 30px 1.5em;
-      
-      @include breakpoints(mobile) {
-        padding: 0 10px 1.5em;
-      }
+      padding-bottom: 1.8em;
     }
     
     > li input[type=checkbox]:checked ~ label .plus-black { opacity: 0; }
