@@ -2,11 +2,21 @@
 .simple-list {
   @include bodytext-list();
   @include row(true);
+  margin-bottom: 1.625em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   > ul, > ol {
     @include span(12);
-    &:first-child {
+
+    &[class*="column"] {
       margin-bottom: 14px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
     }
 
     @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
