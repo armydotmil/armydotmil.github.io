@@ -27,7 +27,7 @@
 
       &:last-child { border-bottom: 1px solid map-get($army-branding, grey30); }
       
-      ul {
+      > ul {
         max-height: 0;
         overflow: hidden;
         padding: 0 30px;
