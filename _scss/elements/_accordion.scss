@@ -1,17 +1,6 @@
 .accordion {
   @include bodytext-list();
-  @include row(true);
-
-  ul {
-    @include span(12);
-
-    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-      &[class*="column"] {
-        @include span(6);
-      }
-    }
-  }
-
+  
   ul li a {
     display: block;
     font-weight: 400;
