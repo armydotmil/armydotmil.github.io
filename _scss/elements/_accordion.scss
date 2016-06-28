@@ -18,29 +18,21 @@
     &:hover { text-decoration: none; }
   }
   
-  // if more than one accordion, every other background is grey
-  &:nth-child(even) {
-    background-color: map-get($army-branding, grey10);
-    overflow: hidden;
-  }
-  
   > ul {
     > li {
       border-top: 1px solid map-get($army-branding, grey30);
       list-style-type: none;
       margin: 0;
       padding: 0;
+
+      &:last-child { border-bottom: 1px solid map-get($army-branding, grey30); }
       
       ul {
-        float: none;
-        margin-top: 0;
         max-height: 0;
         overflow: hidden;
         padding: 0 30px;
         
         @include custom-transition(max-height .5s ease, padding .5s ease);
-        
-        &:nth-of-type(1) { margin-top: 0; }
         
         @include breakpoints(mobile) {
           padding-left: 10px;
@@ -94,17 +86,13 @@
       }
     } // end li
     
-    > li:last-child { border-bottom: 1px solid map-get($army-branding, grey30); }
-    
+    // expanded state, based on checkbox status
     > li input[type=checkbox]:checked ~ ul {
       max-height: 1000px;
       padding-bottom: 1.8em;
     }
     
-    > li input[type=checkbox]:checked ~ label .plus-black { opacity: 0; }
-      
-    > li input[type=checkbox]:checked ~ label .minus-black { opacity: 1; }
-      
+    // spinning plus/minus symbol
     > li input[type=checkbox]:checked ~ label span {
       &:before {
         -ms-transform: rotate(90deg);
