@@ -41,7 +41,8 @@
 .container .inner-container {
   @for $i from 1 through 6 {
     > h#{$i}:first-child,
-    > :first-child > h#{$i}:first-child {
+    > *:first-child > h#{$i}:first-child,
+    > *:first-child > *:first-child > h#{$i}:first-child {
       margin-top: 0;
     }
   }
