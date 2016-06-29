@@ -65,9 +65,10 @@ class SubNav {
                 var hashval = this.getAttribute('href');
                 if (_this.defaults.preventDefault) e.preventDefault();
                 if (hashval === '') hashval = url;
-                if (history.pushState) {
+                if (history.pushState)
                     history.pushState(null, document.title, hashval);
-                }
+                if (typeof ga !== 'undefined')
+                    ga('send', 'event', 'subnav', 'click', hashval);
                 _this.setMenu(this);
                 if (subnavCheck) subnavCheck.checked = false;
             };
