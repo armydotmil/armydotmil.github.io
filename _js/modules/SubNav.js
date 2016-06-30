@@ -62,13 +62,14 @@ class SubNav {
 
             // click event for menu item
             this.menuItems[i].onclick = function(e) {
-                var hashval = this.getAttribute('href');
+                var hashval = this.getAttribute('href'),
+                    page = location.pathname + location.search + hashval;
                 if (_this.defaults.preventDefault) e.preventDefault();
                 if (hashval === '') hashval = url;
                 if (history.pushState)
                     history.pushState(null, document.title, hashval);
                 if (typeof ga !== 'undefined')
-                    ga('send', 'event', 'subnav', 'click', hashval);
+                    ga('send', 'event', 'subnav', 'click', page);
                 _this.setMenu(this);
                 if (subnavCheck) subnavCheck.checked = false;
             };
