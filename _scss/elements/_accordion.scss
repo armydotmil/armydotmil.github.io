@@ -2,10 +2,8 @@
   @include bodytext-list();
   
   ul li a {
-    display: block;
     font-weight: 400;
     position: relative;
-    vertical-align: top;
     top: 2px;
   }
 
