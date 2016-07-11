@@ -3,7 +3,7 @@
   @include box-sizing(content-box);
 }
 .playlist {
-  &.playlist-ready .playlist-player.custom-playlist .playlist-panel {
+  &.playlist-ready .playlist-player .playlist-panel {
     display: block;
   }
   .playlist-player {
@@ -12,126 +12,6 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-
-    &.custom-playlist {
-      .video-player,
-      .playlist-panel {
-        -webkit-transition: margin 500ms;
-        transition: margin 500ms;
-        margin-right: 0;
-      }
-      .playlist-panel {
-        display: none;
-        margin-right: 50px;
-      }
-      &.open-playlist {
-        .video-player {
-          margin-right: 350px;
-        }
-        .playlist-panel {
-          margin-right: 0px;
-        }
-      }
-      .playlist-toggle {
-        background-color: map-get($army-branding, black);
-        line-height: 0;
-        position: absolute;
-        right: -50px;
-        text-align: center;
-        z-index: 1;
-
-        a {
-          display: block;
-          padding: 12px 0;
-          width: 50px;
-        }
-
-        span {
-          background: transparent $social-button-sprite no-repeat scroll -305px -26px;
-          display: inline-block;
-          height: 22px;
-          width: 31px;
-        }
-        &:hover span {
-          background-position: -305px -51px;
-        }
-      }
-
-      @include breakpoints(mobile nav tablet) {
-        .video-player,
-        .playlist-panel {
-          margin: 0;
-          position: relative;
-          width: 100%;
-
-          .videos {
-            display: none;
-            max-height: 300px;
-            position: static;
-            border-top: 1px solid map-get($army-branding, gold);
-          }
-
-          .playlist-info h5 {
-            border-width: 0;
-
-            span:first-child {
-              border-radius: 0;
-              background-position: -181px -59px;
-              margin-top: 2px;
-              width: 11px;
-            }
-          }
-        }
-        &.open-playlist {
-          .playlist-panel {
-            .videos {
-              display: block;
-            }
-            .playlist-info h5 span {
-              background-position: -169px -59px;
-            }
-          }
-        }
-      }
-
-      @include breakpoints(lg_tablet) {
-        &.open-playlist {
-          .video-player {
-            margin-right: 300px;
-          }
-          .playlist-panel {
-            width: 300px;
-          }
-        }
-      }
-
-      @include breakpoints(mobile nav tablet lg_tablet) {
-        .playlist-panel {
-          .videos {
-            font-size: 15px;
-            .video-item {
-              td {
-                padding: 7px 0 7px 15px;
-
-                &.v-title {
-                  padding: 8px 15px 6px;
-                }
-              }
-
-              &:first-child {
-                td {
-                  padding-top: 14px;
-
-                  &.v-title {
-                    padding-top: 16px;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
     
     .yt-overlay, .playlist-overlay {
       background-color: #CCC;
@@ -147,7 +27,16 @@
     .playlist-overlay {
       display: none;
     }
-    
+
+    .video-player,
+    .playlist-panel {
+      margin: 0;
+      position: relative;
+      width: 100%;
+
+      @include custom-transition(margin 500ms);
+    }
+
     .video-player {
       position: relative;
       z-index: 1;
@@ -169,11 +58,7 @@
     
     .playlist-panel {
       background-color: map-get($army-branding, black);
-      height: 100%;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 350px;
+      display: none;
       
       .playlist-info {
         margin: 0 15px;
@@ -191,7 +76,6 @@
         }
         
         h5 {
-          border-bottom: 5px solid #ffcc00;
           display: table-cell;
           height: 56px;
           line-height: 22px;
@@ -199,29 +83,28 @@
           vertical-align: middle;
 
           span:first-child {
-            background: transparent $social-button-sprite no-repeat scroll -287px -3px;
+            background: transparent $social-button-sprite no-repeat scroll -181px -59px;
             height: 15px;
+            margin-top: 2px;
             position: absolute;
             right: 0;
-            width: 15px;
             top: 21px;
-            border-radius: 50%;
+            width: 11px;
           }
         }
       }
 
       .videos {
         border-bottom: 1px solid map-get($army-branding, black);
-        bottom: 0;
-        font: 600 16px $font-family;
-        left: 0;
+        border-top: 1px solid map-get($army-branding, gold);
+        display: none;
+        font: 600 15px $font-family;
         list-style: none;
+        max-height: 300px;
         overflow-x: hidden;
         overflow-y: auto;
-        position: absolute;
+        position: static;
         text-align: left;
-        top: 63px;
-        width: 100%;
         
         table {
           width: 100%;
@@ -232,10 +115,10 @@
         .video-item {
           td {
             vertical-align: middle;
-            padding: 15px 0 15px 15px;
+            padding: 7px 0 7px 15px;
 
             &.v-title {
-              padding: 16px 15px 14px;
+              padding: 8px 15px 6px;
             }
 
             // ensures that the first column collapses to fit content...
@@ -246,10 +129,10 @@
 
           &:first-child {
             td {
-              padding-top: 30px;
+              padding-top: 14px;
 
               &.v-title {
-                padding-top: 32px;
+                padding-top: 16px;
               }
             }
           }
@@ -312,5 +195,174 @@
         }
       }
     }
+
+    &.open-playlist {
+      .playlist-panel {
+        .videos {
+          display: block;
+        }
+        .playlist-info h5 span {
+          background-position: -169px -59px;
+        }
+      }
+    }
+
+    .playlist-toggle {
+      background-color: map-get($army-branding, black);
+      line-height: 0;
+      position: absolute;
+      right: -50px;
+      text-align: center;
+      z-index: 1;
+
+      a {
+        display: block;
+        padding: 12px 0;
+        width: 50px;
+      }
+
+      span {
+        background: transparent $social-button-sprite no-repeat scroll -305px -26px;
+        display: inline-block;
+        height: 22px;
+        width: 31px;
+      }
+      &:hover span {
+        background-position: -305px -51px;
+      }
+    }
+
+    // if it's narrow, then it maintains mobile styling (no need for other breakpoints)
+    &:not(.narrow) {
+      @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+        .video-player {
+          width: auto;
+        }
+        .playlist-panel {
+          height: 100%;
+          margin-right: 50px;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 350px;
+
+          .videos {
+            border-top-width: 0;
+            bottom: 0;
+            display: block;
+            left: 0;
+            max-height: none;
+            position: absolute;
+            top: 63px;
+            width: 100%;
+          }
+
+          .playlist-info h5 {
+            border-bottom: 5px solid #ffcc00;
+
+            span:first-child {
+              background-position: -287px -3px;
+              margin-top: 0;
+              width: 15px;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        &.open-playlist {
+          .playlist-panel .videos {
+            display: block;
+          }
+          .video-player {
+            margin-right: 350px;
+          }
+          .playlist-panel {
+            margin-right: 0px;
+          }
+        }
+      }
+
+      @include breakpoints(lg_tablet) {
+        &.open-playlist {
+          .video-player {
+            margin-right: 300px;
+          }
+          .playlist-panel {
+            width: 300px;
+          }
+        }
+      }
+
+      @include breakpoints(sm_desktop desktop large really_big) {
+        .playlist-panel .videos {
+          font-size: 16px;
+          .video-item {
+            td {
+              padding: 15px 0 15px 15px;
+
+              &.v-title {
+                padding: 16px 15px 14px;
+              }
+            }
+
+            &:first-child {
+              td {
+                padding-top: 30px;
+
+                &.v-title {
+                  padding-top: 32px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+
+
+
+
+
+
+
+    // @include breakpoints(mobile nav tablet) {
+    //   .video-player,
+    //   .playlist-panel {
+    //     margin: 0;
+    //     position: relative;
+    //     width: 100%;
+
+    //     .videos {
+    //       display: none;
+    //       max-height: 300px;
+    //       position: static;
+    //       border-top: 1px solid map-get($army-branding, gold);
+    //     }
+
+    //     .playlist-info h5 {
+    //       border-width: 0;
+
+    //       span:first-child {
+    //         border-radius: 0;
+    //         background-position: -181px -59px;
+    //         margin-top: 2px;
+    //         width: 11px;
+    //       }
+    //     }
+    //   }
+    //   &.open-playlist {
+    //     .playlist-panel {
+    //       .videos {
+    //         display: block;
+    //       }
+    //       .playlist-info h5 span {
+    //         background-position: -169px -59px;
+    //       }
+    //     }
+    //   }
+    // }
+
   }
 }
