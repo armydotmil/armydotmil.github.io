@@ -13,7 +13,7 @@ The styleguide is a collection of HTML, CSS, and JS snippets that are leveraged 
 
 3. Link to the CSS and JS files in your html template to include the styles and functionality.  
 
-    `<link rel="stylesheet" href="/path-to-file/style.css" type="text/css" media="screen">`
+    `<link rel="stylesheet" href="/path-to-file/style.css" type="text/css" media="screen">`  
     `<script src="/path-to-file/armydotmil.min.js" type="text/javascript" charset="utf-8"></script>`
 
 4. Use the HTML from the [examples](https://github.com/armydotmil/armydotmil.github.io/tree/master/_includes/elements) in your html template.
