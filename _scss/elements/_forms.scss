@@ -23,6 +23,15 @@ form {
     -webkit-appearance: radio;
   }
   
+  textarea { height: 100px; }
+  
+  input[type='submit'] { cursor: pointer; }
+  
+  select {
+    box-shadow: none;
+    outline: none;
+  }
+  
   .radio-label {
     display: inline-block;
     margin-right: 10px;
@@ -56,13 +65,9 @@ form {
     span { color: map-get($army-branding, gold); }
   }
   
-  textarea { height: 100px; }
-  
   .submit-form {
     padding: 20px 0 0;
     text-align: center;
-    
-    input[type='submit'] { cursor: pointer; }
   }
 }
 
