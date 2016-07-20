@@ -7,21 +7,7 @@ The styleguide is a collection of HTML, CSS, and JS snippets that are leveraged 
 
 1. Download the CSS from [style.css](https://armydotmil.github.io/css/style.css), JS from [armydotmil.min.js](https://armydotmil.github.io/e2/js/rv7/armydotmil/armydotmil.min.js). Download images and fonts from [here](https://github.com/armydotmil/armydotmil.github.io/archive/master.zip).
      
-2. Copy the [style.css](https://armydotmil.github.io/css/style.css) and [armydotmil.min.js](https://armydotmil.github.io/e2/js/rv7/armydotmil/armydotmil.min.js) files to a location that is accessible by your respective project. Copy the /e2 directory found in master.zip to the root of your project. The structure for images and fonts should resemble:
-
-   `/e2
-      |_/images
-            |_/rv7
-                |_mobile_redesign_sprite_icons_v2
-                |_army_star.png
-                |_etc...
-      |_/fonts
-            |_/rv7
-                 |_/overpass
-                           |_Overpass-Bold-Italic.eot
-                           |_Overpass-Bold-Italic.svg
-                           |_etc...`  
-                             
+2. Copy the [style.css](https://armydotmil.github.io/css/style.css) and [armydotmil.min.js](https://armydotmil.github.io/e2/js/rv7/armydotmil/armydotmil.min.js) files to a location that is accessible by your respective project. Copy the /e2 directory found in master.zip to the root of your project.
                            
     **NOTE: Do not hotlink the CSS and JS from github. These files can change at any moment. 
     If you prefer a different file structure you'll need to change the paths in the CSS files.**
