@@ -13,7 +13,7 @@ class PhotoSlideshow {
     }
 
     addClicks(ss) {
-        var captionBtn = ss.getElementsByTagName('figcaption'),
+        var captionBtn = ss.getElementsByClassName('image-caption-button'),
             moveBtn = ss.getElementsByClassName('ss-move'),
             photos = ss.getElementsByClassName('photo'),
             curPos = 0,
