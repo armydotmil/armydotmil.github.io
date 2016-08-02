@@ -1,0 +1,38 @@
+.parallax-image {
+  position: relative;
+  overflow: hidden;
+
+  .full-width-image {
+    font-size: 0;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    img {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    @include breakpoints(mobile nav tablet) {
+      height: auto;
+      max-height: 200px;
+
+      img {
+        position: relative;
+      }
+    }
+  }
+}
+
+// example height override...
+// .parallax-image .full-width-image {
+//   height: 400px;
+
+//   @include breakpoints(mobile nav tablet) {
+//     height: auto;
+//     max-height: 400px;
+//   }
+// }

@@ -64,6 +64,22 @@ module.exports = function(grunt) {
                 options: {
                     transform: ['babelify']
                 }
+            },
+            parallax: {
+                files: {
+                    '_js/bundled/parallax-images.js': '_js/parallax-images.js'
+                },
+                options: {
+                    transform: ['babelify']
+                }
+            },
+            banners: {
+                files: {
+                    '_js/bundled/page-banners.js': '_js/page-banners.js'
+                },
+                options: {
+                    transform: ['babelify']
+                }
             }
         },
         uglify: {
@@ -80,9 +96,16 @@ module.exports = function(grunt) {
                         '_js/bundled/navs.js',
                         '_js/bundled/slideshow.js',
                         '_js/bundled/playlist.js',
-                        '_js/bundled/selects.js'
+                        '_js/bundled/selects.js',
+                        '_js/bundled/parallax-images.js'
                     ],
                     dest: 'e2/js/rv7/armydotmil/<%= pkg.name %>.min.js'
+                },
+                {
+                    src: [
+                        '_js/bundled/page-banners.js'
+                    ],
+                    dest: 'e2/js/rv7/armydotmil/banners.min.js'
                 }]
             }
         }

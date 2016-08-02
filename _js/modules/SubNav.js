@@ -114,9 +114,6 @@ class SubNav {
         var i;
 
         if (this.currentSelect !== menuItem) {
-            if (typeof this.callback === 'function' && menuItem !== 'empty') {
-                this.callback(menuItem);
-            }
             for (i = 0; i < this.menuItems.length; i++) {
                 if (this.menuItems[i] === menuItem) {
                     this.currentSelect = menuItem;
@@ -135,6 +132,9 @@ class SubNav {
                     Helper.removeClass(this.menuItems[i], 'active');
                     this.showMenuDiv(this.menuDivs[i]);
                 }
+            }
+            if (typeof this.callback === 'function' && menuItem !== 'empty') {
+                this.callback(menuItem);
             }
         }
     }
