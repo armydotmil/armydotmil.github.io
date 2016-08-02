@@ -1,4 +1,4 @@
-/*global document,window, init, require, class*/
+/*global document, require*/
 /*jshint -W032 */ /* ignore unnecessary semicolon */
 var Helper = require('./Helper');
 
@@ -12,51 +12,60 @@ class PhotoSlideshow {
         }
     }
 
+    toggleCaption(el, ss) {
+        el.addEventListener(
+            'click',
+            function() {
+                Helper.toggleClass(ss, 'show-captions');
+            },
+            false
+        );
+    }
+
+    navigateSlideshow(el, p, ss) {
+        el.addEventListener(
+            'click',
+            function() {
+                Helper.removeClass(p[ss.curPos], 'cur-photo');
+
+                if (Helper.hasClass(this, 'ss-next')) {
+                    ss.curPos++;
+                } else {
+                    ss.curPos--;
+                }
+
+                if (ss.curPos < 0) ss.curPos = p.length - 1;
+                if (ss.curPos >= p.length) ss.curPos = 0;
+
+                Helper.addClass(p[ss.curPos], 'cur-photo');
+            },
+            false
+        );
+    }
+
     addClicks(ss) {
-        var captionBtn = ss.getElementsByTagName('figcaption'),
+        var captionBtn = ss.getElementsByClassName('image-caption-button'),
             moveBtn = ss.getElementsByClassName('ss-move'),
             photos = ss.getElementsByClassName('photo'),
-            curPos = 0,
             context = this,
-            i;
+            i, j;
 
-        // initialize the first image as current photo
-        if (photos.length > 0) Helper.addClass(photos[0], 'cur-photo');
+        /*
+         * save curPos value to slideshow object
+         * allows us to have multiple slideshows
+         * on one page if its ever necessary
+         */
+        ss.curPos = 0;
 
         // click event for caption toggle
         for (i = 0; i < captionBtn.length; i++) {
-            captionBtn[i].addEventListener(
-                'click',
-                function() {
-                    Helper.toggleClass(ss, 'show-captions');
-                }
-            );
+            context.toggleCaption(captionBtn[i], ss);
         }
 
         // click event for prev/next navigation
-        for (i = 0; i < moveBtn.length; i++) {
-            moveBtn[i].addEventListener(
-                'click',
-                function() {
-                    Helper.removeClass(photos[curPos], 'cur-photo');
-                    if (Helper.hasClass(this, 'ss-next')) {
-                        curPos = curPos + 1;
-                    } else {
-                        curPos = curPos - 1;
-                    }
-                    curPos = context.navigateSlideshow(photos, curPos);
-                }
-            );
+        for (j = 0; j < moveBtn.length; j++) {
+            context.navigateSlideshow(moveBtn[j], photos, ss);
         }
-    }
-
-    navigateSlideshow(photos, toPos) {
-        if (toPos < 0) toPos = photos.length - 1;
-        if (toPos >= photos.length) toPos = 0;
-
-        Helper.addClass(photos[toPos], 'cur-photo');
-
-        return toPos;
     }
 };
 

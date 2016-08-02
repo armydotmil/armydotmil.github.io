@@ -1,0 +1,11 @@
+// ----------------------------------------------------------------------
+
+  // Word wrap - breaks up long URLs so they don't overflow the container
+
+// ----------------------------------------------------------------------
+
+@mixin word-wrap() {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}

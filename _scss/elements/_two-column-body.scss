@@ -49,6 +49,8 @@
 @include breakpoints(sm_desktop desktop large really_big) {
   .two-column-body {
     display: table;
+    table-layout: fixed;
+    width: 100%;
     > div {
       display: none;
       vertical-align: top;

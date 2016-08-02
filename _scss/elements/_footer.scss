@@ -46,6 +46,7 @@ footer {
       a {
         color: map-get($army-branding, white);
         display: inline-block;
+        line-height: 2.5;
         position: relative;
         text-decoration: none;
       
@@ -59,6 +60,18 @@ footer {
           width: 0;
         
           @include custom-transition(width .25s ease);
+        }
+      }
+    }
+  }
+
+  @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+    .footer-bottom {
+      ul {
+        li {
+          a {
+            line-height: normal;
+          }
         }
       }
     }

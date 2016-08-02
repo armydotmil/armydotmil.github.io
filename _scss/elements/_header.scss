@@ -91,8 +91,8 @@ header {
   }
 
   .search-form-container {
-    line-height: 58px;
-    padding: 15px 55px 15px 20px;
+    line-height: 82px;
+    padding: 8px 55px 0 20px;
     position: relative;
 
     div {
@@ -103,18 +103,20 @@ header {
     input.usagov-search-autocomplete {
       border: 0 none;
       color: map-get($army-branding, grey70);
-      font: 15px $font-family;
-      line-height: 30px;
-      padding: 0px 0px 0px 10px;
+      font: 400 .938em/2 $font-family;
+      height: 30px;
+      outline: none;
+      padding: 0 10px;
+      width: 100%;
 
-      @include custom-calc(width, #{"100% - 10px"});
+      @include box-sizing(border-box);
     }
 
     .search-submit-button {
       padding: 0;
       position: absolute;
       right: 19px;
-      top: 33px;
+      top: 38px;
     }
   }
 
