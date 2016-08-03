@@ -137,14 +137,14 @@
       }
     }
 
-    @include breakpoints(tablet nav) {
+    @include breakpoints(tablet) {
       .inner-container {
         h1 { font-size: 2.25em; }
         h2 { font-size: 1.25em; }
       }
     }
 
-    @include breakpoints(mobile) {
+    @include breakpoints(mobile nav) {
 
       .inner-container {
         h1 { font-size: 1.875em; }
@@ -152,7 +152,19 @@
       }
     }
 
-    @include breakpoints(mobile nav) {
+    @include breakpoints(nav) {
+      .logo {
+        width: 130px;
+        bottom: 15px;
+        right: 15px;
+        top: 15px;
+
+        img {
+          max-height: 126px;
+        }
+      }
+    }
+    @include breakpoints(mobile) {
       .logo {
         height: auto;
         width: auto;
@@ -212,7 +224,7 @@
       width: 100%;
     }
 
-    @include breakpoints(mobile nav) {
+    @include breakpoints(mobile) {
       max-height: 275px;
       position: relative;
 
@@ -226,18 +238,21 @@
     .inner-container .left-container {
       padding-right: 250px;
 
-      @include breakpoints(mobile nav) {
+      @include breakpoints(nav) {
+        padding-right: 140px;
+      }
+      @include breakpoints(mobile) {
         padding-right: 0;
       }
     }
   }
 
   &.image-gradient {
-    @include breakpoints(tablet lg_tablet) {
+    @include breakpoints(nav tablet lg_tablet) {
       background-color: #000;
     }
     .full-width-image {
-      @include breakpoints(tablet) {
+      @include breakpoints(nav tablet) {
         height: auto;
 
         img {
@@ -260,7 +275,7 @@
         background: transparent; /* For browsers that do not support gradients */
         @include custom-linear-gradient(to left, transparent 40%, #000);
 
-        @include breakpoints(mobile nav) {
+        @include breakpoints(mobile) {
           display: none;
         }
       }
@@ -270,14 +285,14 @@
         @include custom-linear-gradient(to bottom, transparent 75%, #000);
         display: none;
 
-        @include breakpoints(tablet lg_tablet) {
+        @include breakpoints(nav tablet lg_tablet) {
           display: block;
         }
       }
     }
   }
 
-  @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+  @include breakpoints(nav tablet lg_tablet sm_desktop desktop large really_big) {
     &.with-background,
     &.parallax-image {
       .max-width-container {

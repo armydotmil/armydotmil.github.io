@@ -7,6 +7,10 @@
 section {
   .btn {
     text-align: left;
+
+    @include breakpoints(mobile nav tablet) {
+      text-align: center;
+    }
   }
 
   .page-banner.leader-banner {
@@ -61,7 +65,7 @@ section {
       height: 275px;
     }
 
-    @include breakpoints(mobile) {
+    @include breakpoints(mobile nav) {
       .full-width-image {
         width: 150%;
         left: -25%;
