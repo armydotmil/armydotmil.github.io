@@ -7,19 +7,21 @@ var Helper = require('./Helper');
 class FullWidthParallax {
     /*
      * Creates FullWidthParallax object
-     * @param {obj} elem - 
+     * @param {obj} elem - parallax container object
      */
     constructor(elem, topMargin) {
-        var context = this;
+        var context = this,
+            fwi;
 
-        this.imgCont = elem.getElementsByClassName('full-width-image');
-        this.img = (this.imgCont.length) ? this.imgCont[0].getElementsByTagName('img') : [];
+        this.imgCont = elem;
+        fwi = elem.getElementsByClassName('full-width-image');
+        this.img = (fwi.length) ? fwi[0].getElementsByTagName('img') : [];
         this.topVal = 0;
         this.longPage = false;
         this.isBanner = Helper.hasClass(elem, 'page-banner');
         if (this.img.length) {
             // they both exist, so set them as first in array...
-            this.imgCont = this.imgCont[0];
+            // this.imgCont = this.imgCont[0];
             this.img = this.img[0];
             this.scrollPos = -1;
             this.topMargin = (topMargin) ? topMargin : 0;
@@ -58,7 +60,8 @@ class FullWidthParallax {
             absTop = Math.round((this.topMargin - maxPos) / 2);
             // lowest value for top of image
             minTop = this.contH - this.imgH;
-            // image does not stay within bounds, with standard calculation (taller viewport)
+            // image does not stay within bounds, with standard
+            // calculation (taller viewport)
             this.longPage = (absTop < minTop);
             this.runOnScroll();
         // if mobile size reset image to top
@@ -77,15 +80,25 @@ class FullWidthParallax {
             imgContPos = this.topMargin - viewPos.top,
             imgTop = Math.round(imgContPos / 2),
             minView = this.winH - viewPos.top,
+            pagePos,
+            minPos,
+            minTop = this.contH - this.imgH,
             percent;
 
         // do nothing if it's a smaller window or not in view
         if (this.winW > 769 && minView > 0 && imgContPos <= this.contH) {
-            if (this.longPage && !this.isBanner){
-                // percent container has moved within viewport (between top margin and bottom of screen)
-                percent = (viewPos.top - this.topMargin) * 100 / (this.winH - this.contH - this.topMargin);
-                // apply percent to top position of image (based on min top value)
-                imgTop =  percent * (this.contH - this.imgH) / 100;
+            if (this.longPage && !this.isBanner) {
+                // percent container has moved within viewport
+                // (between top margin and bottom of screen)
+                percent = (viewPos.top - this.topMargin) * 100;
+                percent = percent / (this.winH - this.contH - this.topMargin);
+                // apply percent to top position of image
+                // (based on min top value)
+                imgTop = percent * (this.contH - this.imgH) / 100;
+            } else if (this.isBanner) {
+                pagePos = document.documentElement.scrollTop;
+                minPos = this.topMargin - (pagePos + viewPos.top);
+                imgTop -= Math.round(minPos / 2);
             }
             this.img.style.top = imgTop + 'px';
             this.topVal = imgTop;

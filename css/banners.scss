@@ -24,52 +24,45 @@ section {
         color: map-get($army-branding, gold);
         margin-bottom: 15px;
       }
-      .left-container {
-        vertical-align: bottom;
-      }
     }
 
     @include breakpoints(mobile nav) {
       .container .inner-container h2 { margin-bottom: 0; }
     }
 
-    @include breakpoints(tablet lg_tablet sm_desktop desktop large) {
-      .container .inner-container .left-container {
-        height: 326px;
-      }
-    }
+    @include breakpoints(mobile) {
+      padding-top: 0;
 
-    // 1600
-    @include breakpoints(really_big) {
-      .container .inner-container .left-container {
-        height: 430px;
-      }
-    }
-    
-    @media (min-width: 2000px) {
-      .container .inner-container .left-container {
-        height: 530px;
-      }
-    }
-  }
-
-  .page-banner.news-wide {
-    padding-top: 100px;
-
-    .full-width-image {
-      position: absolute;
-      max-height: none;
-    }
-
-    .left-container {
-      height: 275px;
-    }
-
-    @include breakpoints(mobile nav) {
       .full-width-image {
-        width: 150%;
-        left: -25%;
+        display: block;
+        position: relative;
+        max-height: 200px;
+
+        img {
+          left: 0;
+          position: relative;
+          right: 0;
+          width: 100%;
+        }
       }
     }
   }
+
+  // .page-banner.news-wide {
+  //   .full-width-image {
+  //     position: absolute;
+  //     max-height: none;
+  //   }
+
+  //   @include breakpoints(mobile) {
+  //     padding-top: 50px;
+
+  //     .full-width-image {
+  //       left: -1000px;
+  //       position: absolute;
+  //       right: -1000px;
+  //       width: auto;
+  //     }
+  //   }
+  // }
 }

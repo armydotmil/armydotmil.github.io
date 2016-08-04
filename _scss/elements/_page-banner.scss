@@ -116,10 +116,6 @@
         top: 20px;
         bottom: 20px;
       }
-
-      .inner-container .left-container {
-        height: 125px;
-      }
     }
     
     // 700 - 768
@@ -130,10 +126,6 @@
         top: 20px;
         bottom: 20px;
         right: 15px;
-      }
-
-      .inner-container .left-container {
-        height: 95px;
       }
     }
 
@@ -184,7 +176,7 @@
         width: auto;
 
         .left-container {
-          display: block;
+          // display: block;
           text-align: center;
           height: auto;
         }
@@ -209,28 +201,21 @@
     }
   }
 
-  &.parallax-image .full-width-image,
   .full-width-image {
-    font-size: 0;
-    height: 100%;
-    left: 0;
-    max-height: none;
     overflow: hidden;
     position: absolute;
-    top: 0;
     width: 100%;
+    height: 100%;
+    top: 0;
 
     img {
-      width: 100%;
-    }
-
-    @include breakpoints(mobile) {
-      max-height: 275px;
-      position: relative;
-
-      img {
-        position: relative;
-      }
+      left: -1000px;
+      margin: 0 auto;
+      min-width: 100%;
+      min-height: 100%;
+      position: absolute;
+      right: -1000px;
+      top: 0;
     }
   }
 
@@ -252,14 +237,6 @@
       background-color: #000;
     }
     .full-width-image {
-      @include breakpoints(nav tablet) {
-        height: auto;
-
-        img {
-          position: relative;
-        }
-      }
-
       &::before,
       &::after {
         content: "";
@@ -280,29 +257,59 @@
         }
       }
       /* bottom gradient */
-      &::after {
-        background: transparent; /* For browsers that do not support gradients */
-        @include custom-linear-gradient(to bottom, transparent 75%, #000);
-        display: none;
+      // &::after {
+      //   background: transparent; /* For browsers that do not support gradients */
+      //   @include custom-linear-gradient(to bottom, transparent 75%, #000);
+      //   display: none;
 
-        @include breakpoints(nav tablet lg_tablet) {
-          display: block;
-        }
-      }
+      //   @include breakpoints(nav tablet lg_tablet) {
+      //     display: block;
+      //   }
+      // }
     }
   }
 
-  @include breakpoints(nav tablet lg_tablet sm_desktop desktop large really_big) {
-    &.with-background,
-    &.parallax-image {
-      .max-width-container {
-        float: left;
+  &.with-background,
+  &.parallax-image {
+    padding-top: 90px;
+
+    .max-width-container {
+      float: left;
+    }
+
+    .container .inner-container {
+      h2 {
+        text-shadow: 1px 1px 3px map-get($army-branding, armyblack);
       }
 
+      .left-container {
+        height: 200px;
+      }
+    }
+
+    @include breakpoints(really_big) {
+      padding-top: 190px;
+    }
+    @media (min-width: 2000px) {
+      padding-top: 290px;
+    }
+
+    @include breakpoints(mobile nav) {
+      padding-top: 50px;
+
+      .container .inner-container .left-container {
+        height: 150px;
+      }
+    }
+
+    @include breakpoints(mobile) {
+      .max-width-container {
+        float: none;
+        display: inline-block;
+      }
       .container .inner-container {
-        h2 {
-          text-shadow: 1px 1px 3px map-get($army-branding, armyblack);
-        }
+        display: table;
+        margin-bottom: 20px;
       }
     }
   }

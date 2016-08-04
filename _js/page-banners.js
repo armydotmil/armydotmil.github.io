@@ -7,9 +7,9 @@ var ParallaxImg = require('./modules/ParallaxImage'),
 (function() {
     'use strict';
     var nav = document.getElementsByTagName('nav')[0],
-        para;
-    // var header = document.getElementsByClassName('navbar'),
-    //     headerHeight = (header.length) ? header[0].clientHeight : 0;
+        para,
+        header = document.getElementsByClassName('navbar'),
+        headerHeight = (header.length) ? header[0].clientHeight : 0;
     new Header('menu');
     new Header('search');
     Header.addSubmenu();
