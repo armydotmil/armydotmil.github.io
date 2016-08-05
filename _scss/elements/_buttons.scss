@@ -138,10 +138,11 @@
 .view-more-arrow-bg {
   background: transparent $social-button-sprite no-repeat scroll -427px 0;
   display: inline-block;
-  width: 14px;
   height: 12px;
-  vertical-align: middle;
+  margin-bottom: 4px;
   margin-left: 5px;
+  vertical-align: middle;
+  width: 14px;
 }
 
 .view-more-arrow-sm {

@@ -1,0 +1,131 @@
+
+
+.announcements {
+  max-width: 446px;
+  margin: 0 auto;
+
+  .top-headline {
+    a {
+      display: block;
+      position: relative;
+
+      @include link-transition('.center-block');
+    }
+
+    .image {
+      @include row();
+      background: map-get($army-branding, black);
+      height: 0;
+      padding: 66.25% 0 0;
+      position: relative;
+      z-index: 0;
+
+      img {
+        bottom: -2000px;
+        margin: auto;
+        position: absolute;
+        top: -2000px;
+        width: 100%;
+
+        @include grayscale();
+      }
+    }
+
+    .center-block {
+      height: 100%;
+      padding: 15px;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 100%;
+
+      .inner-block {
+        border: 1px solid map-get($army-branding, gold);
+        height: 100%;
+        position: relative;
+
+        span { background: map-get($army-branding, gold); }
+      }
+
+      .mid {
+        left: 20px;
+        margin: 0;
+        position: absolute;
+        right: 20px;
+        text-align: center;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+           -moz-transform: translateY(-50%);
+                transform: translateY(-50%);
+
+        h5 {
+          color: map-get($army-branding, gold);
+          text-align: center;
+        }
+
+        p { color: map-get($army-branding, white); }
+      }
+    }
+  } // end .top-headline
+
+  .inner {
+    background: $light-gray-color;
+    padding: 30px;
+  }
+
+  ul {
+    margin: 0 0 30px;
+
+    li {
+      @include display-table();
+      margin: 0 0 15px;
+
+      a,
+      span { display: table-cell; }
+
+      a {
+        color: map-get($army-branding, black);
+        font: 600 1em/1.3 $font-family;
+      }
+
+      span {
+        color: map-get($army-branding, black);
+        font: 600 .875em/1.3 $font-family;
+        text-transform: uppercase;
+        width: 33%;
+      }
+    }
+  } // end ul
+
+  .more {
+    text-transform: uppercase;
+
+    &:hover { text-decoration: none; }
+  }
+
+  @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+    max-width: none;
+    
+    .top-headline {
+      .center-block .inner-block { border: none; }
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+
+    ul li {
+      a {
+        font: 600 1.125em/1.4 $font-family;
+      }
+
+      span {
+        font: 600 1em/1.4 $font-family;
+      }
+    }
+  }
+}
+
+
+
