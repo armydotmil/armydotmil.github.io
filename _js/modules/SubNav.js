@@ -75,6 +75,10 @@ class SubNav {
             };
         }
 
+        window.addEventListener("hashchange", function(e) {
+            console.log(location.hash);
+        }, false);
+
         if (this.defaults.initializeEmpty) {
             this.setMenu('empty');
         } else if (hashItem) {
