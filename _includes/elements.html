@@ -27,7 +27,7 @@
         </div>
     </div>
     {% include elements/nav-mobile-dropdown.html dropdown="true" %}
-    <div class="container no-bottom">
+    <div class="container">
         <div class="inner-container">
             <div class="elem">
                 <h4>LINKS LIST</h4>
@@ -53,6 +53,11 @@
                 <h4>NEWS</h4>
                 {% include elements/news.html %}
             </div>
+        </div>
+        {% include elements/more-news.html %}
+    </div>
+    <div class="container no-bottom">
+        <div class="inner-container">
             <div class="elem">
                 <h4>TRANSCRIPTS/PRESS RELEASES</h4>
                 {% include elements/headlines.html %}
