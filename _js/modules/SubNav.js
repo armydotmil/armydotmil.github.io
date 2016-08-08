@@ -17,17 +17,20 @@ class SubNav {
             hash = window.location.hash.toLowerCase(),
             hashItem,
             subnavCheck,
-            subnav = el,
-            menuLink; // document.getElementsByTagName('nav')[0]
+            menuLink,
+            mItems;
 
         this.defaults = this.initDefaults(options);
         this.callback = callbackFn;
+        this.subnav = el;
 
-        subnavCheck = subnav.getElementsByTagName('input');
-        this.menuItems = subnav.querySelectorAll('ul a');
-        this.menuDivs = [];
+        subnavCheck = this.subnav.getElementsByTagName('input');
+        mItems = this.subnav.querySelectorAll('ul a');
+        this.menuItems = {};
+        this.menuDivs = {};
+        this.firstHash = '';
         this.currentSelect = '';
-        this.toggleLabel = subnav.getElementsByTagName('label');
+        this.toggleLabel = this.subnav.getElementsByTagName('label');
 
         if (this.toggleLabel.length > 0) {
             this.toggleLabel = this.toggleLabel[0];
@@ -42,41 +45,49 @@ class SubNav {
             subnavCheck.checked = false;
         }
 
-        for (i = 0; i < this.menuItems.length; i++) {
+        for (i = 0; i < mItems.length; i++) {
             // each menu item has a corresponding div
             // (menuItem href = div.className)
-            menuLink = this.menuItems[i].getAttribute('href').toLowerCase();
+            menuLink = mItems[i].getAttribute('href').toLowerCase();
             mDiv = (menuLink === '') ?
                 [] :
                 document.getElementsByClassName(menuLink.substr(1));
             // fallback to ID if href hash not found
-            if (mDiv.length === 0 && this.menuItems[i].id) {
-                mDiv = document.getElementsByClassName(this.menuItems[i].id);
-                menuLink = '#' + this.menuItems[i].id;
+            if (mDiv.length === 0 && mItems[i].getAttribute('data-id')) {
+                mDiv = document.getElementsByClassName(mItems[i].getAttribute('data-id'));
+                menuLink = '#' + mItems[i].getAttribute('data-id');
+            } else if (mDiv.length === 0 && mItems[i].id) {
+                mDiv = document.getElementsByClassName(mItems[i].id);
+                menuLink = '#' + mItems[i].id;
             }
-            if (menuLink === hash && hash) hashItem = this.menuItems[i];
-            this.menuDivs.push(mDiv);
+            if (menuLink === hash && hash) hashItem = menuLink;
+            if (i === 0) this.firstHash = menuLink;
+            this.menuItems[menuLink] = mItems[i];
+            this.menuDivs[menuLink] = mDiv;
             for (j = 0; j < mDiv.length; j++) {
                 Helper.addClass(mDiv[j], 'subnav-selectable');
             }
 
             // click event for menu item
-            this.menuItems[i].onclick = function(e) {
+            mItems[i].onclick = function(e) {
                 var hashval = this.getAttribute('href'),
-                    page = location.pathname + location.search + hashval;
+                    page = location.pathname + location.search + hashval,
+                    linkid = (this.getAttribute('data-id')) ? this.getAttribute('data-id') : this.id,
+                    hashLink = (hashval === '') ? '#' + linkid : hashval;
                 if (_this.defaults.preventDefault) e.preventDefault();
                 if (hashval === '') hashval = url;
                 if (history.pushState)
                     history.pushState(null, document.title, hashval);
                 if (typeof ga !== 'undefined')
                     ga('send', 'event', 'subnav', 'click', page);
-                _this.setMenu(this);
+                _this.setMenu(hashLink);
                 if (subnavCheck) subnavCheck.checked = false;
             };
         }
 
         window.addEventListener("hashchange", function(e) {
-            console.log(location.hash);
+            _this.setMenu(location.hash);
+            if (subnavCheck) subnavCheck.checked = false;
         }, false);
 
         if (this.defaults.initializeEmpty) {
@@ -85,7 +96,7 @@ class SubNav {
             this.setMenu(hashItem);
         } else {
             // initialize the first menuItem as selected
-            this.setMenu(this.menuItems[0]);
+            this.setMenu(this.firstHash);
         }
     }
 
@@ -114,32 +125,41 @@ class SubNav {
      * set and unset selected menu items
      * @param {object} menu item DOM element
      */
-    setMenu(menuItem) {
-        var i;
+    setMenu(hashIndex) {
+        var i,
+            active,
+            selected;
 
-        if (this.currentSelect !== menuItem) {
-            for (i = 0; i < this.menuItems.length; i++) {
-                if (this.menuItems[i] === menuItem) {
-                    this.currentSelect = menuItem;
-                    Helper.addClass(menuItem, 'active');
-                    // only change the menu button and div, if a div exists
-                    if (this.menuDivs[i]) {
-                        if (!this.defaults.persistentLabel) {
-                            this.toggleLabel.innerHTML =
-                                this.menuItems[i].innerHTML;
-                        }
-                        this.showMenuDiv(this.menuDivs[i], true);
-                    } else {
-                        this.toggleLabel.innerHTML = this.toggleLabelDefault;
+        if ((this.menuItems[hashIndex] || hashIndex === 'empty') && this.currentSelect !== hashIndex) {
+            active = this.subnav.getElementsByClassName('active');
+            selected = document.getElementsByClassName('subnav-selected');
+
+            for (i = 0; i < active.length; i++) {
+                Helper.removeClass(active[i], 'active');
+            }
+            for (i = 0; i < selected.length; i++) {
+                Helper.removeClass(selected[i], 'subnav-selected');
+            }
+
+            if (hashIndex !== 'empty') {
+                Helper.addClass(this.menuItems[hashIndex], 'active');
+                // only change the menu button and div, if a div exists
+                if (this.menuDivs[hashIndex]) {
+                    if (!this.defaults.persistentLabel) {
+                        this.toggleLabel.innerHTML =
+                            this.menuItems[hashIndex].innerHTML;
                     }
+                    this.showMenuDiv(this.menuDivs[hashIndex], true);
                 } else {
-                    Helper.removeClass(this.menuItems[i], 'active');
-                    this.showMenuDiv(this.menuDivs[i]);
+                    this.toggleLabel.innerHTML = this.toggleLabelDefault;
+                }
+
+                if (typeof this.callback === 'function') {
+                    this.callback(this.menuItems[hashIndex]);
                 }
             }
-            if (typeof this.callback === 'function' && menuItem !== 'empty') {
-                this.callback(menuItem);
-            }
+
+            this.currentSelect = hashIndex;
         }
     }
 
