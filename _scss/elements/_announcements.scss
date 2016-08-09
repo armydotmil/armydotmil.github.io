@@ -40,6 +40,7 @@
             @include custom-transition(transform .25s ease);
           }
 
+          &:focus:after,
           &:hover:after {
             @include transform(translateX, 0);
           }

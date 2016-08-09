@@ -29,6 +29,7 @@
           @include custom-transition(transform .25s ease);
         }
 
+        &:focus,
         &:hover {
           text-decoration: none;
 
@@ -57,8 +58,8 @@
 
       .title {
         color: map-get($army-branding, grey70);
-        font: 400 1em/1.3em $font-family;
-        padding: 20px 15px 10px;
+        font: 600 1em/1.3em $font-family;
+        padding: 20px 15px 5px;
       }
 
       .date,
@@ -104,7 +105,7 @@
 
       .date { font: 700 .875em $font-family; }
 
-      .title { font: 400 1.125em/1.4em $font-family; }
+      .title { font: 600 1.125em/1.4em $font-family; }
     }
 
     &.half {
