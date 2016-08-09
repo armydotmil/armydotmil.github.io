@@ -290,6 +290,11 @@
     background: transparent $social-button-sprite no-repeat scroll -434px -216px;
     width: 25px;
   }
+  
+  &.snapchat-button span {
+    background: transparent $social-button-sprite no-repeat scroll -459px -216px;
+    width: 25px;
+  }
 
 }
 
@@ -386,7 +391,12 @@
     background: transparent $social-button-sprite no-repeat scroll -434px -166px;
     width: 25px;
   }
-    
+  
+  &.snapchat-button span {
+    background: transparent $social-button-sprite no-repeat scroll -459px -166px;
+    width: 25px;
+  }
+
 }
 
 .social-button, .social-button-black {
@@ -459,6 +469,9 @@
     background-position: -434px -191px;
   }
   
+  &.snapchat-button a:hover span {
+    background-position: -459px -191px;
+  }
 }
 
 .social-button-gold-lg {
