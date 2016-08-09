@@ -4,7 +4,7 @@
 
 // ----------------------------------------------------------------------
 
-// example: @include transform("origin", 0, 0);
+// example: @include transform(translate, 0, 0);
 
 @mixin transform($type, $values...) {
   $n: length($values);
@@ -13,16 +13,27 @@
   $originVal: ();
 
   @while $i <= $n {
-    $itemVal: (nth($values, $i));
+    $val: nth($values, $i);
     @if $type == "rotate" or $type == "rotateY" or $type == "rotateX" {
-      $originVal: append($originVal, $itemVal + deg);
+      $originVal: append($originVal, $val + deg);
     } @else {
-      $originVal: append($originVal, $itemVal + px);
+      $originVal: append($originVal, $val);
     }
 
     $i: $i + 1;
   }
-  -webkit-transform: #{$type}($originVal);
-     -moz-transform: #{$type}($originVal);
-          transform: #{$type}($originVal);
+
+  $transform: unquote("#{$type}(#{$originVal})");
+
+  -webkit-transform: $transform;
+     -moz-transform: $transform;
+      -ms-transform: $transform;
+          transform: $transform;
+}
+
+@mixin transform-origin($val) {
+  -webkit-transform-origin: $val;
+     -moz-transform-origin: $val;
+      -ms-transform-origin: $val;
+          transform-origin: $val;
 }
