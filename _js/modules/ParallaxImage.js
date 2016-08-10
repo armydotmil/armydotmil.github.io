@@ -80,7 +80,7 @@ class FullWidthParallax {
             imgContPos = this.topMargin - viewPos.top,
             imgTop = Math.round(imgContPos / 2),
             minView = this.winH - viewPos.top,
-            pagePos,
+            pPos,
             minPos,
             minTop = this.contH - this.imgH,
             percent;
@@ -96,8 +96,8 @@ class FullWidthParallax {
                 // (based on min top value)
                 imgTop = percent * (this.contH - this.imgH) / 100;
             } else if (this.isBanner) {
-                pagePos = document.documentElement.scrollTop;
-                minPos = this.topMargin - (pagePos + viewPos.top);
+                pPos = window.pageYOffset || document.documentElement.scrollTop;
+                minPos = this.topMargin - (pPos + viewPos.top);
                 imgTop -= Math.round(minPos / 2);
             }
             this.img.style.top = imgTop + 'px';
