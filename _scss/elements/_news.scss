@@ -13,6 +13,7 @@
 
       a {
         display: block;
+        overflow: hidden;
         position: relative;
 
         &:after {
@@ -22,14 +23,19 @@
           left: 0;
           position: absolute;
           top: 0;
-          width: 0;
+          width: 100%;
+          @include transform(translateX, -100%);
 
-          @include custom-transition(width .25s ease);
+          @include custom-transition(transform .25s ease);
         }
 
         &:focus,
         &:hover {
           text-decoration: none;
+
+          &:after {
+            @include transform(translateX, 0);
+          }
         }
       }
 
@@ -52,8 +58,8 @@
 
       .title {
         color: map-get($army-branding, grey70);
-        font: 400 1em/1.3em $font-family;
-        padding: 20px 15px 10px;
+        font: 600 1em/1.3em $font-family;
+        padding: 20px 15px 5px;
       }
 
       .date,
@@ -75,6 +81,8 @@
     margin: 0 auto 50px;
     position: relative;
 
+    ul li a:after { width: 34%; }
+
     .more {
       border-bottom: 2px solid $light-gray-color;
       border-top: 2px solid $light-gray-color;
@@ -83,16 +91,6 @@
       text-transform: uppercase;
 
       &:hover { text-decoration: none; }
-    }
-  }
-  
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-    ul li {
-      a {
-        &:hover, &:focus {
-          &:after { width: 100%; }
-        }
-      }
     }
   }
 
@@ -107,7 +105,7 @@
 
       .date { font: 700 .875em $font-family; }
 
-      .title { font: 400 1.125em/1.4em $font-family; }
+      .title { font: 600 1.125em/1.4em $font-family; }
     }
 
     &.half {
@@ -115,7 +113,7 @@
 
       ul li {
         @include span(12);
-        margin: 27px 0 0;
+        margin: 45px 0 0;
 
         &:first-child { margin: 0; }
 
@@ -134,11 +132,6 @@
           }
 
           .date { display: none; }
-
-          &:hover,
-          &:focus {
-            &:after { width: 34%; }
-          }
         }
       }
 

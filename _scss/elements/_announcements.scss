@@ -4,69 +4,10 @@
   max-width: 446px;
   margin: 0 auto;
 
-  .top-headline {
-    a {
-      display: block;
-      position: relative;
-
-      @include link-transition('.center-block');
-    }
-
-    .image {
-      @include row();
-      background: map-get($army-branding, black);
-      height: 0;
-      padding: 66.25% 0 0;
-      position: relative;
-      z-index: 0;
-
-      img {
-        bottom: -2000px;
-        margin: auto;
-        position: absolute;
-        top: -2000px;
-        width: 100%;
-
-        @include grayscale();
-      }
-    }
-
-    .center-block {
-      height: 100%;
-      padding: 15px;
-      position: absolute;
-      text-align: center;
-      top: 0;
-      width: 100%;
-
-      .inner-block {
-        border: 1px solid map-get($army-branding, gold);
-        height: 100%;
-        position: relative;
-
-        span { background: map-get($army-branding, gold); }
-      }
-
-      .mid {
-        left: 20px;
-        margin: 0;
-        position: absolute;
-        right: 20px;
-        text-align: center;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-           -moz-transform: translateY(-50%);
-                transform: translateY(-50%);
-
-        h5 {
-          color: map-get($army-branding, gold);
-          text-align: center;
-        }
-
-        p { color: map-get($army-branding, white); }
-      }
-    }
-  } // end .top-headline
+  h4 {
+    &:first-child { margin: 0 0 15px; }
+    &:after { display: none; }
+  }
 
   .inner {
     background: $light-gray-color;
@@ -74,30 +15,102 @@
   }
 
   ul {
-    margin: 0 0 30px;
 
     li {
-      @include display-table();
       margin: 0 0 15px;
 
-      a,
-      span { display: table-cell; }
+      &:first-child {
+        margin: 0 0 30px;
+
+        a {
+          display: block;
+          overflow: hidden;
+          position: relative;
+
+          &:after {
+            background: map-get($army-branding, gold);
+            content: '';
+            height: 4px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            @include transform(translateX, -100%);
+
+            @include custom-transition(transform .25s ease);
+          }
+
+          &:focus:after,
+          &:hover:after {
+            @include transform(translateX, 0);
+          }
+        }
+
+        .image {
+          @include row();
+          background: map-get($army-branding, black);
+          height: 0;
+          padding: 66.25% 0 0;
+          position: relative;
+          z-index: 0;
+
+          img {
+            bottom: -2000px;
+            margin: auto;
+            position: absolute;
+            top: -2000px;
+            width: 100%;
+
+            @include grayscale();
+          }
+        }
+
+        .center {
+          left: 20px;
+          margin: 0;
+          position: absolute;
+          right: 20px;
+          text-align: center;
+          top: 50%;
+          @include transform(translateY, -50%);
+
+          h5 {
+            color: map-get($army-branding, gold);
+            text-align: center;
+          }
+
+          p { color: map-get($army-branding, white); }
+        }
+      } // end first-child
+
+      &:last-child { margin: 0; }
 
       a {
-        color: map-get($army-branding, black);
-        font: 600 1em/1.3 $font-family;
+        display: block;
+
+        &:hover { text-decoration: none; }
+
+        span {
+          display: inline-block;
+          font: 600 1em/1.3 $font-family;
+          width: 100%;
+
+          &:first-child {
+            font: 400 .875em/1.3 $font-family;
+            text-transform: uppercase;
+          }
+        }
       }
 
-      span {
-        color: map-get($army-branding, black);
-        font: 600 .875em/1.3 $font-family;
-        text-transform: uppercase;
-        width: 33%;
-      }
     }
   } // end ul
 
   .more {
+    background: $light-gray-color;
+    border-bottom: 2px solid map-get($army-branding, grey20);
+    border-top: 2px solid map-get($army-branding, grey20);
+    display: block;
+    padding: 13px 30px 10px;
     text-transform: uppercase;
 
     &:hover { text-decoration: none; }
@@ -105,23 +118,12 @@
 
   @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
     max-width: none;
-    
-    .top-headline {
-      .center-block .inner-block { border: none; }
-
-      &:hover,
-      &:focus {
-        text-decoration: none;
-      }
-    }
 
     ul li {
-      a {
-        font: 600 1.125em/1.4 $font-family;
-      }
-
       span {
-        font: 600 1em/1.4 $font-family;
+        font: 600 1.125em/1.4 $font-family;
+
+        &:first-child { font: 600 1em/1.4 $font-family; }
       }
     }
   }
