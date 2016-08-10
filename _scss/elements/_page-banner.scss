@@ -21,7 +21,6 @@
         display: table-cell;
         height: 175px;
         vertical-align: middle;
-        word-spacing: -1;
       }
 
       .max-width-container {
@@ -79,57 +78,19 @@
       }
     }
 
-    .inline-logo {
+    .logo {
       line-height: 0;
       margin-bottom: 20px;
-    }
-
-    .logo {
-      position: absolute;
-      right: 30px;
-      text-align: right;
-      top: 35px;
-      bottom: 35px;
-      width: 200px;
-      font-size: 0;
-
-      &:after {
-        height: 100%;
-        display: inline-block;
-        vertical-align: middle;
-        content: "";
-      }
-
-      img {
-        max-width: 100%;
-        max-height: 100%;
-        display: inline-block;
-        vertical-align: middle;
-      }
     }
 
     // 769 - 992
     @include breakpoints(lg_tablet) {
       max-width: $container-md;
-
-      .logo {
-        top: 20px;
-        bottom: 20px;
-      }
     }
     
     // 700 - 768
     @include breakpoints(tablet) {
       max-width: $container-sm;
-
-      .logo {
-        top: 20px;
-        bottom: 20px;
-        right: 15px;
-      }
-    }
-
-    @include breakpoints(tablet) {
       .inner-container {
         h1 { font-size: 2.25em; }
         h2 { font-size: 1.25em; }
@@ -137,48 +98,25 @@
     }
 
     @include breakpoints(mobile nav) {
-
       .inner-container {
         h1 { font-size: 1.875em; }
         h2 { font-size: 1.125em; }
       }
     }
 
-    @include breakpoints(nav) {
-      .logo {
-        width: 130px;
-        bottom: 15px;
-        right: 15px;
-        top: 15px;
-
-        img {
-          max-height: 126px;
-        }
-      }
-    }
     @include breakpoints(mobile) {
-      .logo {
-        height: auto;
-        width: auto;
-        position: relative;
-        top: 35px;
-        right: auto;
-        bottom: auto;
-        text-align: center;
-
-        img {
-          max-height: 126px;
-        }
-      }
-
       .inner-container {
         display: block;
         width: auto;
 
         .left-container {
-          // display: block;
+          display: block;
           text-align: center;
           height: auto;
+
+          h2 br {
+            display: none;
+          }
         }
 
         .max-width-container {
@@ -219,6 +157,24 @@
     }
   }
 
+  .overlay-effect {
+    background-image: url("/e2/images/rv7/banner-graphics/halftone.png");
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+
+    &::before {
+      @include custom-linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(30, 30, 30, 0.5) 0px, rgba(70, 70, 70, 0.7) 50%, rgba(30, 30, 30, 0.5));
+      content: "";
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
   &.with-logo {
     .inner-container .left-container {
       padding-right: 250px;
@@ -230,15 +186,74 @@
         padding-right: 0;
       }
     }
+
+    .logo {
+      margin: 0;
+      position: absolute;
+      right: 30px;
+      text-align: right;
+      top: 35px;
+      bottom: 35px;
+      width: 200px;
+      font-size: 0;
+
+      &:after {
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        content: "";
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      // 769 - 992
+      @include breakpoints(lg_tablet) {
+        top: 20px;
+        bottom: 20px;
+      }
+      
+      // 700 - 768
+      @include breakpoints(tablet) {
+        top: 20px;
+        bottom: 20px;
+        right: 15px;
+      }
+
+      @include breakpoints(nav) {
+        width: 130px;
+        bottom: 15px;
+        right: 15px;
+        top: 15px;
+
+        img {
+          max-height: 126px;
+        }
+      }
+
+      @include breakpoints(mobile) {
+        height: auto;
+        width: auto;
+        position: relative;
+        top: 35px;
+        right: auto;
+        bottom: auto;
+        text-align: center;
+
+        img {
+          max-height: 126px;
+        }
+      }
+    }
   }
 
   &.image-gradient {
-    @include breakpoints(nav tablet lg_tablet) {
-      background-color: #000;
-    }
     .full-width-image {
-      &::before,
-      &::after {
+      &::before {
         content: "";
         height: 100%;
         left: 0;
@@ -256,60 +271,68 @@
           display: none;
         }
       }
-      /* bottom gradient */
-      // &::after {
-      //   background: transparent; /* For browsers that do not support gradients */
-      //   @include custom-linear-gradient(to bottom, transparent 75%, #000);
-      //   display: none;
-
-      //   @include breakpoints(nav tablet lg_tablet) {
-      //     display: block;
-      //   }
-      // }
     }
   }
 
-  &.with-background,
   &.parallax-image {
-    padding-top: 90px;
-
-    .max-width-container {
-      float: left;
-    }
-
     .container .inner-container {
-      h2 {
-        text-shadow: 1px 1px 3px map-get($army-branding, armyblack);
-      }
+      // h2 {
+      //   text-shadow: 1px 1px 3px map-get($army-branding, armyblack);
+      // }
 
       .left-container {
-        height: 200px;
+        @media (min-width: 2000px) {
+          height: 400px;
+        }
+
+        @include breakpoints(really_big) {
+          height: 300px;
+        }
+
+        @include breakpoints(tablet lg_tablet sm_desktop desktop large) {
+          height: 250px;
+        }
+
+        @include breakpoints(nav) {
+          height: 200px;
+        }
       }
     }
+  }
 
-    @include breakpoints(really_big) {
-      padding-top: 190px;
-    }
-    @media (min-width: 2000px) {
-      padding-top: 290px;
-    }
-
-    @include breakpoints(mobile nav) {
-      padding-top: 50px;
-
-      .container .inner-container .left-container {
-        height: 150px;
+  &.standard {
+    .container .inner-container {
+      h1 {
+        @include header-underline(gold);
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: 700;
+        line-height: 1.5em;
+        margin: 0 0 25px;
+        &::after {
+          height: 4px;
+          margin: 20px auto 0;
+        }
       }
-    }
-
-    @include breakpoints(mobile) {
-      .max-width-container {
-        float: none;
-        display: inline-block;
+      h2 {
+        font-size: 2.25em;
+        font-weight: 700;
+        line-height: 1.125em;
+        text-align: center;
+        text-shadow: none;
       }
-      .container .inner-container {
-        display: table;
-        margin-bottom: 20px;
+      @include breakpoints(mobile nav) {
+        h1 {
+          font-size: 1.313em;
+          line-height: 1.4em;
+          margin: 0 0 20px;
+          &::after {
+            margin: 15px auto 0;
+          }
+        }
+        h2 {
+          font-size: 1.875em;
+        }
       }
     }
   }
