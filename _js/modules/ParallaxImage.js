@@ -19,9 +19,10 @@ class FullWidthParallax {
         this.topVal = 0;
         this.longPage = false;
         this.isBanner = Helper.hasClass(elem, 'page-banner');
+        this.toTop = Helper.hasClass(elem, 'image-to-top');
+        this.centered = 0;
         if (this.img.length) {
-            // they both exist, so set them as first in array...
-            // this.imgCont = this.imgCont[0];
+            // there are images, so set as first
             this.img = this.img[0];
             this.scrollPos = -1;
             this.topMargin = (topMargin) ? topMargin : 0;
@@ -42,16 +43,20 @@ class FullWidthParallax {
      * between desktop and mobile
      */
     runOnResize() {
-        var docElem = document.documentElement,
+        var de = document.documentElement,
             maxPos,
             absTop,
             minTop;
 
         this.imgH = this.img.clientHeight;
         this.contH = this.imgCont.clientHeight;
-        this.winW = Math.max(docElem.clientWidth, window.innerWidth || 0);
-        this.winH = Math.max(docElem.clientHeight, window.innerHeight || 0);
+        this.centered = Math.round((this.imgH - this.contH) / 2) * -1;
+        this.winW = Math.max(de.clientWidth, window.innerWidth || 0);
+        this.winH = Math.max(de.clientHeight, window.innerHeight || 0);
 
+        if (this.toTop || !this.isBanner || this.centered >= 0) {
+            this.centered = 0;
+        }
         // if desktop size and container visible
         if (this.winW > 769 && this.contH > 0) {
             // top position of container, when touching bottom of viewport
@@ -65,9 +70,9 @@ class FullWidthParallax {
             this.longPage = (absTop < minTop);
             this.runOnScroll();
         // if mobile size reset image to top
-        } else if (this.topVal !== 0 && this.contH > 0) {
-            this.img.style.top = 0;
-            this.topVal = 0;
+        } else if (this.topVal !== this.centered && this.contH > 0) {
+            this.img.style.top = this.centered + 'px';
+            this.topVal = this.centered;
         }
     }
 
@@ -100,11 +105,12 @@ class FullWidthParallax {
                 minPos = this.topMargin - (pPos + viewPos.top);
                 imgTop -= Math.round(minPos / 2);
             }
+            imgTop += this.centered;
             this.img.style.top = imgTop + 'px';
             this.topVal = imgTop;
-        } else if (this.topVal !== 0) {
-            this.img.style.top = 0;
-            this.topVal = 0;
+        } else if (this.topVal !== this.centered) {
+            this.img.style.top = this.centered + 'px';
+            this.topVal = this.centered;
         }
     }
 
