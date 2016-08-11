@@ -13,7 +13,7 @@ var ParallaxImg = require('./modules/ParallaxImage'),
     new Header('menu');
     new Header('search');
     Header.addSubmenu();
-    para = new ParallaxImg();
+    para = new ParallaxImg(headerHeight);
     new SubNav(nav, function() {
         para.runUpdate();
     });

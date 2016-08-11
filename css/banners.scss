@@ -33,11 +33,11 @@ section {
         vertical-align: bottom;
 
         @include breakpoints(really_big) {
-          height: 500px;
+          height: 450px;
         }
 
         @include breakpoints(large) {
-          height: 450px;
+          height: 350px;
         }
 
         @include breakpoints(tablet lg_tablet sm_desktop desktop) {
@@ -49,7 +49,7 @@ section {
         }
 
         @media (min-width: 2000px) {
-          height: 550px;
+          height: 525px;
         }
       }
     }
