@@ -33,6 +33,9 @@ class FullWidthParallax {
             window.addEventListener('resize', function() {
                 context.runOnResize();
             });
+            this.img.addEventListener('load', function() {
+                context.runOnResize();
+            });
 
             this.runOnResize();
         }
