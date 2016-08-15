@@ -85,10 +85,29 @@ class SubNav {
             };
         }
 
-        window.addEventListener("hashchange", function(e) {
-            _this.setMenu(location.hash);
-            if (subnavCheck) subnavCheck.checked = false;
-        }, false);
+        window.addEventListener(
+            "hashchange",
+            function(e) {
+                var body = document.getElementsByTagName('body')[0],
+                    html = document.getElementsByTagName('html')[0],
+                    i,
+                    navbtns = document.getElementsByClassName('nav-button'),
+                    navwins = document.getElementsByClassName('nav-window');
+
+                _this.setMenu(location.hash);
+                if (subnavCheck) subnavCheck.checked = false;
+
+                if (Helper.hasClass(html, 'menu-open')) {
+                    for (i = 0; i < navbtns.length; i++) {
+                        Helper.removeClass(navbtns[i], 'close-button');
+                        Helper.removeClass(navwins[i], 'open-window');
+                        Helper.removeClass(html, 'menu-open');
+                        Helper.removeClass(body, 'menu-open');
+                    }
+                }
+            },
+            false
+        );
 
         if (this.defaults.initializeEmpty) {
             this.setMenu('empty');
@@ -98,7 +117,7 @@ class SubNav {
             // initialize the first menuItem as selected
             this.setMenu(this.firstHash);
         }
-    }
+     }
 
     /**
      * initialize the defaults object, using options
