@@ -117,7 +117,7 @@ class SubNav {
             // initialize the first menuItem as selected
             this.setMenu(this.firstHash);
         }
-     }
+    }
 
     /**
      * initialize the defaults object, using options
