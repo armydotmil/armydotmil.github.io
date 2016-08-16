@@ -90,19 +90,26 @@ class SubNav {
             function(e) {
                 var body = document.getElementsByTagName('body')[0],
                     html = document.getElementsByTagName('html')[0],
-                    i,
-                    navbtns = document.getElementsByClassName('nav-button'),
-                    navwins = document.getElementsByClassName('nav-window');
+                    i,              
+                    nav = document.getElementsByTagName('header'),
+                    navwins,
+                    navcls;
 
-                _this.setMenu(location.hash);
+                _this.setMenu(location.hash, true);
                 if (subnavCheck) subnavCheck.checked = false;
 
-                if (Helper.hasClass(html, 'menu-open')) {
-                    for (i = 0; i < navbtns.length; i++) {
-                        Helper.removeClass(navbtns[i], 'close-button');
+                // clear open menu
+                Helper.removeClass(html, 'menu-open');
+                Helper.removeClass(body, 'menu-open');
+                if (nav.length) {
+                    // clear close buttons and open windows
+                    navcls = nav[0].getElementsByClassName('close-button');
+                    navwins = nav[0].getElementsByClassName('open-window');
+                    for (i = 0; i < navcls.length; i++) {
+                        Helper.removeClass(navcls[i], 'close-button');
+                    }
+                    for (i = 0; i < navwins.length; i++) {
                         Helper.removeClass(navwins[i], 'open-window');
-                        Helper.removeClass(html, 'menu-open');
-                        Helper.removeClass(body, 'menu-open');
                     }
                 }
             },
@@ -144,7 +151,7 @@ class SubNav {
      * set and unset selected menu items
      * @param {object} menu item DOM element
      */
-    setMenu(hashIndex) {
+    setMenu(hashIndex, toTop) {
         var i,
             active,
             selected;
@@ -169,6 +176,7 @@ class SubNav {
                             this.menuItems[hashIndex].innerHTML;
                     }
                     this.showMenuDiv(this.menuDivs[hashIndex], true);
+                    if (toTop) window.scrollTo(0, 0);
                 } else {
                     this.toggleLabel.innerHTML = this.toggleLabelDefault;
                 }
