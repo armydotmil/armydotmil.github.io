@@ -14,15 +14,42 @@ section {
   }
 
   .page-banner.leader-banner {
+    z-index: 1;
+
+    .full-width-image {
+      position: relative;
+
+      img { position: static; }
+    }
+
     .container .inner-container {
       h1 {
+        border-bottom: 1px solid map-get($army-branding, white);
         color: map-get($army-branding, white);
+        display: inline-block;
+        margin: 0 0 15px;
+        padding: 0 0 15px;
         text-transform: none;
-        padding-bottom: 0;
+
+        &.no-social-links {
+          border: none;
+          display: block;
+          margin: 0 0 10px;
+          padding: 0;
+
+          &:last-child { margin: 0; }
+        }
       }
+
       h2 {
         color: map-get($army-branding, gold);
         margin-bottom: 15px;
+      }
+
+      ul.social-links {
+        border-top: none;
+        margin: 0;
+        padding: 0;
       }
 
       .max-width-container {
@@ -32,48 +59,29 @@ section {
       .left-container {
         vertical-align: bottom;
 
+        @include breakpoints(nav tablet lg_tablet sm_desktop desktop large) {
+          height: 330px;
+        }
+
         @include breakpoints(really_big) {
-          height: 450px;
-        }
-
-        @include breakpoints(large) {
-          height: 350px;
-        }
-
-        @include breakpoints(tablet lg_tablet sm_desktop desktop) {
-          height: 325px;
-        }
-
-        @include breakpoints(nav) {
-          height: 250px;
+          height: 430px;
         }
 
         @media (min-width: 2000px) {
-          height: 525px;
+          height: 530px;
         }
       }
     }
 
-    @include breakpoints(mobile nav) {
-      .container .inner-container h2 { margin-bottom: 0; }
+    @media (min-width: 481px) {
+      .full-width-image,
+      .full-width-image img { position: absolute; }
     }
 
     @include breakpoints(mobile) {
       .container .inner-container {
         .max-width-container {
           float: none;
-        }
-      }
-      .full-width-image {
-        display: block;
-        position: relative;
-        max-height: 200px;
-
-        img {
-          left: 0;
-          position: relative;
-          right: 0;
-          width: 100%;
         }
       }
     }
