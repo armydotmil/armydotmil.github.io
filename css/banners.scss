@@ -48,6 +48,7 @@ section {
         h2 {
           color: map-get($army-branding, gold);
           margin-bottom: 15px;
+          text-shadow: 1px 1px 3px map-get($army-branding, armyblack);
         }
 
         ul.social-links {
