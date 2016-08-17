@@ -13,98 +13,160 @@ section {
     }
   }
 
-  .page-banner.leader-banner {
-    z-index: 1;
+  .page-banner {
+    &.leader-banner {
+      z-index: 1;
 
-    .full-width-image {
-      position: relative;
+      .full-width-image {
+        position: relative;
 
-      img { position: static; }
-    }
-
-    .container .inner-container {
-      h1 {
-        border-bottom: 1px solid map-get($army-branding, white);
-        color: map-get($army-branding, white);
-        display: inline-block;
-        margin: 0 0 15px;
-        padding: 0 0 15px;
-        text-transform: none;
-
-        &.no-social-links {
-          border: none;
-          display: block;
-          margin: 0 0 10px;
-          padding: 0;
-
-          &:last-child { margin: 0; }
+        img {
+          position: static;
+          width: 100%;
         }
       }
 
-      h2 {
-        color: map-get($army-branding, gold);
-        margin-bottom: 15px;
-      }
-
-      ul.social-links {
-        border-top: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      .max-width-container {
-        float: left;
-      }
-
-      .left-container {
-        vertical-align: bottom;
-
-        @include breakpoints(nav tablet lg_tablet sm_desktop desktop large) {
-          height: 330px;
-        }
-
-        @include breakpoints(really_big) {
-          height: 430px;
-        }
-
-        @media (min-width: 2000px) {
-          height: 530px;
-        }
-      }
-    }
-
-    @media (min-width: 481px) {
-      .full-width-image,
-      .full-width-image img { position: absolute; }
-    }
-
-    @include breakpoints(mobile) {
       .container .inner-container {
-        .max-width-container {
-          float: none;
+        h1 {
+          border-bottom: 1px solid map-get($army-branding, white);
+          color: map-get($army-branding, white);
+          display: inline-block;
+          margin: 0 0 15px;
+          padding: 0 0 15px;
+          text-transform: none;
+
+          &.no-social-links {
+            border: none;
+            display: block;
+            margin: 0 0 10px;
+            padding: 0;
+
+            &:last-child { margin: 0; }
+          }
+        }
+
+        h2 {
+          color: map-get($army-branding, gold);
+          margin-bottom: 15px;
+        }
+
+        ul.social-links {
+          border-top: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .left-container {
+          vertical-align: bottom;
+
+          @include breakpoints(nav tablet lg_tablet sm_desktop desktop large) {
+            height: 330px;
+          }
+
+          @include breakpoints(really_big) {
+            height: 430px;
+          }
+
+          @media (min-width: 2000px) {
+            height: 530px;
+          }
         }
       }
-    }
-  }
 
-  .page-banner.news-wide {
-    .full-width-image {
-      // position: absolute;
-      // max-height: none;
-      img {
-        filter: brightness(2);
+      @media (min-width: 481px) {
+        .full-width-image,
+        .full-width-image img { position: absolute; }
+
+        .full-width-image img { width: auto; }
       }
-    }
+    } // end leader
 
-    // @include breakpoints(mobile) {
-    //   padding-top: 50px;
+    &.org-banner {
+      .logo {
+        margin-bottom: 15px;
+        text-align: center;
 
-    //   .full-width-image {
-    //     left: -1000px;
-    //     position: absolute;
-    //     right: -1000px;
-    //     width: auto;
-    //   }
-    // }
+        &:after {
+          height: 100%;
+          display: inline-block;
+          vertical-align: middle;
+          content: "";
+        }
+
+        img {
+          max-height: 126px;
+          max-width: 100%;
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        // 700+
+        @media (min-width: 700px) {
+          position: absolute;
+          right: 15px;
+          top: 20px;
+          bottom: 20px;
+          margin: 0;
+          font-size: 0;
+          text-align: right;
+          width: 200px;
+
+          img { max-height: 100%; }
+        }
+
+        // 769+
+        @media (min-width: 769px) {
+          right: 30px;
+        }
+
+        // 993+
+        @media (min-width: 993px) {
+          bottom: 35px;
+          top: 35px;
+        }
+      }
+
+      // 481 - 699
+      @include breakpoints(nav) {
+        .inner-container {
+
+          h1 { text-align: center; }
+
+          .left-container {
+            display: block;
+            height: auto;
+            text-align: center;
+          }
+
+          .max-width-container { margin: 0 auto; }
+        }
+      }
+
+      // 700+
+      @media (min-width: 700px) {
+        .inner-container .left-container { padding-right: 250px; }
+      }
+    } // end org
+
+    &.news-wide {
+      .full-width-image {
+        // position: absolute;
+        // max-height: none;
+        img {
+          filter: brightness(2);
+        }
+      }
+
+      // @include breakpoints(mobile) {
+      //   padding-top: 50px;
+
+      //   .full-width-image {
+      //     left: -1000px;
+      //     position: absolute;
+      //     right: -1000px;
+      //     width: auto;
+      //   }
+      // }
+    } // end news
   }
 }

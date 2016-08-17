@@ -1,6 +1,4 @@
-.page-banner * {
-  @include box-sizing(border-box);
-}
+
 .page-banner {
   background-color: map-get($army-branding, armyblack);
   color: #fff;
@@ -11,17 +9,11 @@
     margin: 0 auto;
     position: relative;
     z-index: 3;
-    
+
     .inner-container {
       margin: 35px auto;
-      display: table;
-      width: 100%;
 
-      .left-container {
-        display: table-cell;
-        height: 175px;
-        vertical-align: middle;
-      }
+      .left-container { text-align: center; }
 
       .max-width-container {
         max-width: 450px;
@@ -32,7 +24,6 @@
         color: map-get($army-branding, gold);
         font: 700 1.875em/1 $font-family;
         text-transform: uppercase;
-        text-align: left;
         padding-bottom: 3px;
 
         a {
@@ -41,14 +32,11 @@
           font-weight: 700;
         }
       }
+
       h2 {
         color: map-get($army-branding, white);
         font: 400 1.125em $font-family;
-        text-align: left;
         margin: 0;
-        &:after {
-          content: none;
-        }
       }
 
       p {
@@ -84,22 +72,32 @@
 
     @media (min-width: 481px) {
       .inner-container {
-        h2 { font-size: 1.25em; }
+        display: table;
+        width: 100%;
+
+        .left-container {
+          display: table-cell;
+          height: 175px;
+          text-align: left;
+          vertical-align: middle;
+        }
+
         h1 { font-size: 2.25em; }
+        h2 { font-size: 1.25em; }
+
+        h1,
+        h2 { text-align: left; }
+
+        ul.social-links {
+          li.social-button:first-child a { padding: 5px 10px 5px 0; }
+        }
       }
     }
 
     @media (min-width: 769px) {
       .inner-container {
-        h2 { font-size: 1.5em; }
         h1 { font-size: 2.5em; }
-      }
-    }
-
-    // 481+
-    @include breakpoints(nav tablet lg_tablet desktop sm_desktop large really_big) {
-      .inner-container ul.social-links {
-        li.social-button:first-child a { padding: 5px 10px 5px 0; }
+        h2 { font-size: 1.5em; }
       }
     }
 
@@ -114,38 +112,9 @@
     }
 
     @include breakpoints(mobile) {
-      .inner-container {
-        display: block;
-        width: auto;
-
-        .left-container {
-          display: block;
-          text-align: center;
-          height: auto;
-
-          h2 br {
-            display: none;
-          }
-        }
-
-        .max-width-container {
-          margin: 0 auto;
-        }
-
-        h1 {
-          padding-top: 15px;
-          text-align: center;
-        }
-
-        h2 {
-          text-align: center;
-        }
-
-        ul.social-links  li.social-button a {
-          padding: 8px;
-        }
-      }
+      br { display: none; }
     }
+
   }
 
   .full-width-image {
@@ -184,82 +153,6 @@
     }
   }
 
-  &.with-logo {
-    .inner-container .left-container {
-      padding-right: 250px;
-
-      @include breakpoints(nav) {
-        padding-right: 140px;
-      }
-      @include breakpoints(mobile) {
-        padding-right: 0;
-      }
-    }
-
-    .logo {
-      margin: 0;
-      position: absolute;
-      right: 30px;
-      text-align: right;
-      top: 35px;
-      bottom: 35px;
-      width: 200px;
-      font-size: 0;
-
-      &:after {
-        height: 100%;
-        display: inline-block;
-        vertical-align: middle;
-        content: "";
-      }
-
-      img {
-        max-width: 100%;
-        max-height: 100%;
-        display: inline-block;
-        vertical-align: middle;
-      }
-
-      // 769 - 992
-      @include breakpoints(lg_tablet) {
-        top: 20px;
-        bottom: 20px;
-      }
-      
-      // 700 - 768
-      @include breakpoints(tablet) {
-        top: 20px;
-        bottom: 20px;
-        right: 15px;
-      }
-
-      @include breakpoints(nav) {
-        width: 130px;
-        bottom: 15px;
-        right: 15px;
-        top: 15px;
-
-        img {
-          max-height: 126px;
-        }
-      }
-
-      @include breakpoints(mobile) {
-        height: auto;
-        width: auto;
-        position: relative;
-        top: 35px;
-        right: auto;
-        bottom: auto;
-        text-align: center;
-
-        img {
-          max-height: 126px;
-        }
-      }
-    }
-  }
-
   &.image-gradient {
     .full-width-image {
       &::before {
@@ -285,9 +178,6 @@
 
   &.parallax-image {
     .container .inner-container {
-      // h2 {
-      //   text-shadow: 1px 1px 3px map-get($army-branding, armyblack);
-      // }
 
       .left-container {
         @media (min-width: 2000px) {
