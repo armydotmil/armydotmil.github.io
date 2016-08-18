@@ -1,0 +1,33 @@
+
+
+.top-btn {
+  background: map-get($army-branding, grey40);
+  border-radius: 50%;
+  bottom: 30px;
+  font-size: 0;
+  height: 50px;
+  line-height: 0;
+  padding: 20px;
+  position: fixed;
+  right: -100px;
+  text-indent: -99999px;
+
+  @include opacity(0);
+  @include custom-transition(opacity .5s ease, right .5s ease);
+
+  &.visible {
+    @include opacity(.7);
+    right: 30px;
+
+    &:hover { @include opacity(1); }
+  }
+
+  span {
+    background: transparent $social-button-sprite no-repeat scroll -181px -59px;
+    display: block;
+    height: 11px;
+    width: 11px;
+  }
+}
+
+
