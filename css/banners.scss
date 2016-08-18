@@ -18,12 +18,8 @@ section {
       z-index: 1;
 
       .full-width-image {
+        padding: 0 0 62.5%; // 480.jpg is 480x300 (8:5 a/r)
         position: relative;
-
-        img {
-          position: static;
-          width: 100%;
-        }
       }
 
       .container .inner-container {
@@ -75,10 +71,10 @@ section {
       }
 
       @media (min-width: 481px) {
-        .full-width-image,
-        .full-width-image img { position: absolute; }
-
-        .full-width-image img { width: auto; }
+        .full-width-image {
+          padding: 0;
+          position: absolute;
+        }
       }
     } // end leader
 
