@@ -43,13 +43,18 @@
 
     .news-right {
       p.date {
-        border-right: 1px solid map-get($army-branding, grey40);
         color: map-get($army-branding, grey70);
         float: left;
         font-weight: 600;
-        line-height: 1.3em;
         margin: 0 15px 0 0;
-        padding: 0.14em 15px 0 0;
+
+        &:after {
+          color: map-get($army-branding, grey40);
+          content: "|";
+          display: inline-block;
+          font-weight: 300;
+          margin: 0 0 0 15px;
+        }
       }
       p.sections {
         color: map-get($army-branding, grey40);
