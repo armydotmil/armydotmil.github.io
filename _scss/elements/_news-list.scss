@@ -43,10 +43,35 @@
 
     .news-right {
       p.date {
+        border-right: 1px solid map-get($army-branding, grey40);
         color: map-get($army-branding, grey70);
         float: left;
         font-weight: 600;
+        line-height: 1.3em;
         margin: 0 15px 0 0;
+        padding: 0.14em 15px 0 0;
+      }
+      p.sections {
+        color: map-get($army-branding, grey40);
+        a {
+          color: map-get($army-branding, grey40);
+          display: inline-block;
+          font-weight: 400;
+          // text-transform: uppercase;
+
+          &:after {
+            content: ",";
+            display: inline-block;
+            margin-right: 5px;
+          }
+
+          &:last-child {
+            &:after {
+              content: "";
+              margin: 0;
+            }
+          }
+        }
       }
       p.title {
         margin-bottom: 1.25em;
@@ -69,7 +94,7 @@
 
           a {
             color: map-get($army-branding, grey40);
-            font-size: 0.875em;
+            // font-size: 0.875em;
             font-weight: 400;
             padding: 0 5px 0 8px;
             text-transform: uppercase;
