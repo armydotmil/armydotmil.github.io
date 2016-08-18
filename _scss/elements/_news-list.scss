@@ -87,6 +87,10 @@
       }
       p.more {
         height: 19px;
+
+        .view-more-arrow-sm {
+          margin-bottom: 0.12em;
+        }
       }
       ul {
         list-style-type: none;
