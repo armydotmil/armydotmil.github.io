@@ -1,0 +1,216 @@
+.news-list {
+  border-top: 8px solid map-get($army-branding, black);
+
+  @include row;
+
+  .news-item {
+    border-bottom: 1px solid map-get($army-branding, grey20);
+    padding: 30px 0;
+    position: relative;
+
+    &::after {
+      clear: both;
+      content: "";
+      display: block;
+    }
+
+    .news-inner {
+      position: relative;
+    }
+
+    .image-wrap {
+      margin: 0 30px 0 0;
+      height: 100%;
+      position: absolute;
+      width: 33%;
+
+      a {
+        img {
+          bottom: -2000px;
+          margin: auto;
+          position: absolute;
+          top: -2000px;
+          @include custom-transition(-webkit-filter 0.25s ease 0s, opacity 0.25s ease 0s, filter 0.25s ease 0s, opacity 0.25s ease 0s);
+          width: 100%;
+        }
+        &:hover img {
+          @include custom-filter(grayscale(75%));
+          @include opacity(0.7);
+        }
+      }
+    }
+
+    .image-wrap ~ .news-right {
+      padding-left: 30px;
+      margin-left: 33%;
+
+      .main-content {
+        min-height: 195px;
+        overflow: hidden;
+      }
+    }
+    .news-right {
+      p.date {
+        color: map-get($army-branding, grey70);
+        float: left;
+        font-weight: 600;
+        margin: 0 15px 0 0;
+      }
+      p.title {
+        margin-bottom: 1.25em;
+
+        a {
+          font: 700 1.313em $font-family;
+        }
+      }
+      p.more {
+        height: 19px;
+      }
+      ul {
+        list-style-type: none;
+
+        li {
+          border-left: 1px solid map-get($army-branding, grey40);
+          display: inline-block;
+          line-height: 1.2em;
+          padding-top: 2px;
+
+          a {
+            color: map-get($army-branding, grey40);
+            font-size: 0.875em;
+            font-weight: 400;
+            padding: 0 5px 0 8px;
+            text-transform: uppercase;
+          }
+
+          &:first-child {
+            border-width: 0;
+
+            a {
+              padding-left: 0;
+            }
+          }
+        }
+      }
+    }
+
+    @include breakpoints(lg_tablet) {
+      .image-wrap ~ .news-right .main-content {
+        min-height: 145px;
+      }
+
+      .news-right {
+        font-size: .875em;
+      }
+    }
+    @include breakpoints(tablet) {
+      .image-wrap ~ .news-right .main-content {
+        min-height: 125px;
+      }
+      .news-right {
+        font-size: .875em;
+      }
+    }
+    @include breakpoints(mobile nav) {
+      .image-wrap {
+        display: none;
+      }
+      .image-wrap ~ .news-right {
+        padding-left: 0;
+        margin-left: 0;
+
+        .main-content {
+          min-height: 0;
+        }
+      }
+      .news-right {
+        font-size: .875em;
+
+        p.title a {
+          font-size: 1.2em;
+        }
+      }
+    }
+
+
+    // a {
+    //   display: block;
+    //   font: 700 0.8125em $font-family;
+    //   text-decoration: none;
+
+    //   &.title {
+    //     font: 700 1em / 1.5em $font-family;
+    //   }
+
+    //   &.bottom {
+    //     display: inline-block;
+    //     margin: 20px 0 0;
+
+    //     span {
+    //       margin-bottom: 2px;
+    //     }
+    //   }
+    // }
+  }
+
+  // ul {
+  //   @include row;
+
+  //   margin-bottom: 0;
+  //   padding-bottom: 15px;
+
+  //   li {
+  //     border-right: 1px solid map-get($army-branding, grey40);
+  //     color: map-get($army-branding, grey70);
+  //     display: inline;
+  //     font: 600 1em $font-family;
+  //     height: 20px;
+  //     margin: 0 15px 0 0;
+  //     padding: 0 15px 0 0;
+  //     text-transform: uppercase;
+
+  //     &:not(:first-child) {
+  //       color: map-get($army-branding, grey40);
+  //       font: 400 1em $font-family;
+  //     }
+
+  //     &:last-child {
+  //       border: none;
+  //       margin: 0;
+  //       padding: 0;
+  //     }
+  //   }
+
+  //   @include breakpoints(tablet nav mobile) {
+  //     li {
+  //       font: 600 0.875em $font-family;
+
+  //       &:not(:first-child) {
+  //         font: 400 0.875em $font-family;
+  //       }
+  //     }
+  //   }
+  // }
+
+  // .more-news {
+  //   padding: 20px 0 0;
+  //   text-align: center;
+
+  //   div {
+  //     background: map-get($army-branding, gold);
+  //     display: inline-block;
+  //     margin: 0 auto;
+  //     padding: 5px;
+
+  //     @include link-transition("a");
+  //   }
+
+  //   a {
+  //     display: block;
+  //     padding: 11px 30px 9px;
+  //     position: relative;
+  //     text-decoration: none;
+  //     text-transform: uppercase;
+  //   }
+  // }
+}
