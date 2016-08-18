@@ -127,7 +127,8 @@ section {
       @include breakpoints(nav) {
         .inner-container {
 
-          h1 { text-align: center; }
+          h1,
+          h2 { text-align: center; }
 
           .left-container {
             display: block;
