@@ -25,13 +25,13 @@
           width: 100%;
         }
         &:hover img {
-          @include custom-filter(grayscale(75%));
-          @include opacity(0.7);
+          @include custom-filter(grayscale(75%) brightness(70%));
+          // @include opacity(0.7);
         }
       }
     }
 
-    .image-wrap ~ .news-right {
+    .image-wrap + .news-right {
       padding-left: 30px;
       margin-left: 33%;
 
@@ -47,22 +47,22 @@
         float: left;
         font-weight: 600;
         margin: 0 15px 0 0;
+      }
 
-        &:after {
+      p.sections {
+        color: map-get($army-branding, grey40);
+
+        &:before {
           color: map-get($army-branding, grey40);
           content: "|";
           display: inline-block;
           font-weight: 300;
-          margin: 0 0 0 15px;
+          margin: 0 12px 0 0;
         }
-      }
-      p.sections {
-        color: map-get($army-branding, grey40);
+
         a {
           color: map-get($army-branding, grey40);
-          display: inline-block;
           font-weight: 400;
-          // text-transform: uppercase;
 
           &:after {
             content: ",";
@@ -79,6 +79,7 @@
         }
       }
       p.title {
+        clear: both;
         margin-bottom: 1.25em;
 
         a {
