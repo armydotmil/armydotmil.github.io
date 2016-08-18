@@ -1,25 +1,16 @@
 .news-list {
   border-top: 8px solid map-get($army-branding, black);
 
-  @include row;
-
   .news-item {
     border-bottom: 1px solid map-get($army-branding, grey20);
     padding: 30px 0;
     position: relative;
-
-    &::after {
-      clear: both;
-      content: "";
-      display: block;
-    }
 
     .news-inner {
       position: relative;
     }
 
     .image-wrap {
-      margin: 0 30px 0 0;
       height: 100%;
       position: absolute;
       width: 33%;
@@ -49,6 +40,7 @@
         overflow: hidden;
       }
     }
+
     .news-right {
       p.date {
         color: map-get($army-branding, grey70);
@@ -131,86 +123,5 @@
         }
       }
     }
-
-
-    // a {
-    //   display: block;
-    //   font: 700 0.8125em $font-family;
-    //   text-decoration: none;
-
-    //   &.title {
-    //     font: 700 1em / 1.5em $font-family;
-    //   }
-
-    //   &.bottom {
-    //     display: inline-block;
-    //     margin: 20px 0 0;
-
-    //     span {
-    //       margin-bottom: 2px;
-    //     }
-    //   }
-    // }
   }
-
-  // ul {
-  //   @include row;
-
-  //   margin-bottom: 0;
-  //   padding-bottom: 15px;
-
-  //   li {
-  //     border-right: 1px solid map-get($army-branding, grey40);
-  //     color: map-get($army-branding, grey70);
-  //     display: inline;
-  //     font: 600 1em $font-family;
-  //     height: 20px;
-  //     margin: 0 15px 0 0;
-  //     padding: 0 15px 0 0;
-  //     text-transform: uppercase;
-
-  //     &:not(:first-child) {
-  //       color: map-get($army-branding, grey40);
-  //       font: 400 1em $font-family;
-  //     }
-
-  //     &:last-child {
-  //       border: none;
-  //       margin: 0;
-  //       padding: 0;
-  //     }
-  //   }
-
-  //   @include breakpoints(tablet nav mobile) {
-  //     li {
-  //       font: 600 0.875em $font-family;
-
-  //       &:not(:first-child) {
-  //         font: 400 0.875em $font-family;
-  //       }
-  //     }
-  //   }
-  // }
-
-  // .more-news {
-  //   padding: 20px 0 0;
-  //   text-align: center;
-
-  //   div {
-  //     background: map-get($army-branding, gold);
-  //     display: inline-block;
-  //     margin: 0 auto;
-  //     padding: 5px;
-
-  //     @include link-transition("a");
-  //   }
-
-  //   a {
-  //     display: block;
-  //     padding: 11px 30px 9px;
-  //     position: relative;
-  //     text-decoration: none;
-  //     text-transform: uppercase;
-  //   }
-  // }
 }
