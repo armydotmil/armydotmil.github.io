@@ -80,6 +80,14 @@ module.exports = function(grunt) {
                 options: {
                     transform: ['babelify']
                 }
+            },
+            top: {
+                files: {
+                    '_js/bundled/top-btn.js': '_js/top-btn.js'
+                },
+                options: {
+                    transform: ['babelify']
+                }
             }
         },
         uglify: {
@@ -97,7 +105,8 @@ module.exports = function(grunt) {
                         '_js/bundled/slideshow.js',
                         '_js/bundled/playlist.js',
                         '_js/bundled/selects.js',
-                        '_js/bundled/parallax-images.js'
+                        '_js/bundled/parallax-images.js',
+                        '_js/bundled/top-btn.js'
                     ],
                     dest: 'e2/js/rv7/armydotmil/<%= pkg.name %>.min.js'
                 },
