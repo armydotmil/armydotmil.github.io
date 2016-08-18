@@ -12,21 +12,41 @@
 
     .image-wrap {
       height: 100%;
+      overflow: hidden;
       position: absolute;
       width: 33%;
 
       a {
-        img {
-          bottom: -2000px;
-          margin: auto;
+        &:after {
+          background: map-get($army-branding, gold);
+          content: '';
+          height: 4px;
+          left: 0;
           position: absolute;
-          top: -2000px;
-          @include custom-transition(-webkit-filter 0.25s ease 0s, opacity 0.25s ease 0s, filter 0.25s ease 0s, opacity 0.25s ease 0s);
+          top: 0;
+          width: 100%;
+          @include transform(translateX, -100%);
+
+          @include custom-transition(transform .25s ease);
+        }
+
+        img {
+          // bottom: -2000px;
+          // margin: auto;
+          // position: absolute;
+          // top: -2000px;
+          @include custom-transition(-webkit-filter 0.25s ease 0s, filter 0.25s ease 0s);
           width: 100%;
         }
-        &:hover img {
-          @include custom-filter(grayscale(75%) brightness(70%));
-          // @include opacity(0.7);
+
+        &:focus,
+        &:hover {
+          &:after {
+            @include transform(translateX, 0);
+          }
+          img {
+            @include custom-filter(grayscale(75%) brightness(70%));
+          }
         }
       }
     }
@@ -36,7 +56,7 @@
       margin-left: 33%;
 
       .main-content {
-        min-height: 195px;
+        min-height: 190px;
         overflow: hidden;
       }
     }
@@ -123,7 +143,7 @@
 
     @include breakpoints(lg_tablet) {
       .image-wrap ~ .news-right .main-content {
-        min-height: 145px;
+        min-height: 140px;
       }
 
       .news-right {
