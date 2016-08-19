@@ -9,15 +9,16 @@
   line-height: 0;
   padding: 20px;
   position: fixed;
-  right: -100px;
+  right: 30px;
   text-indent: -99999px;
+  z-index: -1;
 
   @include opacity(0);
-  @include custom-transition(opacity .5s ease, right .5s ease);
+  @include custom-transition(opacity .5s ease, z-index .5s ease);
 
   &.visible {
     @include opacity(.7);
-    right: 30px;
+    z-index: 1;
 
     &:hover { @include opacity(1); }
   }
