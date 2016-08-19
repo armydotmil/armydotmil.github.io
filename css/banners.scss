@@ -75,6 +75,12 @@ section {
           padding: 0;
           position: absolute;
         }
+
+        .container .inner-container {
+          ul.social-links {
+            li.social-button:first-child a { padding: 5px 10px 5px 0; }
+          }
+        }
       }
     } // end leader
 
@@ -126,14 +132,13 @@ section {
       // 481 - 699
       @include breakpoints(nav) {
         .inner-container {
-
           h1,
-          h2 { text-align: center; }
+          h2,
+          .left-container { text-align: center; }
 
           .left-container {
             display: block;
             height: auto;
-            text-align: center;
           }
 
           .max-width-container { margin: 0 auto; }
@@ -142,7 +147,13 @@ section {
 
       // 700+
       @media (min-width: 700px) {
-        .inner-container .left-container { padding-right: 250px; }
+        .inner-container {
+          .left-container { padding-right: 250px; }
+
+          ul.social-links {
+            li.social-button:first-child a { padding: 5px 10px 5px 0; }
+          }
+        }
       }
     } // end org
 
