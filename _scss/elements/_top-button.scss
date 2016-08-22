@@ -4,7 +4,6 @@
   background: map-get($army-branding, grey40);
   border-radius: 50%;
   bottom: 30px;
-  box-shadow: 0 0 4px transparentize(black, .85), 0 4px 8px transparentize(black, .75);
   font-size: 0;
   height: 50px;
   line-height: 0;
@@ -15,16 +14,13 @@
   z-index: -1;
 
   @include opacity(0);
-  @include custom-transition(opacity .5s ease, box-shadow .15s ease);
+  @include custom-transition(opacity .5s ease);
 
   &.visible {
     @include opacity(.7);
     z-index: 1;
 
-    &:hover {
-      box-shadow: 0 0 6px transparentize(black, .85), 0 6px 12px transparentize(black, .65);
-      @include opacity(1);
-    }
+    &:hover { @include opacity(1); }
   }
 
   span {
