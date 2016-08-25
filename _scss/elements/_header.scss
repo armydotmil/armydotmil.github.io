@@ -341,11 +341,10 @@ header {
               padding: .469em 0 .781em;
 
               li {
-                padding-right: 45px;
 
                 a {
                   color: map-get($army-branding, white);
-                  padding: .469em 0;
+                  padding: .469em 45px .469em 0;
                   position: relative;
 
                   @include custom-transition(color .2s linear 0s);
