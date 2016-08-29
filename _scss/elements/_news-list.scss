@@ -11,32 +11,27 @@
     }
 
     .image-wrap {
-      height: 100%;
+      background-color: map-get($army-branding, black);
+      height: 0;
       overflow: hidden;
+      padding-top: 21.35%;
       position: absolute;
       width: 33%;
 
+
       a {
+        // gold bar
         &:after {
-          background: map-get($army-branding, gold);
+          background-color: map-get($army-branding, gold);
           content: '';
           height: 4px;
           left: 0;
           position: absolute;
           top: 0;
           width: 100%;
+          z-index: 2;
           @include transform(translateX, -100%);
-
           @include custom-transition(transform .25s ease);
-        }
-
-        img {
-          // bottom: -2000px;
-          // margin: auto;
-          // position: absolute;
-          // top: -2000px;
-          @include custom-transition(-webkit-filter 0.25s ease 0s, filter 0.25s ease 0s);
-          width: 100%;
         }
 
         &:focus,
@@ -44,11 +39,9 @@
           &:after {
             @include transform(translateX, 0);
           }
-          img {
-            @include custom-filter(grayscale(75%) brightness(70%));
-          }
         }
       }
+      @include img-grayscale-hover();
     }
 
     .image-wrap + .news-right {
@@ -143,7 +136,7 @@
 
     @include breakpoints(lg_tablet) {
       .image-wrap ~ .news-right .main-content {
-        min-height: 140px;
+        min-height: 135px;
       }
 
       .news-right {
@@ -152,7 +145,7 @@
     }
     @include breakpoints(tablet) {
       .image-wrap ~ .news-right .main-content {
-        min-height: 125px;
+        min-height: 120px;
       }
       .news-right {
         font-size: .875em;
