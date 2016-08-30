@@ -105,10 +105,10 @@ class SubNav {
                     // clear close buttons and open windows
                     navcls = nav[0].getElementsByClassName('close-button');
                     navwins = nav[0].getElementsByClassName('open-window');
-                    for (i = 0; i < navcls.length; i++) {
+                    for (i = navcls.length - 1; i >= 0; i--) {
                         Helper.removeClass(navcls[i], 'close-button');
                     }
-                    for (i = 0; i < navwins.length; i++) {
+                    for (i = navwins.length - 1; i >= 0; i--) {
                         Helper.removeClass(navwins[i], 'open-window');
                     }
                 }
@@ -160,10 +160,12 @@ class SubNav {
             active = this.subnav.getElementsByClassName('active');
             selected = document.getElementsByClassName('subnav-selected');
 
-            for (i = 0; i < active.length; i++) {
+            // changing classname of nodelist element can remove element from
+            // list (changing indexes), so loop through list backwards...
+            for (i = active.length - 1; i >= 0; i--) {
                 Helper.removeClass(active[i], 'active');
             }
-            for (i = 0; i < selected.length; i++) {
+            for (i = selected.length - 1; i >= 0; i--) {
                 Helper.removeClass(selected[i], 'subnav-selected');
             }
 
@@ -193,7 +195,7 @@ class SubNav {
     showMenuDiv(divs, add) {
         var i;
 
-        for (i = 0; i < divs.length; i++) {
+        for (i = divs.length - 1; i >= 0; i--) {
             if (add === true) {
                 Helper.addClass(divs[i], 'subnav-selected');
             } else {
