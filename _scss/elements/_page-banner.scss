@@ -132,20 +132,28 @@
   }
 
   .overlay-effect {
-    background-image: url("/e2/images/rv7/banners/halftone.png");
-    background-position: center center;
-    background-size: cover;
+    @include custom-linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(35, 31, 32, 0.5) 0px, rgba(35, 31, 32, 0.8) 50%, rgba(35, 31, 32, 0.5));
     height: 100%;
     position: absolute;
     width: 100%;
-    z-index: 2;
+    z-index: 1;
 
-    &::before {
-      @include custom-linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(35, 31, 32, 0.5) 0px, rgba(35, 31, 32, 0.8) 50%, rgba(35, 31, 32, 0.5));
+    &::after {
+      background-image: url("/e2/images/rv7/banners/halftone_768.png");
+      background-position: center center;
+      background-size: cover;
       content: "";
       height: 100%;
+      @include opacity(0.55);
       position: absolute;
       width: 100%;
+
+      @include breakpoints(lg_tablet sm_desktop desktop) {
+        background-image: url("/e2/images/rv7/banners/halftone_1200.png");
+      }
+      @include breakpoints(large really_big) {
+        background-image: url("/e2/images/rv7/banners/halftone_2500.png");
+      }
     }
   }
 
