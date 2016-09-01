@@ -202,27 +202,39 @@
   }
 
   &.standard {
+    &.parallax-image {
+      min-height: 0;
+    }
     .container .inner-container {
       h1 {
         @include header-underline(gold);
-        font: 700 1.313em/1.4 $font-family;
-        margin: 0 0 20px;
+        font: 700 1.125em/1.4 $font-family;
+        margin: 0 0 15px;
 
         &::after {
           height: 4px;
-          margin: 15px auto 0;
+          margin: 10px auto 0;
         }
       }
 
-      h2 { font: 700 1.875em/1.125 $font-family; }
+      h2 { font: 700 1.5em/1.125 $font-family; }
 
       // standard headers always centered
       h1,
       h2 { text-align: center; }
 
-      @media (min-width: 700px) {
+      @include breakpoints(nav tablet) {
         h1 {
-          font: 700 1.5em/1.5 $font-family;
+          font-size: 1.313em;
+          margin: 0 0 20px;
+          &::after { margin: 15px auto 0; }
+        }
+        h2 { font-size: 1.875em; }
+      }
+      @include breakpoints(lg_tablet sm_desktop desktop) {
+        h1 {
+          font-size: 1.5em;
+          line-height: 1.5em;
           margin: 0 0 25px;
 
           &::after { margin: 20px auto 0; }
@@ -231,7 +243,15 @@
         h2 { font-size: 2.25em; }
       }
 
-      @media (min-width: 1156px) {
+      @include breakpoints(large really_big) {
+        h1 {
+          font-size: 1.5em;
+          line-height: 1.5em;
+          margin: 0 0 25px;
+
+          &::after { margin: 20px auto 0; }
+        }
+
         h2 { font-size: 2.5em; }
       }
     }

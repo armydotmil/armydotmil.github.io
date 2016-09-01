@@ -156,26 +156,5 @@ section {
         }
       }
     } // end org
-
-    &.news-wide {
-      .full-width-image {
-        // position: absolute;
-        // max-height: none;
-        img {
-          filter: brightness(2);
-        }
-      }
-
-      // @include breakpoints(mobile) {
-      //   padding-top: 50px;
-
-      //   .full-width-image {
-      //     left: -1000px;
-      //     position: absolute;
-      //     right: -1000px;
-      //     width: auto;
-      //   }
-      // }
-    } // end news
   }
 }
