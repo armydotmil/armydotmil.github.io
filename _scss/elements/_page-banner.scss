@@ -144,7 +144,7 @@
       background-size: cover;
       content: "";
       height: 100%;
-      @include opacity(0.55);
+      @include opacity(0.25);
       position: absolute;
       width: 100%;
 
@@ -184,20 +184,17 @@
     .container .inner-container {
 
       .left-container {
-        @media (min-width: 2000px) {
-          height: 400px;
+        @include breakpoints(nav) {
+          height: 200px;
         }
-
-        @include breakpoints(really_big) {
-          height: 300px;
-        }
-
         @include breakpoints(tablet lg_tablet sm_desktop desktop large) {
           height: 250px;
         }
-
-        @include breakpoints(nav) {
-          height: 200px;
+        @include breakpoints(really_big) {
+          height: 330px;
+        }
+        @media (min-width: 2000px) {
+          height: 400px;
         }
       }
     }
