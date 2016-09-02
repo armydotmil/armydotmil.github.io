@@ -133,6 +133,10 @@ class Carousel {
             startPositions = {
                 'x': 0,
                 'y': 0
+            },
+            endPositions = {
+                'x': 0,
+                'y': 0
             };
 
         function listeners(active) {
@@ -182,6 +186,8 @@ class Carousel {
             // TODO add ability to slow translate when you pull it too far
             _this.translate.x = coordinates(e).x - newPositions.x;
 
+            endPositions.x = coordinates(e).x;
+
             // TODO
             // if we are grabbing the carousel, but want to move up or down the page,
             // remove the event listener
@@ -210,7 +216,7 @@ class Carousel {
                 // by rounding up or down, we can move the carousel to the right position
                 // based off of where the user started dragging the carousel
                 // and where they stopped
-                if (coordinates(e).x < startPositions.x) {
+                if (endPositions.x < startPositions.x) {
 
                     // swipe forwards
                     transformRounded = Math.floor(_this.translate.x / _this.itemWidth);
@@ -350,8 +356,7 @@ class Carousel {
             this.clicks++;
 
             // if we are at the end of the carousel, set translate differently
-            if (this.containerW < MAX_CONTAINER_W &&
-                this.clicks === this.maxClicks) {
+            if (this.clicks === this.maxClicks) {
 
                 // set translate to carousel width - container width
                 this.translate.x = -(this.carouselW - this.containerW);
