@@ -158,6 +158,7 @@ class Carousel {
         }
 
         function start(e) {
+            e.preventDefault();
 
             newPositions.x = coordinates(e).x - _this.translate.x;
             newPositions.y = coordinates(e).y - _this.translate.y;
@@ -252,8 +253,9 @@ class Carousel {
 
                 // dont follow the link if we are moving the carousel
                 if (e.target.tagName === 'A' ||
-                    e.target.parentNode.tagName === 'A')
+                    e.target.parentNode.tagName === 'A') {
                     e.target.onclick = function() { return false; };
+                }
             } else {
 
                 // else we are just clicking inside the carousel,
