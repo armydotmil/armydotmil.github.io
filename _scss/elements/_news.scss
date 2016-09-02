@@ -33,10 +33,6 @@
         &:focus,
         &:hover {
           text-decoration: none;
-
-          &:after {
-            @include transform(translateX, 0);
-          }
         }
       }
 
@@ -92,6 +88,15 @@
       text-transform: uppercase;
 
       &:hover { text-decoration: none; }
+    }
+  }
+
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    ul li {
+      a:hover:after,
+      a:focus:after {
+        @include transform(translateX, 0);
+      }
     }
   }
 

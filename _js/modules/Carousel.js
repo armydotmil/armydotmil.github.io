@@ -27,7 +27,7 @@ class Carousel {
         };
         this.doEdgeTransition = false;
         this.events = {};
-        // this.supports3d = true; // may need to initialize something here
+        this.supportsTouch = false;
 
         // add click listener to left/right buttons
         this.addOnClick();
@@ -108,17 +108,19 @@ class Carousel {
         if ('ontouchstart' in window || // works on most browsers
             window.navigator.msMaxTouchPoints) {
 
+            this.supportsTouch = true;
+
             this.events = {
-                'start' : 'touchstart',
-                'move' : 'touchmove',
-                'end' : 'touchend' // touchcancel was in there too
+                'start' : ['mousedown', 'touchstart'],
+                'move' : ['mousemove', 'touchmove'],
+                'end' : ['mouseup', 'touchend', 'touchcancel']
             };
         } else {
 
             this.events = {
-                'start' : 'mousedown',
-                'move' : 'mousemove',
-                'end' : 'mouseup'
+                'start' : ['mousedown'],
+                'move' : ['mousemove'],
+                'end' : ['mouseup']
             };
         }
     }
@@ -139,13 +141,26 @@ class Carousel {
                 'y': 0
             };
 
+        // TODO create a function to add multiple listeners
+        // instead of having multiple for loops
         function listeners(active) {
+            var i,
+                len;
+
             if (active) {
-                document.addEventListener(_this.events.move, moving, false);
-                document.addEventListener(_this.events.end, end, false);
+                for (i = 0, len = _this.events.move.length; i < len; i++) {
+                    document.addEventListener(_this.events.move[i], moving, false);
+                }
+                for (i = 0, len = _this.events.end.length; i < len; i++) {
+                    document.addEventListener(_this.events.end[i], end, false);
+                }
             } else {
-                document.removeEventListener(_this.events.move, moving);
-                document.removeEventListener(_this.events.end, end);
+                for (i = 0, len = _this.events.move.length; i < len; i++) {
+                    document.removeEventListener(_this.events.move[i], moving);
+                }
+                for (i = 0, len = _this.events.end.length; i < len; i++) {
+                    document.removeEventListener(_this.events.end[i], end);
+                }
             }
         }
 
@@ -162,7 +177,6 @@ class Carousel {
         }
 
         function start(e) {
-            e.preventDefault();
 
             newPositions.x = coordinates(e).x - _this.translate.x;
             newPositions.y = coordinates(e).y - _this.translate.y;
@@ -170,7 +184,6 @@ class Carousel {
             startPositions.x = coordinates(e).x;
 
             listeners(1);
-
 
             // not returning false here does some funky stuff :P
             return false;
@@ -206,10 +219,7 @@ class Carousel {
 
             // need to see if we are dragging because this function is activated
             // when you click anywhere inside the carousel
-            if (dragging) {
-                e.stopImmediatePropagation();
-                e.stopPropagation();
-                e.preventDefault();
+            if (dragging && endPositions.x !== startPositions.x) {
 
                 Helper.removeClass(_this.carousel, 'moving');
 
@@ -257,26 +267,44 @@ class Carousel {
 
                 listeners(0);
 
+                if (document.activeElement != document.body) document.activeElement.blur();
+
                 // dont follow the link if we are moving the carousel
                 if (e.target.tagName === 'A' ||
-                    e.target.parentNode.tagName === 'A') {
-                    e.target.onclick = function() { return false; };
+                    e.target.tagName === 'SPAN' ||
+                    e.target.tagName === 'IMG') {
+                    e.target.onclick = function(e) {
+                        e.stopImmediatePropagation();
+                        e.stopPropagation();
+                        e.preventDefault();
+                    };
                 }
+
             } else {
 
-                // else we are just clicking inside the carousel,
-                // so follow the link
+                // follow the link
                 e.target.onclick = function() { return true; };
             }
-
-            if (document.activeElement != document.body) document.activeElement.blur();
 
             dragging = false;
 
             return false;
         }
 
-        _this.carousel.addEventListener(_this.events.start, start, true);
+        // split these up b/c FF wouldn't work without the e.preventDefault
+        // and e.preventDefault broke iOS
+        if (this.supportsTouch) {
+            _this.carousel.addEventListener(_this.events.start[1], start, true);
+        }
+
+        _this.carousel.addEventListener(
+            _this.events.start[0],
+            function(e) {
+                e.preventDefault();
+                start(e);
+            },
+            true
+        );
 
     }
 
