@@ -1,131 +1,98 @@
 
 
-.announcements {
-  max-width: 446px;
-  margin: 0 auto;
+.news.announcements {
+  background: $light-gray-color;
 
-  h4 {
-    &:first-child { margin: 0 0 15px; }
-    &:after { display: none; }
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+
+    .inner-container { position: relative; }
   }
 
-  .inner {
-    background: $light-gray-color;
-    padding: 30px;
+  h4 { padding-left: 15px; }
+
+  .controls {
+    padding-right: 15px;
+    position: absolute;
+    right: 15px;
+    top: 0;
+
+    a {
+      border: 1px solid #000;
+      display: inline-block;
+      font-size: 0;
+      margin-right: 15px;
+      padding: 10px 12px;
+
+      @include opacity(.75);
+
+      span {
+        background-image: $social-button-sprite;
+        display: block;
+        height: 12px;
+        width: 9px;
+      }
+
+      &.left span { background-position: -259px -60px; }
+      &.right span { background-position: -268px -60px; }
+
+      &:hover { @include opacity(1); }
+
+      &.disabled { @include opacity(.25); }
+
+      &:last-child { margin: 0; }
+    }
+  }
+
+  .carousel {
+    position: relative;
+    @include custom-transition(transform .5s ease);
+
+    &.quick {
+      @include custom-transition(transform .15s ease);
+    }
+
+    &.moving,
+    &.moving * {
+      cursor: move;
+    }
+
+    &.moving { @include custom-transition(none 0s ease); }
   }
 
   ul {
+    margin: 0;
 
     li {
-      margin: 0 0 15px;
+      margin: 0;
+      max-width: 255px;
 
-      &:first-child {
-        margin: 0 0 30px;
-
-        a {
-          display: block;
-          overflow: hidden;
-          position: relative;
-
-          &:after {
-            background: map-get($army-branding, gold);
-            content: '';
-            height: 4px;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            @include transform(translateX, -100%);
-
-            @include custom-transition(transform .25s ease);
-          }
-
-          &:focus:after,
-          &:hover:after {
-            @include transform(translateX, 0);
-          }
-        }
-
-        .image {
-          @include row();
-          background: map-get($army-branding, black);
-          height: 0;
-          padding: 66.25% 0 0;
-          position: relative;
-          z-index: 0;
-
-          img {
-            bottom: -2000px;
-            margin: auto;
-            position: absolute;
-            top: -2000px;
-            width: 100%;
-
-            @include grayscale();
-          }
-        }
-
-        .center {
-          left: 20px;
-          margin: 0;
-          position: absolute;
-          right: 20px;
-          text-align: center;
-          top: 50%;
-          @include transform(translateY, -50%);
-
-          h5 {
-            color: map-get($army-branding, gold);
-            text-align: center;
-          }
-
-          p { color: map-get($army-branding, white); }
-        }
-      } // end first-child
-
-      &:last-child { margin: 0; }
-
-      a {
-        display: block;
-
-        &:hover { text-decoration: none; }
-
-        span {
-          display: inline-block;
-          font: 600 1em/1.3 $font-family;
-          width: 100%;
-
-          &:first-child {
-            font: 400 .875em/1.3 $font-family;
-            text-transform: uppercase;
-          }
-        }
-      }
-
+      &:nth-child(3n+4) { clear: none; }
     }
-  } // end ul
-
-  .more {
-    background: $light-gray-color;
-    border-bottom: 2px solid map-get($army-branding, grey20);
-    border-top: 2px solid map-get($army-branding, grey20);
-    display: block;
-    padding: 13px 30px 10px;
-    text-transform: uppercase;
-
-    &:hover { text-decoration: none; }
   }
 
-  @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
-    max-width: none;
+  @include breakpoints(mobile nav tablet lg_tablet) {
+    .container { max-width: none; }
+  }
 
+  @include breakpoints(tablet lg_tablet) {
     ul li {
-      span {
-        font: 600 1.125em/1.4 $font-family;
-
-        &:first-child { font: 600 1em/1.4 $font-family; }
-      }
+      &:nth-child(2n+3) { clear: none; }
     }
+  }
+
+  @include breakpoints(lg_tablet) {
+    .controls { padding-right: 0; }
+  }
+
+  @include breakpoints(mobile nav tablet) {
+    h4 { padding-left: 0; }
+    .controls { display: none; }
+  }
+
+  @include breakpoints(mobile nav) {
+    max-width: none;
   }
 }
 

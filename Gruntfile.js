@@ -13,17 +13,17 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        sass: {
-            dist: {
-                options: {
-                    style: 'compressed',
-                    loadPath: '_scss/globals/'
-                },
-                files: {
-                    'e2/css/rv7/a-z/style.css': '_scss/style.scss'
-                }
-            }
-        },
+        // sass: {
+        //     dist: {
+        //         options: {
+        //             style: 'compressed',
+        //             loadPath: '_scss/globals/'
+        //         },
+        //         files: {
+        //             'e2/css/rv7/a-z/style.css': '_scss/style.scss'
+        //         }
+        //     }
+        // },
         browserify: {
             libs: {
                 files: {
@@ -88,6 +88,14 @@ module.exports = function(grunt) {
                 options: {
                     transform: ['babelify']
                 }
+            },
+            carousel: {
+                files: {
+                    '_js/bundled/carousel.js': '_js/carousel.js'
+                },
+                options: {
+                    transform: ['babelify']
+                }
             }
         },
         uglify: {
@@ -106,7 +114,8 @@ module.exports = function(grunt) {
                         '_js/bundled/playlist.js',
                         '_js/bundled/selects.js',
                         '_js/bundled/parallax-images.js',
-                        '_js/bundled/top-btn.js'
+                        '_js/bundled/top-btn.js',
+                        '_js/bundled/carousel.js'
                     ],
                     dest: 'e2/js/rv7/armydotmil/<%= pkg.name %>.min.js'
                 },
@@ -122,11 +131,11 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-browserify');
 
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    // grunt.loadNpmTasks('grunt-contrib-sass');
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.loadNpmTasks('grunt-text-replace');
+    // grunt.loadNpmTasks('grunt-text-replace');
 
     grunt.registerTask('production', ['browserify', 'uglify']);
 
