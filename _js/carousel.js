@@ -1,10 +1,17 @@
 /*global document, require*/
 
-var Carousel = require('./modules/Carousel');
+var Carousel = require('./modules/Carousel'),
+    Hammer = require('hammerjs');
 
 (function() {
     'use strict';
 
-    new Carousel(document.getElementsByClassName('carousel')[0]);
-
+    var stage = document.getElementsByClassName('carousel')[0],
+        carousel = new Carousel(stage),
+        hammertime = new Hammer(stage);
+    
+    hammertime.on('swipe', function(ev) {
+        carousel.swipe(ev.deltaX);
+    });
+    
 })();
