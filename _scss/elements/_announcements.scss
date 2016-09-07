@@ -72,6 +72,10 @@
           padding-top: 65px;
       }
       
+      &.carousel-items a {
+          color: map-get($army-branding, grey70);
+      }
+      
       &:nth-child(3n+4) { clear: none; }
     }
   }
