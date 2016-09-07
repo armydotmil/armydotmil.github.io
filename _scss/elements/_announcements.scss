@@ -67,7 +67,11 @@
     li {
       margin: 0;
       max-width: 255px;
-
+      
+      &.carousel-items:last-child {
+          padding-top: 65px;
+      }
+      
       &:nth-child(3n+4) { clear: none; }
     }
   }
