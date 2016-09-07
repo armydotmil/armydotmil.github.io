@@ -34,6 +34,9 @@
         &:hover {
           text-decoration: none;
         }
+        &.disabled:after {
+           content: none; 
+        }
       }
 
       @include img-grayscale-hover('a', '.image');
