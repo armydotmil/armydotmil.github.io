@@ -50,9 +50,6 @@ class Carousel {
 
         // detect browser support for translate3d and touch
         this.caniuse();
-
-        // add drag capability
-        this.move();
     }
 
     addOnClick() {
@@ -62,7 +59,7 @@ class Carousel {
             len;
 
         // add event listeners to control buttons
-        for(i = 0, len = controlBtns.length; i < len; i++) {
+        for (i = 0, len = controlBtns.length; i < len; i++) {
             this.onBtnClick(controlBtns[i]);
         }
     }
@@ -72,14 +69,13 @@ class Carousel {
             len;
 
         // use maxwidth of all the items for amount to move carousel
-        for(i = 0, len = this.items.length; i < len; i++) {
+        for (i = 0, len = this.items.length; i < len; i++) {
             if (this.items[i].clientWidth > this.itemWidth)
                 this.itemWidth = this.items[i].clientWidth;
         }
     }
 
     setWidth() {
-
         // set width of carousel to total width of all items
         this.carouselW = this.itemWidth * this.items.length;
         this.carousel.style.width = `${this.carouselW}px`;
@@ -103,214 +99,11 @@ class Carousel {
         supports3d = el.style.cssText.match(/translate3d\(0px, 0px, 0px\)/g);
 
         this.supports3d = (supports3d && supports3d.length === 1);
-
-        // TODO figure out how to make touch and mouse work together
-        if ('ontouchstart' in window || // works on most browsers
-            window.navigator.msMaxTouchPoints) {
-
-            this.supportsTouch = true;
-
-            this.events = {
-                'start' : ['mousedown', 'touchstart'],
-                'move' : ['mousemove', 'touchmove'],
-                'end' : ['mouseup', 'touchend', 'touchcancel']
-            };
-        } else {
-
-            this.events = {
-                'start' : ['mousedown'],
-                'move' : ['mousemove'],
-                'end' : ['mouseup']
-            };
-        }
-    }
-
-    move() {
-        var _this = this,
-            dragging = false,
-            newPositions = {
-                'x': 0,
-                'y': 0
-            },
-            startPositions = {
-                'x': 0,
-                'y': 0
-            },
-            endPositions = {
-                'x': 0,
-                'y': 0
-            };
-
-        // TODO create a function to add multiple listeners
-        // instead of having multiple for loops
-        function listeners(active) {
-            var i,
-                len;
-
-            if (active) {
-                for (i = 0, len = _this.events.move.length; i < len; i++) {
-                    document.addEventListener(_this.events.move[i], moving, false);
-                }
-                for (i = 0, len = _this.events.end.length; i < len; i++) {
-                    document.addEventListener(_this.events.end[i], end, false);
-                }
-            } else {
-                for (i = 0, len = _this.events.move.length; i < len; i++) {
-                    document.removeEventListener(_this.events.move[i], moving);
-                }
-                for (i = 0, len = _this.events.end.length; i < len; i++) {
-                    document.removeEventListener(_this.events.end[i], end);
-                }
-            }
-        }
-
-        function coordinates(e) {
-            return e.touches !== undefined ?
-                {
-                    'x' : e.touches[0].pageX,
-                    'y' : e.touches[0].pageY
-                } :
-                {
-                    'x' : (e.pageX || e.clientX),
-                    'y' : (e.pageY || e.clientY)
-                };
-        }
-
-        function start(e) {
-
-            newPositions.x = coordinates(e).x - _this.translate.x;
-            newPositions.y = coordinates(e).y - _this.translate.y;
-
-            startPositions.x = coordinates(e).x;
-
-            listeners(1);
-
-            // not returning false here does some funky stuff :P
-            return false;
-        }
-
-        function moving(e) {
-            e.preventDefault();
-
-            dragging = true;
-
-            Helper.addClass(_this.carousel, 'moving');
-
-            // TODO add ability to slow translate when you pull it too far
-            _this.translate.x = coordinates(e).x - newPositions.x;
-
-            endPositions.x = coordinates(e).x;
-
-            // TODO
-            // if we are grabbing the carousel, but want to move up or down the page,
-            // remove the event listener
-            // (only would happen on touch devices)
-            // _this.translate.y = coordinates(e).y - newPositions.y;
-            // if (_this.translate.y > 10 || _this.translate.y < -10) {
-            //     listeners(0);
-            // }
-
-            // move carousel
-            _this.setTranslate(_this.translate.x);
-        }
-
-        function end(e) {
-            var transformRounded = 0;
-
-            // need to see if we are dragging because this function is activated
-            // when you click anywhere inside the carousel
-            if (dragging && endPositions.x !== startPositions.x) {
-
-                Helper.removeClass(_this.carousel, 'moving');
-
-                // by rounding up or down, we can move the carousel to the right position
-                // based off of where the user started dragging the carousel
-                // and where they stopped
-                if (endPositions.x < startPositions.x) {
-
-                    // swipe forwards
-                    transformRounded = Math.floor(_this.translate.x / _this.itemWidth);
-                } else {
-
-                    // swipe backwards
-                    transformRounded = Math.ceil(_this.translate.x / _this.itemWidth);
-                }
-
-                // set clicks eq to rounded translate over item width
-                // since transformRounded is negative and clicks can only be positive,
-                // multiply by -1
-                // then check if it needs to be reset to 0 or max clicks
-                _this.clicks = -(transformRounded);
-
-                if (_this.clicks < 0) {
-                    _this.clicks = 0;
-                } else if (_this.clicks > _this.maxClicks) {
-                    _this.clicks = _this.maxClicks;
-                }
-
-                // if we are at the end of the carousel, set translate differently
-                if (_this.clicks === _this.maxClicks) {
-
-                    // set translate to carousel width - container width
-                    _this.translate.x = -(_this.carouselW - _this.containerW);
-                } else {
-
-                    // set translate to clicks * item width
-                    _this.translate.x = -(_this.clicks * _this.itemWidth);
-                }
-
-                // move carousel
-                _this.setTranslate(_this.translate.x);
-
-                // disable the appropriate button
-                _this.disableBtn();
-
-                listeners(0);
-
-                if (document.activeElement != document.body) document.activeElement.blur();
-
-                // dont follow the link if we are moving the carousel
-                if (e.target.tagName === 'A' ||
-                    e.target.tagName === 'SPAN' ||
-                    e.target.tagName === 'IMG') {
-                    e.target.onclick = function(e) {
-                        e.stopImmediatePropagation();
-                        e.stopPropagation();
-                        e.preventDefault();
-                    };
-                }
-
-            } else {
-
-                // follow the link
-                e.target.onclick = function() { return true; };
-            }
-
-            dragging = false;
-
-            return false;
-        }
-
-        // split these up b/c FF wouldn't work without the e.preventDefault
-        // and e.preventDefault broke iOS
-        if (this.supportsTouch) {
-            _this.carousel.addEventListener(_this.events.start[1], start, true);
-        }
-
-        _this.carousel.addEventListener(
-            _this.events.start[0],
-            function(e) {
-                e.preventDefault();
-                start(e);
-            },
-            true
-        );
-
     }
 
     // add css prefixes
     setStyle(el, prop, val) {
-        var uc = prop.substr(0,1).toUpperCase() + prop.substr(1);
+        var uc = prop.substr(0, 1).toUpperCase() + prop.substr(1);
         el.style['Webkit' + uc] = val;
         el.style['Moz' + uc] = val;
         el.style['MS' + uc] = val;
@@ -332,49 +125,68 @@ class Carousel {
         }
     }
 
+    move() {
+        var _this = this;
+
+        if (_this.doEdgeTransition) {
+            Helper.addClass(_this.carousel, 'quick');
+
+            // move carousel
+            _this.setTranslate(_this.translate.x);
+
+            // setTimeout for cool effect
+            setTimeout(function() {
+                _this.translate.x = _this.clicks === 0 ?
+                    _this.translate.x - SHORT_TRANSITION :
+                    _this.translate.x + SHORT_TRANSITION;
+
+                // move carousel
+                _this.setTranslate(_this.translate.x);
+
+                Helper.removeClass(_this.carousel, 'quick');
+                _this.doEdgeTransition = false;
+            }, 150);
+
+        } else {
+            // move carousel
+            _this.setTranslate(_this.translate.x);
+        }
+
+        _this.disableBtn();
+    }
+
     onBtnClick(el) {
         var _this = this;
 
         el.addEventListener(
             'click',
             function() {
+
                 if (Helper.hasClass(this, 'right')) {
                     _this.next();
                 } else {
                     _this.prev();
                 }
 
-                if (_this.doEdgeTransition) {
-                    Helper.addClass(_this.carousel, 'quick');
-
-                    // move carousel
-                    _this.setTranslate(_this.translate.x);
-
-                    // setTimeout for cool effect
-                    setTimeout(function() {
-                        _this.translate.x = _this.clicks === 0 ?
-                            _this.translate.x - SHORT_TRANSITION :
-                            _this.translate.x + SHORT_TRANSITION;
-
-                        // move carousel
-                        _this.setTranslate(_this.translate.x);
-
-                        Helper.removeClass(_this.carousel, 'quick');
-                        _this.doEdgeTransition = false;
-                    }, 150);
-
-                } else {
-
-                    // move carousel
-                    _this.setTranslate(_this.translate.x);
-                }
-
-                _this.disableBtn();
+                _this.move();
 
                 return false;
             },
             false
         );
+    }
+
+    swipe(pos) {
+
+        if (pos < 0) {
+            this.next();
+        } else {
+            this.prev();
+        }
+
+        this.move();
+
+        return false;
     }
 
     // TODO add ability to attach these functions to whatever buttons you want
@@ -429,17 +241,17 @@ class Carousel {
             disabled = 1;
             btnToDisable = controlBtns[0];
 
-        // disable right button if at max clicks
+            // disable right button if at max clicks
         } else if (this.clicks === this.maxClicks) {
             disabled = 1;
             btnToDisable = controlBtns[1];
 
-        // else dont disable anything
+            // else dont disable anything
         } else {
             disabled = 0;
         }
 
-        for(i = controlBtns.length - 1; i >= 0; i--) {
+        for (i = controlBtns.length - 1; i >= 0; i--) {
             Helper.removeClass(controlBtns[i], 'disabled');
         }
 
@@ -468,19 +280,3 @@ class Carousel {
 };
 
 export default Carousel;
-
-    // TODO
-    // count items in container
-    // see if 4 items are visible - if more, add ability to go left/right
-    // if less than 4 items visible and screen width is more than width of all items combined, add ability to go left/right
-
-    // later TODO
-    // add touch capability
-
-    // detect touch capability:
-    // function is_touch_device() {
-    //   return 'ontouchstart' in window        // works on most browsers
-    //       || 'onmsgesturechange' in window;  // works on IE10 with some false positives
-    // };
-
-

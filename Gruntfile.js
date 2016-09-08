@@ -13,17 +13,6 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        // sass: {
-        //     dist: {
-        //         options: {
-        //             style: 'compressed',
-        //             loadPath: '_scss/globals/'
-        //         },
-        //         files: {
-        //             'e2/css/rv7/a-z/style.css': '_scss/style.scss'
-        //         }
-        //     }
-        // },
         browserify: {
             libs: {
                 files: {
