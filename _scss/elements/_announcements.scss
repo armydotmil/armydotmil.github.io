@@ -67,7 +67,15 @@
     li {
       margin: 0;
       max-width: 255px;
-
+      
+      &.carousel-items:last-child {
+          padding-top: 63px;
+      }
+      
+      &.carousel-items a {
+          color: map-get($army-branding, grey70);
+      }
+      
       &:nth-child(3n+4) { clear: none; }
     }
   }
