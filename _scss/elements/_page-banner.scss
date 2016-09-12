@@ -27,9 +27,9 @@
         padding-bottom: 3px;
 
         a {
-          text-decoration: none;
           color: map-get($army-branding, gold);
           font-weight: 700;
+          text-decoration: none;
         }
       }
 
@@ -37,6 +37,12 @@
         color: map-get($army-branding, white);
         font: 400 1.125em $font-family;
         margin: 0;
+
+        a {
+          color: map-get($army-branding, white);
+          font-weight: 400;
+          text-decoration: none;
+        }
       }
 
       p {
@@ -217,7 +223,13 @@
         }
       }
 
-      h2 { font: 700 1.5em/1.27 $font-family; }
+      h2 { 
+        font: 700 1.5em/1.27 $font-family;
+
+        a {
+          font-weight: 700;
+        }
+      }
 
       // standard headers always centered
       h1,
