@@ -235,6 +235,16 @@
       h1,
       h2 { text-align: center; }
 
+      @include breakpoints(mobile) {
+        display: table;
+        width: 100%;
+
+        .left-container {
+          display: table-cell;
+          height: 150px;
+          vertical-align: middle;
+        }
+      }
       @include breakpoints(nav tablet) {
         h1 {
           font-size: 1.313em;
