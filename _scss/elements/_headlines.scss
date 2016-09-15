@@ -16,12 +16,16 @@
       }
       
       a {
-        padding-right: 19px;
-        
-        span {
-          margin-right: -19px;
+        &:after {
+          background: transparent $social-button-sprite no-repeat scroll -442px 0;
+          content: "";
+          height: 12px;
+          margin-left: 9px;
+          margin-top: 5px;
+          position: absolute;
+          vertical-align: middle;
+          width: 14px;
         }
-        
         &:hover { text-decoration: none; }
       }
       
@@ -32,16 +36,18 @@
   @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
     ul li {
       a {
-        span {
+        padding-right: 54px;
+
+        &:after {
           @include opacity(0);
           margin-left: 40px;
           @include custom-transition(opacity .25s ease, margin-left .25s ease);
         }
         
         &:hover, &:focus {
-          span {
+          &:after {
             @include opacity(1);
-            margin-left: 5px;
+            margin-left: 9px;
           }
         }
       }
@@ -51,6 +57,7 @@
   @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
     ul li {
       display: table;
+      // width: 100%;
 
       a, .date {
         display: table-cell;
