@@ -4,21 +4,18 @@
   
   ul {
     li {
-      @include clearfix();
-      
       margin: 0 0 25px;
       overflow: hidden;
       
-      &:last-child { margin: 0; }
+      &:last-child { border: 0; margin: 0; padding: 0; }
       
       .date {
         color: map-get($army-branding, grey50);
-        font: 600 1em/1.375em $font-family;
+        padding-right: 15px;
         text-transform: uppercase;
       }
       
       a {
-        font: 600 1em/1.375em $font-family;
         padding-right: 19px;
         
         span {
@@ -28,14 +25,13 @@
         &:hover { text-decoration: none; }
       }
       
-      a, .date { width: 100%; }
+      a, .date { display:block; }
     }
   }
   
   @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
     ul li {
       a {
-        
         span {
           @include opacity(0);
           margin-left: 40px;
@@ -54,9 +50,12 @@
   
   @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
     ul li {
-      a, .date { float: left; }
-      
-      a { @include custom-calc(width, #{"100% - 130px"}); }
+      display: table;
+
+      a, .date {
+        display: table-cell;
+        font: 600 1em/1.375em $font-family;
+      }
       
       .date { width: 130px; }
     }
@@ -67,14 +66,10 @@
       border-bottom: 1px solid map-get($army-branding, grey20);
       padding-bottom: 20px;
       
-      &:last-child { border: 0; padding: 0; }
-      
       .date {
-        display: inline-block;
         font: 400 .875em $font-family;
         margin: 0 0 5px;
       }
     }
   }
 }
-
