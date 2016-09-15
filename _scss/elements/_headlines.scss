@@ -17,13 +17,13 @@
       
       a {
         .view-more-arrow-sm { display: none; }
-        
+
         &:after {
           background: transparent $social-button-sprite no-repeat scroll -442px 0;
           content: "";
           height: 12px;
           margin-left: 9px;
-          margin-top: 5px;
+          margin-top: 7px;
           position: absolute;
           vertical-align: middle;
           width: 14px;
@@ -67,6 +67,8 @@
       }
       
       .date { width: 130px; }
+
+      a:after { margin-top: 5px; }
     }
   }
   
