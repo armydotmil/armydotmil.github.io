@@ -29,6 +29,7 @@ class Carousel {
         this.newPosition = 0;
         this.startPosition = 0;
         this.endPosition = 0;
+        this.endVelocity = 0;
 
         // add click listener to left/right buttons
         this.addOnClick();
@@ -216,6 +217,9 @@ class Carousel {
         // set endPosition to current pos
         this.endPosition = e.deltaX;
 
+        // set endVelocity to current velocityX amount
+        this.endVelocity = e.velocityX;
+
         // move carousel
         this.setTranslate(this.translate);
     }
@@ -244,6 +248,11 @@ class Carousel {
         // then check if it needs to be reset to 0 or max clicks
         this.clicks = -(transformRounded);
 
+        // add velocity!!
+        if (this.endVelocity >= 1 ||
+            this.endVelocity <= -1)
+            this.clicks -= Math.round(this.endVelocity / 2);
+
         if (this.clicks < 0) {
             this.clicks = 0;
         } else if (this.clicks > this.maxClicks) {
@@ -259,6 +268,10 @@ class Carousel {
 
             // set translate to clicks * item width
             this.translate = -(this.clicks * this.itemWidth);
+
+            // center the items on small screens
+            if (this.containerW <= 500 && this.clicks > 0)
+                this.translate += (this.containerW - this.itemWidth) / 2;
         }
 
         // move carousel
