@@ -305,7 +305,7 @@ class Carousel {
         if (this.clicks === this.maxClicks) {
 
             // set translate to carousel width - container width
-            this.translate = -(this.carouselW - this.containerW);
+            this.translate = -(this.maxSwipeAmt);
         } else {
 
             // set translate to clicks * item width
