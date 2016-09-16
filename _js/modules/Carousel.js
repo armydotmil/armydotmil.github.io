@@ -251,7 +251,7 @@ class Carousel {
         // add velocity!!
         if (this.endVelocity >= 1 ||
             this.endVelocity <= -1)
-            this.clicks -= Math.round(this.endVelocity / 4);
+            this.clicks -= Math.round(this.endVelocity / 5);
 
         if (this.clicks < 0) {
             this.clicks = 0;
@@ -259,20 +259,8 @@ class Carousel {
             this.clicks = this.maxClicks;
         }
 
-        // if we are at the end of the carousel, set translate differently
-        if (this.clicks === this.maxClicks) {
-
-            // set translate to carousel width - container width
-            this.translate = -(this.carouselW - this.containerW);
-        } else {
-
-            // set translate to clicks * item width
-            this.translate = -(this.clicks * this.itemWidth);
-
-            // center the items on small screens
-            if (this.containerW <= 500 && this.clicks > 0)
-                this.translate += (this.containerW - this.itemWidth) / 2;
-        }
+        // get translate value
+        this.getTranslate();
 
         // move carousel
         this.setTranslate(this.translate);
@@ -287,17 +275,8 @@ class Carousel {
         if (this.clicks < this.maxClicks) {
             this.clicks++;
 
-            // if we are at the end of the carousel, set translate differently
-            if (this.clicks === this.maxClicks) {
-
-                // set translate to carousel width - container width
-                this.translate = -(this.carouselW - this.containerW);
-            } else {
-
-                // set instance translate value to clicks * item width
-                this.translate = -(this.clicks * this.itemWidth);
-            }
-
+            // get translate value
+            this.getTranslate();
         } else {
             this.translate -= SHORT_TRANSITION;
             this.doEdgeTransition = true;
@@ -309,10 +288,32 @@ class Carousel {
 
         if (this.clicks > 0) {
             this.clicks--;
-            this.translate = -(this.clicks * this.itemWidth);
+
+            // get translate value
+            this.getTranslate();
         } else {
             this.translate += SHORT_TRANSITION;
             this.doEdgeTransition = true;
+        }
+
+    }
+
+    // DRY function used in swipe and click next/prev
+    getTranslate() {
+
+        // if we are at the end of the carousel, set translate differently
+        if (this.clicks === this.maxClicks) {
+
+            // set translate to carousel width - container width
+            this.translate = -(this.carouselW - this.containerW);
+        } else {
+
+            // set translate to clicks * item width
+            this.translate = -(this.clicks * this.itemWidth);
+
+            // center the items on small screens
+            if (this.containerW <= 500 && this.clicks > 0)
+                this.translate += (this.containerW - this.itemWidth) / 2;
         }
 
     }
