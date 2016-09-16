@@ -6,25 +6,57 @@ var Carousel = require('./modules/Carousel'),
 (function() {
     'use strict';
 
-    var stage = document.getElementsByClassName('carousel')[0],
-        items = stage.getElementsByClassName('carousel-items'),
-        carousel = new Carousel(stage),
-        hammertime = new Hammer(stage);
+    var carousel,
+        el = document.getElementsByClassName('carousel'),
+        hammertime,
+        items;
 
-    for (var i = 0; i < items.length; i++) {
-        items[i].ondragstart = function(e) {
-            return false;
-        }
-        items[i].onmousedown = function(e) {
-            return false;
-        }
+    // to prevent phantom clicking on elements after dragging the carousel
+    // need both stopPropagation and preventDefault here
+    // for some reason, it wont work with just return false
+    function halt(e) {
+        e.stopPropagation();
+        e.preventDefault();
     }
 
-    hammertime.on('swipeleft swiperight', function(ev) {
-        //toggle click events to prevent phantom clicking
-        Hammer.off(ev.target, 'click');
-        carousel.swipe(ev.deltaX);
-        Hammer.on(ev.target, 'click');
-    });
+    // used on dragstart and mousedown of li elements in carousel
+    function end() {
+        return false;
+    }
+
+    if (el.length) {
+        carousel = new Carousel(el[0]);
+        hammertime = new Hammer(el[0]);
+
+        items = el[0].getElementsByTagName('li');
+
+        for (var i = 0; i < items.length; i++) {
+            items[i].ondragstart = end;
+            items[i].onmousedown = end;
+        }
+
+        hammertime.on('panstart', function(e) {
+            carousel.start(e);
+        });
+
+        hammertime.on('pan', function(e) {
+            e.preventDefault();
+            carousel.moving(e);
+        });
+
+        hammertime.on('panend pancancel', function(e) {
+            carousel.end(e);
+            if (e.target.tagName === 'A' ||
+                e.target.tagName === 'SPAN' ||
+                e.target.tagName === 'IMG') {
+                e.target.removeEventListener('click', halt);
+                e.target.addEventListener('click', halt);
+            }
+        });
+
+        hammertime.on('tap', function(e) {
+            e.target.removeEventListener('click', halt);
+        });
+    }
 
 })();
