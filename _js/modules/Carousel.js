@@ -251,7 +251,7 @@ class Carousel {
         // add velocity!!
         if (this.endVelocity >= 1 ||
             this.endVelocity <= -1)
-            this.clicks -= Math.round(this.endVelocity / 2);
+            this.clicks -= Math.round(this.endVelocity / 4);
 
         if (this.clicks < 0) {
             this.clicks = 0;
