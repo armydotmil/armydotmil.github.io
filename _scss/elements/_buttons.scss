@@ -608,11 +608,16 @@
     background: transparent $social-button-sprite no-repeat scroll -24px -50px;
   }
 
+  &.linkedin-button span {
+    background: transparent $social-button-sprite no-repeat scroll -337px -26px;
+    width: 20px;
+  }
+
   &.email-button span {
     background: transparent $social-button-sprite no-repeat scroll -88px -50px;
     width: 23px;
   }
-  
+
   &.print-button span {
     background: transparent $social-button-sprite no-repeat scroll -146px -50px;
     width: 23px;

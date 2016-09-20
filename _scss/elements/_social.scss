@@ -63,6 +63,10 @@
   .social-button-sm.facebook-button {
     background: map-get($social-branding, facebook);
   }
+  .social-button.linkedin-button,
+  .social-button-sm.linkedin-button {
+    background: map-get($social-branding, linkedin);
+  }
   .social-button.pinterest-button,
   .social-button-sm.pinterest-button {
     background: map-get($social-branding, pinterest);
