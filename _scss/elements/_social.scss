@@ -43,6 +43,12 @@
     float: left;
     width: 20%;
     a { padding: 15px; }
+    
+    // no hover on .social-bar (share) buttons
+    &.twitter-button a:hover span { background-position: 0 -216px; }
+    &.facebook-button a:hover span { background-position: -55px -216px; }
+    &.pinterest-button a:hover span { background-position: -29px -216px; }
+    &.linkedin-button a:hover span { background-position: -261px -216px; }
   }
 }
 .social-bar, .alt-social-bar {
