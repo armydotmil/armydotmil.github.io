@@ -39,7 +39,7 @@
   
   .hidden { display: none; }
   
-  .social-button {
+  .social-button-sm {
     float: left;
     width: 20%;
     a { padding: 15px; }
@@ -89,6 +89,7 @@
   .social-button-sm {
     float: left;
     margin: 0 10px 0 0;
+    width: auto;
     
     a {
       padding: 10px 0;
