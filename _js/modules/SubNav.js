@@ -42,7 +42,7 @@ class SubNav {
         if (subnavCheck.length > 0 && subnavCheck[0].type === 'checkbox') {
             subnavCheck = subnavCheck[0];
             // FF maintains checked state on reload
-            subnavCheck.checked = false;
+            subnavCheck.checked = this.defaults.initializeOpen;
         }
 
         for (i = 0; i < mItems.length; i++) {
@@ -134,7 +134,8 @@ class SubNav {
         var defaults = {
                 preventDefault: true,
                 persistentLabel: false,
-                initializeEmpty: false
+                initializeEmpty: false,
+                initializeOpen: false
             },
             key;
 
