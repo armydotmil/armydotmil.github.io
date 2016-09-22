@@ -18,7 +18,9 @@ class SubNav {
             hashItem,
             subnavCheck,
             menuLink,
-            mItems;
+            mItems,
+            docElem = document.documentElement,
+            winW = Math.max(docElem.clientWidth, window.innerWidth || 0);
 
         this.defaults = this.initDefaults(options);
         this.callback = callbackFn;
@@ -41,6 +43,7 @@ class SubNav {
 
         if (subnavCheck.length > 0 && subnavCheck[0].type === 'checkbox') {
             subnavCheck = subnavCheck[0];
+            if (winW <= 992) this.defaults.initializeOpen = false;
             // FF maintains checked state on reload
             subnavCheck.checked = this.defaults.initializeOpen;
         }
