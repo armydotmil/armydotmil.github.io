@@ -40,38 +40,33 @@ class Carousel {
         // set width of main carousel container to items width * number of items
         this.setWidth();
 
-        // set max swipe amount allowed for dragging the carousel
-        this.maxSwipeAmt = this.carouselW - this.containerW;
+        // get max swipe amount and max clicks allowed for use in carousel
+        this.getMaxVals();
 
-        // set total amount of clicks to reach the end
-        this.maxClicks = Math.ceil(this.maxSwipeAmt / this.itemWidth);
         this.clicks = 0;
+        this.disableBtn();
 
         // resize function to set the size of container
         this.onResize();
 
-        // detect browser support for translate3d and touch
+        // detect browser support for translate3d
         this.caniuse();
     }
 
     addOnClick() {
-        var controls = document.getElementsByClassName('controls')[0],
-            controlBtns = controls.getElementsByTagName('a'),
-            i,
+        var controls = document.querySelectorAll('.controls a'),
+            i = 0,
             len;
 
         // add event listeners to control buttons
-        for (i = 0, len = controlBtns.length; i < len; i++) {
-            this.onBtnClick(controlBtns[i]);
+        for (i, len = controls.length; i < len; i++) {
+            this.onBtnClick(controls[i]);
         }
     }
 
     getWidth() {
-        var i,
-            len;
-
         // use maxwidth of all the items for amount to move carousel
-        for (i = 0, len = this.items.length; i < len; i++) {
+        for (var i = 0, len = this.items.length; i < len; i++) {
             if (this.items[i].clientWidth > this.itemWidth)
                 this.itemWidth = this.items[i].clientWidth;
         }
@@ -115,43 +110,39 @@ class Carousel {
 
     // either set translate3d value or left value
     // depending on browser support
-    setTranslate(val) {
+    setTranslate() {
         if (this.supports3d) {
             this.setStyle(
                 this.carousel,
                 'transform',
-                `translate3d(${val}px, 0, 0)`
+                `translate3d(${this.translate}px, 0, 0)`
             );
         } else {
-            this.carousel.style.left = `${val}px`;
+            this.carousel.style.left = `${this.translate}px`;
         }
     }
 
     move() {
         var _this = this;
 
-        if (_this.doEdgeTransition) {
-            Helper.addClass(_this.carousel, 'quick');
+        // move carousel
+        _this.setTranslate();
 
-            // move carousel
-            _this.setTranslate(_this.translate);
+        if (_this.doEdgeTransition) {
+
+            Helper.addClass(_this.carousel, 'quick');
 
             // setTimeout for cool effect
             setTimeout(function() {
-                _this.translate = _this.clicks === 0 ?
-                    _this.translate - SHORT_TRANSITION :
-                    _this.translate + SHORT_TRANSITION;
+                _this.translate = -(Math.abs(_this.translate) - SHORT_TRANSITION);
 
                 // move carousel
-                _this.setTranslate(_this.translate);
+                _this.setTranslate();
 
                 Helper.removeClass(_this.carousel, 'quick');
                 _this.doEdgeTransition = false;
             }, 150);
 
-        } else {
-            // move carousel
-            _this.setTranslate(_this.translate);
         }
 
         _this.disableBtn();
@@ -221,7 +212,7 @@ class Carousel {
         this.endVelocity = e.velocityX;
 
         // move carousel
-        this.setTranslate(this.translate);
+        this.setTranslate();
     }
 
     end(e) {
@@ -263,7 +254,7 @@ class Carousel {
         this.getTranslate();
 
         // move carousel
-        this.setTranslate(this.translate);
+        this.setTranslate();
 
         // disable the appropriate button
         this.disableBtn();
@@ -318,36 +309,52 @@ class Carousel {
 
     }
 
-    // TODO disable both buttons if there arent enough items to fill container
-    // or maybe do it the other way
-    // only enable the buttons if there are enough items to fill container
     disableBtn() {
-        var btnToDisable,
-            controls = document.getElementsByClassName('controls')[0],
-            controlBtns = controls.getElementsByTagName('a'),
-            disabled,
-            i;
+        var controls = document.querySelectorAll('.controls a'),
+            disabled = [],
+            i,
+            j = 0,
+            len;
 
-        // disable left button if at 0 clicks
-        if (this.clicks === 0) {
-            disabled = 1;
-            btnToDisable = controlBtns[0];
+        if (this.maxClicks > 0) {
+
+            // disable left button if at 0 clicks
+            if (this.clicks === 0) {
+                disabled.push(controls[0]);
 
             // disable right button if at max clicks
-        } else if (this.clicks === this.maxClicks) {
-            disabled = 1;
-            btnToDisable = controlBtns[1];
-
-            // else dont disable anything
+            } else if (this.clicks === this.maxClicks) {
+                disabled.push(controls[1]);
+            }
         } else {
-            disabled = 0;
+
+            // disable both buttons if maxClicks eq 0
+            disabled = controls;
         }
 
-        for (i = controlBtns.length - 1; i >= 0; i--) {
-            Helper.removeClass(controlBtns[i], 'disabled');
+        // seems counterintuitive to remove then add
+        // but we do this if we need to disable one and not the other
+        for (i = controls.length - 1; i >= 0; i--) {
+            Helper.removeClass(controls[i], 'disabled');
         }
 
-        if (disabled) Helper.addClass(btnToDisable, 'disabled');
+        for (j, len = disabled.length; j < len; j++) {
+            Helper.addClass(disabled[j], 'disabled');
+        }
+    }
+
+    getMaxVals() {
+        if (this.carouselW >= this.containerW) {
+
+            // set max swipe amount allowed for dragging the carousel
+            this.maxSwipeAmt = this.carouselW - this.containerW;
+
+            // set total amount of clicks to reach the end
+            this.maxClicks = Math.ceil(this.maxSwipeAmt / this.itemWidth);
+        } else {
+            this.maxSwipeAmt = 0;
+            this.maxClicks = 0;
+        }
     }
 
     // TODO fix position of carousel on resize
@@ -359,10 +366,7 @@ class Carousel {
                 MAX_CONTAINER_W :
                 this.innerWidth;
 
-            _this.maxSwipeAmt = _this.carouselW - _this.containerW;
-
-            // reset total amount of clicks to reach the end
-            _this.maxClicks = Math.ceil(_this.maxSwipeAmt / _this.itemWidth);
+            _this.getMaxVals();
 
             _this.disableBtn();
         };
