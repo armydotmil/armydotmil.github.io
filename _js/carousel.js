@@ -39,7 +39,7 @@ var Carousel = require('./modules/Carousel'),
             carousel.start(e);
         });
 
-        hammertime.on('pan', function(e) {
+        hammertime.on('panleft panright', function(e) {
             e.preventDefault();
             carousel.moving(e);
         });
