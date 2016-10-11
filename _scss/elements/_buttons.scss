@@ -237,7 +237,7 @@
   }
 
   &.email-button span {
-    background: transparent $social-button-sprite no-repeat scroll -206px 2px;
+    background: transparent $social-button-sprite no-repeat scroll -511px -216px;
     width: 25px;
   }
 
@@ -406,6 +406,11 @@
     background: transparent $social-button-sprite no-repeat scroll -486px -166px;
     width: 25px;
   }
+  
+  &.email-button span {
+    background: transparent $social-button-sprite no-repeat scroll -511px -166px;
+    width: 25px;
+  }
 }
 
 .social-button, .social-button-black {
@@ -484,6 +489,10 @@
   
   &.rss-button a:hover span {
     background-position: -486px -191px;
+  }
+  
+  &.email-button a:hover span {
+    background-position: -511px -191px;
   }
 }
 
