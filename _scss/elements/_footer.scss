@@ -23,7 +23,7 @@ footer {
   padding: 60px 0;
   position: fixed;
   width: 100%;
-  z-index: 0;
+  z-index: -1;
   
   @include breakpoints(mobile nav tablet) {
     position: relative;
