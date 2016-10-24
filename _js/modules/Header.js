@@ -19,23 +19,6 @@ class Header {
         );
     }
 
-    static addSubmenu() {
-        var items = document.getElementsByClassName('menu-item'),
-            i = 0, lastClass, li;
-        for (i; i < items.length; i++) {
-            // function is inside loop because it would not work outside
-            // -- you need to add the event listener to each menu item
-            items[i].addEventListener('click', function() {
-                // a click on the span shouldn't register since we only add the event listener to the anchors
-                li = this.parentNode;
-                lastClass = Helper.hasClass(li, 'social') ? 'social ' : '';
-                li.className = !Helper.hasClass(li, 'expanded') ?
-                    lastClass + 'expanded' :
-                    lastClass;
-            },false);
-        }
-    }
-
     toggleNavOption() {
         var body = document.getElementsByTagName('body')[0],
             html = document.getElementsByTagName('html')[0],

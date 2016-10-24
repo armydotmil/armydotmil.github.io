@@ -5,10 +5,16 @@
 // ----------------------------------------------------------------------
 
 // example: @include transform(translate, 0, 0);
+// update: can use @include transform(none);
 
 @mixin transform($type, $values...) {
-  $n: length($values);
   $i: 1;
+  $n: 0;
+  $transform: $type;
+
+  @if length($values) {
+    $n: length($values);
+  }
 
   $originVal: ();
 
@@ -25,7 +31,9 @@
     $i: $i + 1;
   }
 
-  $transform: unquote("#{$type}(#{$originVal})");
+  @if $type != "none" {
+    $transform: unquote("#{$type}(#{$originVal})");
+  }
 
   -webkit-transform: $transform;
   -moz-transform: $transform;

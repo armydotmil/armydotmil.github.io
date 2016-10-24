@@ -87,6 +87,15 @@ module.exports = function(grunt) {
                 }
             }
         },
+        watch: {
+            scripts: {
+                files: ['_js/*.js', '_js/modules/*.js'],
+                tasks: ['browserify', 'uglify'],
+                options: {
+                    spawn: false
+                }
+            }
+        },
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
@@ -125,6 +134,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // grunt.loadNpmTasks('grunt-text-replace');
+
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('production', ['browserify', 'uglify']);
 

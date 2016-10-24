@@ -20,30 +20,23 @@
 
 
 body.menu-open,
-html.menu-open {
-  overflow: hidden;
-}
+html.menu-open { overflow: hidden; }
 
-body {
-  // keeps the header from blocking anything at the top of the page
-  padding-top: 68px;
-  
-  &.menu-open {
-    width: 100%;
+body.menu-open {
+  width: 100%;
 
-    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-      overflow-y: scroll;
+  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    overflow-y: scroll;
 
-      header {
-        .navbar {
-          height: 86px;
-          overflow-y: scroll;
-        }
+    header {
+      .navbar {
+        height: em(86);
+        overflow-y: scroll;
+      }
 
-        .menu-window {
-          overflow-y: scroll;
-          width: 100%;
-        }
+      .menu-window {
+        overflow-y: scroll;
+        width: 100%;
       }
     }
   }
@@ -67,16 +60,12 @@ header {
 }
 
 header {
-  width: 100%;
-  max-height: 100%;
-  min-height: 85px;
-  position: fixed;
+  height: em(68);
+  left: 0;
+  position: relative;
   top: 0;
+  width: 100%;
   z-index: 100;
-
-  &.scrolled-down {
-    min-height: 0;
-  }
 
   .nav-army-star {
     background: #000;
@@ -127,8 +116,8 @@ header {
 
     .navbar-container {
       background: #000;
-      border-bottom: 8px solid map-get($army-branding, gold);
-      height: 60px;
+      border-bottom: em(8) solid map-get($army-branding, gold);
+      height: em(60);
     }
   }
 
@@ -170,72 +159,71 @@ header {
     overflow: hidden;
     padding: 30px 30px 60px;
 
-    .list-container {
-      > ul {
-        margin: 0;
+    .list-container > ul {
+      margin: 0;
 
-        > li {
-          border-bottom: 1px solid map-get($army-branding, grey80);
+      > li {
+        border-bottom: 1px solid map-get($army-branding, grey80);
 
-          &.social {
-            border-bottom-width: 0;
+        &.social {
+          border-bottom-width: 0;
 
-            ul {
-              display: block;
-              margin: 0 auto;
-              max-width: 210px;
+          ul {
+            display: block;
+            margin: 0 auto;
+            max-width: 210px;
 
-              // 8px + 15px padding on the anchor + 10px padding top on .quicklinks makes it even
-              padding: 18px 0 8px;
-              text-align: center;
+            // 8px + 15px padding on the anchor + 10px padding top on .quicklinks makes it even
+            padding: 18px 0 8px;
+            text-align: center;
 
-              li {
+            li {
 
-                a {
-                  line-height: 0;
-                  padding: 15px 10px;
-                  width: 28px;
-                  text-align: center;
-                }
+              a {
+                line-height: 0;
+                padding: 15px 10px;
+                width: 28px;
+                text-align: center;
               }
             }
-          }
-
-          a {
-            outline: 0 none;
-
-            &.menu-item {
-              color: map-get($army-branding, grey20);
-              display: block;
-              font-size: 1.125em;
-              font-weight: 700;
-              letter-spacing: .05em;
-              padding: 25px 10px;
-              position: relative;
-              text-decoration: none;
-
-              // iOS Safari had an issue where it would resize the text automatically.
-              // This should prevent it.
-              -webkit-text-size-adjust: none;
-
-              span {
-                background: transparent $social-button-sprite no-repeat scroll -305px 5px;
-                height: 18px;
-                position: absolute;
-                right: 12px;
-                top: 26px;
-                width: 12px;
-              }
-            }
-          }
-
-          ul li a {
-            display: inline-block;
-            text-decoration: none;
           }
         }
-      } // end .list-container > ul
-    }
+
+        input[type=checkbox] { display: none; }
+
+        a { outline: 0 none; }
+
+        label {
+          color: map-get($army-branding, grey20);
+          display: block;
+          font-size: 1.125em;
+          font-weight: 700;
+          letter-spacing: .05em;
+          outline: 0 none;
+          padding: 25px 10px;
+          position: relative;
+          text-decoration: none;
+
+          // iOS Safari had an issue where it would resize the text automatically.
+          // This should prevent it.
+          -webkit-text-size-adjust: none;
+
+          span {
+            background: transparent $social-button-sprite no-repeat scroll -305px 5px;
+            height: 18px;
+            position: absolute;
+            right: 12px;
+            top: 26px;
+            width: 12px;
+          }
+        }
+
+        ul li a {
+          display: inline-block;
+          text-decoration: none;
+        }
+      }
+    } // end .list-container > ul
 
     .quicklinks {
       li {
@@ -254,6 +242,7 @@ header {
 
     @include breakpoints(mobile nav tablet) {
       .list-container > ul > li {
+
         ul {
           display: none;
           padding: 18px 0;
@@ -267,16 +256,12 @@ header {
           }
         }
 
-        &.expanded {
-          ul { display: block; }
+        input[type=checkbox]:checked ~ ul { display: block; }
 
-          a.menu-item {
-            border-bottom: 1px solid map-get($army-branding, grey80);
+        input[type=checkbox]:checked ~ label {
+          border-bottom: 1px solid map-get($army-branding, grey80);
 
-            span {
-              background-position: -318px 10px;
-            }
-          }
+          span { background-position: -318px 10px; }
         }
       }
     }
@@ -321,7 +306,7 @@ header {
             vertical-align: top;
             width: 33.3333%;
 
-            a.menu-item {
+            label {
               color: map-get($army-branding, gold);
               padding: 0 0 15px;
 

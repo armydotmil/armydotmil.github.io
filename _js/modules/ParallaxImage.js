@@ -53,7 +53,7 @@ class FullWidthParallax {
 
         this.imgH = this.img.clientHeight;
         this.contH = this.imgCont.clientHeight;
-        this.centered = Math.round((this.imgH - this.contH) / 2) * -1;
+        this.centered = Math.round(this.imgH - this.contH) / -2;
         this.winW = Math.max(de.clientWidth, window.innerWidth || 0);
         this.winH = Math.max(de.clientHeight, window.innerHeight || 0);
 
@@ -109,6 +109,9 @@ class FullWidthParallax {
                 imgTop -= Math.round(minPos / 2);
             }
             imgTop += this.centered;
+            imgTop = (imgTop < this.centered && this.isBanner) ?
+                this.centered :
+                imgTop;
             this.img.style.top = imgTop + 'px';
             this.topVal = imgTop;
         } else if (this.topVal !== this.centered) {
