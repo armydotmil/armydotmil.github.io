@@ -12,7 +12,6 @@ var ParallaxImg = require('./modules/ParallaxImage'),
         headerHeight = (header.length) ? header[0].clientHeight : 0;
     new Header('menu');
     new Header('search');
-    Header.addSubmenu();
     para = new ParallaxImg(headerHeight);
     new SubNav(nav, function() {
         para.runUpdate();
