@@ -17,6 +17,16 @@ class Header {
             this.toggleNavOption.bind(this),
             false
         );
+
+        // uncheck boxes on refresh
+        var checkboxes =
+            this.headerElem.querySelectorAll('input[type=checkbox]:checked'),
+            i = 0,
+            len;
+
+        for (i, len = checkboxes.length; i < len; i++) {
+            checkboxes[i].checked = false;
+        }
     }
 
     toggleNavOption() {
