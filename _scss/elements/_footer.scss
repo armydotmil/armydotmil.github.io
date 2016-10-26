@@ -42,14 +42,15 @@ footer {
         display: inline-block;
         margin: 0 10px;
       }
-    
+      
       a {
         color: map-get($army-branding, white);
         display: inline-block;
         line-height: 2.5;
+        outline: 0 none;
         position: relative;
         text-decoration: none;
-      
+        
         &:after {
           background: map-get($army-branding, white);
           bottom: 2px;
@@ -58,7 +59,7 @@ footer {
           left: 0;
           position: absolute;
           width: 0;
-        
+          
           @include custom-transition(width .25s ease);
         }
       }
@@ -81,7 +82,8 @@ footer {
     .footer-bottom {
       ul {
         li {
-          a:hover {
+          a:hover,
+          a:focus {
             &:after {
               width: 100%;
             }

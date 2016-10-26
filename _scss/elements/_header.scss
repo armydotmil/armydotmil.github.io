@@ -347,7 +347,8 @@ header {
                     @include custom-transition(margin .2s linear 0s, opacity .2s linear 0s);
                   }
 
-                  &:hover {
+                  &:hover,
+                  &:focus {
                     color: map-get($army-branding, gold);
 
                     &:after {
@@ -399,12 +400,14 @@ header {
           a {
             font-size: .938em;
             font-weight: 700;
+            outline: 0 none;
             padding: 20px;
             position: relative;
 
             @include custom-transition(background .2s linear 0s, color .2s linear 0s);
 
-            &:hover {
+            &:hover,
+            &:focus {
               background: lighten(map-get($army-branding, grey90), 6.25); //#2a2a2a;
               color: map-get($army-branding, gold);
             }
