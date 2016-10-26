@@ -415,83 +415,103 @@
 
 .social-button, .social-button-black {
   
-  &.facebook-button a:hover span {
+  &.facebook-button a:hover span,
+  &.facebook-button a:focus span {
     background-position: -55px -191px;
   }
   
-  &.twitter-button a:hover span {
+  &.twitter-button a:hover span,
+  &.twitter-button a:focus span {
     background-position: 0 -191px;
   }
   
-  &.flickr-button a:hover span {
+  &.flickr-button a:hover span,
+  &.flickr-button a:focus span {
     background-position: -93px -191px;
   }
   
-  &.youtube-button a:hover span {
+  &.youtube-button a:hover span,
+  &.youtube-button a:focus span {
     background-position: -155px -191px;
   }
   
-  &.vimeo-button a:hover span {
+  &.vimeo-button a:hover span,
+  &.vimeo-button a:focus span {
     background-position: -205px -191px;
   }
   
-  &.slideshare-button a:hover span {
+  &.slideshare-button a:hover span,
+  &.slideshare-button a:focus span {
     background-position: -180px -191px;
   }
   
-  &.armylive-button a:hover span {
+  &.armylive-button a:hover span,
+  &.armylive-button a:focus span {
     background-position: -233px -191px;
   }
   
-  &.instagram-button a:hover span {
+  &.instagram-button a:hover span,
+  &.instagram-button a:focus span {
     background-position: -68px -191px;
   }
   
-  &.pinterest-button a:hover span {
+  &.pinterest-button a:hover span,
+  &.pinterest-button a:focus span {
     background-position: -29px -191px;
   }
   
-  &.googleplus-button a:hover span {
+  &.googleplus-button a:hover span,
+  &.googleplus-button a:focus span {
     background-position: -118px -191px;
   }
   
-  &.linkedin-button a:hover span {
+  &.linkedin-button a:hover span,
+  &.linkedin-button a:focus span {
     background-position: -261px -191px;
   }
   
-  &.ustream-button a:hover span {
+  &.ustream-button a:hover span,
+  &.ustream-button a:focus span {
     background-position: -286px -191px;
   }
   
-  &.smugmug-button a:hover span {
+  &.smugmug-button a:hover span,
+  &.smugmug-button a:focus span {
     background-position: -311px -191px;
   }
   
-  &.issuu-button a:hover span {
+  &.issuu-button a:hover span,
+  &.issuu-button a:focus span {
     background-position: -333px -191px;
   }
   
-  &.soundcloud-button a:hover span {
+  &.soundcloud-button a:hover span,
+  &.soundcloud-button a:focus span {
     background-position: -358px -191px;
   }
   
-  &.googlemaps-button a:hover span {
+  &.googlemaps-button a:hover span,
+  &.googlemaps-button a:focus span {
     background-position: -414px -191px;
   }
   
-  &.blogger-button a:hover span {
+  &.blogger-button a:hover span,
+  &.blogger-button a:focus span {
     background-position: -434px -191px;
   }
   
-  &.snapchat-button a:hover span {
+  &.snapchat-button a:hover span,
+  &.snapchat-button a:focus span {
     background-position: -459px -191px;
   }
   
-  &.rss-button a:hover span {
+  &.rss-button a:hover span,
+  &.rss-button a:focus span {
     background-position: -486px -191px;
   }
   
-  &.email-button a:hover span {
+  &.email-button a:hover span,
+  &.email-button a:focus span {
     background-position: -511px -191px;
   }
 }
