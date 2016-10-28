@@ -70,6 +70,13 @@
 
       &:last-child { padding-top: 63px; }
 
+      // reset default outline on last child only
+      // since there is nothing to differentiate when this elem is focused
+      &:last-child a:focus {
+        outline: 1px dotted #212121; // default for FF, IE, Edge
+        outline: 5px auto -webkit-focus-ring-color; // default for Chrome, Safari, Opera
+      }
+
       a { color: map-get($army-branding, grey70); }
 
       &:nth-child(3n+4) { clear: none; }
