@@ -29,7 +29,11 @@ footer {
     position: relative;
   }
   
-  section { margin: 0; }
+  section {
+    margin: 0;
+    
+    a { outline: 0 none; }
+  }
   
   .footer-bottom {
     font-size: .84em;
@@ -47,7 +51,6 @@ footer {
         color: map-get($army-branding, white);
         display: inline-block;
         line-height: 2.5;
-        outline: 0 none;
         position: relative;
         text-decoration: none;
         
