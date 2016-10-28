@@ -35,6 +35,23 @@ var Carousel = require('./modules/Carousel'),
             items[i].onmousedown = end;
         }
 
+        // function for tabbing through the carousel
+        el[0].addEventListener(
+            'keydown',
+            function(e) {
+                if (e.keyCode === 9) {
+                    if (e.shiftKey) {
+                        if (carousel.clicks > 0) carousel.prev();
+                    } else {
+                        if (carousel.clicks < carousel.maxClicks)
+                            carousel.next();
+                    }
+                    carousel.move();
+                }
+            },
+            false
+        );
+
         hammertime.on('panstart', function(e) {
             carousel.start(e);
         });
