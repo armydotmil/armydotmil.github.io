@@ -25,6 +25,8 @@ html.menu-open { overflow: hidden; }
 body.menu-open {
   width: 100%;
 
+  .navbar { overflow: hidden; }
+
   @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
     overflow-y: scroll;
 
