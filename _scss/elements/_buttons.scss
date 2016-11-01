@@ -570,43 +570,53 @@
     width: 34px;
   }
   
-  &.facebook-button a:hover span {
+  &.facebook-button a:hover span,
+  &.facebook-button a:focus span {
     background-position: -496px -132px;
   }
   
-  &.twitter-button a:hover span {
+  &.twitter-button a:hover span,
+  &.twitter-button a:focus span {
     background-position: -512px -132px;
   }
   
-  &.flickr-button a:hover span {
+  &.flickr-button a:hover span,
+  &.flickr-button a:focus span {
     background-position: -612px -132px;
   }
   
-  &.youtube-button a:hover span {
+  &.youtube-button a:hover span,
+  &.youtube-button a:focus span {
     background-position: -754px -132px;
   }
   
-  &.slideshare-button a:hover span {
+  &.slideshare-button a:hover span,
+  &.slideshare-button a:focus span {
     background-position: -689px -132px;
   }
   
-  &.armylive-button a:hover span {
+  &.armylive-button a:hover span,
+  &.armylive-button a:focus span {
     background-position: -719px -132px;
   }
   
-  &.instagram-button a:hover span {
+  &.instagram-button a:hover span,
+  &.instagram-button a:focus span {
     background-position: -550px -132px;
   }
   
-  &.pinterest-button a:hover span {
+  &.pinterest-button a:hover span,
+  &.pinterest-button a:focus span {
     background-position: -581px -132px;
   }
   
-  &.googleplus-button a:hover span {
+  &.googleplus-button a:hover span,
+  &.googleplus-button a:focus span {
     background-position: -643px -132px;
   }
   
-  &.vimeo-button a:hover span {
+  &.vimeo-button a:hover span,
+  &.vimeo-button a:focus span {
     background-position: -785px -132px;
   }
 }
