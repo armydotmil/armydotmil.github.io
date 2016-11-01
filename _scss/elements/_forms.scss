@@ -27,6 +27,11 @@ form {
   
   input[type='submit'] { cursor: pointer; }
   
+  input[type='checkbox'] {
+    -webkit-appearance: checkbox;
+    width: auto;
+  }
+  
   select {
     box-shadow: none;
     outline: none;
