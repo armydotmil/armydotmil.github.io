@@ -669,8 +669,7 @@
 .social-button-gold-lg,
 .social-button-sm {
   a {
-    color: transparent;
-    font: 0/0 a;
+    @include replace-text;
     outline: 0 none;
   }
 }
