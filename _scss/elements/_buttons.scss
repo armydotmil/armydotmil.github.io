@@ -664,6 +664,17 @@
   
 }
 
+.social-button,
+.social-button-black,
+.social-button-gold-lg,
+.social-button-sm {
+  a {
+    color: transparent;
+    font: 0/0 a;
+    outline: 0 none;
+  }
+}
+
 .play-button {
   .play-button-image {
     background: transparent $social-button-sprite no-repeat scroll -560px 4px;

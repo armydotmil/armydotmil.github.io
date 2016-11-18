@@ -180,12 +180,14 @@ header {
             text-align: center;
 
             li {
+              vertical-align: top;
 
               a {
                 line-height: 0;
                 padding: 15px 10px;
                 width: 28px;
                 text-align: center;
+                vertical-align: top;
               }
             }
           }
