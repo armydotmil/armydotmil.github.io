@@ -669,9 +669,13 @@
 .social-button-gold-lg,
 .social-button-sm {
   a {
-    color: transparent;
-    font: 0/0 a;
     outline: 0 none;
+
+    span {
+      text-indent: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+    }
   }
 }
 
