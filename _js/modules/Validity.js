@@ -5,8 +5,7 @@ var Helper = require('./Helper');
 class Validity {
 
     constructor(form) {
-        var $this = this,
-            field;
+        var $this = this;
 
         // rewrite checkValidity function if its not available in the browser
         form.checkValidity = form.checkValidity || function() {
@@ -74,7 +73,7 @@ class Validity {
     }
 
     isPlaceholder(el) {
-        return el.getAttribute('placeholder') && el.value !== el.getAttribute('placeholder');
+        return el.getAttribute('placeholder') && el.value === el.getAttribute('placeholder');
     }
 
 };
