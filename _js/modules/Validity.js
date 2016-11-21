@@ -1,10 +1,11 @@
-/*jshint -W032 */ /* ignore unnecessary semicolon */
+/*jshint esversion: 6 */ /* ignore unnecessary semicolon */
+/*global require*/
 
 var Helper = require('./Helper');
 
 class Validity {
 
-    constructor(form) {
+    constructor(form, submit = '') {
         var $this = this;
 
         // rewrite checkValidity function if its not available in the browser
@@ -31,7 +32,7 @@ class Validity {
             this.submit();
         };
 
-        form.onsubmit = function () {
+        form.onsubmit = submit || function () {
             if (!this.checkValidity()) return false;
         };
     }
