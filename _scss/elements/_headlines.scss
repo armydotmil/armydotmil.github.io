@@ -16,6 +16,8 @@
       }
       
       a {
+        padding-right: 23px;
+
         .view-more-arrow-sm { display: none; }
 
         &:after {
@@ -42,14 +44,14 @@
 
         &:after {
           @include opacity(0);
-          margin-left: 40px;
-          @include custom-transition(opacity .25s ease, margin-left .25s ease);
+          @include transform(translateX, 40px);
+          @include custom-transition(all .25s ease);
         }
-        
+
         &:hover, &:focus {
           &:after {
             @include opacity(1);
-            margin-left: 9px;
+            @include transform(translateX, 0);
           }
         }
       }
@@ -59,7 +61,7 @@
   @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
     ul li {
       display: table;
-      // width: 100%;
+      width: 100%;
 
       a, .date {
         display: table-cell;
