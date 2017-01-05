@@ -173,7 +173,7 @@ header {
           ul {
             display: block;
             margin: 0 auto;
-            max-width: 210px;
+            max-width: 160px;
 
             // 8px + 15px padding on the anchor + 10px padding top on .quicklinks makes it even
             padding: 18px 0 8px;
@@ -377,7 +377,7 @@ header {
                 a {
                   padding: 3px 5px;
 
-                  &:after { display: none; }
+                  &:after { content: none; }
                 }
 
               }

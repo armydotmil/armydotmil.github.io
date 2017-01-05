@@ -27,6 +27,7 @@ footer {
   
   @include breakpoints(mobile nav tablet) {
     position: relative;
+    z-index: 0; // makes links clickable!
   }
   
   section {
@@ -34,7 +35,7 @@ footer {
     
     a { outline: 0 none; }
   }
-  
+
   .footer-bottom {
     font-size: .84em;
     padding: 25px 0 0;
