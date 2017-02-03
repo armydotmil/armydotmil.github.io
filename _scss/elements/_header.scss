@@ -89,6 +89,11 @@ header {
       width: 0;
     }
 
+    label {
+      margin: 0;
+      @include replace-text;
+    }
+
     input.usagov-search-autocomplete {
       border: 0 none;
       color: map-get($army-branding, grey70);

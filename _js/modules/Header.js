@@ -39,12 +39,14 @@ class Header {
         for (i = 0; i < this.navbtns.length; i++) {
             Helper.removeClass(this.navbtns[i], 'close-button');
             Helper.removeClass(this.navwins[i], 'open-window');
+            this.navbtns[i].setAttribute('aria-expanded', 'false');
             Helper.removeClass(html, 'menu-open');
             Helper.removeClass(body, 'menu-open');
         }
         if (sectionOpen) {
             Helper.addClass(this.sectionBtn, 'close-button');
             Helper.addClass(this.sectionWin, 'open-window');
+            this.sectionBtn.setAttribute('aria-expanded', 'true');
             if (this.section === 'search') {
                 document.getElementById('query').focus();
             } else {
