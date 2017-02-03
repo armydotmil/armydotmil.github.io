@@ -1,13 +1,13 @@
 <header>
     <div class="navbar">
       <div class="navbar-container">
-        <a href="javascript:;" class="nav-button menu-button">
+        <a href="javascript:;" class="nav-button menu-button" aria-expanded="false" role="button">
             <span>MENU</span>
         </a>
         <a href="/" class="nav-army-star">
             <span>HOME</span>
         </a>
-        <a href="javascript:;" class="nav-button search-button">
+        <a href="javascript:;" class="nav-button search-button" aria-expanded="false" role="button">
             <span>SEARCH</span>
         </a>
       </div>
@@ -105,8 +105,9 @@
                   <input name="utf8" type="hidden" value="&#x2713;" />
                   <input id="affiliate" name="affiliate" type="hidden" value="www.army.mil" />
                 </div>
+                <label for="query">Search news, photos, and videos on Army.mil</label>
                 <input autocomplete="off" placeholder="Search" class="usagov-search-autocomplete" id="query" name="query" type="text" />
-                <input name="commit" type="submit" value="" class="search-submit-button" />
+                <input aria-label="Search" name="commit" type="submit" value="" class="search-submit-button" />
             </form>
         </div>
     </div>
