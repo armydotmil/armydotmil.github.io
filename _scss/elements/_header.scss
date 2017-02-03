@@ -90,6 +90,7 @@ header {
     }
 
     label {
+      display: block;
       margin: 0;
       @include replace-text;
     }
