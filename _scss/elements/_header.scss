@@ -173,7 +173,6 @@ header {
           ul {
             display: block;
             margin: 0 auto;
-            max-width: 160px;
 
             // 8px + 15px padding on the anchor + 10px padding top on .quicklinks makes it even
             padding: 18px 0 8px;
@@ -366,6 +365,7 @@ header {
 
             &.social ul {
               margin-left: -5px;
+              max-width: 150px;
               padding: 0;
               text-align: left;
 
