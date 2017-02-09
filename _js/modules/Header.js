@@ -48,7 +48,7 @@ class Header {
             Helper.addClass(this.sectionWin, 'open-window');
             this.sectionBtn.setAttribute('aria-expanded', 'true');
             if (this.section === 'search') {
-                document.getElementById('query').focus();
+                document.getElementById('usagov-search-query').focus();
             } else {
                 Helper.addClass(html, 'menu-open');
                 Helper.addClass(body, 'menu-open');
