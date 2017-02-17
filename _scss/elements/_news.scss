@@ -3,6 +3,35 @@
 .news {
   overflow: hidden;
 
+  .heading-container {
+    overflow: hidden;
+
+    h4 {
+      float: left;
+    }
+
+    .right {
+      float: right;
+      height: 65px;
+      margin: 60px 0 54px;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: bottom;
+      }
+
+      a {
+        color: map-get($army-branding, grey70);
+        text-decoration: none;
+        text-transform: uppercase;
+
+        .view-more-arrow-sm { margin-bottom: .12em; }
+      }
+    }
+  }
+
   ul {
     @include row(true);
 
