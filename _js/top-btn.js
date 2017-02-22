@@ -5,7 +5,8 @@ var Helper = require('./modules/Helper');
 (function() {
     'use strict';
 
-    var body = document.body,
+    var autoScrolling = false,
+        body = document.body,
         dist = 0,
         doc = document.documentElement,
         id,
@@ -17,10 +18,12 @@ var Helper = require('./modules/Helper');
     window.onscroll = function () {
         pos = body.scrollTop || doc.scrollTop;
 
-        if (pos >= 750 && pos < lastScrollTop) {
-            Helper.addClass(topBtn, 'visible');
-        } else {
-            Helper.removeClass(topBtn, 'visible');
+        if (!autoScrolling) {
+            if (pos >= 750 && pos < lastScrollTop) {
+                Helper.addClass(topBtn, 'visible');
+            } else {
+                Helper.removeClass(topBtn, 'visible');
+            }
         }
 
         lastScrollTop = pos;
@@ -49,11 +52,13 @@ var Helper = require('./modules/Helper');
     function disableScroll() {
         window.onwheel = preventScroll;
         window.ontouchmove  = preventScroll;
+        autoScrolling = true;
     }
 
     function enableScroll() {
         window.onwheel = null;
         window.ontouchmove = null;
+        autoScrolling = false;
     }
 
     topBtn.addEventListener(
@@ -61,6 +66,7 @@ var Helper = require('./modules/Helper');
         function(e) {
             if (window.requestAnimationFrame) {
                 e.preventDefault();
+                Helper.removeClass(topBtn, 'visible');
                 scrollUp();
 
                 // prevent user from scrolling
