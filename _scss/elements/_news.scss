@@ -12,8 +12,8 @@
 
     .right {
       float: right;
-      height: 65px;
-      margin: 60px 0 54px;
+      height: 53px;
+      margin: 50px 0 40px;
 
       &:before {
         content: '';
@@ -28,6 +28,17 @@
         text-transform: uppercase;
 
         .view-more-arrow-sm { margin-bottom: .12em; }
+      }
+    }
+
+    @include breakpoints(tablet) {
+      .right { height: 60px; }
+    }
+
+    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+      .right {
+        height: 70px;
+        margin: 60px 0 54px;
       }
     }
   }

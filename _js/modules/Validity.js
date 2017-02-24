@@ -5,36 +5,79 @@ var Helper = require('./Helper');
 
 class Validity {
 
-    constructor(form, submit = '') {
-        var $this = this;
+    constructor(form, submit = '', normalSubmit = false) {
+        var i = 0,
+            len,
+            $this = this;
 
-        // rewrite checkValidity function if its not available in the browser
-        form.checkValidity = form.checkValidity || function() {
-            var invalid = 0;
+        $this.validationFn = typeof form.checkValidity === 'function' ?
+            function(el) { return el.checkValidity(); } :
+            function(el) { return $this.isValid(el); };
 
-            for (var i = 0, len = this.elements.length; i < len; i++) {
-                var el = this.elements[i];
+        for (i = 0, len = form.elements.length; i < len; i++) {
+            $this.validateOnBlur(form.elements[i]);
+        }
 
-                if (!$this.isValid(el) &&
-                    !Helper.hasClass(el, 'no-validate')) {
+        form.validate = function() {
+            var j = 0,
+                invalid = 0,
+                len;
 
-                    Helper.addClass(el, 'invalid');
-
-                    invalid++;
-                } else {
-                    if (Helper.hasClass(el, 'invalid'))
-                        Helper.removeClass(el, 'invalid');
-                }
+            // check all items once more on submit
+            for (j = 0, len = this.elements.length; j < len; j++) {
+                if (!$this.validationFn(this.elements[j])) invalid++;
             }
 
             if (invalid > 0) return false;
 
-            this.submit();
+            // if you've gotten to this point, the form is good to go
+            if (normalSubmit)
+                this.submit();
+            else
+                return true;
         };
 
         form.onsubmit = submit || function () {
-            if (!this.checkValidity()) return false;
+            if (!this.validate()) return false;
         };
+    }
+
+    validateOnBlur(el) {
+        var $this = this;
+
+        if (el.getAttribute('type') === 'checkbox') {
+            el.addEventListener(
+                'click',
+                function() {
+                    $this.markField($this.validationFn(this), this);
+                },
+                false
+            );
+        } else {
+            el.addEventListener(
+                'blur',
+                function() {
+                    if (!Helper.hasClass(this, 'no-validate'))
+                        $this.markField($this.validationFn(this), this);
+                },
+                false
+            );
+        }
+    }
+
+    markField(valid, el) {
+        if (!valid) {
+            el.setCustomValidity('');
+
+            Helper.addClass(el, 'invalid');
+
+            return false;
+        } else {
+            if (Helper.hasClass(el, 'invalid'))
+                Helper.removeClass(el, 'invalid');
+        }
+
+        return;
     }
 
     isValid(el) {
@@ -49,6 +92,10 @@ class Validity {
         } else if (el.getAttribute('type') === 'url') {
 
             return !this.isEmpty(el) && this.validateUrl(el) && !this.isPlaceholder(el);
+
+        } else if (el.getAttribute('type') === 'checkbox') {
+
+            return this.validateCheckbox(el);
 
         } else {
             return !this.isEmpty(el) && !this.isPlaceholder(el);
@@ -67,6 +114,10 @@ class Validity {
     validateUrl(el) {
         // http://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149
         return /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/gi.test(el.value);
+    }
+
+    validateCheckbox(el) {
+        return el.checked;
     }
 
     isEmpty(el) {

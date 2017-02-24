@@ -12,8 +12,17 @@ form {
     
     &.invalid { border-color: red; }
     
-    &:focus { border-color: map-get($army-branding, grey30); }
+    &:focus { border-color: $input-focus; }
   }
+
+  .validation {
+    color: red;
+    display: none;
+    font-weight: 600;
+    padding: 5px 0;
+  }
+
+  .invalid ~ .validation { display: inline-block; }
   
   input[type='radio'] {
     border: 0 none;

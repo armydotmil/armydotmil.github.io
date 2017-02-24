@@ -1,0 +1,38 @@
+// some default styles for print
+
+@media print {
+  body {
+    padding: 0;
+    font: 12px Arial; // smaller, plays better with printers
+  }
+
+  .main {
+    margin: 0;
+  }
+
+  .container {
+    margin: 0;
+    max-width: none;
+    padding: 0;
+
+    .inner-container {
+      padding: 0;
+    }
+  }
+
+  header,
+  nav,
+  footer,
+  .social-bar,
+  .alt-social-bar {
+    display: none;
+  }
+
+  a[href^="http://"]:after,
+  a[href^="https://"]:after {
+    color: map-get($army-branding, grey70);
+    content: " [" attr(href) "]";
+    font-size: 90%;
+    font-weight: normal;
+  }
+}
