@@ -25,7 +25,7 @@ class Validity {
 
             // check all items once more on submit
             for (j = 0, len = this.elements.length; j < len; j++) {
-                if (!$this.validationFn(this.elements[j])) invalid++;
+                if (!$this.markField($this.validationFn(this.elements[j]), this.elements[j])) invalid++;
             }
 
             if (invalid > 0) return false;
@@ -77,7 +77,7 @@ class Validity {
                 Helper.removeClass(el, 'invalid');
         }
 
-        return;
+        return true;
     }
 
     isValid(el) {
