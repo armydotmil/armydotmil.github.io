@@ -7,7 +7,5 @@ var ScrollNav = require('./modules/ScrollNav');
     var navbar = document.getElementsByClassName('navbar')[0].parentNode;
     new Header('menu');
     new Header('search');
-	Header.addSubmenu();
     new ScrollNav(navbar, 150);
-	
 })();

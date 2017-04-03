@@ -1,0 +1,111 @@
+
+
+.news.announcements {
+  background: $light-gray-color;
+
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+
+    .inner-container { position: relative; }
+  }
+
+  h4 { padding-left: 15px; }
+
+  .controls {
+    padding-right: 15px;
+    position: absolute;
+    right: 15px;
+    top: 0;
+
+    a {
+      border: 1px solid #000;
+      display: inline-block;
+      font-size: 0;
+      margin-right: 15px;
+      padding: 10px 12px;
+
+      @include opacity(.75);
+
+      span {
+        background-image: $social-button-sprite;
+        display: block;
+        height: 12px;
+        width: 9px;
+      }
+
+      &.left span { background-position: -259px -60px; }
+      &.right span { background-position: -268px -60px; }
+
+      &:hover { @include opacity(1); }
+
+      &.disabled { @include opacity(.25); }
+
+      &:last-child { margin: 0; }
+    }
+  }
+
+  .carousel {
+    position: relative;
+    @include custom-transition(transform .5s ease);
+
+    &.quick {
+      @include custom-transition(transform .15s ease);
+    }
+
+    &.moving,
+    &.moving * {
+      cursor: move;
+    }
+
+    &.moving { @include custom-transition(none 0s ease); }
+  }
+
+  ul {
+    margin: 0;
+
+    li {
+      margin: 0;
+      max-width: 255px;
+
+      &:last-child { padding-top: 63px; }
+
+      // reset default outline on last child only
+      // since there is nothing to differentiate when this elem is focused
+      &:last-child a:focus {
+        outline: 1px dotted #212121; // default for FF, IE, Edge
+        outline: 5px auto -webkit-focus-ring-color; // default for Chrome, Safari, Opera
+      }
+
+      a { color: map-get($army-branding, grey70); }
+
+      &:nth-child(3n+4) { clear: none; }
+    }
+  }
+
+  @include breakpoints(mobile nav tablet lg_tablet) {
+    .container { max-width: none; }
+  }
+
+  @include breakpoints(tablet lg_tablet) {
+    ul li {
+      &:nth-child(2n+3) { clear: none; }
+    }
+  }
+
+  @include breakpoints(lg_tablet) {
+    .controls { padding-right: 0; }
+  }
+
+  @include breakpoints(mobile nav tablet) {
+    h4 { padding-left: 0; }
+    .controls { display: none; }
+  }
+
+  @include breakpoints(mobile nav) {
+    max-width: none;
+  }
+}
+
+
+

@@ -10,7 +10,7 @@
   overflow: hidden;
   z-index: 1;
   position: relative;
-  
+
   @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
     margin-bottom: 13.750em;
   }
@@ -24,13 +24,17 @@ footer {
   position: fixed;
   width: 100%;
   z-index: 0;
-  
+
   @include breakpoints(mobile nav tablet) {
     position: relative;
   }
   
-  section { margin: 0; }
-  
+  section {
+    margin: 0;
+    
+    a { outline: 0 none; }
+  }
+
   .footer-bottom {
     font-size: .84em;
     padding: 25px 0 0;
@@ -42,13 +46,14 @@ footer {
         display: inline-block;
         margin: 0 10px;
       }
-    
+      
       a {
         color: map-get($army-branding, white);
         display: inline-block;
+        line-height: 2.5;
         position: relative;
         text-decoration: none;
-      
+        
         &:after {
           background: map-get($army-branding, white);
           bottom: 2px;
@@ -57,7 +62,7 @@ footer {
           left: 0;
           position: absolute;
           width: 0;
-        
+          
           @include custom-transition(width .25s ease);
         }
       }
@@ -68,10 +73,11 @@ footer {
     .footer-bottom {
       ul {
         li {
-          a:hover {
-            &:after {
-              width: 100%;
-            }
+          a { line-height: normal; }
+
+          a:hover,
+          a:focus {
+            &:after { width: 100%; }
           }
         }
       }

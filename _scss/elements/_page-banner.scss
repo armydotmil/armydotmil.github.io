@@ -1,0 +1,281 @@
+
+.page-banner {
+  background-color: map-get($army-branding, armyblack);
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+
+  .container {
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+
+    .inner-container {
+      margin: 35px auto;
+
+      .left-container { text-align: center; }
+
+      .max-width-container {
+        max-width: 450px;
+        min-width: 150px;
+      }
+
+      h1 {
+        color: map-get($army-branding, gold);
+        font: 700 1.875em/1 $font-family;
+        text-transform: uppercase;
+        padding-bottom: 3px;
+
+        a {
+          color: map-get($army-branding, gold);
+          font-weight: 700;
+          text-decoration: none;
+        }
+      }
+
+      h2 {
+        color: map-get($army-branding, white);
+        font: 400 1.125em $font-family;
+        margin: 0;
+
+        a {
+          color: map-get($army-branding, white);
+          font-weight: 400;
+          text-decoration: none;
+        }
+      }
+
+      p {
+        margin: 0;
+        padding: 0.4em 0 0;
+      }
+
+      ul.social-links {
+        border-top: 1px solid;
+        font-size: 0;
+        margin-top: 12px;
+        padding-top: 12px;
+
+        li.social-button {
+          display: inline-block;
+
+          a {
+            padding: 5px 10px;
+            display: block;
+
+            span {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    .logo {
+      line-height: 0;
+      margin-bottom: 20px;
+    }
+
+    @media (min-width: 481px) {
+      .inner-container {
+        display: table;
+        width: 100%;
+
+        .left-container {
+          display: table-cell;
+          height: 175px;
+          vertical-align: middle;
+        }
+
+        h1 { font-size: 2.25em; }
+        h2 { font-size: 1.25em; }
+
+        h1,
+        h2,
+        .left-container { text-align: left; }
+      }
+    }
+
+    @media (min-width: 769px) {
+      .inner-container {
+        h1 { font-size: 2.5em; }
+        h2 { font-size: 1.5em; }
+      }
+    }
+
+    // 769 - 992
+    @include breakpoints(lg_tablet) {
+      max-width: $container-md;
+    }
+    
+    // 700 - 768
+    @include breakpoints(tablet) {
+      max-width: $container-sm;
+    }
+
+    @include breakpoints(mobile) {
+      br { display: none; }
+    }
+
+  }
+
+  .full-width-image {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+    img {
+      left: -1000px;
+      margin: 0 auto;
+      min-width: 100%;
+      min-height: 100%;
+      position: absolute;
+      right: -1000px;
+      top: 0;
+      z-index: 1;
+    }
+  }
+
+  .overlay-effect {
+    @include custom-linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(35, 31, 32, 0.5) 0px, rgba(35, 31, 32, 0.8) 50%, rgba(35, 31, 32, 0.5));
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+
+    &::after {
+      background-image: url("/e2/images/rv7/banners/halftone_768.png");
+      background-position: center center;
+      background-size: cover;
+      content: "";
+      height: 100%;
+      @include opacity(0.25);
+      position: absolute;
+      width: 100%;
+
+      @include breakpoints(lg_tablet sm_desktop desktop) {
+        background-image: url("/e2/images/rv7/banners/halftone_1200.png");
+      }
+      @include breakpoints(large really_big) {
+        background-image: url("/e2/images/rv7/banners/halftone_2500.png");
+      }
+    }
+  }
+
+  &.image-gradient {
+    .full-width-image {
+      &::before {
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+      }
+      /* left/right side gradient */
+      &::before {
+        background: transparent; /* For browsers that do not support gradients */
+        @include custom-linear-gradient(to left, transparent 40%, #000);
+
+        @include breakpoints(mobile) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.parallax-image {
+    .container .inner-container {
+
+      .left-container {
+        @include breakpoints(nav) {
+          height: 200px;
+        }
+        @include breakpoints(tablet lg_tablet sm_desktop desktop large) {
+          height: 250px;
+        }
+        @include breakpoints(really_big) {
+          height: 330px;
+        }
+        @media (min-width: 2000px) {
+          height: 400px;
+        }
+      }
+    }
+  }
+
+  &.standard {
+    &.parallax-image {
+      min-height: 0;
+    }
+    .container .inner-container {
+      h1 {
+        @include header-underline(gold);
+        font: 700 1.125em/1.4 $font-family;
+        margin: 0 0 15px;
+
+        &::after {
+          height: 4px;
+          margin: 10px auto 0;
+        }
+      }
+
+      h2 { 
+        font: 700 1.5em/1.27 $font-family;
+
+        a {
+          font-weight: 700;
+        }
+      }
+
+      // standard headers always centered
+      h1,
+      h2 { text-align: center; }
+
+      @include breakpoints(mobile) {
+        display: table;
+        width: 100%;
+
+        .left-container {
+          display: table-cell;
+          height: 150px;
+          vertical-align: middle;
+        }
+      }
+      @include breakpoints(nav tablet) {
+        h1 {
+          font-size: 1.313em;
+          margin: 0 0 20px;
+          &::after { margin: 15px auto 0; }
+        }
+        h2 { font-size: 1.875em; }
+      }
+      @include breakpoints(lg_tablet sm_desktop desktop) {
+        h1 {
+          font-size: 1.5em;
+          line-height: 1.5em;
+          margin: 0 0 25px;
+
+          &::after { margin: 20px auto 0; }
+        }
+
+        h2 { font-size: 2.25em; }
+      }
+
+      @include breakpoints(large really_big) {
+        h1 {
+          font-size: 1.5em;
+          line-height: 1.5em;
+          margin: 0 0 25px;
+
+          &::after { margin: 20px auto 0; }
+        }
+
+        h2 { font-size: 2.5em; }
+      }
+    }
+  }
+}

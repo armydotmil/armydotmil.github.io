@@ -1,0 +1,74 @@
+// File Name: _two-column-body.scss
+// Description: main body content with right column extras
+// Used by: article.scss
+// ------------------------------------------------------------
+
+.two-column-body {
+  position: relative;
+
+  .left-column {
+    padding: 0 0 40px;
+  }
+
+  .right-column {    
+    .top-stories {
+      background: $light-gray-color;
+      padding: 30px;
+
+      h4 {
+        &:first-child { margin: 0 0 30px; }
+        &:after { background-color: map-get($army-branding, black); }
+      }
+      
+      ul li {
+        margin: 0 0 30px;
+        
+        &:last-child { margin: 0; }
+        
+        a {
+          display: block;
+          
+          &:focus,
+          &:hover { text-decoration: none; }
+          
+          span {
+            display: inline-block;
+            width: 100%;
+            
+            &:first-child {
+              font: 400 .813em/1.375em $font-family;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoints(sm_desktop desktop large really_big) {
+  .two-column-body {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    > div {
+      display: none;
+      vertical-align: top;
+      // left column
+      &.left-column {
+        display: table-cell;
+        padding: 0;
+      }
+      // right 350px column
+      &.right-column {
+        display: table-cell;
+        padding-left: 30px;
+        width: 380px;
+
+        > div {
+          width: 350px;
+        }
+      }
+    }
+  }
+}

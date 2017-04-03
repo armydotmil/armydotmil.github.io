@@ -1,0 +1,23 @@
+.parallax-image {
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+
+  .full-width-image {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+    img {
+      left: -1000px;
+      margin: 0 auto;
+      min-width: 100%;
+      min-height: 100%;
+      position: absolute;
+      right: -1000px;
+      top: 0;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+// ----------------------------------------------------------------------
+//
+// bodytext element is for areas used with WYSIWYG, markdown, etc. 
+// where content is dynamically generated and could use some basic styling.
+//
+// ----------------------------------------------------------------------
+
+// include each part or all parts as a mixin or class
+@mixin bodytext-list() {
+  ul, ol {
+    padding: 0;
+
+    li {
+      line-height: 1.375em;
+      list-style-type: disc;
+      margin: 0 0 14px 18px;
+      padding: 0 0 0 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      ul, ol {
+        padding: 14px 0 5px;
+      }
+    }
+  }
+  ol li {
+    list-style-type: decimal;
+    ul li {
+      list-style-type: disc;
+    }
+    ol li {
+      list-style-type: lower-alpha;
+      ul li {
+        list-style-type: disc;
+      }
+      ol li {
+        list-style-type: lower-roman;
+        ul li {
+          list-style-type: disc;
+        }
+      }
+    }
+  }
+}
+
+// include new bodytext element mixins here...
+@mixin bodytext() {
+  @include bodytext-list();
+}
+
+.bodytext-list {
+  @include bodytext-list();
+}
+
+.bodytext {
+  @include bodytext();
+}

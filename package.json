@@ -2,6 +2,7 @@
   "author": "",
   "description": "A - Z",
   "dependencies": {
+    "hammerjs": "^2.0.8",
     "youtube-iframe-player": "^1.0.0"
   },
   "devDependencies": {

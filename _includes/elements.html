@@ -4,20 +4,13 @@
         <div class="inner-container">
             <h2>04 | ELEMENTS</h2>
             <div class="elem">
-                <h4>LIST WIDGET</h4>
-                {% include elements/top-stories.html %}
+                <h4>TWO COLUMN CONTENT</h4>
+                {% include elements/two-column-body.html %}
             </div>
             <div class="elem">
                 <h4>NAVIGATION</h4>
                 <h5>NAV BAR</h5>
             </div>
-        </div>
-    </div>
-    <!-- make tab bar full width -->
-    {% include elements/nav.html %}
-    <div class="container no-bottom">
-        <div class="inner-container">
-            <h5>NAV BAR (MOBILE DROPDOWN)</h5>
         </div>
     </div>
     {% include elements/nav-mobile-dropdown.html %}
@@ -27,7 +20,7 @@
         </div>
     </div>
     {% include elements/nav-mobile-dropdown.html dropdown="true" %}
-    <div class="container no-bottom">
+    <div class="container">
         <div class="inner-container">
             <div class="elem">
                 <h4>LINKS LIST</h4>
@@ -50,9 +43,21 @@
                 {% include elements/custom-select.html %}
             </div>
             <div class="elem">
-                <h4>NEWS</h4>
                 {% include elements/news.html %}
             </div>
+        </div>
+    </div>
+    {% include elements/announcements.html %}
+    <div class="container no-bottom">
+        <div class="inner-container">
+            <div class="elem">
+                <h4>NEWS LIST</h4>
+                {% include elements/news-list.html %}
+            </div>
+        </div>
+    </div>
+    <div class="container no-bottom">
+        <div class="inner-container">
             <div class="elem">
                 <h4>TRANSCRIPTS/PRESS RELEASES</h4>
                 {% include elements/headlines.html %}
@@ -79,6 +84,7 @@
         </div>
     </div>
     {% include elements/hot-topic.html %}
+    {% include elements/parallax-image.html %}
     <div class="container no-bottom">
         <div class="inner-container">
             <div class="elem">
@@ -88,3 +94,6 @@
     </div>
     {% include elements/quotes.html %}
 </section>
+
+{% include elements/top-btn.html %}
+

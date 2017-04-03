@@ -13,17 +13,6 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        sass: {
-            dist: {
-                options: {
-                    style: 'compressed',
-                    loadPath: '_scss/globals/'
-                },
-                files: {
-                    'e2/css/rv7/a-z/style.css': '_scss/style.scss'
-                }
-            }
-        },
         browserify: {
             libs: {
                 files: {
@@ -64,6 +53,47 @@ module.exports = function(grunt) {
                 options: {
                     transform: ['babelify']
                 }
+            },
+            parallax: {
+                files: {
+                    '_js/bundled/parallax-images.js': '_js/parallax-images.js'
+                },
+                options: {
+                    transform: ['babelify']
+                }
+            },
+            banners: {
+                files: {
+                    '_js/bundled/page-banners.js': '_js/page-banners.js'
+                },
+                options: {
+                    transform: ['babelify']
+                }
+            },
+            top: {
+                files: {
+                    '_js/bundled/top-btn.js': '_js/top-btn.js'
+                },
+                options: {
+                    transform: ['babelify']
+                }
+            },
+            carousel: {
+                files: {
+                    '_js/bundled/carousel.js': '_js/carousel.js'
+                },
+                options: {
+                    transform: ['babelify']
+                }
+            }
+        },
+        watch: {
+            scripts: {
+                files: ['_js/*.js', '_js/modules/*.js'],
+                tasks: ['browserify', 'uglify'],
+                options: {
+                    spawn: false
+                }
             }
         },
         uglify: {
@@ -80,9 +110,18 @@ module.exports = function(grunt) {
                         '_js/bundled/navs.js',
                         '_js/bundled/slideshow.js',
                         '_js/bundled/playlist.js',
-                        '_js/bundled/selects.js'
+                        '_js/bundled/selects.js',
+                        '_js/bundled/parallax-images.js',
+                        '_js/bundled/top-btn.js',
+                        '_js/bundled/carousel.js'
                     ],
                     dest: 'e2/js/rv7/armydotmil/<%= pkg.name %>.min.js'
+                },
+                {
+                    src: [
+                        '_js/bundled/page-banners.js'
+                    ],
+                    dest: 'e2/js/rv7/armydotmil/banners.min.js'
                 }]
             }
         }
@@ -90,11 +129,13 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-browserify');
 
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    // grunt.loadNpmTasks('grunt-contrib-sass');
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.loadNpmTasks('grunt-text-replace');
+    // grunt.loadNpmTasks('grunt-text-replace');
+
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('production', ['browserify', 'uglify']);
 

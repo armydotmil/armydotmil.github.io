@@ -1,0 +1,160 @@
+---
+# Front matter comment to ensure Jekyll properly reads file.
+---
+
+@import "all";
+
+section {
+  .btn {
+    text-align: left;
+
+    @include breakpoints(mobile nav tablet) {
+      text-align: center;
+    }
+  }
+
+  .page-banner {
+    &.leader-banner {
+      z-index: 1;
+
+      .full-width-image {
+        padding: 0 0 62.5%; // 480.jpg is 480x300 (8:5 a/r)
+        position: relative;
+      }
+
+      .container .inner-container {
+        h1 {
+          border-bottom: 1px solid map-get($army-branding, white);
+          color: map-get($army-branding, white);
+          display: inline-block;
+          margin: 0 0 15px;
+          padding: 0 0 15px;
+          text-transform: none;
+
+          &.no-social-links {
+            border: none;
+            display: block;
+            margin: 0 0 10px;
+            padding: 0;
+
+            &:last-child { margin: 0; }
+          }
+        }
+
+        h2 {
+          color: map-get($army-branding, gold);
+          margin-bottom: 15px;
+          text-shadow: 0 0 6px map-get($army-branding, armyblack);
+        }
+
+        ul.social-links {
+          border-top: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .left-container {
+          vertical-align: bottom;
+
+          @include breakpoints(nav tablet lg_tablet sm_desktop desktop large) {
+            height: 330px;
+          }
+
+          @include breakpoints(really_big) {
+            height: 430px;
+          }
+
+          @media (min-width: 2000px) {
+            height: 530px;
+          }
+        }
+      }
+
+      @media (min-width: 481px) {
+        .full-width-image {
+          padding: 0;
+          position: absolute;
+        }
+
+        .container .inner-container {
+          ul.social-links {
+            li.social-button:first-child a { padding: 5px 10px 5px 0; }
+          }
+        }
+      }
+    } // end leader
+
+    &.org-banner {
+      .logo {
+        margin-bottom: 15px;
+        text-align: center;
+
+        &:after {
+          height: 100%;
+          display: inline-block;
+          vertical-align: middle;
+          content: "";
+        }
+
+        img {
+          max-height: 126px;
+          max-width: 100%;
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        // 700+
+        @media (min-width: 700px) {
+          position: absolute;
+          right: 15px;
+          top: 20px;
+          bottom: 20px;
+          margin: 0;
+          font-size: 0;
+          text-align: right;
+          width: 200px;
+
+          img { max-height: 100%; }
+        }
+
+        // 769+
+        @media (min-width: 769px) {
+          right: 30px;
+        }
+
+        // 993+
+        @media (min-width: 993px) {
+          bottom: 35px;
+          top: 35px;
+        }
+      }
+
+      // 481 - 699
+      @include breakpoints(nav) {
+        .inner-container {
+          h1,
+          h2,
+          .left-container { text-align: center; }
+
+          .left-container {
+            display: block;
+            height: auto;
+          }
+
+          .max-width-container { margin: 0 auto; }
+        }
+      }
+
+      // 700+
+      @media (min-width: 700px) {
+        .inner-container {
+          .left-container { padding-right: 250px; }
+
+          ul.social-links {
+            li.social-button:first-child a { padding: 5px 10px 5px 0; }
+          }
+        }
+      }
+    } // end org
+  }
+}

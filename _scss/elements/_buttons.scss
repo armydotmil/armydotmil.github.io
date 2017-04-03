@@ -138,10 +138,11 @@
 .view-more-arrow-bg {
   background: transparent $social-button-sprite no-repeat scroll -427px 0;
   display: inline-block;
-  width: 14px;
   height: 12px;
-  vertical-align: middle;
+  margin-bottom: 4px;
   margin-left: 5px;
+  vertical-align: middle;
+  width: 14px;
 }
 
 .view-more-arrow-sm {
@@ -195,401 +196,499 @@
 
 .social-button {
   span {
-    display: inline-block;
     height: 25px;
     width: 24px;
   }
 
   &.facebook-button span {
-    background: transparent $social-button-sprite no-repeat scroll -55px -216px;
+    background-position: -55px -216px;
     margin: 0 3px;
     width: 12px;
   }
 
   &.twitter-button span {
-    background: transparent $social-button-sprite no-repeat scroll 0 -216px;
+    background-position: 0 -216px;
     width: 29px;
   }
 
   &.googleplus-button span {
-    background: transparent $social-button-sprite no-repeat scroll -118px -216px;
+    background-position: -118px -216px;
     width: 36px;
   }
 
   &.pinterest-button span {
-    background: transparent $social-button-sprite no-repeat scroll -29px -216px;
+    background-position: -29px -216px;
     width: 25px;
   }
 
   &.flickr-button span {
-    background: transparent $social-button-sprite no-repeat scroll -93px -216px;
+    background-position: -93px -216px;
     width: 25px;
   }
 
   &.slideshare-button span {
-    background: transparent $social-button-sprite no-repeat scroll -180px -216px;
+    background-position: -180px -216px;
   }
 
   &.youtube-button span {
-    background: transparent $social-button-sprite no-repeat scroll -155px -216px;
+    background-position: -155px -216px;
     width: 25px;
   }
 
   &.email-button span {
-    background: transparent $social-button-sprite no-repeat scroll -206px 2px;
+    background-position: -511px -216px;
     width: 25px;
   }
 
   &.instagram-button span {
-    background: transparent $social-button-sprite no-repeat scroll -68px -216px;
+    background-position: -68px -216px;
     width: 25px;
   }
 
   &.vimeo-button span {
-    background: transparent $social-button-sprite no-repeat scroll -205px -216px;
+    background-position: -205px -216px;
     width: 28px;
   }
 
   &.armylive-button span {
-    background: transparent $social-button-sprite no-repeat scroll -233px -216px;
+    background-position: -233px -216px;
     width: 28px;
   }
   
   &.linkedin-button span {
-    background: transparent $social-button-sprite no-repeat scroll -261px -216px;
+    background-position: -261px -216px;
     width: 25px;
   }
   
   &.ustream-button span {
-    background: transparent $social-button-sprite no-repeat scroll -286px -216px;
+    background-position: -286px -216px;
     width: 25px;
   }
   
   &.smugmug-button span {
-    background: transparent $social-button-sprite no-repeat scroll -311px -216px;
+    background-position: -311px -216px;
     width: 22px;
   }
   
   &.issuu-button span {
-    background: transparent $social-button-sprite no-repeat scroll -333px -216px;
+    background-position: -333px -216px;
     width: 25px;
   }
   
   &.soundcloud-button span {
-    background: transparent $social-button-sprite no-repeat scroll -358px -216px;
+    background-position: -358px -216px;
     width: 56px;
   }
   
   &.googlemaps-button span {
-    background: transparent $social-button-sprite no-repeat scroll -414px -216px;
+    background-position: -414px -216px;
     width: 20px;
   }
   
   &.blogger-button span {
-    background: transparent $social-button-sprite no-repeat scroll -434px -216px;
+    background-position: -434px -216px;
+    width: 25px;
+  }
+  
+  &.snapchat-button span {
+    background-position: -459px -216px;
+    width: 25px;
+  }
+  
+  &.rss-button span {
+    background-position: -486px -216px;
     width: 25px;
   }
 
+  &.reddit-button span {
+    background-position: -538px -216px;
+    width: 28px;
+  }
 }
 
 .social-button-black {
-  
+
   span {
-    display: inline-block;
     height: 25px;
     width: 24px;
   }
   
   &.facebook-button span {
-    background: transparent $social-button-sprite no-repeat scroll -55px -166px;
-    margin: 0 3px;
+    background-position: -55px -166px;
+    // margin: 0 3px;
     width: 12px;
   }
   
   &.twitter-button span {
-    background: transparent $social-button-sprite no-repeat scroll 0 -166px;
+    background-position: 0 -166px;
     width: 29px;
   }
   
   &.flickr-button span {
-    background: transparent $social-button-sprite no-repeat scroll -93px -166px;
+    background-position: -93px -166px;
     width: 25px;
   }
   
   &.youtube-button span {
-    background: transparent $social-button-sprite no-repeat scroll -155px -166px;
+    background-position: -155px -166px;
     width: 25px;
   }
   
   &.vimeo-button span {
-    background: transparent $social-button-sprite no-repeat scroll -205px -166px;
+    background-position: -205px -166px;
     width: 28px;
   }
   
   &.slideshare-button span {
-    background: transparent $social-button-sprite no-repeat scroll -180px -166px;
+    background-position: -180px -166px;
     width: 24px;
   }
   
   &.armylive-button span {
-    background: transparent $social-button-sprite no-repeat scroll -233px -166px;
+    background-position: -233px -166px;
     width: 28px;
   }
   
   &.instagram-button span {
-    background: transparent $social-button-sprite no-repeat scroll -68px -166px;
+    background-position: -68px -166px;
     width: 25px;
   }
   
   &.pinterest-button span {
-    background: transparent $social-button-sprite no-repeat scroll -29px -166px;
+    background-position: -29px -166px;
     width: 25px;
   }
   
   &.googleplus-button span {
-    background: transparent $social-button-sprite no-repeat scroll -118px -166px;
+    background-position: -118px -166px;
     width: 36px;
   }
   
   &.linkedin-button span {
-    background: transparent $social-button-sprite no-repeat scroll -261px -166px;
+    background-position: -261px -166px;
     width: 25px;
   }
   
   &.ustream-button span {
-    background: transparent $social-button-sprite no-repeat scroll -286px -166px;
+    background-position: -286px -166px;
     width: 25px;
   }
   
   &.smugmug-button span {
-    background: transparent $social-button-sprite no-repeat scroll -311px -166px;
+    background-position: -311px -166px;
     width: 22px;
   }
   
   &.issuu-button span {
-    background: transparent $social-button-sprite no-repeat scroll -333px -166px;
+    background-position: -333px -166px;
     width: 25px;
   }
   
   &.soundcloud-button span {
-    background: transparent $social-button-sprite no-repeat scroll -358px -166px;
+    background-position: -358px -166px;
     width: 56px;
   }
   
   &.googlemaps-button span {
-    background: transparent $social-button-sprite no-repeat scroll -414px -166px;
+    background-position: -414px -166px;
     width: 20px;
   }
   
   &.blogger-button span {
-    background: transparent $social-button-sprite no-repeat scroll -434px -166px;
+    background-position: -434px -166px;
     width: 25px;
   }
-    
+  
+  &.snapchat-button span {
+    background-position: -459px -166px;
+    width: 25px;
+  }
+  
+  &.rss-button span {
+    background-position: -486px -166px;
+    width: 25px;
+  }
+  
+  &.email-button span {
+    background-position: -511px -166px;
+    width: 25px;
+  }
+
+  &.reddit-button span {
+    background-position: -538px -166px;
+    width: 28px;
+  }
 }
 
-.social-button, .social-button-black {
-  
-  &.facebook-button a:hover span {
+.social-button:not(.no-hover),
+.social-button-black:not(.no-hover) {
+
+  &.facebook-button a:hover span,
+  &.facebook-button a:focus span {
     background-position: -55px -191px;
   }
   
-  &.twitter-button a:hover span {
+  &.twitter-button a:hover span,
+  &.twitter-button a:focus span {
     background-position: 0 -191px;
   }
   
-  &.flickr-button a:hover span {
+  &.flickr-button a:hover span,
+  &.flickr-button a:focus span {
     background-position: -93px -191px;
   }
   
-  &.youtube-button a:hover span {
+  &.youtube-button a:hover span,
+  &.youtube-button a:focus span {
     background-position: -155px -191px;
   }
   
-  &.vimeo-button a:hover span {
+  &.vimeo-button a:hover span,
+  &.vimeo-button a:focus span {
     background-position: -205px -191px;
   }
   
-  &.slideshare-button a:hover span {
+  &.slideshare-button a:hover span,
+  &.slideshare-button a:focus span {
     background-position: -180px -191px;
   }
   
-  &.armylive-button a:hover span {
+  &.armylive-button a:hover span,
+  &.armylive-button a:focus span {
     background-position: -233px -191px;
   }
   
-  &.instagram-button a:hover span {
+  &.instagram-button a:hover span,
+  &.instagram-button a:focus span {
     background-position: -68px -191px;
   }
   
-  &.pinterest-button a:hover span {
+  &.pinterest-button a:hover span,
+  &.pinterest-button a:focus span {
     background-position: -29px -191px;
   }
   
-  &.googleplus-button a:hover span {
+  &.googleplus-button a:hover span,
+  &.googleplus-button a:focus span {
     background-position: -118px -191px;
   }
   
-  &.linkedin-button a:hover span {
+  &.linkedin-button a:hover span,
+  &.linkedin-button a:focus span {
     background-position: -261px -191px;
   }
   
-  &.ustream-button a:hover span {
+  &.ustream-button a:hover span,
+  &.ustream-button a:focus span {
     background-position: -286px -191px;
   }
   
-  &.smugmug-button a:hover span {
+  &.smugmug-button a:hover span,
+  &.smugmug-button a:focus span {
     background-position: -311px -191px;
   }
   
-  &.issuu-button a:hover span {
+  &.issuu-button a:hover span,
+  &.issuu-button a:focus span {
     background-position: -333px -191px;
   }
   
-  &.soundcloud-button a:hover span {
+  &.soundcloud-button a:hover span,
+  &.soundcloud-button a:focus span {
     background-position: -358px -191px;
   }
   
-  &.googlemaps-button a:hover span {
+  &.googlemaps-button a:hover span,
+  &.googlemaps-button a:focus span {
     background-position: -414px -191px;
   }
   
-  &.blogger-button a:hover span {
+  &.blogger-button a:hover span,
+  &.blogger-button a:focus span {
     background-position: -434px -191px;
   }
   
+  &.snapchat-button a:hover span,
+  &.snapchat-button a:focus span {
+    background-position: -459px -191px;
+  }
+  
+  &.rss-button a:hover span,
+  &.rss-button a:focus span {
+    background-position: -486px -191px;
+  }
+  
+  &.email-button a:hover span,
+  &.email-button a:focus span {
+    background-position: -511px -191px;
+  }
+
+  &.reddit-button a:hover span,
+  &.reddit-button a:focus span {
+    background-position: -538px -191px;
+  }
 }
 
 .social-button-gold-lg {
   span {
     height: 30px;
     width: 31px;
-    display: inline-block;
   }
 
   &.facebook-button span {
-    background: transparent $social-button-sprite no-repeat scroll -496px -101px;
+    background-position: -496px -101px;
     margin: 0 3px;
     width: 17px;
   }
 
   &.twitter-button span {
-    background: transparent $social-button-sprite no-repeat scroll -512px -101px;
+    background-position: -512px -101px;
     width: 37px;
   }
 
   &.googleplus-button span {
-    background: transparent $social-button-sprite no-repeat scroll -643px -101px;
+    background-position: -643px -101px;
     width: 46px;
   }
 
   &.pinterest-button span {
-    background: transparent $social-button-sprite no-repeat scroll -581px -101px;
+    background-position: -581px -101px;
   }
 
   &.flickr-button span {
-    background: transparent $social-button-sprite no-repeat scroll -612px -101px;
+    background-position: -612px -101px;
   }
 
   &.slideshare-button span {
-    background: transparent $social-button-sprite no-repeat scroll -689px -101px;
+    background-position: -689px -101px;
     width: 30px;
   }
 
   &.youtube-button span {
-    background: transparent $social-button-sprite no-repeat scroll -754px -101px;
+    background-position: -754px -101px;
   }
 
   &.instagram-button span {
-    background: transparent $social-button-sprite no-repeat scroll -550px -101px;
+    background-position: -550px -101px;
   }
 
   &.vimeo-button span {
-    background: transparent $social-button-sprite no-repeat scroll -785px -101px;
+    background-position: -785px -101px;
     width: 35px;
   }
 
   &.armylive-button span {
-    background: transparent $social-button-sprite no-repeat scroll -719px -101px;
+    background-position: -719px -101px;
     width: 34px;
   }
   
-  &.facebook-button a:hover span {
+  &.facebook-button a:hover span,
+  &.facebook-button a:focus span {
     background-position: -496px -132px;
   }
   
-  &.twitter-button a:hover span {
+  &.twitter-button a:hover span,
+  &.twitter-button a:focus span {
     background-position: -512px -132px;
   }
   
-  &.flickr-button a:hover span {
+  &.flickr-button a:hover span,
+  &.flickr-button a:focus span {
     background-position: -612px -132px;
   }
   
-  &.youtube-button a:hover span {
+  &.youtube-button a:hover span,
+  &.youtube-button a:focus span {
     background-position: -754px -132px;
   }
   
-  &.slideshare-button a:hover span {
+  &.slideshare-button a:hover span,
+  &.slideshare-button a:focus span {
     background-position: -689px -132px;
   }
   
-  &.armylive-button a:hover span {
+  &.armylive-button a:hover span,
+  &.armylive-button a:focus span {
     background-position: -719px -132px;
   }
   
-  &.instagram-button a:hover span {
+  &.instagram-button a:hover span,
+  &.instagram-button a:focus span {
     background-position: -550px -132px;
   }
   
-  &.pinterest-button a:hover span {
+  &.pinterest-button a:hover span,
+  &.pinterest-button a:focus span {
     background-position: -581px -132px;
   }
   
-  &.googleplus-button a:hover span {
+  &.googleplus-button a:hover span,
+  &.googleplus-button a:focus span {
     background-position: -643px -132px;
   }
   
-  &.vimeo-button a:hover span {
+  &.vimeo-button a:hover span,
+  &.vimeo-button a:focus span {
     background-position: -785px -132px;
   }
-
 }
 
 .social-button-sm {
   span {
-    display: inline-block;
     height: 20px;
     width: 22px;
   }
 
   &.facebook-button span {
-    background: transparent $social-button-sprite no-repeat scroll -45px -50px;
+    background-position: -45px -50px;
     width: 12px;
   }
 
   &.twitter-button span {
-    background: transparent $social-button-sprite no-repeat scroll 0 -50px;
+    background-position: 0 -50px;
     width: 24px;
   }
 
   &.googleplus-button span {
-    background: transparent $social-button-sprite no-repeat scroll -57px -50px;
+    background-position: -57px -50px;
     width: 30px;
   }
 
   &.pinterest-button span {
-    background: transparent $social-button-sprite no-repeat scroll -24px -50px;
+    background-position: -24px -50px;
+  }
+
+  &.linkedin-button span {
+    background-position: -337px -26px;
+    width: 20px;
   }
 
   &.email-button span {
-    background: transparent $social-button-sprite no-repeat scroll -88px -50px;
+    background-position: -88px -50px;
     width: 23px;
   }
-  
+
   &.print-button span {
-    background: transparent $social-button-sprite no-repeat scroll -146px -50px;
+    background-position: -146px -50px;
     width: 23px;
+  }
+
+  &.reddit-button span {
+    background-position: -359px -26px;
+    width: 23px;
+  }
+}
+
+// handles all cases for .social-button, .social-button-black/sm/gold/lg
+[class^=social-button] a {
+  // hide text with css
+  @include replace-text;
+  outline: 0 none;
+
+  span {
+    background-image: $social-button-sprite;
+    background-repeat: no-repeat;
+    display: inline-block;
   }
 }
 
@@ -646,6 +745,29 @@
   width: 13px;
   
   &.active { background-position: -181px -49px; }
+}
+
+.directional-arrow {
+  background-image: $social-button-sprite;
+  display: block;
+  height: 12px;
+  width: 9px;
+
+  &.black-left {
+    background-position: -259px -60px;
+  }
+
+  &.black-right {
+    background-position: -268px -60px;
+  }
+
+  &.gray-left {
+    background-position: -259px -47px;
+  }
+
+  &.gray-right {
+    background-position: -268px -47px;
+  }
 }
 
 

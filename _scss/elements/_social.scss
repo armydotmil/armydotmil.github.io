@@ -3,10 +3,10 @@
 .social {
   color: map-get($army-branding, white);
   text-align: center;
-  
+
   .social-button {
     display: inline-block;
-    
+
     a {
       display: block;
       line-height: 0;
@@ -17,8 +17,12 @@
 }
 
 #social-id .social-button {
-  padding: 15px 16px;
-  
+  padding: 15px 10px;
+
+  @include breakpoints(nav tablet lg_tablet sm_desktop desktop large really_big) {
+    padding: 15px 16px;
+  }
+
   a { padding: 0; }
 }
 
@@ -30,62 +34,62 @@
   background-color: $dark-gray-color;
   bottom: 0;
   height: 50px;
+  left: 0;
   position: fixed;
   text-align: center;
   @include custom-transition(bottom 500ms);
   visibility: visible;
   width: 100%;
   z-index: 1;
-  
+
   .hidden { display: none; }
-  
+
   .social-button {
     float: left;
+    height: 100%;
     width: 20%;
-    a { padding: 15px; }
+  }
+
+  a { padding: 15px; }
+
+  ul {
+    height: 100%;
+    overflow: hidden;
   }
 }
-.social-bar, .alt-social-bar {
+
+.social-bar,
+.alt-social-bar {
   .social-button a,
   .social-button-sm a {
     display: block;
     line-height: 0;
   }
-  .social-button.twitter-button,
-  .social-button-sm.twitter-button {
-    background: map-get($social-branding, twitter);
+
+  ul li {
+    list-style-type: none;
+    padding: 0;
   }
-  .social-button.googleplus-button,
-  .social-button-sm.googleplus-button {
-    background: map-get($social-branding, google);
-  }
-  .social-button.facebook-button,
-  .social-button-sm.facebook-button {
-    background: map-get($social-branding, facebook);
-  }
-  .social-button.pinterest-button,
-  .social-button-sm.pinterest-button {
-    background: map-get($social-branding, pinterest);
-  }
-  .social-button.email-button,
-  .social-button-sm.email-button {
-    background: map-get($social-branding, email);
-  }
-  .social-button.print-button,
-  .social-button-sm.print-button {
-    background: map-get($social-branding, print);
-  }
+
+  .twitter-button { background: map-get($social-branding, twitter); }
+  .facebook-button { background: map-get($social-branding, facebook); }
+  .linkedin-button { background: map-get($social-branding, linkedin); }
+  .pinterest-button { background: map-get($social-branding, pinterest); }
+  .reddit-button { background: map-get($social-branding, reddit); }
+  .email-button { background: map-get($social-branding, email); }
+  .print-button { background: map-get($social-branding, print); }
+
 }
 
 .alt-social-bar {
   display: none;
   margin: 35px 0 0;
   overflow: hidden;
-  
+
   .social-button-sm {
     float: left;
     margin: 0 10px 0 0;
-    
+
     a {
       padding: 10px 0;
       text-align: center;

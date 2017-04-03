@@ -1,0 +1,107 @@
+
+form {
+  input,
+  textarea {
+    border: 1px solid map-get($army-branding, grey30);
+    box-shadow: none;
+    font: 400 1em $font-family;
+    outline: none;
+    padding: 10px 10px 8px;
+    width: 100%;
+    -webkit-appearance: none;
+    
+    &.invalid { border-color: red; }
+    
+    &:focus { border-color: $input-focus; }
+  }
+
+  .validation {
+    color: red;
+    display: none;
+    font-weight: 600;
+    padding: 5px 0;
+  }
+
+  .invalid ~ .validation { display: inline-block; }
+  
+  input[type='radio'] {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+    width: 15px;
+    -webkit-appearance: radio;
+  }
+  
+  textarea { height: 100px; }
+  
+  input[type='submit'] { cursor: pointer; }
+  
+  input[type='checkbox'] {
+    -webkit-appearance: checkbox;
+    width: auto;
+  }
+  
+  select {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .radio-label {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .field-block {
+    margin: 0 0 25px;
+    
+    &.hidden {
+      @extend .hidden;
+      
+      display: none;
+      margin: 0;
+    }
+  }
+  
+  .field-row {
+    @include row(true);
+    
+    .half {
+      @include span(12);
+      
+      &:first-child { margin: 0 0 25px; }
+    }
+  }
+  
+  label {
+    display: block;
+    margin: 0 0 5px;
+    
+    span { color: map-get($army-branding, gold); }
+  }
+  
+  .submit-form {
+    padding: 20px 0 0;
+    text-align: center;
+  }
+}
+
+.g-recaptcha div {
+  margin: 0 auto;
+  text-align: center;
+}
+
+p.error { color: red; }
+
+
+@include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+  form {
+    .field-row .half {
+      @include span(6);
+      
+      &:first-child { margin: 0; }
+    }
+  }
+}
+
+
+
