@@ -151,7 +151,7 @@
   height: 12px;
   margin-left: 5px;
   vertical-align: middle;
-  width: 14px;
+  width: 13px;
 
   &.black-arrow {
     background-position: -442px -13px;
@@ -280,7 +280,7 @@
     width: 56px;
   }
   
-  &.googlemaps-button span {
+  &.periscope-button span {
     background-position: -414px -216px;
     width: 20px;
   }
@@ -389,7 +389,7 @@
     width: 56px;
   }
   
-  &.googlemaps-button span {
+  &.periscope-button span {
     background-position: -414px -166px;
     width: 20px;
   }
@@ -498,8 +498,8 @@
     background-position: -358px -191px;
   }
   
-  &.googlemaps-button a:hover span,
-  &.googlemaps-button a:focus span {
+  &.periscope-button a:hover span,
+  &.periscope-button a:focus span {
     background-position: -414px -191px;
   }
   
