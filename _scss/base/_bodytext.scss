@@ -6,6 +6,20 @@
 // ----------------------------------------------------------------------
 
 // include each part or all parts as a mixin or class
+@mixin bodytext-links() {
+  a {
+    text-decoration: none;
+    font-weight: normal;
+    color: $input-focus;
+    border-bottom: 1px solid map-get($army-branding, grey20);
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $input-focus-dark;
+      border-bottom-color: $input-focus-dark;
+    }
+  }
+}
 @mixin bodytext-list() {
   ul, ol {
     padding: 0;
@@ -47,7 +61,12 @@
 
 // include new bodytext element mixins here...
 @mixin bodytext() {
+  @include bodytext-links();
   @include bodytext-list();
+}
+
+.bodytext-links {
+  @include bodytext-links();
 }
 
 .bodytext-list {
