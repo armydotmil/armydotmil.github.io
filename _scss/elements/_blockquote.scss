@@ -1,0 +1,16 @@
+.blockquote {
+  blockquote {
+    border-left: 4px solid map-get($army-branding, gold);
+    padding: 5px 30px;
+    margin-bottom: 0 0 1.25em 0;
+    font-style: italic;
+    font-size: 1.25em;
+    line-height: 1.625;
+    color: map-get($army-branding, grey50);
+    &:before, &:after {
+      display: none;
+    }
+  }
+}
+
+
