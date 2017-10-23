@@ -112,8 +112,8 @@ class Validity {
     }
 
     validateUrl(el) {
-        // http://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149
-        return /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/gi.test(el.value);
+        // custom URL validation... more flexible, more accurate
+        return /^(https?:\/\/)?(\w+(-\w+)*\.){2,}[a-z]{2,}(:[0-9]+)?(\/[\w\-]+)*(\/([\w\-\x40$\.\x2B!*\x27(),]|(%[A-Z0-9]{2}))+)?((\.[a-z]{2,})|\/)?((\?[\w\-]+=([\w\-\x40$\.\x2B!*\x27(),]|(%[A-Z0-9]{2}))+)(\x26[\w\-]+=([\w\-\x40$\.\x2B!*\x27(),]|(%[A-Z0-9]{2}))+)*)?(#([\w\-\x40$\.\x2B!*\x27(),]|(%[A-Z0-9]{2}))+)?$/gi.test(el.value);
     }
 
     validateCheckbox(el) {
