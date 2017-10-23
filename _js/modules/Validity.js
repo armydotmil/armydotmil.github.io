@@ -113,7 +113,7 @@ class Validity {
 
     validateUrl(el) {
         // custom URL validation... more flexible, more accurate
-        return /^(https?:\/\/)?(w{3}\.)?(\w+(-\w+)*\.)+[a-z]+(:[0-9]+)?(\/[\w\-\x40]+)*((\.[a-z]{2,})|\/)?((\?[\w\-]+=[\w\-\x40!]+)(\x26[\w\-]+=[\w\-\x40!]+)*)?(#[\w\-]+)?$/gi.test(el.value);
+        return /^(https?:\/\/)?(\w+(-\w+)*\.){2,}[a-z]{2,}(:[0-9]+)?(\/[\w\-]+)*(\/([\w\-\x40$\.\x2B!*\x27(),]|(%[A-Z0-9]{2}))+)?((\.[a-z]{2,})|\/)?((\?[\w\-]+=([\w\-\x40$\.\x2B!*\x27(),]|(%[A-Z0-9]{2}))+)(\x26[\w\-]+=([\w\-\x40$\.\x2B!*\x27(),]|(%[A-Z0-9]{2}))+)*)?(#([\w\-\x40$\.\x2B!*\x27(),]|(%[A-Z0-9]{2}))+)?$/gi.test(el.value);
     }
 
     validateCheckbox(el) {
