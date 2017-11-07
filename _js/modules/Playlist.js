@@ -1,6 +1,6 @@
 /*global document,window, init, require, class*/
 /*jshint -W032 */ /* ignore unnecessary semicolon */
-var Helper = require('./Helper');
+import Helper from './Helper';
 var youtube = require('youtube-iframe-player');
 
 class Playlist {
