@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+        - apt-get update --assume-yes --no-install-recommends
+        - apt-get install nodejs --assume-yes --no-install-recommends
+        - apt-get install npm --assume-yes --no-install-recommends
+        - gem install bundler
+        - bundle install
+        - ln -s /usr/bin/nodejs /usr/bin/node
+        - npm install
+        - npm install -g grunt-cli
+  build:
+    commands:
+        - echo "******** CHANGE BRANCH ********"
+        - git checkout $GIT_BRANCH
+        - echo "******** Run Grunt Task ********"
+        - grunt production
+        - echo "******** Building Jekyll site ********"
+        - export LC_ALL=en_US.UTF-8
+        - jekyll build -t
+        - echo "******** Uploading to S3 ********"
+        - aws s3 sync _site/ s3://$S3_BUCKET/create --exclude "e2/*"
+        - aws s3 sync _site/e2/js/rv7/armydotmil s3://$S3_BUCKET/e2/js/rv7/armydotmil
+        - aws s3 sync _site/e2/css/rv7/armydotmil s3://$S3_BUCKET/e2/css/rv7/armydotmil
+        - aws s3 sync _site/e2/css/rv7/upgrade s3://$S3_BUCKET/e2/css/rv7/upgrade
+        - aws s3 sync _site/e2/images/rv7/upgrade s3://$S3_BUCKET/e2/images/rv7/upgrade
+        - aws s3 sync _site/e2/images/rv7/banners s3://$S3_BUCKET/e2/images/rv7/banners
