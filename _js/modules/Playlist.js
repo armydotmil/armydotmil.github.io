@@ -1,5 +1,6 @@
 /*global document,window, init, require, class*/
-/*jshint -W032 */ /* ignore unnecessary semicolon */
+/*jshint -W032 */
+/* ignore unnecessary semicolon */
 import Helper from './Helper';
 var youtube = require('youtube-iframe-player');
 
@@ -14,22 +15,33 @@ class Playlist {
         toggles = document.getElementsByClassName('playlist-toggle');
 
         for (i = 0; i < this.header.length; i++) {
-            this.header[i].addEventListener(
-                'click',
-                function() {
-                    _this.toggle(this.parentNode.parentNode);
-                },
-                false
-            );
+            if (!Helper.hasClass(this.header[i], 'enable-playlist')) {
+
+                this.header[i].addEventListener(
+                    'click',
+                    function() {
+                        _this.toggle(this.parentNode.parentNode);
+                    },
+                    false
+                );
+
+                Helper.addClass(this.header[i], 'enable-playlist');
+            }
         }
         for (i = 0; i < toggles.length; i++) {
-            toggles[i].addEventListener(
-                'click',
-                function() {
-                    _this.toggle(this.parentNode.parentNode);
-                },
-                false
-            );
+            if (!Helper.hasClass(toggles[i], 'enable-playlist')) {
+
+                toggles[i].addEventListener(
+                    'click',
+                    function() {
+                        _this.toggle(this.parentNode.parentNode);
+                    },
+                    false
+                );
+
+                Helper.addClass(toggles[i], 'enable-playlist');
+            }
+
         }
     }
 
@@ -175,7 +187,7 @@ class Playlist {
         } else {
             Helper.removeClass(current, 'playing');
         }
-        
+
         // if video finishes, auto-progress to next video...
         if (event.data == 0) {
             nextVid = current.nextElementSibling;
@@ -188,7 +200,7 @@ class Playlist {
     scrollToVideo(vidObj) {
         var vidPos = vidObj.getBoundingClientRect(),
             doc = document.documentElement,
-            top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0),
+            top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
             header = document.getElementsByTagName('header')[0],
             diff;
 
