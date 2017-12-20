@@ -4,7 +4,7 @@ env: dev
 
 exclude: ['Gruntfile.js', 'package.json', 'readme.md', 'sftpCache.json' ,'node_modules','us-army-homepage']
     
-gems:
+plugins:
   - octopress-minify-html
   
 sass:
