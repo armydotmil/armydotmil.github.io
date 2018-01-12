@@ -30,6 +30,10 @@ class Helper {
         else
             this.addClass(el, className);
     }
+
+    static randomNumberToken() {
+        return new Date().valueOf();
+    }
 };
 
 export default Helper;
