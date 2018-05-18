@@ -5,19 +5,27 @@ import Helper from './Helper';
 var youtube = require('youtube-iframe-player');
 
 class Playlist {
-    constructor() {
+    constructor(context) {
+        this.domContext = context || document;
+        this.iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        this.ytPlayers = {};
+
+        this.resetToggles();
+    }
+
+    resetToggles() {
         var _this = this,
             toggles,
-            i;
-        this.header = document.getElementsByClassName('playlist-info');
-        this.plElems = document.getElementsByClassName('playlist');
-        this.iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        toggles = document.getElementsByClassName('playlist-toggle');
+            i,
+            plHeader;
 
-        for (i = 0; i < this.header.length; i++) {
-            if (!Helper.hasClass(this.header[i], 'enable-playlist')) {
+        plHeader = this.domContext.getElementsByClassName('playlist-info');
+        toggles = this.domContext.getElementsByClassName('playlist-toggle');
 
-                this.header[i].addEventListener(
+        for (i = 0; i < plHeader.length; i++) {
+            if (!Helper.hasClass(plHeader[i], 'enable-playlist')) {
+
+                plHeader[i].addEventListener(
                     'click',
                     function() {
                         _this.toggle(this.parentNode.parentNode);
@@ -25,7 +33,7 @@ class Playlist {
                     false
                 );
 
-                Helper.addClass(this.header[i], 'enable-playlist');
+                Helper.addClass(plHeader[i], 'enable-playlist');
             }
         }
         for (i = 0; i < toggles.length; i++) {
@@ -41,7 +49,6 @@ class Playlist {
 
                 Helper.addClass(toggles[i], 'enable-playlist');
             }
-
         }
     }
 
@@ -53,41 +60,32 @@ class Playlist {
         }
     }
 
-    loadYTPlayer() {
-        var _this = this;
-
-        if (document.getElementsByClassName('ytPlayer').length) {
-            youtube.init(function() {
-                _this.loadYTPlayers();
-            });
-        }
-    }
-
-    loadYTPlayers() {
-        var ytPlayer,
+    setYTPlayer(elem) {
+        var ytPlayer = elem.getElementsByClassName('ytPlayer'),
+            playerId = null,
             videoList,
             ytid,
             isPlaylist,
             isCustomList,
-            youtubePlayer,
             vidObj,
-            paramObj,
-            i,
             _this = this;
 
-        for (i = 0; i < this.plElems.length; i++) {
-            ytPlayer = this.plElems[i].getElementsByClassName('ytPlayer')[0];
-            videoList = this.plElems[i].getElementsByClassName('videos');
-            ytid = (ytPlayer.dataset) ?
-                ytPlayer.dataset.ytid :
-                ytPlayer.getAttribute('data-ytid');
+        if (ytPlayer.length > 0) {
+            playerId = ytPlayer[0].getAttribute('id');
+        }
+        // only continue if the player does not have an Id already
+        if (!playerId && ytPlayer.length > 0) {
+            ytPlayer = ytPlayer[0];
+            videoList = elem.getElementsByClassName('videos');
+            playerId = 'ytPlayer' + Helper.randomNumberToken();
+            ytid = ytPlayer.getAttribute('data-ytid');
             isPlaylist = (ytPlayer.hasAttribute('data-playlist'));
             isCustomList = (videoList.length);
             vidObj = {
                 width: '560',
                 height: '315'
             };
-            paramObj = {
+            vidObj.playerVars = {
                 'autoplay': 0,
                 'controls': 1,
                 'modestbranding': 1,
@@ -98,8 +96,8 @@ class Playlist {
             if (!isPlaylist) {
                 vidObj.videoId = ytid;
             } else {
-                paramObj.listType = 'playlist';
-                paramObj.list = ytid;
+                vidObj.playerVars.listType = 'playlist';
+                vidObj.playerVars.list = ytid;
             }
             if (isCustomList) {
                 vidObj.events = {
@@ -110,27 +108,52 @@ class Playlist {
                         _this.playerStateChange(e, _this);
                     }
                 };
-                paramObj.showinfo = 0;
+                vidObj.playerVars.showinfo = 0;
             }
-            vidObj.playerVars = paramObj;
 
-            ytPlayer.setAttribute('id', 'ytPlayer' + i);
-            youtubePlayer = youtube.createPlayer('ytPlayer' + i, vidObj);
+            // create the actual player and store playlist reference
+            this.ytPlayers[playerId] = elem;
+            ytPlayer.setAttribute('id', playerId);
+            youtube.createPlayer(playerId, vidObj);
+        }
+    }
+
+    resetYTPlayer() {
+        this.resetToggles();
+        this.loadYTPlayer();
+    }
+
+    loadYTPlayer() {
+        var _this = this;
+
+        if (this.domContext.getElementsByClassName('ytPlayer').length) {
+            youtube.init(function() {
+                _this.loadYTPlayers();
+            });
+        }
+    }
+
+    loadYTPlayers() {
+        var plElems = this.domContext.getElementsByClassName('playlist'),
+            i;
+
+        for (i = 0; i < plElems.length; i++) {
+            this.setYTPlayer(plElems[i]);
         }
     }
 
     playerReady(event, context) {
         var videoData = event.target.getIframe(),
-            key = parseInt(videoData.id.substr(8)),
-            videos = context.plElems[key].querySelectorAll(
+            key = videoData.id,
+            videos = context.ytPlayers[key].querySelectorAll(
                 '.videos .video-item');
 
-        Helper.addClass(context.plElems[key], 'playlist-ready');
+        Helper.addClass(context.ytPlayers[key], 'playlist-ready');
 
         [].map.call(videos, function(elem) {
             elem.addEventListener('click', function() {
                 if (!Helper.hasClass(this, 'active')) {
-                    context.selectVideo(event, this, context.plElems[key]);
+                    context.selectVideo(event, this, context.ytPlayers[key]);
                 } else if (!context.iOS) {
                     context.toggleVideo(event.target);
                 }
@@ -177,8 +200,8 @@ class Playlist {
 
     playerStateChange(event, context) {
         var videoData = event.target.getIframe(),
-            key = parseInt(videoData.id.substr(8)),
-            current = context.plElems[key].getElementsByClassName('active')[0],
+            key = videoData.id,
+            current = context.ytPlayers[key].getElementsByClassName('active')[0],
             nextVid;
 
         // if playing...
@@ -192,7 +215,7 @@ class Playlist {
         if (event.data == 0) {
             nextVid = current.nextElementSibling;
             if (nextVid && Helper.hasClass(nextVid, 'video-item')) {
-                context.selectVideo(event, nextVid, context.plElems[key]);
+                context.selectVideo(event, nextVid, context.ytPlayers[key]);
             }
         }
     }
