@@ -1,6 +1,6 @@
 /*global document, require*/
 /*jshint -W032 */ /* ignore unnecessary semicolon */
-var Helper = require('./Helper');
+import Helper from './Helper';
 
 class PhotoSlideshow {
     constructor() {
@@ -13,34 +13,40 @@ class PhotoSlideshow {
     }
 
     toggleCaption(el, ss) {
-        el.addEventListener(
-            'click',
-            function() {
-                Helper.toggleClass(ss, 'show-captions');
-            },
-            false
-        );
+        if (!Helper.hasClass(el, 'has-click')) {
+            el.addEventListener(
+                'click',
+                function() {
+                    Helper.toggleClass(ss, 'show-captions');
+                },
+                false
+            );
+            Helper.addClass(el, 'has-click');
+        }
     }
 
     navigateSlideshow(el, p, ss) {
-        el.addEventListener(
-            'click',
-            function() {
-                Helper.removeClass(p[ss.curPos], 'cur-photo');
+        if (!Helper.hasClass(el, 'has-click')) {
+            el.addEventListener(
+                'click',
+                function() {
+                    Helper.removeClass(p[ss.curPos], 'cur-photo');
 
-                if (Helper.hasClass(this, 'ss-next')) {
-                    ss.curPos++;
-                } else {
-                    ss.curPos--;
-                }
+                    if (Helper.hasClass(this, 'ss-next')) {
+                        ss.curPos++;
+                    } else {
+                        ss.curPos--;
+                    }
 
-                if (ss.curPos < 0) ss.curPos = p.length - 1;
-                if (ss.curPos >= p.length) ss.curPos = 0;
+                    if (ss.curPos < 0) ss.curPos = p.length - 1;
+                    if (ss.curPos >= p.length) ss.curPos = 0;
 
-                Helper.addClass(p[ss.curPos], 'cur-photo');
-            },
-            false
-        );
+                    Helper.addClass(p[ss.curPos], 'cur-photo');
+                },
+                false
+            );
+            Helper.addClass(el, 'has-click');
+        }
     }
 
     addClicks(ss) {
