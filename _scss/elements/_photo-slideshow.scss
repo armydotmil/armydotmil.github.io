@@ -22,9 +22,19 @@
         line-height: 0;
         position: relative;
         text-align: center;
+        padding: 0 0 67.9%; // 640x435 Core2 ratio
+        overflow: hidden;
+        background-color: #000;
         
         img {
           max-width: 100%;
+          max-height: 110%; // helps fill width when image is taller than ratio
+          position: absolute;
+          top: -1000px;
+          bottom: -1000px;
+          left: -1000px;
+          right: -1000px;
+          margin: auto;
         }
       }
     }
@@ -97,6 +107,11 @@
     padding: 20px;
     position: absolute;
     top: 50%;
+
+    &:hover,
+    &:focus {
+      background-color: $captions-background-color;
+    }
 
     .ss-move-button {
       display: inline-block;
