@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="825px" height="250px" viewBox="0 0 825 250" style="enable-background:new 0 0 825 250;" xml:space="preserve">
 <style type="text/css">
@@ -141,16 +141,16 @@
 	</g>
 </g>
 <g>
-	<rect x="281.8" y="8.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 78.9043 211.1254)" class="st3" width="25" height="4"/>
-	<rect x="292.3" y="-2.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 79.0006 211.1022)" class="st3" width="4" height="25"/>
+	<rect x="281.8" y="8.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 78.915 211.1083)" class="st3" width="25" height="4"/>
+	<rect x="292.3" y="-2.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 78.9726 211.0871)" class="st3" width="4" height="25"/>
 </g>
 <g>
-	<rect x="281.8" y="33.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 61.2269 218.4478)" width="25" height="4"/>
-	<rect x="292.3" y="22.7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 61.3232 218.4245)" width="4" height="25"/>
+	<rect x="281.8" y="33.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 61.2374 218.4305)" width="25" height="4"/>
+	<rect x="292.3" y="22.7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 61.295 218.4094)" width="4" height="25"/>
 </g>
 <g>
-	<rect x="281.8" y="56.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 44.9664 225.1842)" class="st4" width="25" height="4"/>
-	<rect x="292.3" y="45.8" transform="matrix(0.7071 -0.7071 0.7071 0.7071 44.9577 225.1902)" class="st4" width="4" height="25"/>
+	<rect x="281.8" y="56.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 44.973 225.1682)" class="st4" width="25" height="4"/>
+	<rect x="292.3" y="45.8" transform="matrix(0.7071 -0.7071 0.7071 0.7071 44.974 225.1621)" class="st4" width="4" height="25"/>
 </g>
 <g>
 	<g>
@@ -1268,4 +1268,10 @@
 <g>
 	<polygon class="st3" points="622.2,179 611.6,189.6 601.1,179 600,180.1 611.6,191.7 623.2,180.1 	"/>
 </g>
+<path class="st3" d="M337,57.6v-5.5c0-0.6,0.5-1.1,1.1-1.1h5.5c0.3,0,0.5,0.2,0.5,0.5v1.8c0,0.3-0.2,0.5-0.5,0.5h-3.8v3.8
+	c0,0.3-0.2,0.5-0.5,0.5h-1.8C337.2,58.1,337,57.9,337,57.6z M349.9,51.5v1.8c0,0.3,0.2,0.5,0.5,0.5h3.8v3.8c0,0.3,0.2,0.5,0.5,0.5
+	h1.8c0.3,0,0.5-0.2,0.5-0.5v-5.5c0-0.6-0.5-1.1-1.1-1.1h-5.5C350.1,51,349.9,51.2,349.9,51.5z M356.5,63.9h-1.8
+	c-0.3,0-0.5,0.2-0.5,0.5v3.8h-3.8c-0.3,0-0.5,0.2-0.5,0.5v1.8c0,0.3,0.2,0.5,0.5,0.5h5.5c0.6,0,1.1-0.5,1.1-1.1v-5.5
+	C357,64.1,356.8,63.9,356.5,63.9z M344.1,70.5v-1.8c0-0.3-0.2-0.5-0.5-0.5h-3.8v-3.8c0-0.3-0.2-0.5-0.5-0.5h-1.8
+	c-0.3,0-0.5,0.2-0.5,0.5v5.5c0,0.6,0.5,1.1,1.1,1.1h5.5C343.9,71,344.1,70.8,344.1,70.5z"/>
 </svg>
