@@ -33,31 +33,6 @@
   background-color: map-get($army-branding, armyblack);
 }
 
-//secondary colors
-.dark-camo {
-  color: map-get($army-branding, darkcamo);
-}
-
-.medium-camo {
-  color: map-get($army-branding, mediumcamo);
-}
-
-.light-camo {
-  color: map-get($army-branding, lightcamo);
-}
-
-.dark-camo-background {
-  background-color: map-get($army-branding, darkcamo);
-}
-
-.medium-camo-background {
-  background-color: map-get($army-branding, mediumcamo);
-}
-
-.light-camo-background {
-  background-color: map-get($army-branding, lightcamo);
-}
-
 //accent colors
 .black {
   color: map-get($army-branding, black);

@@ -46,6 +46,14 @@ module.exports = function(grunt) {
                     transform: ['babelify']
                 }
             },
+            richtext: {
+                files: {
+                    '_js/bundled/rich-text.js': '_js/rich-text.js'
+                },
+                options: {
+                    transform: ['babelify']
+                }
+            },
             select: {
                 files: {
                     '_js/bundled/selects.js': '_js/selects.js'
@@ -110,6 +118,7 @@ module.exports = function(grunt) {
                         '_js/bundled/navs.js',
                         '_js/bundled/slideshow.js',
                         '_js/bundled/playlist.js',
+                        '_js/bundled/rich-text.js',
                         '_js/bundled/selects.js',
                         '_js/bundled/parallax-images.js',
                         '_js/bundled/top-btn.js',
