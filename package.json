@@ -3,7 +3,8 @@
   "description": "A - Z",
   "dependencies": {
     "hammerjs": "^2.0.8",
-    "youtube-iframe-player": "^1.0.0"
+    "youtube-iframe-player": "^1.0.0",
+    "quill": "^1.3.7"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^0.1.2",
