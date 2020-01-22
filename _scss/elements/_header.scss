@@ -167,6 +167,8 @@ header {
     overflow: hidden;
     padding: 30px 30px 60px;
 
+
+
     .list-container > ul {
       margin: 0;
 
@@ -435,6 +437,24 @@ header {
         }
       } // end .quicklinks
     } // end breakpoints(sm_desktop desktop large really_big)
+
+    @include breakpoints(sm_desktop) {
+      .list-container{
+        width: 75%;
+      }
+      .quicklinks {
+        width: 25%;
+      }
+    }
+
+    @include breakpoints(desktop) {
+      .list-container{
+        width: 78%;
+      }
+      .quicklinks {
+        width: 22%;
+      }
+    }
   }
 
   // end .menu-container
