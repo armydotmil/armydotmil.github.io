@@ -1,7 +1,8 @@
 .accordion {
   @include bodytext-list();
   
-  ul li a {
+  ul li > ul > li a,
+  ul li > ol > li a {
     font-weight: 400;
     position: relative;
     top: 2px;
@@ -25,7 +26,8 @@
 
       &:last-child { border-bottom: 1px solid map-get($army-branding, grey30); }
       
-      > ul {
+      > ul,
+      > div {
         max-height: 0;
         overflow: hidden;
         padding: 0 30px;
@@ -85,7 +87,8 @@
     } // end li
     
     // expanded state, based on checkbox status
-    > li input[type=checkbox]:checked ~ ul {
+    > li input[type=checkbox]:checked ~ ul,
+    > li input[type=checkbox]:checked ~ div {
       max-height: 1000px;
       padding-bottom: 1.8em;
     }
