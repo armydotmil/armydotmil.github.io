@@ -18,10 +18,13 @@ class QuillLoader {
   /**
     * Expects an element id, and delta string
     */
-  setQuillElement(el, textDelta) {
-    var delta = JSON.parse(textDelta),
-      quillModel;
+   setQuillElement(el, textDelta) {
+    var delta, quillModel;
     
+    // replace quote entities (otherwise quill double-encodes them)
+    textDelta = textDelta.replace(/&#(34|39);/g, this.replaceEntity);
+    delta = JSON.parse(textDelta);
+
     quillModel = new Quill(el, {
       modules: {
         toolbar: null
@@ -31,6 +34,10 @@ class QuillLoader {
     });
     
     quillModel.setContents(delta.ops, 'silent');
+  }
+
+  replaceEntity(match, dec) {
+    return String.fromCharCode(dec).replace('\"', '\\\"');
   }
 
 };
