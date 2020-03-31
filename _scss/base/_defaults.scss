@@ -91,13 +91,13 @@ h4 {
   }
 }
 
-section.h4 {
+section > h4 {
   margin: 0 0 40px;
 }
 
 // mobile first approach added
 @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-  section.h4 {
+  section > h4 {
     margin: 0 0 54px;
   }
 }
