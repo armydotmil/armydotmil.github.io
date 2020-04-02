@@ -45,6 +45,7 @@
     text-align: left;
   }
 
+  .ql-editor blockquote,
   blockquote {
     border-left: 4px solid map-get($army-branding, gold);
     padding: 0 0 0 1.25em;
