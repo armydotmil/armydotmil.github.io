@@ -104,17 +104,21 @@ class ImageBlot extends BlockEmbed {
   }
 
   updatePhotoSlideshows() {
-    let ss = document.getElementsByClassName('photo-slideshow');
+    let ss = document.getElementsByClassName('photo-slideshow'), i;
 
-    Array.from(ss).forEach(this.createSSMarkup.bind(this));
+    for (i = 0; i < ss.length; i++) {
+      this.createSSMarkup(ss[i]);
+    }
     // adds JS transitions and butten events for slideshows
     new PhotoSlideshow();
   }
 
   createSSMarkup(ss) {
-    let photos = ss.getElementsByClassName('photo');
+    let photos = ss.getElementsByClassName('photo'), i;
     
-    Array.from(photos).forEach(this.createPhotoMarkup.bind(this, photos.length));
+    for (i = 0; i < photos.length; i++) {
+      this.createPhotoMarkup(photos.length, photos[i], i);
+    }
   }
 
   createPhotoMarkup(total, photo, index) {
