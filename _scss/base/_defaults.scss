@@ -66,14 +66,6 @@ h5 { @extend %h5; }
 
 section {
   overflow: hidden;
-  margin-bottom: 50px;
-}
-
-// mobile first approach added
-@include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-  section {
-    margin-bottom: 60px;
-  }
 }
 
 h4 {
@@ -88,17 +80,6 @@ h4 {
 @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
   h4 {
     margin: 60px 0 54px;
-  }
-}
-
-section > h4 {
-  margin: 0 0 40px;
-}
-
-// mobile first approach added
-@include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-  section > h4 {
-    margin: 0 0 54px;
   }
 }
 
