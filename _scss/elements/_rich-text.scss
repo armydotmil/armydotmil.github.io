@@ -78,7 +78,7 @@
         width: 100%;
 
         .img-container {
-          background: map-get($army-branding, black);
+          background: #ddd;
           display: block;
           height: 0;
           padding: 66.25% 0 0;
@@ -88,11 +88,15 @@
           margin-bottom: 0.7em;
 
           img {
-            bottom: -2000px;
+            top: -2000000px;
+            bottom: -2000000px;
+            left: -2000000px;
+            right: -2000000px;
             margin: auto;
             position: absolute;
-            top: -2000px;
-            width: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            zoom: .005;
           }
 
           a {
@@ -133,6 +137,20 @@
     &.single {
       figure:first-child {
         width: 100%;
+        .img-container {
+          padding: 0;
+          height: auto;
+          img {
+            width: auto;
+            max-width: 100%;
+            max-height: 50vh;
+            position: static;
+            display: block;
+            zoom: 2;
+            min-width: 0;
+            min-height: 0;
+          }
+        }
       }
     }
   }
