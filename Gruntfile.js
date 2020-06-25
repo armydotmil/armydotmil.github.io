@@ -1,15 +1,4 @@
 module.exports = function(grunt) {
-    var configs = '_js/globals/configs/production.js',
-        i = 0,
-        len = grunt.cli.tasks.length;
-
-    //SET GLOBAL CONFIGS BASED ON ENVIROMENT OR TASK
-    for (i; i < len; i++) {
-        if (grunt.cli.tasks[i] === 'dev') {
-            configs = '_js/globals/configs/development.js';
-        }
-    }
-
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -141,8 +130,6 @@ module.exports = function(grunt) {
     // grunt.loadNpmTasks('grunt-contrib-sass');
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
-
-    // grunt.loadNpmTasks('grunt-text-replace');
 
     grunt.loadNpmTasks('grunt-contrib-watch');
 
