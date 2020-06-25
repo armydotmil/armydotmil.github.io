@@ -2,7 +2,7 @@
 #env: production
 env: dev
 
-exclude: ['Gruntfile.js', 'package.json', 'readme.md', 'sftpCache.json' ,'node_modules','us-army-homepage']
+exclude: ['Gruntfile.js', 'buildspec.yml', 'Gemfile', 'Gemfile.lock', 'package.json', 'package-lock.json', 'README.md', 'sftpCache.json' ,'node_modules']
     
 plugins:
   - octopress-minify-html
@@ -11,5 +11,5 @@ sass:
   sass_dir: _scss
   style: compressed
 
-title: Army Families
+title: Army Style Guide
 

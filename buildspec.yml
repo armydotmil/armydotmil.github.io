@@ -18,7 +18,7 @@ phases:
         - echo "******** Building Jekyll site ********"
         - bundle exec jekyll build
         - echo "******** Uploading to S3 ********"
-        - aws s3 sync _site/ s3://$S3_BUCKET/create --exclude "e2/*"
+        - aws s3 sync _site/ s3://$S3_BUCKET/globalstyles --exclude "e2/*"
         - aws s3 sync _site/e2/js/rv7/armydotmil s3://$S3_BUCKET/e2/js/rv7/armydotmil
         - aws s3 sync _site/e2/css/rv7/armydotmil s3://$S3_BUCKET/e2/css/rv7/armydotmil
         - aws s3 sync _site/e2/css/rv7/upgrade s3://$S3_BUCKET/e2/css/rv7/upgrade
