@@ -109,7 +109,7 @@
               @include custom-transition(opacity .25s ease);
               background: transparent $social-button-sprite no-repeat scroll -337px -51px;
               box-shadow: 0 0 5px rgba(0,0,0,.5);
-              opacity: 0;
+              opacity: 0.5;
             }
 
             &:hover:before,
