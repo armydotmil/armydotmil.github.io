@@ -135,11 +135,16 @@
     // make the first image full width, if odd number of grid images or single
     &.photo-grid.odd-number,
     &.single {
+      .centered-image {
+        text-align: center;
+        display: block;
+      }
       figure:first-child {
         width: 100%;
         .img-container {
           padding: 0;
           height: auto;
+          display: inline-block;
           img {
             width: auto;
             max-width: 100%;
