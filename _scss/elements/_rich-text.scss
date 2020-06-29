@@ -94,9 +94,7 @@
             right: -2000000px;
             margin: auto;
             position: absolute;
-            min-width: 100%;
-            min-height: 100%;
-            zoom: .005;
+            max-width: 100%;
           }
 
           a {
@@ -135,18 +133,22 @@
     // make the first image full width, if odd number of grid images or single
     &.photo-grid.odd-number,
     &.single {
+      .centered-image {
+        text-align: center;
+        display: block;
+      }
       figure:first-child {
         width: 100%;
         .img-container {
           padding: 0;
           height: auto;
+          display: inline-block;
           img {
             width: auto;
             max-width: 100%;
-            max-height: 50vh;
+            max-height: 100vh;
             position: static;
             display: block;
-            zoom: 2;
             min-width: 0;
             min-height: 0;
           }
