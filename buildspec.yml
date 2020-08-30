@@ -13,6 +13,10 @@ phases:
         - export LC_ALL=en_US.UTF-8
         - echo "******** CHANGE BRANCH ********"
         - git checkout $GIT_BRANCH
+        - echo "******** UPDATE GIT SUBMODULE ********"
+        - git submodule init
+        - git submodule foreach git pull origin master
+        - git submodule update
         - echo "******** Run Grunt Task ********"
         - grunt production
         - echo "******** Building Jekyll site ********"
