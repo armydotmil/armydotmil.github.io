@@ -29,6 +29,10 @@
           max-height: 75vh;
           margin: auto;
           display: block;
+
+          @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+            max-height: 550px;
+          }
         }
       }
     }

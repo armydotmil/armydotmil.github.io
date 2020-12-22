@@ -42,19 +42,18 @@ class ImageBlot extends BlockEmbed {
   static createImageNode(node, imgCount, imgData, index) {
     let curPhoto = (index === 0) ? ' cur-photo' : '',
       full = (imgCount % 2 !== 0 && index === 0) ? '-full' : '',
-      imgPath = '', imgHtml = '', imgDiv, dataSrc = '',
+      imgPath = '', imgHtml = '', imgDiv,
       imgDesc = imgData.description ? imgData.description : '';
 
     imgDiv = document.createElement('figure');
     imgDiv.className = 'photo' + curPhoto;
     imgPath = imgData.url.replace('original.', 'size0'+full+'.').replace('army.mil-', 'size0'+full+'-army.mil-');
-    dataSrc = imgPath.substring(0, imgPath.lastIndexOf("/") + 1);
 
     // Slideshow/grid markup...
     imgHtml += '<span class="centered-image">';
     imgHtml += '<span class="img-container">';
-    imgHtml += '<a class="rich-text-img-link" href="javascript:void(0);" title="' + imgDesc + '" data-src="' + dataSrc + '">';
-    imgHtml += '<img alt="' + imgData.title + '" src="' + imgPath + '">';
+    imgHtml += '<a class="rich-text-img-link" href="' + imgData.url + '" target="_blank">';
+    imgHtml += '<img alt="' + (imgData.title ? imgData.title : imgDesc) + '" src="' + imgPath + '">';
     imgHtml += '</a>';
     // TODO: use responsive image with different widths...
     // imgHtml += '<img alt="' + img.title + '" src="' + imgPath + ';
