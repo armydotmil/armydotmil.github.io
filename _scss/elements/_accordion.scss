@@ -31,8 +31,17 @@
         max-height: 0;
         overflow: hidden;
         padding: 0 30px;
+
+        animation: shrink;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+        animation-duration: 0.5s;
+        -webkit-animation: shrink;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-fill-mode: both;
+        -webkit-animation-duration: 0.5s;
         
-        @include custom-transition(max-height .5s ease, padding .5s ease);
+        @include custom-transition(padding 0.5s ease);
         
         @include breakpoints(mobile) {
           padding-left: 10px;
@@ -89,8 +98,12 @@
     // expanded state, based on checkbox status
     > li input[type=checkbox]:checked ~ ul,
     > li input[type=checkbox]:checked ~ div {
-      max-height: 1000px;
       padding-bottom: 1.8em;
+      animation: grow;
+      animation-duration: 0.5s;
+      -webkit-animation: grow;
+      -webkit-animation-duration: 0.5s;
+      max-height: 1000000px;
     }
     
     // spinning plus/minus symbol
@@ -105,5 +118,26 @@
             transform: rotate(180deg);
       }
     }
+  }
+  @keyframes grow {
+    0% { max-height: 0px; }
+    99% { max-height: 1000px; }
+    100% { max-height: 1000000px; }
+  }
+  @-webkit-keyframes grow {
+    0% { max-height: 0px; }
+    99% { max-height: 1000px; }
+    100% { max-height: 1000000px; }
+  }
+
+  @keyframes shrink {
+    0% { max-height: 1000000px; }
+    1% { max-height: 1000px; }
+    100% { max-height: 0px; }
+  }
+  @-webkit-keyframes shrink {
+    0% { max-height: 1000000px; }
+    1% { max-height: 1000px; }
+    100% { max-height: 0px; }
   }
 }
