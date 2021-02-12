@@ -146,7 +146,7 @@
     z-index: 2;
 
     &::after {
-      background-image: url("/e2/images/rv7/banners/halftone_768.png");
+      background-image: url($e2path + "/images/rv7/banners/halftone_768.png");
       background-position: center center;
       background-size: cover;
       content: "";
@@ -156,10 +156,10 @@
       width: 100%;
 
       @include breakpoints(lg_tablet sm_desktop desktop) {
-        background-image: url("/e2/images/rv7/banners/halftone_1200.png");
+        background-image: url($e2path + "/images/rv7/banners/halftone_1200.png");
       }
       @include breakpoints(large really_big) {
-        background-image: url("/e2/images/rv7/banners/halftone_2500.png");
+        background-image: url($e2path + "/images/rv7/banners/halftone_2500.png");
       }
     }
   }
