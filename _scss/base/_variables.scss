@@ -1,3 +1,5 @@
+$e2path: '/e2' !default;
+
 // ----------------------------------------------------------------------
 // Breakpoints
 // ----------------------------------------------------------------------
@@ -34,5 +36,5 @@ $container-sm: 670px;
 // ----------------------------------------------------------------------
 // Images 
 // ----------------------------------------------------------------------
-$social-button-sprite: url("/e2/images/rv7/mobile_redesign_sprite_icons_v3.svg");
-$standto-image: url("/e2/images/rv7/stand_to_mosaic.jpg");
+$social-button-sprite: url($e2path + "/images/rv7/mobile_redesign_sprite_icons_v3.svg");
+$standto-image: url($e2path + "/images/rv7/stand_to_mosaic.jpg");
