@@ -3,6 +3,10 @@
 .news {
   overflow: hidden;
 
+  h4 {
+    margin-top: 0;
+  }
+
   .heading-container {
     overflow: hidden;
 
@@ -44,11 +48,7 @@
   }
 
   ul {
-    @include row(true);
-
     li {
-      margin: 30px 0 0;
-
       &.hidden { margin: 0; }
 
       a {
@@ -118,23 +118,6 @@
     }
   } // end ul
 
-  &.half {
-    margin: 0 auto 50px;
-    position: relative;
-
-    ul li a:after { width: 34%; }
-
-    .more {
-      border-bottom: 2px solid $light-gray-color;
-      border-top: 2px solid $light-gray-color;
-      display: block;
-      padding: 13px 10px 10px;
-      text-transform: uppercase;
-
-      &:hover { text-decoration: none; }
-    }
-  }
-
   @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
     ul li {
       a:hover:after,
@@ -145,71 +128,36 @@
   }
 
   @include breakpoints(sm_desktop desktop large really_big) {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px 0;
+      margin-left: -15px;
+      margin-right: -15px;
+    }
     ul li {
-      @include span-clear(4);
-
-      // remove top margin from top row elements
-      &:nth-child(-n+3) {
-        margin-top: 0;
-      }
+      flex: 0 0 33.33333333%;
+      padding-left: 15px;
+      padding-right: 15px;
 
       .date { font: 700 .875em $font-family; }
 
       .title { font: 600 1.125em/1.4em $font-family; }
     }
-
-    &.half {
-      margin: 0;
-
-      ul li {
-        @include span(12);
-        margin: 45px 0 0;
-
-        &:first-child { margin: 0; }
-
-        a {
-          .image {
-            display: inline-block;
-            float: left;
-            margin: 0 30px 0 0;
-            padding: 22.25% 0 0;
-            width: 34%;
-          }
-
-          .title {
-            text-align: left;
-            padding: 0;
-          }
-
-          .date { display: none; }
-        }
-      }
-
-      .more {
-        bottom: 0;
-        left: 15px;
-        position: absolute;
-        right: 15px;
-      }
-    }
   }
   
   @include breakpoints(tablet lg_tablet) {
-    ul li {
-      @include span-clear(6);
-      
-      // remove top margin from top row elements
-      &:nth-child(-n+2) {
-        margin-top: 0;
-      }
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px 0;
+      margin-left: -15px;
+      margin-right: -15px;
     }
-
-    &.half {
-      margin: 0 auto 60px;
-
-      // maintain same top margin as if the section
-      // was a continuation of the main news section
-      ul li:nth-child(-n+2) { margin-top: 30px; }
+    ul li {
+      flex: 0 0 50%;
+      padding-left: 15px;
+      padding-right: 15px;
     }
   }
   
@@ -218,18 +166,11 @@
     margin: 0 auto;
 
     ul li {
-      @include span(12);
       margin-top: 15px;
 
       &:first-child {
         margin-top: 0;
       }
-    }
-
-    &.half {
-      // maintain same top margin as if the section
-      // was a continuation of the main news section
-      ul li:first-child { margin-top: 15px; }
     }
   }
 }
@@ -247,3 +188,31 @@
   }
 }
 
+.container .inner-container .news {
+  position: relative;
+
+  .view-all {
+    text-align: center;
+
+    // nav tablet lg_tablet
+    @include breakpoints(lg_tablet) {
+      text-align: left;
+    }
+
+    @include breakpoints(sm_desktop desktop large really_big) {
+      text-align: left;
+      position: absolute;
+      right: 20px;
+      top: 44px;
+    }
+    
+    a:after {
+      background: transparent $social-button-sprite no-repeat scroll -427px 5px;
+      content: "";
+      height: 17px;
+      margin-left: 5px;
+      position: absolute;
+      width: 15px;
+    }
+  }
+}
