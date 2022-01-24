@@ -101,14 +101,13 @@
             &:before {
               content: '';
               position: absolute;
-              width: 20px;
-              height: 20px;
+              width: 32px;
+              height: 30px;
               right: 8px;
-              bottom: 11px;
+              bottom: 8px;
               z-index: 1;
               @include custom-transition(opacity .25s ease);
-              background: transparent $social-button-sprite no-repeat scroll -337px -51px;
-              box-shadow: 0 0 5px rgba(0,0,0,.5);
+              background: transparent $social-button-sprite no-repeat scroll -340px -50px;
               opacity: 0.5;
             }
 
@@ -142,15 +141,22 @@
         .img-container {
           padding: 0;
           height: auto;
-          display: inline-block;
+          background-color: transparent;
+          a {
+            display: inline-block;
+            position: relative;
+            border-bottom-width: 0;
+          }
           img {
-            width: auto;
-            max-width: 100%;
-            max-height: 100vh;
             position: static;
             display: block;
-            min-width: 0;
-            min-height: 0;
+            width: auto;
+            max-width: 100%;
+            max-height: 75vh;
+
+            @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+              max-height: 550px;
+            }
           }
         }
       }

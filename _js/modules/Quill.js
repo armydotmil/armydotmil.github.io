@@ -34,26 +34,26 @@ class ImageBlot extends BlockEmbed {
   static create(data) {
     let node = super.create(data);
     
-    data.forEach(ImageBlot.createImageNode.bind(null, node));
+    data.forEach(ImageBlot.createImageNode.bind(null, node, data.length));
 
     return node;
   }
 
-  static createImageNode(node, imgData, index) {
+  static createImageNode(node, imgCount, imgData, index) {
     let curPhoto = (index === 0) ? ' cur-photo' : '',
-      imgPath = '', imgHtml = '', imgDiv, dataSrc = '',
+      full = (imgCount % 2 !== 0 && index === 0) ? '-full' : '',
+      imgPath = '', imgHtml = '', imgDiv,
       imgDesc = imgData.description ? imgData.description : '';
 
     imgDiv = document.createElement('figure');
     imgDiv.className = 'photo' + curPhoto;
-    imgPath += imgData.url.replace('original.', 'size0.').replace('army.mil-', 'size0-army.mil-');
-    dataSrc = imgPath.substring(0, imgPath.lastIndexOf("/") + 1);
+    imgPath = imgData.url.replace('original.', 'size0'+full+'.').replace('army.mil-', 'size0'+full+'-army.mil-');
 
     // Slideshow/grid markup...
     imgHtml += '<span class="centered-image">';
     imgHtml += '<span class="img-container">';
-    imgHtml += '<a class="rich-text-img-link" href="javascript:void(0);" title="' + imgDesc + '" data-src="' + dataSrc + '">';
-    imgHtml += '<img alt="' + imgData.title + '" src="' + imgPath + '">';
+    imgHtml += '<a class="rich-text-img-link" href="' + imgData.url + '" target="_blank">';
+    imgHtml += '<img alt="' + (imgData.title ? imgData.title : imgDesc) + '" src="' + imgPath + '">';
     imgHtml += '</a>';
     // TODO: use responsive image with different widths...
     // imgHtml += '<img alt="' + img.title + '" src="' + imgPath + ';
@@ -66,7 +66,7 @@ class ImageBlot extends BlockEmbed {
     imgHtml += '<span class="caption-text">' + imgDesc;
     imgHtml += '<span class="caption-author"> (Photo Credit: ' + (imgData.artist ? imgData.artist : 'U.S. Army') + ')</span>';
     imgHtml += '</span>';
-    imgHtml += '<a href="' + imgData.url + '" title="View Original" target="_blank">VIEW ORIGINAL</a>';
+    imgHtml += '<a href="' + imgData.url + '" title="View original" target="_blank">VIEW ORIGINAL</a>';
     imgHtml += '</span>';
     imgHtml += '</figcaption>';
     imgDiv.innerHTML = imgHtml;
@@ -132,6 +132,7 @@ class ImageBlot extends BlockEmbed {
       imgCont[0].innerHTML = img[0].outerHTML;
       imgCont[0].innerHTML += '<span class="ss-move ss-prev"><span class="ss-move-button"></span></span>';
       imgCont[0].innerHTML += '<span class="ss-move ss-next"><span class="ss-move-button"></span></span>';
+      img[0].src = img[0].src.replace(/size0(-full)?/, 'size0-full');
     }
 
     if (imgCaptCont.length > 0 && imgCapt.length > 0) {
@@ -206,11 +207,11 @@ class VideoBlot extends BlockEmbed {
     html += '<div class="playlist-panel">';
     html += '<div class="playlist-overlay"></div>';
     html += '<div class="playlist-toggle">';
-    html += '<a href="javascript:;" title="show videos playlist"><span></span></a>';
+    html += '<a href="javascript:;" title="Show videos playlist"><span></span></a>';
     html += '</div>';
     html += '<div class="playlist-info">';
     html += '<div class="table">';
-    html += '<h5><a href="javascript:;" title="hide videos playlist">' + playlist.title + '<span></span></a></h5>';
+    html += '<h5><a href="javascript:;" title="Hide videos playlist">' + playlist.title + '<span></span></a></h5>';
     html += '</div>';
     html += '</div>';
     if (playlist.videos.length > 0 && playlist.videos[0].video !== playlist.video) {
