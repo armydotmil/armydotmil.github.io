@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */ /* ignore unnecessary semicolon */
 /*global require*/
 
-var Helper = require('./Helper');
+import Helper from './Helper';
 
 class Validity {
 

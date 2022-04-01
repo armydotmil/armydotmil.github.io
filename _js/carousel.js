@@ -1,11 +1,9 @@
-/*global document, require*/
+/*global document*/
 
-var Carousel = require('./modules/Carousel'),
-    Hammer = require('hammerjs');
+import Carousel from './modules/Carousel';
+import Hammer from 'hammerjs';
 
 (function() {
-    'use strict';
-
     var carousel,
         el = document.getElementsByClassName('carousel'),
         hammertime,
@@ -75,5 +73,4 @@ var Carousel = require('./modules/Carousel'),
             e.target.removeEventListener('click', halt);
         });
     }
-
 })();

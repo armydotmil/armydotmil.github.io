@@ -2,7 +2,7 @@
 /*jshint -W032 */
 /* ignore unnecessary semicolon */
 import Helper from './Helper';
-var youtube = require('youtube-iframe-player');
+import youtube from 'youtube-iframe-player';
 
 class Playlist {
     constructor(context) {

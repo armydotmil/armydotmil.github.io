@@ -1,7 +1,8 @@
 import Quill from 'quill';
 
-let PhotoSlideshow = require('./PhotoSlideshow');
-let YTPlaylist = require('./Playlist');
+import PhotoSlideshow from './PhotoSlideshow';
+import YTPlaylist from './Playlist';
+
 let InlineEmbed = Quill.import('blots/inline');
 let BlockEmbed = Quill.import('blots/block/embed');
 

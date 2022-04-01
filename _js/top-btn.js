@@ -1,10 +1,8 @@
-/*global document, window, require*/
+/*global document, window*/
 
-var Helper = require('./modules/Helper');
+import Helper from './modules/Helper';
 
 (function() {
-    'use strict';
-
     var autoScrolling = false,
         body = document.body,
         dist = 0,
@@ -76,5 +74,4 @@ var Helper = require('./modules/Helper');
         },
         false
     );
-
 })();
