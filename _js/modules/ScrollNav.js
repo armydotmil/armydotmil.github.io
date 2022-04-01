@@ -1,5 +1,5 @@
 /*jshint -W032 */ /* ignore unnecessary semicolon */
-var Helper = require('./Helper');
+import Helper from './Helper';
 /**
  * Toggle class name on element as user scrolls page
  */

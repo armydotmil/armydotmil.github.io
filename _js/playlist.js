@@ -1,11 +1,8 @@
-/*global document,require*/
+/*global document*/
 
-var Playlist = require('./modules/Playlist');
+import Playlist from './modules/Playlist';
 
 (function() {
-    'use strict';
-
     var playlist = new Playlist();
-
     playlist.loadYTPlayer();
 })();

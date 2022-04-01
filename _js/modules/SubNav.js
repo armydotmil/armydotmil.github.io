@@ -1,5 +1,5 @@
 /*jshint -W032 */ /* ignore unnecessary semicolon */
-var Helper = require('./Helper');
+import Helper from './Helper';
 /**
  * Sets up a sub navigation for selecting particular DIV elements
  */

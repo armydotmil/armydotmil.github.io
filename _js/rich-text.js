@@ -1,9 +1,5 @@
-/*global document,require*/
+/*global document*/
 
-var QuillLoader = require('./modules/QuillLoader');
+import QuillLoader from './modules/QuillLoader';
 
-(function() {
-    'use strict';
-
-    new QuillLoader();
-})();
+new QuillLoader();
