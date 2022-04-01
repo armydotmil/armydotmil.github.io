@@ -1,10 +1,9 @@
-/*global document,require*/
+/*global document*/
 
-var Subnav = require('./modules/SubNav'),
-    Helper = require('./modules/Helper');
+import Subnav from './modules/SubNav';
+import Helper from './modules/Helper';
 
 (function() {
-    'use strict';
     var navs = document.getElementsByTagName('nav'),
         i;
 

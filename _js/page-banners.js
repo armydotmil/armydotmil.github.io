@@ -1,11 +1,10 @@
-/*global window,require*/
+/*global window*/
 
-var ParallaxImg = require('./modules/ParallaxImage'),
-    Header = require('./modules/Header'),
-    SubNav = require('./modules/SubNav');
+import ParallaxImg from './modules/ParallaxImage';
+import Header from './modules/Header';
+import SubNav from './modules/SubNav';
 
 (function() {
-    'use strict';
     var nav = document.getElementsByTagName('nav')[0],
         para,
         header = document.getElementsByClassName('navbar'),

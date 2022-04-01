@@ -1,6 +1,6 @@
 /*jshint esversion: 6*/ /* ignore unnecessary semicolon */
 
-var Helper = require('./Helper');
+import Helper from './Helper';
 
 // const max container width
 const MAX_CONTAINER_W = 1020;

@@ -1,5 +1,5 @@
 /*jshint -W032 */ /* ignore unnecessary semicolon */
-var Quill = require('./Quill');
+import Quill from './Quill';
 
 class QuillLoader {
   constructor() {

@@ -1,11 +1,10 @@
-/*global window,require*/
+/*global window*/
 
-var CustomSelect = require('./modules/CustomSelect');
+import CustomSelect from './modules/CustomSelect';
 
 (function() {
-    'use strict';
     var cselect = document.getElementsByClassName('custom-select'),
-    i;
+        i;
 
     for (i = 0; i < cselect.length; i++) {
         new CustomSelect(cselect[i]);

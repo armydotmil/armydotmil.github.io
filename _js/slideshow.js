@@ -1,9 +1,4 @@
-/*global window,require*/
+/*global window*/
 
-var PhotoSlideshow = require('./modules/PhotoSlideshow');
-
-(function() {
-    'use strict';
-    
-    new PhotoSlideshow();
-})();
+import PhotoSlideshow from './modules/PhotoSlideshow';
+new PhotoSlideshow();

@@ -1,6 +1,6 @@
-/*global document,window, init, require, class*/
+/*global document,window, init, class*/
 /*jshint -W032 */ /* ignore unnecessary semicolon */
-var Helper = require('./Helper');
+import Helper from './Helper';
 
 class CustomSelect {
     constructor(el) {
