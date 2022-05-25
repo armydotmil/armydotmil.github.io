@@ -10,7 +10,7 @@
     "@babel/preset-env": "^7.16.11",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babelify": "^10.0.0",
-    "grunt": "^1.1.0",
+    "grunt": "^1.5.3",
     "grunt-browserify": "^6.0.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^5.0.1",
