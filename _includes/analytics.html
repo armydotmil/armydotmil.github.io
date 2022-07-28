@@ -1,0 +1,14 @@
+{% assign useCodes = "" %}
+{%- if include.gaCodes -%}
+<!-- GA code added via include -->
+{% assign useCodes = include.gaCodes %}
+{%- elsif site.gaCodes -%}
+<!-- GA code added via config.yml -->
+{% assign useCodes = site.gaCodes %}
+{%- endif -%}
+
+{%- if useCodes != "" -%}
+<div id="ga-analytic-codes" data-codes="{{ useCodes }}"></div>
+{%- endif -%}
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-27189539-1"></script>
+<script type="text/javascript" src="https://www.army.mil/e2/js/rv7/main/google_analytics4.js"></script>
