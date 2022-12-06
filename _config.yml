@@ -8,6 +8,7 @@ plugins:
   - octopress-minify-html
   
 sass:
+  implementation: sass-embedded
   sass_dir: _scss
   style: compressed
 

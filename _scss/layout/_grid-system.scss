@@ -4,11 +4,13 @@
 
 
 // Centered container element
+@use "sass:math";
+
 @mixin container-fixed($gutter: $grid-gutter-width) {
   margin-left: auto;
   margin-right: auto;
-  padding-left: floor(($gutter / 2));
-  padding-right: ceil(($gutter / 2));
+  padding-left: floor(($gutter * 0.5));
+  padding-right: ceil(($gutter * 0.5));
   @include clearfix();
 }
 
@@ -16,8 +18,8 @@
 @mixin row($inside: false, $gutter: $grid-gutter-width) {
   @if($inside == true) {
     // Negative margin nested rows out to align the content of columns
-    margin-left: ceil(($gutter / -2));
-    margin-right: floor(($gutter / -2));
+    margin-left: ceil(math.div($gutter, -2));
+    margin-right: floor(math.div($gutter, -2));
   }
   @else {
     display: block;
@@ -32,17 +34,17 @@
 @mixin span($columns, $gutter: $grid-gutter-width)
 {
   float: left;
-  padding-left: ($gutter / 2);
-  padding-right: ($gutter / 2);
+  padding-left: ($gutter * 0.5);
+  padding-right: ($gutter * 0.5);
   //@include custom-calc(width, #{"#{percentage(($columns / $grid-columns))} - #{$gutter}"});
-  width: percentage(($columns / $grid-columns));
+  width: percentage(math.div($columns, $grid-columns));
 }
 
 // automatically adds a clear to the first element of each row
 // NOTE: must be set to specific breakpoints (if they overlap it will mess things up)
 @mixin span-clear($columns, $gutter: $grid-gutter-width)
 {
-  $numColumns: floor($grid-columns / $columns);
+  $numColumns: floor(math.div($grid-columns, $columns));
   @include span($columns, $gutter: $grid-gutter-width);
 
   // span-clear(4) -> nth-child(3n+4) or every 3rd starting at 4
@@ -53,7 +55,7 @@
 
 @mixin offset($columns)
 {
-  margin-left: percentage(($columns / $grid-columns));
+  margin-left: percentage(math.div($columns, $grid-columns));
 }
 
 // creates a class with row(true) from above

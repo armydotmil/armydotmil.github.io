@@ -1,8 +1,10 @@
 
 
+@use "sass:math";
+
 $base-px: 16;
 
 @function em($px, $context: $base-px) {
-  @return #{$px/$context}em;
+  @return #{math.div($px, $context)}em;
 }
 
