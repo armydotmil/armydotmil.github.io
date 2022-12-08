@@ -4,8 +4,6 @@
 
 
 // Centered container element
-@use "sass:math";
-
 @mixin container-fixed($gutter: $grid-gutter-width) {
   margin-left: auto;
   margin-right: auto;
@@ -31,33 +29,6 @@
   @include clearfix();
 }
 
-@mixin span($columns, $gutter: $grid-gutter-width)
-{
-  float: left;
-  padding-left: ($gutter * 0.5);
-  padding-right: ($gutter * 0.5);
-  //@include custom-calc(width, #{"#{percentage(($columns / $grid-columns))} - #{$gutter}"});
-  width: percentage(math.div($columns, $grid-columns));
-}
-
-// automatically adds a clear to the first element of each row
-// NOTE: must be set to specific breakpoints (if they overlap it will mess things up)
-@mixin span-clear($columns, $gutter: $grid-gutter-width)
-{
-  $numColumns: floor(math.div($grid-columns, $columns));
-  @include span($columns, $gutter: $grid-gutter-width);
-
-  // span-clear(4) -> nth-child(3n+4) or every 3rd starting at 4
-  &:nth-child(#{$numColumns}n+#{($numColumns + 1)}) {
-    clear: left;
-  }
-}
-
-@mixin offset($columns)
-{
-  margin-left: percentage(math.div($columns, $grid-columns));
-}
-
 // creates a class with row(true) from above
 .row {
   @include row(true);
@@ -67,14 +38,3 @@
 .container-fixed {
   @include container-fixed();
 }
-
-// creates classes named .span1 through .span12
-// same as doing @include span(1);
-@for $i from 1 through $grid-columns {
-  .span#{$i} { @include span($i); }
-}
-
-
-
-
-
