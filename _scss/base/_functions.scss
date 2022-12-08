@@ -1,10 +1,9 @@
 
 
-@use "sass:math";
-
-$base-px: 16;
+/* dividing by 16 is equivalent to multiplying by 0.0625 (1/16) */
+$base-px: 0.0625;
 
 @function em($px, $context: $base-px) {
-  @return #{math.div($px, $context)}em;
+  @return #{($px * $base-px)}em;
 }
 

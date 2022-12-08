@@ -679,16 +679,20 @@
   }
 }
 
-// handles all cases for .social-button, .social-button-black/sm/gold/lg
-[class^=social-button] a {
-  // hide text with css
-  @include replace-text;
-  outline: 0 none;
+.social-button,
+.social-button-black,
+.social-button-gold-lg,
+.social-button-sm {
+  a {
+    // hide text with css
+    @include replace-text;
+    outline: 0 none;
 
-  span {
-    background-image: $social-button-sprite;
-    background-repeat: no-repeat;
-    display: inline-block;
+    span {
+      background-image: $social-button-sprite;
+      background-repeat: no-repeat;
+      display: inline-block;
+    }
   }
 }
 
