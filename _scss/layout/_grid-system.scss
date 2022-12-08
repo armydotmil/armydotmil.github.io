@@ -18,8 +18,8 @@
 @mixin row($inside: false, $gutter: $grid-gutter-width) {
   @if($inside == true) {
     // Negative margin nested rows out to align the content of columns
-    margin-left: ceil(math.div($gutter, -2));
-    margin-right: floor(math.div($gutter, -2));
+    margin-left: ceil($gutter * -0.5);
+    margin-right: floor($gutter * -0.5);
   }
   @else {
     display: block;
