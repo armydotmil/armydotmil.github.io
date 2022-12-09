@@ -10,8 +10,6 @@ set -o errexit
 
 SOURCE_DIRECTORY=${GITHUB_WORKSPACE}/$INPUT_SOURCE
 DESTINATION_DIRECTORY=${GITHUB_WORKSPACE}/$INPUT_DESTINATION
-PAGES_GEM_HOME=$BUNDLE_APP_CONFIG
-GITHUB_PAGES=$PAGES_GEM_HOME/bin/github-pages
 
 # Set environment variables required by supported plugins
 export JEKYLL_ENV="production"
@@ -46,5 +44,5 @@ cd "$PAGES_GEM_HOME"
 
 # Build the website using Jekyll
 echo "🏋️ Building website..."
-$GITHUB_PAGES build "$VERBOSE" "$FUTURE" --source "$SOURCE_DIRECTORY" --destination "$DESTINATION_DIRECTORY"
+bundle exec jekyll build "$VERBOSE" "$FUTURE" --source "$SOURCE_DIRECTORY" --destination "$DESTINATION_DIRECTORY"
 echo "Jekyll build done"
