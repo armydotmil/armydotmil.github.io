@@ -30,10 +30,18 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1.0.6
+        uses: ./.github/actions/build-dist-site
         with:
           source: ./
           destination: ./_site
+        env:
+          # Now make sure you add this environment variable.
+          # This token will allow us to push to github directly
+          # without having to type in our password.
+          # The GITHUB_TOKEN is available by default 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
+          GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
 
