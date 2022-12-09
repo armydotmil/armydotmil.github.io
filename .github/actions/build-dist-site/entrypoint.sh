@@ -16,6 +16,10 @@ REMOTE_REPO="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSIT
 git clone $REMOTE_REPO repo
 cd repo
 
+# Install latest version of RubyGems bundler
+echo "⚡️ Installing RubyGems bundler..."
+bundle update --bundler
+
 # Install all of our dependencies inside the container
 # based on the git repository Gemfile
 echo "⚡️ Installing project dependencies..."
