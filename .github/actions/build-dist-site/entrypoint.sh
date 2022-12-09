@@ -33,8 +33,6 @@ else
   FUTURE=''
 fi
 
-cd "$PAGES_GEM_HOME"
-
 # Install latest version of RubyGems bundler
 echo "⚡️ Installing RubyGems bundler..."
 gem update --system
@@ -43,6 +41,8 @@ gem update --system
 # based on the git repository Gemfile
 echo "⚡️ Installing project dependencies..."
 bundle install
+
+cd "$PAGES_GEM_HOME"
 
 # Build the website using Jekyll
 echo "🏋️ Building website..."
