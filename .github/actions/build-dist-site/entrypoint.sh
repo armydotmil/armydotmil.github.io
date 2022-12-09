@@ -18,7 +18,7 @@ cd repo
 
 # Install latest version of RubyGems bundler
 echo "⚡️ Installing RubyGems bundler..."
-bundle update --bundler
+gem update --system
 
 # Install all of our dependencies inside the container
 # based on the git repository Gemfile
