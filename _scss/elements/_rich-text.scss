@@ -45,21 +45,6 @@
     text-align: left;
   }
 
-  .ql-editor blockquote,
-  blockquote {
-    border-left: 4px solid map-get($army-branding, gold);
-    padding: 0 0 0 1.25em;
-    margin: 2em 0;
-    font-size: 1.125em;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.5em;
-    color: map-get($army-branding, black);
-    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-      margin: 2em;
-    }
-  }
-
   .editor-image.photo-slideshow,
   .editor-video .playlist {
     padding: 0;
