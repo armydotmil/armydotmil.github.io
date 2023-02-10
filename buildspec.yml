@@ -5,6 +5,7 @@ phases:
     commands:
         - echo "******** CHANGE BRANCH ********"
         - git checkout $GIT_BRANCH
+        - gem update --system
         - gem install bundler
         - gem list bundle
         - bundle install
