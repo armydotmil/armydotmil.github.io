@@ -173,7 +173,7 @@
           }
           
           &:hover, &:focus, &.active {
-            background: map-get($army-branding, grey70);
+            background: map-get($greyscale-accents, grey70);
             color: map-get($army-branding, white);
             cursor: pointer;
             

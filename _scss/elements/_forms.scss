@@ -2,7 +2,7 @@
 form {
   input,
   textarea {
-    border: 1px solid map-get($army-branding, grey30);
+    border: 1px solid map-get($greyscale-accents, grey30);
     box-shadow: none;
     font: 400 1em $font-family;
     outline: none;

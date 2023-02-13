@@ -27,7 +27,7 @@
       }
 
       a {
-        color: map-get($army-branding, grey70);
+        color: map-get($greyscale-accents, grey70);
         text-decoration: none;
         text-transform: uppercase;
 
@@ -92,14 +92,14 @@
       }
 
       .date {
-        color: map-get($army-branding, grey40);
+        color: map-get($greyscale-accents, grey40);
         font: 700 .813em $font-family;
         text-transform: uppercase;
         padding-bottom: 20px;
       }
 
       .title {
-        color: map-get($army-branding, grey70);
+        color: map-get($greyscale-accents, grey70);
         font: 600 1em/1.3em $font-family;
         padding: 20px 15px 5px;
       }

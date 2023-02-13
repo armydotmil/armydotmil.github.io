@@ -1,6 +1,6 @@
 .custom-select {
   background-color: #fff;
-  border: 1px solid map-get($army-branding, grey30);
+  border: 1px solid map-get($greyscale-accents, grey30);
   font: 700 0.875em $font-family;
   position: relative;
   @include box-sizing(content-box);
@@ -35,7 +35,7 @@
 
   // grey line
   &::before {
-    border-right: 1px solid map-get($army-branding, grey30);
+    border-right: 1px solid map-get($greyscale-accents, grey30);
     background-color: #fff;
     content: '';
     display: block;
@@ -81,7 +81,7 @@
     }
     .custom-options {
       background-color: #ffffff;
-      border: 1px solid map-get($army-branding, grey30);
+      border: 1px solid map-get($greyscale-accents, grey30);
       left: -1px;
       max-height: 275px;
       overflow-x: hidden;
@@ -93,7 +93,7 @@
 
       ul {
         li {
-          border-bottom: 1px solid map-get($army-branding, grey30);
+          border-bottom: 1px solid map-get($greyscale-accents, grey30);
           cursor: pointer;
           font-weight: 600;
           padding: 11px 20px 8px;

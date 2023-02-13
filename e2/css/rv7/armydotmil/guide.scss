@@ -155,7 +155,7 @@ section {
 #colors {
   .color-group {
     margin: 0 0 60px;
-    max-width: 730px;
+    // max-width: 730px;
 
     &:last-child {
       margin-bottom: 0;
@@ -175,9 +175,16 @@ section {
 
   .color-box {
     border: 1px solid #000;
-    height: 80px;
+    height: 200px;
     margin-bottom: 15px;
-    width: 80px;
+    width: 200px;
+    padding-left: 15px;
+    padding-top: 15px;
+    p {
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
   }
 
   @include breakpoints(nav mobile) {
@@ -232,7 +239,7 @@ section {
     @include row();
     li {
       @include clearfix();
-      border-bottom: 1px solid map-get($army-branding, grey30);
+      border-bottom: 1px solid map-get($greyscale-accents, grey30);
       margin-bottom: 30px;
       padding-bottom: 30px;
       

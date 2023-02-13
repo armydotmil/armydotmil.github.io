@@ -15,7 +15,7 @@
   ul {
     li {
       background: map-get($army-branding, white);
-      border: 1px solid map-get($army-branding, grey30);
+      border: 1px solid map-get($greyscale-accents, grey30);
       display: inline-block;
       margin: 0 15px 15px 0;
       

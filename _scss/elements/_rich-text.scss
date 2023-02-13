@@ -317,7 +317,7 @@
   .editor-video {
     .media-caption {
       p {
-        color: map-get($army-branding, grey60);
+        color: map-get($greyscale-accents, grey60);
         font-size: 0.875em;
         margin: 10px 0 0;
         &:after {

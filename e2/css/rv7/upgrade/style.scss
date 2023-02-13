@@ -58,7 +58,7 @@ body {
     text-decoration: none;
 
     &:hover {
-      color: map-get($army-branding, grey60);
+      color: map-get($greyscale-accents, grey60);
     }
   }
 

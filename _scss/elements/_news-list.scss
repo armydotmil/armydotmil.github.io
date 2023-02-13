@@ -2,7 +2,7 @@
   border-top: 8px solid map-get($army-branding, black);
 
   .news-item {
-    border-bottom: 1px solid map-get($army-branding, grey20);
+    border-bottom: 1px solid map-get($greyscale-accents, grey20);
     padding: 30px 0;
     position: relative;
 
@@ -56,17 +56,17 @@
 
     .news-right {
       p.date {
-        color: map-get($army-branding, grey70);
+        color: map-get($greyscale-accents, grey70);
         float: left;
         font-weight: 600;
         margin: 0 15px 0 0;
       }
 
       p.sections {
-        color: map-get($army-branding, grey40);
+        color: map-get($greyscale-accents, grey40);
 
         &:before {
-          color: map-get($army-branding, grey40);
+          color: map-get($greyscale-accents, grey40);
           content: "|";
           display: inline-block;
           font-weight: 300;
@@ -74,7 +74,7 @@
         }
 
         a {
-          color: map-get($army-branding, grey40);
+          color: map-get($greyscale-accents, grey40);
           font-weight: 400;
 
           &:after {
@@ -110,13 +110,13 @@
         list-style-type: none;
 
         li {
-          border-left: 1px solid map-get($army-branding, grey40);
+          border-left: 1px solid map-get($greyscale-accents, grey40);
           display: inline-block;
           line-height: 1.2em;
           padding-top: 2px;
 
           a {
-            color: map-get($army-branding, grey40);
+            color: map-get($greyscale-accents, grey40);
             // font-size: 0.875em;
             font-weight: 400;
             padding: 0 5px 0 8px;

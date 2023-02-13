@@ -30,7 +30,7 @@
 
   a[href^="http://"]:after,
   a[href^="https://"]:after {
-    color: map-get($army-branding, grey70);
+    color: map-get($greyscale-accents, grey70);
     content: " [" attr(href) "]";
     font-size: 90%;
     font-weight: normal;
