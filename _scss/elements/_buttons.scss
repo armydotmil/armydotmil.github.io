@@ -73,7 +73,7 @@
   letter-spacing: 0.05em;
   line-height: 23px;
   outline: 0 none;
-  padding: 20px 20px 16px;
+  padding: 17px 20px 15px;
   position: absolute;
   text-decoration: none;
   text-indent: -99999px;
@@ -729,14 +729,13 @@
 }
 
 .nav-army-star {
-  padding: 8px 10px 12px 12px;
   text-indent: -99999px;
 
   span {
-    background: transparent $social-button-sprite no-repeat scroll 0 -100px;
+    background: transparent $army-logo no-repeat scroll;
     display: block;
-    height: 65px;
-    width: 52px;
+    height: 36px;
+    width: 150px;
   }
 }
 
