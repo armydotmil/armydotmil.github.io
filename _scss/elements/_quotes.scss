@@ -25,8 +25,8 @@ blockquote {
 }
 
 .quote {
-  border-bottom: 1px solid map-get($greyscale-accents, grey10);
-  border-top: 1px solid map-get($greyscale-accents, grey10);
+  border-bottom: 1px solid map-get($army-branding, grey10);
+  border-top: 1px solid map-get($army-branding, grey10);
   text-align: center;
   
   @include repeating-gradient(map-get($army-branding, white), map-get($army-branding, grey10));

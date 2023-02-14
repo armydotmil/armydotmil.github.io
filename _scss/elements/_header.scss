@@ -97,7 +97,7 @@ header {
 
     input.usagov-search-autocomplete {
       border: 0 none;
-      color: map-get($greyscale-accents, grey70);
+      color: map-get($army-branding, grey70);
       font: 400 .938em/2 $font-family;
       height: 30px;
       outline: none;
@@ -139,7 +139,7 @@ header {
 
 
   .nav-window {
-    background-color: map-get($greyscale-accents, grey90);
+    background-color: map-get($army-branding, grey90);
     left: 0;
     position: fixed;
     right: 0;
@@ -173,7 +173,7 @@ header {
       margin: 0;
 
       > li {
-        border-bottom: 1px solid map-get($greyscale-accents, grey80);
+        border-bottom: 1px solid map-get($army-branding, grey80);
 
         &.social {
           border-bottom-width: 0;
@@ -205,7 +205,7 @@ header {
         a { outline: 0 none; }
 
         label {
-          color: map-get($greyscale-accents, grey20);
+          color: map-get($army-branding, grey20);
           display: block;
           font-size: 1.125em;
           font-weight: 700;
@@ -241,8 +241,8 @@ header {
         padding-top: 10px;
 
         a {
-          background: map-get($greyscale-accents, grey80);
-          color: map-get($greyscale-accents, grey20);
+          background: map-get($army-branding, grey80);
+          color: map-get($army-branding, grey20);
           display: block;
           text-decoration: none;
           text-transform: uppercase;
@@ -259,7 +259,7 @@ header {
           padding: 18px 0;
 
           li a {
-            color: map-get($greyscale-accents, grey20);
+            color: map-get($army-branding, grey20);
 
             // add padding to the anchor tag
             // to make the clickable area bigger
@@ -270,7 +270,7 @@ header {
         input[type=checkbox]:checked ~ ul { display: block; }
 
         input[type=checkbox]:checked ~ label {
-          border-bottom: 1px solid map-get($greyscale-accents, grey80);
+          border-bottom: 1px solid map-get($army-branding, grey80);
 
           span { background-position: -318px 10px; }
         }

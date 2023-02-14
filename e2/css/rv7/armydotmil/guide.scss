@@ -239,7 +239,7 @@ section {
     @include row();
     li {
       @include clearfix();
-      border-bottom: 1px solid map-get($greyscale-accents, grey30);
+      border-bottom: 1px solid map-get($army-branding, grey30);
       margin-bottom: 30px;
       padding-bottom: 30px;
       

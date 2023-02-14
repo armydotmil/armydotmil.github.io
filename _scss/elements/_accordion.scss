@@ -19,12 +19,12 @@
   
   > ul {
     > li {
-      border-top: 1px solid map-get($greyscale-accents, grey30);
+      border-top: 1px solid map-get($army-branding, grey30);
       list-style-type: none;
       margin: 0;
       padding: 0;
 
-      &:last-child { border-bottom: 1px solid map-get($greyscale-accents, grey30); }
+      &:last-child { border-bottom: 1px solid map-get($army-branding, grey30); }
       
       > ul,
       > div {

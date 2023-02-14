@@ -1,7 +1,7 @@
 $submenu-height: 56px;
 
 nav {
-  background: map-get($greyscale-accents, grey10);
+  background: map-get($army-branding, grey10);
   position: relative;
   z-index: 1;
   
@@ -17,7 +17,7 @@ nav {
     
     // inside bottom border
     &::before {
-      background-color: map-get($greyscale-accents, grey30);
+      background-color: map-get($army-branding, grey30);
       bottom: 0;
       content: "";
       height: 4px;
@@ -94,7 +94,7 @@ nav {
   
   label {
     @extend %h5;
-    background: map-get($greyscale-accents, grey10);
+    background: map-get($army-branding, grey10);
     bottom: $submenu-height;
     cursor: pointer;
     left: -15px;
@@ -108,7 +108,7 @@ nav {
     
     // inside bottom border
     &::before {
-      background-color: map-get($greyscale-accents, grey30);
+      background-color: map-get($army-branding, grey30);
       bottom: 0;
       content: "";
       height: 4px;
@@ -152,7 +152,7 @@ nav {
         
         a {
           background: map-get($army-branding, white);
-          border: 1px solid map-get($greyscale-accents, grey30);
+          border: 1px solid map-get($army-branding, grey30);
           line-height: 47px;
           padding: 3px 20px 0;
           text-align: left;
