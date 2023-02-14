@@ -205,7 +205,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 1.5em;
-    color: map-get($army-branding, black);
+    color: map-get($army-branding, armyblack);
     @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
       margin: 2em;
     }

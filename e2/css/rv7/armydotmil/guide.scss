@@ -111,7 +111,7 @@ section {
 
       p {
   //      border: 1px solid #000;
-        color: #000;
+        color: map-get($army-branding, armyblack);
         padding: 10px 0;
       }
     }
@@ -174,7 +174,7 @@ section {
   }
 
   .color-box {
-    border: 1px solid #000;
+    border: 1px solid map-get($army-branding, armyblack);
     height: 200px;
     margin-bottom: 15px;
     width: 200px;

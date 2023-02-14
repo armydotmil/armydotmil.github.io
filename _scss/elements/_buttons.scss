@@ -25,7 +25,7 @@
     }
     
     &.black {
-      background: map-get($army-branding, black);
+      background: map-get($army-branding, armyblack);
       
       a,
       input[type="button"],
@@ -38,7 +38,7 @@
     
     &.white {
       background: map-get($army-branding, white);
-      border: 1px solid map-get($army-branding, black);
+      border: 1px solid map-get($army-branding, armyblack);
     }
   }
   

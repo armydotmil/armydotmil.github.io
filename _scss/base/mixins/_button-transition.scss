@@ -6,7 +6,7 @@
 
 @mixin link-transition($parent: 'a') {
   span {
-    background: map-get($army-branding, black);
+    background: map-get($army-branding, armyblack);
     position: absolute;
     @include custom-transition(all .15s ease);
     

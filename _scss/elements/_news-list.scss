@@ -1,5 +1,5 @@
 .news-list {
-  border-top: 8px solid map-get($army-branding, black);
+  border-top: 8px solid map-get($army-branding, armyblack);
 
   .news-item {
     border-bottom: 1px solid map-get($army-branding, grey20);
@@ -11,7 +11,7 @@
     }
 
     .image-wrap {
-      background-color: map-get($army-branding, black);
+      background-color: map-get($army-branding, armyblack);
       height: 0;
       overflow: hidden;
       padding-top: 21.35%;

@@ -7,7 +7,7 @@
     display: block;
   }
   .playlist-player {
-    background-color: map-get($army-branding, black);
+    background-color: map-get($army-branding, armyblack);
     color: #fff;
     overflow: hidden;
     position: relative;
@@ -57,7 +57,7 @@
     }
     
     .playlist-panel {
-      background-color: map-get($army-branding, black);
+      background-color: map-get($army-branding, armyblack);
       display: none;
       
       .playlist-info {
@@ -95,7 +95,7 @@
       }
 
       .videos {
-        border-bottom: 1px solid map-get($army-branding, black);
+        border-bottom: 1px solid map-get($army-branding, armyblack);
         border-top: 1px solid map-get($army-branding, gold);
         display: none;
         font: 600 15px $font-family;
@@ -208,7 +208,7 @@
     }
 
     .playlist-toggle {
-      background-color: map-get($army-branding, black);
+      background-color: map-get($army-branding, armyblack);
       line-height: 0;
       position: absolute;
       right: -50px;

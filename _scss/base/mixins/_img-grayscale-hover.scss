@@ -18,7 +18,7 @@
   @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
     #{$parent} {
       #{$img-cont}:before {
-        background-color: map-get($army-branding, black);
+        background-color: map-get($army-branding, armyblack);
         content: '';
         height: 100%;
         left: 0;

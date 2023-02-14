@@ -70,7 +70,7 @@ header {
   z-index: 100;
 
   .nav-army-star {
-    background: #000;
+    background: map-get($army-branding, armyblack);
     border-radius: 10px;
     left: 50%;
     line-height: 0;
@@ -123,7 +123,7 @@ header {
     z-index: 1;
 
     .navbar-container {
-      background: #000;
+      background: map-get($army-branding, armyblack);
       border-bottom: em(8) solid map-get($army-branding, gold);
       height: em(60);
     }

@@ -17,7 +17,7 @@
 
       h4 {
         &:first-child { margin: 0 0 30px; }
-        &:after { background-color: map-get($army-branding, black); }
+        &:after { background-color: map-get($army-branding, armyblack); }
       }
       
       ul li {
