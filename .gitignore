@@ -5,7 +5,6 @@ node_modules
 _js/bundled/
 .DS_Store
 e2/downloads
-e2/fonts
 e2/js
 e2/c
 e2/css/rv7/*
