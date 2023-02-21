@@ -99,7 +99,7 @@ body {
   .navbar-container {
     background-color: map-get($army-branding, armyblack);
     height: 60px;
-    border-bottom: 8px solid #fec325;
+    border-bottom: 8px solid map-get($army-branding, gold);
   }
 
   .nav-army-star {
