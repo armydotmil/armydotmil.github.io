@@ -1,61 +1,61 @@
-body {
-  font: normal 1em/1.625 $font-family;
+.army-font {
+  font: normal 1em/1.625em $font-family;
   color: map-get($army-branding, armyblack);
 }
 
 %h1 {
-  font: 600 1.875em/1.333 $font-family;
+  font: 600 1.875em/1.333em $font-family;
 
   @include breakpoints(nav) {
-    font: 600 2.25em/1.333 $font-family;
+    font: 600 2.25em/1.333em $font-family;
   }
 
   @include breakpoints(tablet lg_tablet) {
-    font: 600 2.5em/1.25 $font-family;
+    font: 600 2.5em/1.25em $font-family;
   }
 
   @include breakpoints(sm_desktop desktop large really_big) {
-    font: 600 3em/1.25 $font-family;
+    font: 600 3em/1.25em $font-family;
   }
 }
 
 %h2 {
-  font: 700 1.875em/1.333 $font-family;
+  font: 700 1.875em/1.333em $font-family;
 
   @include breakpoints(tablet lg_tablet) {
-    font: 700 2.25em/1.333 $font-family;
+    font: 700 2.25em/1.333em $font-family;
   }
 
   @include breakpoints(sm_desktop desktop large really_big) {
-    font: 700 2.5em/1.25 $font-family;
+    font: 700 2.5em/1.25em $font-family;
   }
 }
 
 %h3 {
-  font: 700 1.5em/1.5 $font-family;
+  font: 700 1.5em/1.5em $font-family;
 
   @include breakpoints(tablet lg_tablet) {
-    font: 700 1.875em/1.333 $font-family;
+    font: 700 1.875em/1.333em $font-family;
   }
 
   @include breakpoints(sm_desktop desktop large really_big) {
-    font: 700 2.25em/1.333 $font-family;
+    font: 700 2.25em/1.333em $font-family;
   }
 }
 
 %h4 {
-  font: 700 1.313em/1.4 $font-family;
+  font: 700 1.313em/1.4em $font-family;
   
   @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
-    font: 700 1.5em/1.5 $font-family;
+    font: 700 1.5em/1.5em $font-family;
   }
 }
 
 %h5 {
-  font: 700 1em/1.625 $font-family;
+  font: 700 1em/1.625em $font-family;
   
   @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
-    font: 700 1.125em/1.4 $font-family;
+    font: 700 1.125em/1.4em $font-family;
   }
 }
 
@@ -108,14 +108,14 @@ p {
   &.large { @extend %h5; }
   
   &.small {
-    font: 400 .813em/1.5 $font-family;
+    font: 400 .813em/1.5em $font-family;
     
     @include breakpoints(lg_tablet tablet sm_desktop desktop large really_big) {
-      font: 400 .875em/1.5 $font-family;
+      font: 400 .875em/1.5em $font-family;
     }
   }
   
-  &.author { font: 400 .875 $font-family; }
+  &.author { font: 400 .875em $font-family; }
 }
 
 a {
