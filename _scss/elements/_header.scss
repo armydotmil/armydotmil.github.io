@@ -293,8 +293,6 @@ header {
 
     @include breakpoints(mobile) {
       .quicklinks li {
-        padding-left: 15px;
-        padding-right: 15px;
         text-align: center;
         a {
           font-size: .813em;
