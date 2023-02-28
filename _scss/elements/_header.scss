@@ -291,7 +291,20 @@ header {
       }
     }
 
-    @include breakpoints(mobile nav tablet lg_tablet) {
+    @include breakpoints(mobile) {
+      .quicklinks li {
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+        a {
+          font-size: .813em;
+          margin: 0 auto;
+          padding: 25px 0;
+        }
+      }
+    }
+
+    @include breakpoints(nav tablet lg_tablet) {
       .quicklinks {
         @include row(true);
 
