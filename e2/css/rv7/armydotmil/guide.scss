@@ -111,7 +111,7 @@ section {
 
       p {
   //      border: 1px solid #000;
-        color: #000;
+        color: map-get($army-branding, armyblack);
         padding: 10px 0;
       }
     }
@@ -155,7 +155,7 @@ section {
 #colors {
   .color-group {
     margin: 0 0 60px;
-    max-width: 730px;
+    // max-width: 730px;
 
     &:last-child {
       margin-bottom: 0;
@@ -174,10 +174,17 @@ section {
   }
 
   .color-box {
-    border: 1px solid #000;
-    height: 80px;
+    border: 1px solid map-get($army-branding, armyblack);
+    height: 200px;
     margin-bottom: 15px;
-    width: 80px;
+    width: 200px;
+    padding-left: 15px;
+    padding-top: 15px;
+    p {
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
   }
 
   @include breakpoints(nav mobile) {

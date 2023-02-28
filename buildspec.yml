@@ -3,20 +3,16 @@ version: 0.2
 phases:
   install:
     commands:
+        - echo "******** CHANGE BRANCH ********"
+        - git checkout $GIT_BRANCH
+        - gem update --system
         - gem install bundler
         - gem list bundle
         - bundle install
         - npm install
-        - npm install -g grunt-cli
   build:
     commands:
         - export LC_ALL=en_US.UTF-8
-        - echo "******** CHANGE BRANCH ********"
-        - git checkout $GIT_BRANCH
-        - echo "******** UPDATE GIT SUBMODULE ********"
-        - git submodule init
-        - git submodule foreach git pull origin master
-        - git submodule update
         - echo "******** Run Grunt Task ********"
         - grunt production
         - echo "******** Building Jekyll site ********"
@@ -27,4 +23,3 @@ phases:
         - aws s3 sync _site/e2/css/rv7/armydotmil s3://$S3_BUCKET/e2/css/rv7/armydotmil
         - aws s3 sync _site/e2/css/rv7/upgrade s3://$S3_BUCKET/e2/css/rv7/upgrade
         - aws s3 sync _site/e2/images/rv7/upgrade s3://$S3_BUCKET/e2/images/rv7/upgrade
-        - aws s3 sync _site/e2/images/rv7/banners s3://$S3_BUCKET/e2/images/rv7/banners

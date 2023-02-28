@@ -9,9 +9,15 @@
 
 $army-branding: (
     black: #030000,
-    armyblack: #231F20,
-    gold: #fec325,
+    armyblack: #221F20,
+    gold: #ffcc01,
     white: #ffffff,
+    green: #2F372F,
+    field01: #727365,
+    field02: #bfb8a6,
+    tan: #f1e4c7,
+    gray01: #565557,
+    gray02: #d5d5d7,
     grey90: #1a1a1a,
     grey80: #333333,
     grey70: #4c4c4c,
@@ -41,8 +47,8 @@ $social-branding: (
 // ----------------------------------------------------------------------
 // Colors 
 // ----------------------------------------------------------------------
-$primary-text-color: #000;
-$secondary-background-color: #231F20;
+$primary-text-color: map-get($army-branding, armyblack);
+$secondary-background-color: #221F20;
 $secondary-text-color: #FFF;
 $secondary-border-color: #57584f;
 $tertiary-text-color: #57584f;

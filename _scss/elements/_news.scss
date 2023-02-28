@@ -83,7 +83,7 @@
       @include img-grayscale-hover('a', '.image');
 
       .image {
-        background: map-get($army-branding, black);
+        background: map-get($army-branding, armyblack);
         display: block;
         height: 0;
         padding: 66.25% 0 0;

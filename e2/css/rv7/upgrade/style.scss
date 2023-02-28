@@ -97,9 +97,9 @@ body {
 
 .navbar {
   .navbar-container {
-    background-color: #000;
+    background-color: map-get($army-branding, armyblack);
     height: 60px;
-    border-bottom: 8px solid #fec325;
+    border-bottom: 8px solid map-get($army-branding, gold);
   }
 
   .nav-army-star {
@@ -115,7 +115,7 @@ body {
   }
 
   .nav-army-star {
-    background-color: #000;
+    background-color: map-get($army-branding, armyblack);
     border-radius: 10px;
     display: block;
     left: 50%;

@@ -1,4 +1,78 @@
-/* https://github.com/RedHatBrand/overpass */
+/* 
+GI Font (Default)
+https://github.com/RedHatBrand/overpass 
+*/
+
+/* Webfont: GI Bold */
+@font-face {
+    font-family: 'GI';
+    src: url($e2path + '/fonts/rv7/gi/GI-750.woff') format('woff'), /* Modern Browsers */
+         url($e2path + '/fonts/rv7/gi/GI-750.ttf') format('truetype'), /* Safari, Android, iOS */
+         url($e2path + '/fonts/rv7/gi/GI-750.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: GI Bold Italic */
+@font-face {
+    font-family: 'GI';
+    src: url($e2path + '/fonts/rv7/gi/GI-750Italic.woff') format('woff'), /* Modern Browsers */
+         url($e2path + '/fonts/rv7/gi/GI-750Italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url($e2path + '/fonts/rv7/gi/GI-750Italic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: GI Regular */
+@font-face {
+    font-family: 'GI';
+    src: url($e2path + '/fonts/rv7/gi/GI-530.woff') format('woff'), /* Modern Browsers */
+         url($e2path + '/fonts/rv7/gi/GI-530.ttf') format('truetype'), /* Safari, Android, iOS */
+         url($e2path + '/fonts/rv7/gi/GI-530.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: GI Italic */
+@font-face {
+    font-family: 'GI';
+    src: url($e2path + '/fonts/rv7/gi/GI-530Italic.woff') format('woff'), /* Modern Browsers */
+         url($e2path + '/fonts/rv7/gi/GI-530Italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url($e2path + '/fonts/rv7/gi/GI-530Italic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: GI Light */
+@font-face {
+    font-family: 'GI';
+    src: url($e2path + '/fonts/rv7/gi/GI-400.woff') format('woff'), /* Modern Browsers */
+         url($e2path + '/fonts/rv7/gi/GI-400.ttf') format('truetype'), /* Safari, Android, iOS */
+         url($e2path + '/fonts/rv7/gi/GI-400.woff2') format('woff2');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: GI Light Italic */
+@font-face {
+    font-family: 'GI';
+    src: url($e2path + '/fonts/rv7/gi/GI-400.talic.woff') format('woff'), /* Modern Browsers */
+         url($e2path + '/fonts/rv7/gi/GI-400Italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url($e2path + '/fonts/rv7/gi/GI-400Italic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* 
+Overpass
+https://github.com/RedHatBrand/overpass 
+*/
 
 /* Webfont: Overpass-Bold */
 @font-face {

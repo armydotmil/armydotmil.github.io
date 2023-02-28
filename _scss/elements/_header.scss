@@ -17,7 +17,8 @@
 // ----------------------------------------------------------------------
 
 
-
+$header-height: 56px;
+$header-border-width: 2px;
 
 body.menu-open,
 html.menu-open { overflow: hidden; }
@@ -32,7 +33,7 @@ body.menu-open {
 
     header {
       .navbar {
-        height: em(86);
+        height: $header-height + $header-border-width;
         overflow-y: scroll;
       }
 
@@ -62,7 +63,7 @@ header {
 }
 
 header {
-  height: em(68);
+  height: $header-height + $header-border-width;
   left: 0;
   position: relative;
   top: 0;
@@ -70,18 +71,31 @@ header {
   z-index: 100;
 
   .nav-army-star {
-    background: #000;
-    border-radius: 10px;
+    background: map-get($army-branding, armyblack);
     left: 50%;
     line-height: 0;
     position: absolute;
     @include transform(translateX, -50%);
     z-index: 1;
+    display: flex;
+    align-content: center;
+    height: $header-height - 3px;
+    padding: 0 10px 3px;
+    flex-wrap: wrap;
+    max-width: 45%;
+    
+    span {
+      transition: transform 0.1s ease;
+    }
+
+    &:hover span{
+      transform: scale(1.1);
+    }
   }
 
   .search-form-container {
     line-height: 82px;
-    padding: 8px 55px 0 20px;
+    padding: 0 55px 0 20px;
     position: relative;
 
     div {
@@ -111,7 +125,7 @@ header {
       padding: 0;
       position: absolute;
       right: 19px;
-      top: 38px;
+      top: 30px;
     }
   }
 
@@ -123,9 +137,9 @@ header {
     z-index: 1;
 
     .navbar-container {
-      background: #000;
-      border-bottom: em(8) solid map-get($army-branding, gold);
-      height: em(60);
+      background: map-get($army-branding, armyblack);
+      border-bottom: $header-border-width solid map-get($army-branding, gold);
+      height: $header-height;
     }
   }
 
@@ -139,7 +153,7 @@ header {
 
 
   .nav-window {
-    background-color: map-get($army-branding, grey90);
+    background-color: map-get($army-branding, armyblack);
     left: 0;
     position: fixed;
     right: 0;
@@ -148,7 +162,7 @@ header {
     @include transform(translateY, -100%);
     @include custom-transition(transform .25s ease);
 
-    &.search-window { height: 90px; }
+    &.search-window { height: 82px; }
 
     &.menu-window {
       height: 100%;
@@ -158,12 +172,12 @@ header {
 
     &.open-window {
       @include transform(translateY, 0);
-      top: 60px;
+      top: $header-height + $header-border-width;
     }
   }
 
   .menu-container {
-    margin: 0 0 60px;
+    margin: 0 0 $header-height + $header-border-width;
     overflow: hidden;
     padding: 30px 30px 60px;
 
@@ -312,7 +326,7 @@ header {
     }
 
     @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-      padding: 80px 60px 60px;
+      padding: 60px;
 
       .list-container {
 

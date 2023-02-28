@@ -10,7 +10,7 @@
     width: $radius;
     
     &:before, &:after {
-      background-color: map-get($army-branding, black);
+      background-color: map-get($army-branding, armyblack);
       content: '';
       position: absolute;
       @include custom-transition(transform .25s ease);

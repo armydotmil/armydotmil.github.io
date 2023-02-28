@@ -29,8 +29,39 @@
   background-color: map-get($army-branding, gold);
 }
 
+.green-background {
+  background-color: map-get($army-branding, green);
+  color: map-get($army-branding, gold);
+}
+
+.field01-background {
+  background-color: map-get($army-branding, field01);
+  color: map-get($army-branding, white);
+}
+
+.field02-background {
+  background-color: map-get($army-branding, field02);
+  color: map-get($army-branding, armyblack);
+}
+
+.tan-background {
+  background-color: map-get($army-branding, tan);
+  color: map-get($army-branding, armyblack);
+}
+
+.gray01-background {
+  background-color: map-get($army-branding, gray01);
+  color: map-get($army-branding, white);
+}
+
+.gray02-background {
+  background-color: map-get($army-branding, gray02);
+  color: map-get($army-branding, armyblack);
+}
+
 .army-black-background {
   background-color: map-get($army-branding, armyblack);
+  color: map-get($army-branding, gold);
 }
 
 //accent colors
