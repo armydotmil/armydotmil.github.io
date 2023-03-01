@@ -63,6 +63,7 @@ header {
 }
 
 header {
+  font-family: $font-family;
   height: $header-height + $header-border-width;
   left: 0;
   position: relative;
