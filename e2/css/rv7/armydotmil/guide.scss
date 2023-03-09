@@ -163,9 +163,17 @@ section {
   }
 
   .color-list {
+    @include breakpoints(tablet nav mobile) {
+      text-align: center;
+    }
+
     li {
       display: inline-block;
       margin: 0 40px 20px 0px;
+
+      p {
+        text-align: left;
+      }
 
       span {
         display: block;
@@ -184,6 +192,31 @@ section {
       font-size: 17px;
       font-weight: 700;
       text-transform: uppercase;
+      text-align: left;
+    }
+  }
+
+  @include breakpoints(really_big large desktop sm_desktop) {
+    .color-list li {
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include breakpoints(lg_tablet) {
+    .color-list li {
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include breakpoints(tablet) {
+    .color-list li {
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
     }
   }
 
@@ -193,21 +226,11 @@ section {
     }
   }
 
-
   @include breakpoints(nav) {
     .color-group {
       margin: 0 auto 60px;
-      max-width: 400px;
-    }
-
-    .color-list li {
-      &:last-child,
-      &:nth-child(4n) {
-        margin-right: 0;
-      }
     }
   }
-
 
   @include breakpoints(mobile) {
     .color-group {
