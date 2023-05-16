@@ -5,4 +5,8 @@
 // ----------------------------------------------------------------------
 // The whole shebang!
 // ----------------------------------------------------------------------
+
+// override default variable specifically for the armydotmil.github.io page:
+$e2path: 'https://www.army.mil/e2';
+
 @import "all";

@@ -6,8 +6,9 @@ _js/bundled/
 .DS_Store
 e2/downloads
 e2/fonts
-e2/js
 e2/c
+e2/js/rv7/*
+!e2/js/rv7/armydotmil
 e2/css/rv7/*
 !e2/css/rv7/armydotmil
 !e2/css/rv7/upgrade
