@@ -3,6 +3,7 @@ import Helper from './Helper';
 
 class Header {
     constructor(section) {
+        this.lastTapTime = null;
         //This is for main navbar
         this.section = section;
         this.sectionBtn =
@@ -30,28 +31,34 @@ class Header {
     }
 
     toggleNavOption() {
-        var body = document.getElementsByTagName('body')[0],
-            html = document.getElementsByTagName('html')[0],
-            i = 0,
-            secClass = this.sectionBtn.className,
-            sectionOpen = (secClass.indexOf('close-button') === -1);
+        var curTaptime = new Date().getTime();
+        // only continue if the current tap is at least 100 milliseconds after the previous
+        // (prevents the duplicate tap event issue caused on mobile devices)
+        if (this.lastTapTime == null || curTaptime > (this.lastTapTime + 100)) {
+            this.lastTapTime = curTaptime;
+            var body = document.getElementsByTagName('body')[0],
+                html = document.getElementsByTagName('html')[0],
+                i = 0,
+                secClass = this.sectionBtn.className,
+                sectionOpen = (secClass.indexOf('close-button') === -1);
 
-        for (i = 0; i < this.navbtns.length; i++) {
-            Helper.removeClass(this.navbtns[i], 'close-button');
-            Helper.removeClass(this.navwins[i], 'open-window');
-            this.navbtns[i].setAttribute('aria-expanded', 'false');
-            Helper.removeClass(html, 'menu-open');
-            Helper.removeClass(body, 'menu-open');
-        }
-        if (sectionOpen) {
-            Helper.addClass(this.sectionBtn, 'close-button');
-            Helper.addClass(this.sectionWin, 'open-window');
-            this.sectionBtn.setAttribute('aria-expanded', 'true');
-            if (this.section === 'search') {
-                document.getElementById('usagov-search-query').focus();
-            } else {
-                Helper.addClass(html, 'menu-open');
-                Helper.addClass(body, 'menu-open');
+            for (i = 0; i < this.navbtns.length; i++) {
+                Helper.removeClass(this.navbtns[i], 'close-button');
+                Helper.removeClass(this.navwins[i], 'open-window');
+                this.navbtns[i].setAttribute('aria-expanded', 'false');
+                Helper.removeClass(html, 'menu-open');
+                Helper.removeClass(body, 'menu-open');
+            }
+            if (sectionOpen) {
+                Helper.addClass(this.sectionBtn, 'close-button');
+                Helper.addClass(this.sectionWin, 'open-window');
+                this.sectionBtn.setAttribute('aria-expanded', 'true');
+                if (this.section === 'search') {
+                    document.getElementById('usagov-search-query').focus();
+                } else {
+                    Helper.addClass(html, 'menu-open');
+                    Helper.addClass(body, 'menu-open');
+                }
             }
         }
     }
