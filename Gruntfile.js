@@ -126,13 +126,11 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-browserify');
-
     // grunt.loadNpmTasks('grunt-contrib-sass');
-
     grunt.loadNpmTasks('grunt-contrib-uglify');
-
     grunt.loadNpmTasks('grunt-contrib-watch');
 
+    grunt.registerTask('default', ['browserify', 'uglify']);
     grunt.registerTask('production', ['browserify', 'uglify']);
 
 };
