@@ -56,8 +56,10 @@
   }
   // down arrow
   &::after {
-    background: transparent $social-button-sprite no-repeat scroll -169px -50px;
-    content: "";
+    transform: rotate(90deg);
+    content: "\e90d";
+    font-family: 'armyicons';
+
     height: 8px;
     margin-top: -4px;
     position: absolute;

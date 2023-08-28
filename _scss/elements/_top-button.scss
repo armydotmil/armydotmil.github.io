@@ -10,7 +10,6 @@
   padding: 20px;
   position: fixed;
   right: 30px;
-  text-indent: -99999px;
   z-index: -1;
 
   @include opacity(0);
@@ -19,15 +18,24 @@
   &.visible {
     @include opacity(.7);
     z-index: 1;
+    text-decoration: none;
 
     &:hover { @include opacity(1); }
   }
 
-  span {
-    background: transparent $social-button-sprite no-repeat scroll -181px -59px;
+  span::before {
+    transform: rotate(-90deg);
+    content: "\e90d";
+    font-family: 'armyicons';
     display: block;
     height: 11px;
     width: 11px;
+    color: map-get($army-branding, white);
+    font-size: 16px;
+    font-weight: normal;
+    position: relative;
+    top: 2px;
+    left: 6px;
   }
 }
 

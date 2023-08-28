@@ -82,14 +82,15 @@
           padding: 2px 16px 0 0;
           vertical-align: middle;
 
-          span:first-child {
-            background: transparent $social-button-sprite no-repeat scroll -181px -59px;
-            height: 15px;
+          span:first-child::before {
+            transform: rotate(90deg);
+            content: "\e90d";
+            font-family: 'armyicons';
+            font-size: 0.85em;
             margin-top: 2px;
             position: absolute;
             right: 0;
-            top: 21px;
-            width: 11px;
+            top: 17px;
           }
         }
       }
@@ -161,14 +162,15 @@
           .v-play-icon {
             display: none;
               
-            span {
-              background: transparent $social-button-sprite no-repeat scroll -19px -71px;
+            span::before {
+              content: "\ea1c";
+              font-family: 'armyicons';
               display: block;
               height: 11px;
               width: 10px;
               position: absolute;
-              top: 13px;
-              left: 14px;
+              top: 8px;
+              left: 12px;
             }
           }
           
@@ -201,8 +203,8 @@
         .videos {
           display: block;
         }
-        .playlist-info h5 span {
-          background-position: -169px -56px;
+        .playlist-info h5 span::before {
+          transform: rotate(-90deg);
         }
       }
     }
@@ -221,14 +223,21 @@
         width: 50px;
       }
 
-      span {
-        background: transparent $social-button-sprite no-repeat scroll -305px -26px;
+      span::before {
+        content: "\e977";
+        font-family: 'armyicons';
+        color: map-get($army-branding, white);
+        font-size: 42px;
         display: inline-block;
         height: 22px;
         width: 31px;
+        top: 11px;
+        position: relative;
+        left: -5px;
+        font-weight: normal;
       }
-      &:hover span {
-        background-position: -305px -51px;
+      &:hover span::before {
+        color: map-get($army-branding, gold);
       }
     }
 
@@ -260,11 +269,9 @@
           .playlist-info h5 {
             border-bottom: 5px solid #ffcc00;
 
-            span:first-child {
-              background-position: -287px -3px;
-              margin-top: 0;
-              width: 15px;
-              border-radius: 50%;
+            span:first-child::before {
+              transform: none;
+              content: "\e96f";
             }
           }
         }

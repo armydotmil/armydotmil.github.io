@@ -8,6 +8,7 @@ nav {
   ul {
     overflow-x: auto;
     overflow-y: hidden;
+    user-select: none;
     -webkit-user-select: none;
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
@@ -119,12 +120,12 @@ nav {
     
     // dropdown arrow toggle icon
     &::after {
-      background: transparent $social-button-sprite no-repeat scroll -169px -50px;
-      content: "";
-      height: 8px;
+      transform: rotate(90deg);
+      content: "\e90d";
+      font-family: 'armyicons';
+      font-size: 0.85em;
       display: inline-block;
       margin: 2px 0 2px 10px;
-      width: 11px;
     }
   }
   
@@ -187,7 +188,7 @@ nav {
       
       // dropdown arrow ^
       &::after {
-        background-position: -181px -50px;
+        transform: rotate(-90deg);
       }
     }
   }

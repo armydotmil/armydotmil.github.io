@@ -4,22 +4,23 @@ blockquote {
   position: relative;
   
   &:before, &:after {
-    content: '';
-    height: 60px;
+    content: "“";
     position: absolute;
-    width: 82px;
     z-index: 0;
+    color: #ffcc01;
+    opacity: 0.7;
+    font: bold 170px/40px "Times New Roman";
   }
   
   &:before {
-    background: transparent $social-button-sprite no-repeat -330px -100px;
     left: 0;
-    top: -20px;
+    top: 17px;
+    
   }
   
   &:after {
-    background: transparent $social-button-sprite no-repeat -413px -100px;
-    bottom: -20px;
+    content: "”";
+    bottom: -40px;
     right: 0;
   }
 }
