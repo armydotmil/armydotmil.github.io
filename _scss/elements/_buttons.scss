@@ -230,7 +230,6 @@
 
 .social-button a,
 .social-button-black a {
-  text-decoration: none;
   i[class*=' armyicons'],i[class^='armyicons'] {
     font-size: 25px;
     color: map-get($army-branding, white);
@@ -254,6 +253,9 @@
 .social-button-black,
 .social-button-gold-lg,
 .social-button-sm {
+  a {
+    text-decoration: none;
+  }
   a span {
     font-size: 0;
   }
@@ -294,11 +296,24 @@
   &.rss-button a span::before {
     content: "\e974";
   }
-
+}
+.social-button a,
+.social-button-black a {
   &:not(.no-hover):hover,
   &:not(.no-hover):focus {
-    a span::before {
+    span::before {
       color: map-get($army-branding, gold);
+    }
+  }
+}
+.social-button-gold-lg a {
+  span::before {
+    color: map-get($army-branding, gold);
+  }
+  &:not(.no-hover):hover,
+  &:not(.no-hover):focus {
+    span::before {
+      color: map-get($army-branding, black);
     }
   }
 }
