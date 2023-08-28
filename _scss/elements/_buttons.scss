@@ -250,6 +250,59 @@
   }
 }
 
+.social-button,
+.social-button-black {
+  a span::before {
+    font-family: 'armyicons';
+    color: map-get($army-branding, white);
+    font-size: 25px;
+    line-height: 25px;
+  }
+  &.facebook-button a span::before {
+    content: "\ea90";
+  }
+  &.twitter-button a span::before {
+    content: "\e979";
+  }
+  &.pinterest-button a span::before {
+    content: "\ead1";
+  }
+  &.flickr-button a span::before {
+    content: "\eaa5";
+  }
+  &.youtube-button a span::before {
+    content: "\ea9d";
+  }
+  &.instagram-button a span::before {
+    content: "\ea92";
+  }
+  &.vimeo-button a span::before {
+    content: "\eaa0";
+  }
+  &.linkedin-button a span::before {
+    content: "\eaca";
+  }
+  &.email-button a span::before {
+    content: "\e95f";
+  }
+  &.reddit-button a span::before {
+    content: "\e96a";
+  }
+  &.rss-button a span::before {
+    content: "\e974";
+  }
+
+  &:not(.no-hover):hover,
+  &:not(.no-hover):focus {
+    a span::before {
+      color: map-get($army-branding, gold);
+    }
+  }
+}
+.social-button-black a span::before {
+  color: map-get($army-branding, black);
+}
+
 .nav-army-star {
   text-indent: -99999px;
 
