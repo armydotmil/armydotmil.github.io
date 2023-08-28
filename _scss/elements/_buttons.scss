@@ -251,12 +251,15 @@
 }
 
 .social-button,
-.social-button-black {
+.social-button-black,
+.social-button-gold-lg,
+.social-button-sm {
+  a span {
+    font-size: 0;
+  }
   a span::before {
-    font-family: 'armyicons';
+    font: normal 25px/25px 'armyicons';
     color: map-get($army-branding, white);
-    font-size: 25px;
-    line-height: 25px;
   }
   &.facebook-button a span::before {
     content: "\ea90";
@@ -302,6 +305,11 @@
 .social-button-black a span::before {
   color: map-get($army-branding, black);
 }
+.social-button-sm a span::before {
+  font-size: 22px;
+  line-height: 22px;
+}
+  
 
 .nav-army-star {
   text-indent: -99999px;
