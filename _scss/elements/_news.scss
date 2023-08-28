@@ -203,17 +203,8 @@
     @include breakpoints(sm_desktop desktop large really_big) {
       text-align: left;
       position: absolute;
-      right: 20px;
+      right: 0px;
       top: 44px;
-    }
-    
-    a:after {
-      background: transparent $social-button-sprite no-repeat scroll -427px 5px;
-      content: "";
-      height: 17px;
-      margin-left: 5px;
-      position: absolute;
-      width: 15px;
     }
   }
 }

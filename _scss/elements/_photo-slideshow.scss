@@ -101,8 +101,7 @@
   .ss-move {
     background-color: rgba(0,0,0,0.5);
     cursor: pointer;
-    margin: -29px 0 0; // half = 20px padding top plus 9px (1/2 of span height)
-    padding: 20px;
+    transform: translateY(-50%);
     position: absolute;
     top: 50%;
 
@@ -111,24 +110,22 @@
       background-color: rgba(0,0,0,0.9);
     }
 
-    .ss-move-button {
-      display: inline-block;
-      height: 8px;
-      width: 8px;
+    .ss-move-button::before {
+      content: "\e908";
+      font-family: 'armyicons';
+      color: map-get($army-branding, white);
+      font-size: 18px;
     }
-  }
-
-  .ss-move.ss-prev {
-    left: 0;
-    .ss-move-button {
-      background: transparent $social-button-sprite no-repeat scroll -131px -50px;
+    &.ss-prev {
+      left: 0;
+      padding: 22px 21px 20px 19px;
     }
-  }
-
-  .ss-move.ss-next {
-    right: 0;
-    .ss-move-button {
-      background: transparent $social-button-sprite no-repeat scroll -138px -50px;
+    &.ss-next {
+      right: 0;
+      padding: 22px 18px 20px 22px;
+      .ss-move-button::before {
+        content: "\e907";
+      }
     }
   }
 }

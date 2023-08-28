@@ -66,8 +66,8 @@
 
 .nav-button {
   border-style: solid;
-  border-color: #333;
-  color: #fff;
+  border-color: map-get($army-branding, grey80);
+  color: map-get($army-branding, white);
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -76,23 +76,27 @@
   padding: 17px 20px 15px;
   position: absolute;
   text-decoration: none;
-  text-indent: -99999px;
   text-transform: uppercase;
-  width: 25px;
 
   span {
-    display: block;
-    height: 24px;
-    width: 24px;
+    display: none;
   }
 
   &.menu-button {
     border-width: 0 1px 0 0;
     left: 0;
 
-    span {
-      background: transparent $social-button-sprite no-repeat scroll -233px 0;
-      width: 25px;
+    &::before {
+      content: "\e96d";
+      font-family: 'armyicons';
+      color: map-get($army-branding, white);
+      font-size: 32px;
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: grayscale;
+      font-weight: normal;
+      position: relative;
+      line-height: 7px;
+      top: 7px;
     }
   }
 
@@ -100,33 +104,64 @@
     border-width: 0 0 0 1px;
     right: 0;
 
-    span {
-      background: transparent $social-button-sprite no-repeat scroll -259px 0;
+    &::after {
+      content: "\e96e";
+      font-family: 'armyicons';
+      color: map-get($army-branding, white);
+      font-size: 28px;
+      font-weight: normal;
+      position: relative;
+      line-height: 7px;
+      top: 7px;
     }
   }
 
   @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
     &.menu-button, &.search-button {
       border: none;
+      span {
+        display: inline;
+      }
     }
 
-    &.menu-button {
-      text-indent: 43px;
+    &::before {
+      margin-right: 10px;
     }
-
-    &.search-button {
-      text-indent: -97px;
+    &::after {
+      margin-left: 10px;
+    }
+    &.close-button.menu-button::before {
+      margin-right: 10px;
+    }
+    &.close-button.search-button::after {
+      margin-left: 10px;
     }
   }
 
+  &.close-button {
+    &.black-close span::before,
+    &.black-close span::after {
+      color: map-get($army-branding, black);
+    }
+  }
 
   &.close-button {
-    span {
-      background: transparent $social-button-sprite no-repeat scroll -284px 1px;
-      width: 20px;
+    &.menu-button::before {
+      content: "\e96f";
+      font-size: 26px;
+      top: 5px;
+      left: 0px;
+      width: 33px;
+      display: inline-block;
+      text-align: center;
     }
-    &.black-close span {
-      background-position: -284px -23px;
+    &.search-button::after {
+      content: "\e96f";
+      font-size: 26px;
+      top: 5px;
+      width: 29px;
+      display: inline-block;
+      text-align: center;
     }
   }
 }
@@ -135,47 +170,46 @@
   @extend .nav-button;
 }
 
-.view-more-arrow-bg {
-  background: transparent $social-button-sprite no-repeat scroll -427px 0;
-  display: inline-block;
-  height: 12px;
-  margin-bottom: 4px;
-  margin-left: 5px;
-  vertical-align: middle;
-  width: 14px;
-}
-
 .view-more-arrow-sm {
-  background: transparent $social-button-sprite no-repeat scroll -442px 0;
   display: inline-block;
-  height: 12px;
   margin-left: 5px;
-  vertical-align: middle;
-  width: 13px;
 
-  &.black-arrow {
-    background-position: -442px -13px;
+  &::before {
+    content: "\ea3c";
+    font-family: 'armyicons';
+    color: map-get($army-branding, gold);
   }
-  &.gray-arrow {
-    background-position: -442px -26px;
+  &.black-arrow::before {
+    color: map-get($army-branding, black);
+  }
+  &.gray-arrow::before {
+    color: map-get($army-branding, grey40);
   }
 }
 
 .overlay-video .v-close {
   span {
-    background: transparent $social-button-sprite no-repeat scroll -284px 0;
     display: block;
     height: 24px;
     width: 20px;
+    text-align: center;
+    &::before {
+      content: "\e96f";
+      font-family: 'armyicons';
+      color: map-get($army-branding, white);
+      font-size: 20px;
+    }
   }
 }
 
 .search-submit-button {
-  background: transparent $social-button-sprite no-repeat scroll -259px 0;
   cursor: pointer;
   border: 0 none;
   height: 24px;
   width: 24px;
+  background-color: transparent;
+  color: map-get($army-branding, white);
+  font-size: 25px;
 }
 
 .greater-than-button {
@@ -194,538 +228,26 @@
   }
 }
 
-.social-button {
-  span {
-    height: 25px;
-    width: 24px;
-  }
-
-  &.facebook-button span {
-    background-position: -55px -216px;
-    margin: 0 3px;
-    width: 12px;
-  }
-
-  &.twitter-button span {
-    background-position: 0 -216px;
-    width: 29px;
-  }
-
-  &.googleplus-button span {
-    background-position: -118px -216px;
-    width: 36px;
-  }
-
-  &.pinterest-button span {
-    background-position: -29px -216px;
-    width: 25px;
-  }
-
-  &.flickr-button span {
-    background-position: -93px -216px;
-    width: 25px;
-  }
-
-  &.slideshare-button span {
-    background-position: -180px -216px;
-  }
-
-  &.youtube-button span {
-    background-position: -155px -216px;
-    width: 25px;
-  }
-
-  &.email-button span {
-    background-position: -511px -216px;
-    width: 25px;
-  }
-
-  &.instagram-button span {
-    background-position: -68px -216px;
-    width: 25px;
-  }
-
-  &.vimeo-button span {
-    background-position: -205px -216px;
-    width: 28px;
-  }
-
-  &.armylive-button span {
-    background-position: -233px -216px;
-    width: 28px;
-  }
-  
-  &.linkedin-button span {
-    background-position: -261px -216px;
-    width: 25px;
-  }
-  
-  &.ustream-button span {
-    background-position: -286px -216px;
-    width: 25px;
-  }
-  
-  &.smugmug-button span {
-    background-position: -311px -216px;
-    width: 22px;
-  }
-  
-  &.issuu-button span {
-    background-position: -333px -216px;
-    width: 25px;
-  }
-  
-  &.soundcloud-button span {
-    background-position: -358px -216px;
-    width: 56px;
-  }
-  
-  &.periscope-button span {
-    background-position: -414px -216px;
-    width: 20px;
-  }
-  
-  &.blogger-button span {
-    background-position: -434px -216px;
-    width: 25px;
-  }
-  
-  &.snapchat-button span {
-    background-position: -459px -216px;
-    width: 25px;
-  }
-  
-  &.rss-button span {
-    background-position: -486px -216px;
-    width: 25px;
-  }
-
-  &.reddit-button span {
-    background-position: -538px -216px;
-    width: 28px;
-  }
-}
-
-.social-button-black {
-
-  span {
-    height: 25px;
-    width: 24px;
-  }
-  
-  &.facebook-button span {
-    background-position: -55px -166px;
-    // margin: 0 3px;
-    width: 12px;
-  }
-  
-  &.twitter-button span {
-    background-position: 0 -166px;
-    width: 29px;
-  }
-  
-  &.flickr-button span {
-    background-position: -93px -166px;
-    width: 25px;
-  }
-  
-  &.youtube-button span {
-    background-position: -155px -166px;
-    width: 25px;
-  }
-  
-  &.vimeo-button span {
-    background-position: -205px -166px;
-    width: 28px;
-  }
-  
-  &.slideshare-button span {
-    background-position: -180px -166px;
-    width: 24px;
-  }
-  
-  &.armylive-button span {
-    background-position: -233px -166px;
-    width: 28px;
-  }
-  
-  &.instagram-button span {
-    background-position: -68px -166px;
-    width: 25px;
-  }
-  
-  &.pinterest-button span {
-    background-position: -29px -166px;
-    width: 25px;
-  }
-  
-  &.googleplus-button span {
-    background-position: -118px -166px;
-    width: 36px;
-  }
-  
-  &.linkedin-button span {
-    background-position: -261px -166px;
-    width: 25px;
-  }
-  
-  &.ustream-button span {
-    background-position: -286px -166px;
-    width: 25px;
-  }
-  
-  &.smugmug-button span {
-    background-position: -311px -166px;
-    width: 22px;
-  }
-  
-  &.issuu-button span {
-    background-position: -333px -166px;
-    width: 25px;
-  }
-  
-  &.soundcloud-button span {
-    background-position: -358px -166px;
-    width: 56px;
-  }
-  
-  &.periscope-button span {
-    background-position: -414px -166px;
-    width: 20px;
-  }
-  
-  &.blogger-button span {
-    background-position: -434px -166px;
-    width: 25px;
-  }
-  
-  &.snapchat-button span {
-    background-position: -459px -166px;
-    width: 25px;
-  }
-  
-  &.rss-button span {
-    background-position: -486px -166px;
-    width: 25px;
-  }
-  
-  &.email-button span {
-    background-position: -511px -166px;
-    width: 25px;
-  }
-
-  &.reddit-button span {
-    background-position: -538px -166px;
-    width: 28px;
-  }
-}
-
-.social-button:not(.no-hover),
-.social-button-black:not(.no-hover) {
-
-  &.facebook-button a:hover span,
-  &.facebook-button a:focus span {
-    background-position: -55px -191px;
-  }
-  
-  &.twitter-button a:hover span,
-  &.twitter-button a:focus span {
-    background-position: 0 -191px;
-  }
-  
-  &.flickr-button a:hover span,
-  &.flickr-button a:focus span {
-    background-position: -93px -191px;
-  }
-  
-  &.youtube-button a:hover span,
-  &.youtube-button a:focus span {
-    background-position: -155px -191px;
-  }
-  
-  &.vimeo-button a:hover span,
-  &.vimeo-button a:focus span {
-    background-position: -205px -191px;
-  }
-  
-  &.slideshare-button a:hover span,
-  &.slideshare-button a:focus span {
-    background-position: -180px -191px;
-  }
-  
-  &.armylive-button a:hover span,
-  &.armylive-button a:focus span {
-    background-position: -233px -191px;
-  }
-  
-  &.instagram-button a:hover span,
-  &.instagram-button a:focus span {
-    background-position: -68px -191px;
-  }
-  
-  &.pinterest-button a:hover span,
-  &.pinterest-button a:focus span {
-    background-position: -29px -191px;
-  }
-  
-  &.googleplus-button a:hover span,
-  &.googleplus-button a:focus span {
-    background-position: -118px -191px;
-  }
-  
-  &.linkedin-button a:hover span,
-  &.linkedin-button a:focus span {
-    background-position: -261px -191px;
-  }
-  
-  &.ustream-button a:hover span,
-  &.ustream-button a:focus span {
-    background-position: -286px -191px;
-  }
-  
-  &.smugmug-button a:hover span,
-  &.smugmug-button a:focus span {
-    background-position: -311px -191px;
-  }
-  
-  &.issuu-button a:hover span,
-  &.issuu-button a:focus span {
-    background-position: -333px -191px;
-  }
-  
-  &.soundcloud-button a:hover span,
-  &.soundcloud-button a:focus span {
-    background-position: -358px -191px;
-  }
-  
-  &.periscope-button a:hover span,
-  &.periscope-button a:focus span {
-    background-position: -414px -191px;
-  }
-  
-  &.blogger-button a:hover span,
-  &.blogger-button a:focus span {
-    background-position: -434px -191px;
-  }
-  
-  &.snapchat-button a:hover span,
-  &.snapchat-button a:focus span {
-    background-position: -459px -191px;
-  }
-  
-  &.rss-button a:hover span,
-  &.rss-button a:focus span {
-    background-position: -486px -191px;
-  }
-  
-  &.email-button a:hover span,
-  &.email-button a:focus span {
-    background-position: -511px -191px;
-  }
-
-  &.reddit-button a:hover span,
-  &.reddit-button a:focus span {
-    background-position: -538px -191px;
-  }
-}
-
-.social-button-gold-lg {
-  span {
-    height: 30px;
-    width: 31px;
-  }
-
-  &.facebook-button span {
-    background-position: -496px -101px;
-    margin: 0 3px;
-    width: 17px;
-  }
-
-  &.twitter-button span {
-    background-position: -512px -101px;
-    width: 37px;
-  }
-
-  &.googleplus-button span {
-    background-position: -643px -101px;
-    width: 46px;
-  }
-
-  &.pinterest-button span {
-    background-position: -581px -101px;
-  }
-
-  &.flickr-button span {
-    background-position: -612px -101px;
-  }
-
-  &.slideshare-button span {
-    background-position: -689px -101px;
-    width: 30px;
-  }
-
-  &.youtube-button span {
-    background-position: -754px -101px;
-  }
-
-  &.instagram-button span {
-    background-position: -550px -101px;
-  }
-
-  &.vimeo-button span {
-    background-position: -785px -101px;
-    width: 35px;
-  }
-
-  &.armylive-button span {
-    background-position: -719px -101px;
-    width: 34px;
-  }
-  
-  &.facebook-button a:hover span,
-  &.facebook-button a:focus span {
-    background-position: -496px -132px;
-  }
-  
-  &.twitter-button a:hover span,
-  &.twitter-button a:focus span {
-    background-position: -512px -132px;
-  }
-  
-  &.flickr-button a:hover span,
-  &.flickr-button a:focus span {
-    background-position: -612px -132px;
-  }
-  
-  &.youtube-button a:hover span,
-  &.youtube-button a:focus span {
-    background-position: -754px -132px;
-  }
-  
-  &.slideshare-button a:hover span,
-  &.slideshare-button a:focus span {
-    background-position: -689px -132px;
-  }
-  
-  &.armylive-button a:hover span,
-  &.armylive-button a:focus span {
-    background-position: -719px -132px;
-  }
-  
-  &.instagram-button a:hover span,
-  &.instagram-button a:focus span {
-    background-position: -550px -132px;
-  }
-  
-  &.pinterest-button a:hover span,
-  &.pinterest-button a:focus span {
-    background-position: -581px -132px;
-  }
-  
-  &.googleplus-button a:hover span,
-  &.googleplus-button a:focus span {
-    background-position: -643px -132px;
-  }
-  
-  &.vimeo-button a:hover span,
-  &.vimeo-button a:focus span {
-    background-position: -785px -132px;
-  }
-}
-
-.social-button-sm {
-  span {
-    height: 20px;
-    width: 22px;
-  }
-
-  &.facebook-button span {
-    background-position: -45px -50px;
-    width: 12px;
-  }
-
-  &.twitter-button span {
-    background-position: 0 -50px;
-    width: 24px;
-  }
-
-  &.googleplus-button span {
-    background-position: -57px -50px;
-    width: 30px;
-  }
-
-  &.pinterest-button span {
-    background-position: -24px -50px;
-  }
-
-  &.linkedin-button span {
-    background-position: -337px -26px;
-    width: 20px;
-  }
-
-  &.email-button span {
-    background-position: -88px -50px;
-    width: 23px;
-  }
-
-  &.print-button span {
-    background-position: -146px -50px;
-    width: 23px;
-  }
-
-  &.reddit-button span {
-    background-position: -359px -26px;
-    width: 23px;
-  }
-}
-
-.social-button,
-.social-button-black,
-.social-button-gold-lg,
-.social-button-sm {
-  a {
-    // hide text with css
-    @include replace-text;
-    outline: 0 none;
-
-    span {
-      background-image: $social-button-sprite;
-      background-repeat: no-repeat;
-      display: inline-block;
+.social-button a,
+.social-button-black a {
+  text-decoration: none;
+  i[class*=' armyicons'],i[class^='armyicons'] {
+    font-size: 25px;
+    color: map-get($army-branding, white);
+    line-height: 25px;
+  }
+  &:not(.no-hover):hover,
+  &:not(.no-hover):focus {
+    i[class*=' armyicons'],i[class^='armyicons'] {
+      color: map-get($army-branding, gold);
     }
   }
 }
 
-.play-button {
-  .play-button-image {
-    background: transparent $social-button-sprite no-repeat scroll -560px 4px;
-    height: 20px;
-    width: 14px;
+.social-button-black a {
+  i[class*=' armyicons'],i[class^='armyicons'] {
+    color: map-get($army-branding, black);
   }
-}
-
-.plus-thick {
-  background: transparent $social-button-sprite no-repeat scroll -305px 5px;
-  height: 24px;
-  width: 12px;
-}
-
-.minus-thick {
-  background: transparent $social-button-sprite no-repeat scroll -318px 10px;
-  height: 24px;
-  width: 12px;
-}
-
-.plus-black {
-  background: transparent $social-button-sprite no-repeat scroll -305px -13px;
-  height: 13px;
-  width: 12px;
-}
-
-.minus-black {
-  background: transparent $social-button-sprite no-repeat scroll -318px -9px;
-  height: 13px;
-  width: 12px;
 }
 
 .nav-army-star {
@@ -739,39 +261,97 @@
   }
 }
 
-.toggle-button {
-  background: transparent $social-button-sprite no-repeat scroll -168px -49px;
-  display: inline-block;
-  height: 11px;
-  margin-left: 15px;
-  vertical-align: middle;
-  width: 13px;
-  
-  &.active { background-position: -181px -49px; }
+.play-button,
+a.play-button {
+  .play-button-image {
+    display: inline-block;
+    &::before {
+      content: "\ea1c";
+      font-family: 'armyicons';
+      color: map-get($army-branding, white);
+    }
+  }
 }
 
-.directional-arrow {
-  background-image: $social-button-sprite;
-  display: block;
-  height: 12px;
-  width: 9px;
+.plus-thick,
+a.plus-thick {
+  display: inline-block;
+  text-decoration: none;
+  &::before {
+    content: "\ea0a";
+    font-family: 'armyicons';
+    color: map-get($army-branding, white);
+  }
+}
 
-  &.black-left {
-    background-position: -259px -60px;
+.minus-thick,
+a.minus-thick {
+  display: inline-block;
+  text-decoration: none;
+  &::before {
+    content: "\ea0b";
+    font-family: 'armyicons';
+    color: map-get($army-branding, white);
+  }
+}
+
+.plus-black,
+a.plus-black {
+  display: inline-block;
+  text-decoration: none;
+  &::before {
+    content: "\ea0a";
+    font-family: 'armyicons';
+    color: map-get($army-branding, black);
+  }
+}
+
+.minus-black,
+a.minus-black {
+  display: inline-block;
+  text-decoration: none;
+  &::before {
+    content: "\ea0b";
+    font-family: 'armyicons';
+    color: map-get($army-branding, black);
+  }
+}
+
+.toggle-button,
+a.toggle-button {
+  display: inline-block;
+  text-decoration: none;
+  transform: rotate(90deg);
+  &::before {
+    content: "\e90d";
+    font-family: 'armyicons';
+  }
+  
+  &.active { transform: rotate(-90deg); }
+}
+
+.directional-arrow,
+a.directional-arrow {
+  color: map-get($army-branding, black);
+  display: inline-block;
+  text-decoration: none;
+  &::before {
+    content: "\e90d";
+    font-family: 'armyicons';
   }
 
-  &.black-right {
-    background-position: -268px -60px;
+  &.black-left::before {
+    content: "\e90c";
   }
 
   &.gray-left {
-    background-position: -259px -47px;
+    &::before {
+      content: "\e90c";
+    }
+    color: map-get($army-branding, grey50);
   }
 
   &.gray-right {
-    background-position: -268px -47px;
+    color: map-get($army-branding, grey50);
   }
 }
-
-
-

@@ -250,16 +250,22 @@
 
           a {
             &:before {
-              content: '';
               position: absolute;
-              width: 32px;
-              height: 30px;
-              right: 8px;
-              bottom: 8px;
               z-index: 1;
               @include custom-transition(opacity .25s ease);
-              background: transparent $social-button-sprite no-repeat scroll -340px -50px;
               opacity: 0.5;
+              content: "\e976";
+              font-family: 'armyicons';
+              color: map-get($army-branding, white);
+              font-size: 31px;
+              -webkit-font-smoothing: none;
+              -moz-osx-font-smoothing: grayscale;
+              width: auto;
+              height: auto;
+              line-height: normal;
+              right: 10px;
+              bottom: 10px;
+              text-shadow: 0 0 5px map-get($army-branding, black);
             }
 
             &:hover:before,

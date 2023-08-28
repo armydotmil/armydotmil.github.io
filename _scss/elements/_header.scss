@@ -235,12 +235,17 @@ header {
           -webkit-text-size-adjust: none;
 
           span {
-            background: transparent $social-button-sprite no-repeat scroll -305px 5px;
+            &::before {
+              content: "\ea0a";
+              font-family: 'armyicons';
+            }
+
             height: 18px;
             position: absolute;
             right: 12px;
             top: 26px;
             width: 12px;
+            font-size: 14px;
           }
         }
 
@@ -287,7 +292,9 @@ header {
         input[type=checkbox]:checked ~ label {
           border-bottom: 1px solid map-get($army-branding, grey80);
 
-          span { background-position: -318px 10px; }
+          span::before { 
+            content: "\ea0b";
+          }
         }
       }
     }
@@ -366,6 +373,9 @@ header {
                 right: auto;
                 top: auto;
                 width: 40px;
+                &::before {
+                  content: "";
+                }
               }
             }
 
@@ -382,8 +392,10 @@ header {
                   @include custom-transition(color .2s linear 0s);
 
                   &:after {
-                    background: transparent $social-button-sprite no-repeat scroll -427px 5px;
-                    content: '';
+                    content: "\ea3c";
+                    font-family: 'armyicons';
+                    color: map-get($army-branding, gold);
+
                     height: 17px;
                     margin-left: 30px;
                     position: absolute;
@@ -461,8 +473,10 @@ header {
             }
 
             &:after {
-              background: transparent $social-button-sprite no-repeat scroll -427px 5px;
-              content: '';
+              content: "\ea3c";
+              font-family: 'armyicons';
+              color: map-get($army-branding, gold);
+              font-size: 16px;
               height: 17px;
               position: absolute;
               right: 20px;

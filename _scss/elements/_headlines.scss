@@ -21,11 +21,12 @@
         .view-more-arrow-sm { display: none; }
 
         &:after {
-          background: transparent $social-button-sprite no-repeat scroll -442px 0;
-          content: "";
+          content: "\ea3c";
+          font-family: 'armyicons';
+          color: map-get($army-branding, gold);
+          position: relative;
           height: 12px;
           margin-left: 9px;
-          margin-top: 7px;
           position: absolute;
           vertical-align: middle;
           width: 14px;
@@ -69,8 +70,6 @@
       }
       
       .date { width: 140px; }
-
-      a:after { margin-top: 5px; }
     }
   }
   
