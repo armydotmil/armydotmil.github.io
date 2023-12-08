@@ -7,10 +7,25 @@
     
     &:last-child { margin: 0; }
     
-    .leaders-img {
+    aside {
       float: left;
       margin: 30px;
       max-width: 100px;
+      width: 100%;
+      
+      img {
+        display: block;
+        width: 100%;
+      }
+      
+      @include breakpoints(nav mobile) {
+        float: none;
+        margin: 30px auto;
+      }
+      
+      @include breakpoints(nav mobile) {
+        div { display: none; }
+      }
     }
     
     .leaders-text {
@@ -42,13 +57,8 @@
       top: 50%;
     }
     
-    @include breakpoints(mobile nav) {
-      img {
-        display: none;
-      }
-    }
     
-    @include breakpoints(mobile) {
+    @include breakpoints(nav mobile) {
       .leaders-heading {
         text-align: center;
       }
