@@ -13,7 +13,10 @@
     .inner-container {
       margin: 35px auto;
 
-      .left-container { text-align: center; }
+      .left-container {
+        text-align: center; 
+        text-shadow: 2px 2px 3px map-get($army-branding, armyblack);
+      }
 
       .max-width-container {
         max-width: 450px;
