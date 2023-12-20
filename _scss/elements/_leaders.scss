@@ -4,28 +4,42 @@
     margin: 0 0 30px;
     overflow: hidden;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
     
     &:last-child { margin: 0; }
-    
+
     .leaders-img {
-      float: left;
-      margin: 30px;
-      max-width: 100px;
+      min-width: 100px;
+      max-width: 100%;
     }
-    
+
+    .leaders-content {
+      flex-grow: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+    }
+
     .leaders-text {
-      display: block;
-      padding: 30px 200px 30px 30px;
-      
-      &.no-bio { padding-right: 30px; }
-      
-      span { display: block; }
-      
+      width: 100%;
+      text-align: center;
+      flex-grow: 1;
       .leaders-heading {
         color: $dark-gray-color;
         font: 400 1em $font-family;
         margin: 0 0 10px;
         text-transform: uppercase;
+      }
+      span.leaders-heading {
+        display: block;
       }
       
       .leaders-title {
@@ -33,35 +47,43 @@
         font: 700 1.313em $font-family;
       }
     }
-    
-    .leaders-bio {
-      margin-top: -25px;
-      padding: 0;
-      position: absolute;
-      right: 30px;
-      top: 50%;
-    }
-    
-    @include breakpoints(mobile nav) {
-      img {
-        display: none;
+
+    @include breakpoints(nav) {
+      justify-content: space-between;
+      flex-wrap: nowrap;
+
+      .leaders-img {
+        width: 100px;
+        flex-shrink: 0;
+      }
+      .leaders-content {
+        width: auto;
+      }
+      // styles below ensure old markup still looks OK (when leaders-content div is missing)
+      .leaders-text {
+        text-align: left;
+      }
+      .leaders-content .leaders-text {
+        text-align: center;
       }
     }
-    
-    @include breakpoints(mobile) {
-      .leaders-heading {
-        text-align: center;
+
+    @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+      justify-content: space-between;
+      flex-wrap: nowrap;
+
+      .leaders-img {
+        width: 100px;
+        flex-shrink: 0;
+      }
+      .leaders-content {
+        width: auto;
+        flex-wrap: nowrap;
+        justify-content: space-between;
       }
       .leaders-text {
-        padding: 30px;
-        text-align: center;
-      }
-      .leaders-bio {
-        display: block;
-        margin: 0 auto;
-        padding: 0 30px 30px;
-        position: static;
-        text-align: center;
+        text-align: left;
+        width: auto;
       }
     }
   }
