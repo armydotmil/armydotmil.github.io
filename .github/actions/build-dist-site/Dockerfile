@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=2.7.4
+ARG RUBY_VERSION=3.1
 FROM ruby:$RUBY_VERSION-slim
 
 # Lets install all dependencies
