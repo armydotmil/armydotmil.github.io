@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'armyicons';
-  src:  url('/e2/fonts/rv7/armyicons/armyicons.eot?hpod4r');
-  src:  url('/e2/fonts/rv7/armyicons/armyicons.eot?hpod4r#iefix') format('embedded-opentype'),
-    url('/e2/fonts/rv7/armyicons/armyicons.woff2?hpod4r') format('woff2'),
-    url('/e2/fonts/rv7/armyicons/armyicons.ttf?hpod4r') format('truetype'),
-    url('/e2/fonts/rv7/armyicons/armyicons.woff?hpod4r') format('woff'),
-    url('/e2/fonts/rv7/armyicons/armyicons.svg?hpod4r#armyicons') format('svg');
+  src:  url('armyicons.eot?hpod4r');
+  src:  url('armyicons.eot?hpod4r#iefix') format('embedded-opentype'),
+    url('armyicons.woff2?hpod4r') format('woff2'),
+    url('armyicons.ttf?hpod4r') format('truetype'),
+    url('armyicons.woff?hpod4r') format('woff'),
+    url('armyicons.svg?hpod4r#armyicons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;

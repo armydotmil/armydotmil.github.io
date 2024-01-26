@@ -13,15 +13,7 @@
     <![endif]-->
 </head>
 <body id="{{ page.active }}" class="army-font {{ page.id }}">
-    <header>
-        <div class="navbar">
-          <div class="navbar-container">
-            <a href="/" class="nav-army-star">
-                <span>HOME</span>
-            </a>
-          </div>
-        </div>
-    </header>
+    {% include elements/header.html %}
     <div class="main">
         {{ content }}
     </div>
