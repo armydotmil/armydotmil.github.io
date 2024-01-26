@@ -15,6 +15,8 @@
 // ----------------------------------------------------------------------
 // CSS
 // ----------------------------------------------------------------------
+@import "elements/buttons";
+@import "elements/header";
 
 *, *::after, *::before {
   box-sizing: inherit;
@@ -95,33 +97,33 @@ body {
   }
 }
 
-.navbar {
-  .navbar-container {
-    background-color: map-get($army-branding, armyblack);
-    height: 60px;
-    border-bottom: 8px solid map-get($army-branding, gold);
-  }
+// .navbar {
+//   .navbar-container {
+//     background-color: map-get($army-branding, armyblack);
+//     height: 60px;
+//     border-bottom: 8px solid map-get($army-branding, gold);
+//   }
 
-  .nav-army-star {
-    padding: 8px 10px 12px 12px;
-    text-indent: -99999px;
-  }
+//   .nav-army-star {
+//     background: map-get($army-branding, armyblack);
+//     left: 50%;
+//     line-height: 0;
+//     position: absolute;
+//     @include transform(translateX, -50%);
+//     z-index: 1;
+//     display: flex;
+//     align-content: center;
+//     height: $header-height - 3px;
+//     padding: 0 10px 3px;
+//     flex-wrap: wrap;
+//     max-width: 45%;
+    
+//     span {
+//       transition: transform 0.1s ease;
+//     }
 
-  .nav-army-star span {
-    background: transparent url(/e2/images/rv7/army_star.png) no-repeat;
-    height: 65px;
-    width: 52px;
-    display: block;
-  }
-
-  .nav-army-star {
-    background-color: map-get($army-branding, armyblack);
-    border-radius: 10px;
-    display: block;
-    left: 50%;
-    margin: 0 0 0 -35px;
-    position: absolute;
-    z-index: 1;
-    line-height: 0;
-  }
-}
+//     &:hover span{
+//       transform: scale(1.1);
+//     }
+//   }
+// }
