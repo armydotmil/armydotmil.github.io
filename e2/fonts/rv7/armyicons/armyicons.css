@@ -11,7 +11,7 @@
   font-display: block;
 }
 
-.armyicons i, i.armyicons, .icomoon-liga {
+.armyicons i, i.armyicons, i[class^="armyicons"], .icomoon-liga {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'armyicons';
   speak: never;
