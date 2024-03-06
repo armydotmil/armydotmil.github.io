@@ -1,5 +1,5 @@
-.playlist *,
-.main .playlist * {
+.playlist .playlist-player *,
+.main .playlist .playlist-player * {
   @include box-sizing(content-box);
 }
 .playlist {
