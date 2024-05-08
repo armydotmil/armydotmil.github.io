@@ -4,11 +4,7 @@ env: dev
 
 exclude: ['Gruntfile.js', 'buildspec.yml', 'Gemfile', 'Gemfile.lock', 'package.json', 'package-lock.json', 'README.md', 'sftpCache.json' ,'node_modules']
     
-plugins:
-  - octopress-minify-html
-  
 sass:
-  implementation: sass-embedded
   sass_dir: _scss
   style: compressed
 
