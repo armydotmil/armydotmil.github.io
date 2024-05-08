@@ -81,8 +81,11 @@ class SubNav {
                 if (hashval === '') hashval = url;
                 if (history.pushState)
                     history.pushState(null, document.title, hashval);
-                if (typeof ga !== 'undefined')
-                    ga('send', 'event', 'subnav', 'click', page);
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'sub_nav_click', {
+                        'page_path': page
+                    });
+                }
                 _this.setMenu(hashLink);
                 if (subnavCheck) subnavCheck.checked = false;
             };
@@ -123,6 +126,11 @@ class SubNav {
             this.setMenu('empty');
         } else if (hashItem) {
             this.setMenu(hashItem);
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'sub_nav_loaded', {
+                    'page_path': location.pathname + location.search + hashItem
+                });
+            }
         } else {
             // initialize the first menuItem as selected
             this.setMenu(this.firstHash);
