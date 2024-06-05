@@ -92,8 +92,8 @@
       }
 
       .date {
-        color: map-get($army-branding, grey40);
-        font: 700 .813em $font-family;
+        color: map-get($army-branding, grey60);
+        font: 500 .813em $font-family;
         text-transform: uppercase;
         padding-bottom: 20px;
       }
@@ -141,7 +141,7 @@
       padding-left: 15px;
       padding-right: 15px;
 
-      .date { font: 700 .875em $font-family; }
+      .date { font: 500 .875em $font-family; }
 
       .title { font: 600 1.125em/1.4em $font-family; }
     }

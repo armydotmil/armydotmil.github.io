@@ -1,118 +1,118 @@
 <header>
-    <div class="navbar">
-      <div class="navbar-container">
-        <a href="javascript:;" class="nav-button menu-button" aria-expanded="false" role="button">
-            <span>MENU</span>
-        </a>
-        <a href="/" class="nav-army-star">
-            <span>HOME</span>
-        </a>
-        <a href="javascript:;" class="nav-button search-button" aria-expanded="false" role="button">
-            <span>SEARCH</span>
-        </a>
-      </div>
+  <div class="navbar">
+    <div class="navbar-container">
+      <a href="javascript:;" title="Main Menu" class="nav-button menu-button" aria-expanded="false" aria-controls="header-menu-window" role="button">
+        <span>MENU</span>
+      </a>
+      <a title="Home" href="/" class="nav-army-star">
+        <span>HOME</span>
+      </a>
+      <a href="javascript:;" title="Search" class="nav-button search-button" aria-expanded="false" aria-controls="header-search-window" role="button">
+        <span>SEARCH</span>
+      </a>
     </div>
-    <div class="nav-window menu-window">
-        <div class="menu-container">
-          <div class="list-container">
-              <ul role="menu">
-                  <li>
-                      <input type="checkbox" id="menu-item-about" />
-                      <label for="menu-item-about" role="menuitem">ABOUT<span></span></label>
-                      <ul>
-                        <li><a href="https://www.army.mil/about/">Who We Are</a></li>
-                        <li><a href="https://www.army.mil/organization/">Organization</a></li>
-                        <li><a href="https://www.army.mil/qualityoflife/">Quality of Life</a></li>
-                        <li><a href="https://www.army.mil/a-z/">Army A-Z</a></li>
-                      </ul>
-                  </li>
-                  <li>
-                      <input type="checkbox" id="menu-item-news" />
-                      <label for="menu-item-news" role="menuitem">NEWS<span></span></label>
-                      <ul>
-                        <li><a href="https://www.army.mil/news">Army Worldwide</a></li>
-                        <li><a href="https://www.army.mil/news/newsreleases">Press Releases</a></li>
-                        <li><a href="https://www.army.mil/standto">STAND-TO!</a></li>
-                        <li><a href="https://www.army.mil/soldiers">Soldier Features</a></li>
-                      </ul>
-                  </li>
-                  <li>
-                      <input type="checkbox" id="menu-item-media" />
-                      <label for="menu-item-media" role="menuitem">MULTIMEDIA<span></span></label>
-                      <ul>
-                        <li><a href="https://www.army.mil/photos">Photos</a></li>
-                        <li><a href="https://www.youtube.com/user/usarmy">Videos</a></li>
-                        <li><a href="https://www.army.mil/publications/">Publications</a></li>
-                      </ul>
-                  </li>
-              </ul>
-              <ul role="menu">
-                  <li>
-                      <input type="checkbox" id="menu-item-leaders" />
-                      <label for="menu-item-leaders" role="menuitem">LEADERS<span></span></label>
-                      <ul>
-                        <li><a href="https://www.army.mil/leaders/sa/">Secretary</a></li>
-                        <li><a href="https://www.army.mil/leaders/usa/">Under Secretary</a></li>
-                        <li><a href="https://www.army.mil/leaders/csa/">Chief of Staff</a></li>
-                        <li><a href="https://www.army.mil/leaders/vcsa/">Vice Chief of Staff</a></li>
-                        <li><a href="https://www.army.mil/leaders/sma/">Sergeant Major of the Army</a></li>
-                      </ul>
-                  </li>
-                  <li>
-                      <input type="checkbox" id="menu-item-features" />
-                      <label for="menu-item-features" role="menuitem">FEATURES<span></span></label>
-                      <ul>
-                        <li><a href="https://www.army.mil/features/#valor">Valor</a></li>
-                        <li><a href="https://www.army.mil/features/#events">Events</a></li>
-                        <li><a href="https://www.army.mil/features/#heritage">Heritage</a></li>
-                        <li><a href="https://www.army.mil/features/#army101">Army 101</a></li>
-                      </ul>
-                  </li>
-                  <li class="social">
-                    <ul>
-                      <li class="social-button">
-                        <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/USArmy" title="Official U.S. Army Facebook"><i class="armyicons-sm_facebook"></i></a>
-                      </li>
-                      <li class="social-button">
-                        <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/USArmy" title="Official U.S. Army Twitter"><i class="armyicons-sm_x"></i></a>
-                      </li>
-                      <li class="social-button">
-                        <a rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/USarmy" title="Official U.S. Army Youtube"><i class="armyicons-sm_youtube"></i></a>
-                      </li>
-                      <li class="social-button">
-                        <a rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/usarmy/" title="Official U.S. Army Instagram"><i class="armyicons-sm_instagram"></i></a>
-                      </li>
-                      <li class="social-button">
-                        <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/company/us-army" title="Official U.S. Army Linkedin"><i class="armyicons-sm_linkedin2"></i></a>
-                      </li>
-                    </ul>
-                  </li>
-              </ul>
-          </div>
-          <ul class="quicklinks">
-            <li><a href="https://www.army.mil/newsroom">Newsroom</a></li>
-            <li><a href="https://www.army.mil/publicaffairs/">Public Affairs</a></li>
-            <li><a href="https://www.army.mil/socialmedia/">SOCIAL MEDIA Guide</a></li>
-            <li><a href="https://www.army.mil/join/">JOIN</a></li>
-            <li><a href="https://www.army.mil/faq/">FAQs</a></li>
-            <li><a href="https://icamportal.us.army.mil/welcome/">AKO</a></li>
-            <li><a href="https://www.army.mil/contact">CONTACT US</a></li>
-          </ul>
+  </div>
+  <div class="nav-window menu-window" id="header-menu-window">
+    <div class="menu-container">
+      <form class="list-container">
+        <ul role="menu">
+          <li role="presentation">
+            <input role="menuitemcheckbox" type="checkbox" id="header-menu-item-about" name="header-menu-item-about" value="About" checked="true" />
+            <label for="header-menu-item-about">About<span></span></label>
+            <ul role="menu">
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/about/">Who We Are</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/organization/">Organization</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/qualityoflife/">Quality of Life</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/a-z/">Army A-Z</a></li>
+            </ul>
+          </li>
+          <li role="presentation">
+            <input role="menuitemcheckbox" type="checkbox" id="header-menu-item-news" name="header-menu-item-news" value="News" checked="true" />
+            <label for="header-menu-item-news">News<span></span></label>
+            <ul role="menu">
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/news">Army Worldwide</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/news/newsreleases">Press Releases</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/standto">STAND-TO!</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/soldiers">Soldier Features</a></li>
+            </ul>
+          </li>
+          <li role="presentation">
+            <input role="menuitemcheckbox" type="checkbox" id="header-menu-item-media" name="header-menu-item-media" value="Multimedia" checked="true" />
+            <label for="header-menu-item-media">Multimedia<span></span></label>
+            <ul role="menu">
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/photos">Photos</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.youtube.com/user/usarmy">Videos</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/publications/">Publications</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul role="menu">
+          <li role="presentation">
+            <input role="menuitemcheckbox" type="checkbox" id="header-menu-item-leaders" name="header-menu-item-leaders" value="Leaders" checked="true" />
+            <label for="header-menu-item-leaders">Leaders<span></span></label>
+            <ul role="menu">
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/leaders/sa/">Secretary</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/leaders/usa/">Under Secretary</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/leaders/csa/">Chief of Staff</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/leaders/vcsa/">Vice Chief of Staff</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/leaders/sma/">Sergeant Major of the Army</a></li>
+            </ul>
+          </li>
+          <li role="presentation">
+            <input role="menuitemcheckbox" type="checkbox" id="header-menu-item-features" name="header-menu-item-features" value="Features" checked="true" />
+            <label for="header-menu-item-features">Features<span></span></label>
+            <ul role="menu">
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/features/#valor">Valor</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/features/#events">Events</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/features/#heritage">Heritage</a></li>
+              <li role="presentation"><a role="menuitem" href="https://www.army.mil/features/#army101">Army 101</a></li>
+            </ul>
+          </li>
+          <li role="presentation" class="social">
+            <ul role="presentation">
+              <li role="presentation" class="social-button">
+                <a role="menuitem" rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/USArmy" title="Official U.S. Army Facebook"><i class="armyicons-sm_facebook"></i></a>
+              </li>
+              <li role="presentation" class="social-button">
+                <a role="menuitem" rel="noopener noreferrer" target="_blank" href="https://twitter.com/USArmy" title="Official U.S. Army Twitter"><i class="armyicons-sm_x"></i></a>
+              </li>
+              <li role="presentation" class="social-button">
+                <a role="menuitem" rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/USarmy" title="Official U.S. Army Youtube"><i class="armyicons-sm_youtube"></i></a>
+              </li>
+              <li role="presentation" class="social-button">
+                <a role="menuitem" rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/usarmy/" title="Official U.S. Army Instagram"><i class="armyicons-sm_instagram"></i></a>
+              </li>
+              <li role="presentation" class="social-button">
+                <a role="menuitem" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/company/us-army" title="Official U.S. Army Linkedin"><i class="armyicons-sm_linkedin2"></i></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </form>
+      <ul role="menu" class="quicklinks">
+        <li role="presentation"><a role="menuitem" href="https://www.army.mil/newsroom">Newsroom</a></li>
+        <li role="presentation"><a role="menuitem" href="https://www.army.mil/publicaffairs/">Public Affairs</a></li>
+        <li role="presentation"><a role="menuitem" href="https://www.army.mil/socialmedia/">Social Media Guide</a></li>
+        <li role="presentation"><a role="menuitem" href="https://www.army.mil/join/">Join</a></li>
+        <li role="presentation"><a role="menuitem" href="https://www.army.mil/faq/">FAQs</a></li>
+        <li role="presentation"><a role="menuitem" href="https://icamportal.us.army.mil/welcome/">AKO</a></li>
+        <li role="presentation"><a role="menuitem" href="https://www.army.mil/contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="nav-window search-window" id="header-search-window">
+    <div class="search-form-container">
+      <form accept-charset="UTF-8" action="//search.usa.gov/search" id="search_form" method="get">
+        <div id="preload-01">
+          <input name="utf8" type="hidden" value="&#x2713;" />
+          <input id="affiliate" name="affiliate" type="hidden" value="www.army.mil" />
         </div>
+        <label for="usagov-search-query">Search news, photos and videos on Army.mil</label>
+        <input autocomplete="off" placeholder="Search" class="usagov-search-autocomplete" id="usagov-search-query" name="query" type="text" />
+        <button aria-label="Search" name="commit" type="submit" value="" class="search-submit-button">
+          <i class="armyicons-search"></i>
+        </button>
+      </form>
     </div>
-    <div class="nav-window search-window">
-        <div class="search-form-container">
-            <form accept-charset="UTF-8" action="//search.usa.gov/search" id="search_form" method="get">
-                <div id="preload-01">
-                  <input name="utf8" type="hidden" value="&#x2713;" />
-                  <input id="affiliate" name="affiliate" type="hidden" value="www.army.mil" />
-                </div>
-                <label for="usagov-search-query">Search news, photos and videos on Army.mil</label>
-                <input autocomplete="off" placeholder="Search" class="usagov-search-autocomplete" id="usagov-search-query" name="query" type="text" />
-                <button aria-label="Search" name="commit" type="submit" value="" class="search-submit-button">
-                  <i class="armyicons-search"></i>
-                </button>
-            </form>
-        </div>
-    </div>
+  </div>
 </header>

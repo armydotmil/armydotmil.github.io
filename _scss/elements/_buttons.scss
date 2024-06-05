@@ -64,108 +64,6 @@
   }
 }
 
-.nav-button {
-  border-style: solid;
-  border-color: map-get($army-branding, grey80);
-  color: map-get($army-branding, white);
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  line-height: 23px;
-  outline: 0 none;
-  padding: 17px 20px 15px;
-  position: absolute;
-  text-decoration: none;
-  text-transform: uppercase;
-
-  span {
-    display: none;
-  }
-
-  &.menu-button {
-    border-width: 0 1px 0 0;
-    left: 0;
-
-    &::before {
-      content: "\e96d";
-      font-family: 'armyicons';
-      color: map-get($army-branding, white);
-      font-size: 32px;
-      -webkit-font-smoothing: none;
-      -moz-osx-font-smoothing: grayscale;
-      font-weight: normal;
-      position: relative;
-      line-height: 7px;
-      top: 7px;
-    }
-  }
-
-  &.search-button {
-    border-width: 0 0 0 1px;
-    right: 0;
-
-    &::after {
-      content: "\e96e";
-      font-family: 'armyicons';
-      color: map-get($army-branding, white);
-      font-size: 28px;
-      font-weight: normal;
-      position: relative;
-      line-height: 7px;
-      top: 7px;
-    }
-  }
-
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-    &.menu-button, &.search-button {
-      border: none;
-      span {
-        display: inline;
-      }
-    }
-
-    &::before {
-      margin-right: 10px;
-    }
-    &::after {
-      margin-left: 10px;
-    }
-    &.close-button.menu-button::before {
-      margin-right: 10px;
-    }
-    &.close-button.search-button::after {
-      margin-left: 10px;
-    }
-  }
-
-  &.close-button {
-    &.black-close span::before,
-    &.black-close span::after {
-      color: map-get($army-branding, black);
-    }
-  }
-
-  &.close-button {
-    &.menu-button::before {
-      content: "\e96f";
-      font-size: 26px;
-      top: 5px;
-      left: 0px;
-      width: 33px;
-      display: inline-block;
-      text-align: center;
-    }
-    &.search-button::after {
-      content: "\e96f";
-      font-size: 26px;
-      top: 5px;
-      width: 29px;
-      display: inline-block;
-      text-align: center;
-    }
-  }
-}
-
 .notification-button {
   @extend .nav-button;
 }
@@ -424,10 +322,10 @@ a.directional-arrow {
     &::before {
       content: "\e90c";
     }
-    color: map-get($army-branding, grey50);
+    color: map-get($army-branding, grey60);
   }
 
   &.gray-right {
-    color: map-get($army-branding, grey50);
+    color: map-get($army-branding, grey60);
   }
 }
