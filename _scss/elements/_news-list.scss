@@ -63,10 +63,10 @@
       }
 
       p.sections {
-        color: map-get($army-branding, grey40);
+        color: map-get($army-branding, grey60);
 
         &:before {
-          color: map-get($army-branding, grey40);
+          color: map-get($army-branding, grey60);
           content: "|";
           display: inline-block;
           font-weight: 300;
@@ -74,7 +74,7 @@
         }
 
         a {
-          color: map-get($army-branding, grey40);
+          color: map-get($army-branding, grey60);
           font-weight: 400;
 
           &:after {
