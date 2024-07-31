@@ -17,6 +17,8 @@
       
       a {
         padding-right: 23px;
+        color: map-get($army-branding, armyblack);
+        font: 600 1em/1.3em $font-family;
 
         .view-more-arrow-sm { display: none; }
 
