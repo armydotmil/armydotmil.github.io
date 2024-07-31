@@ -55,7 +55,7 @@ form {
     margin: 0 0 25px;
     
     &.hidden {
-      @extend .hidden;
+      @extend .hidden !optional;
       
       display: none;
       margin: 0;
