@@ -65,7 +65,7 @@
 }
 
 .notification-button {
-  @extend .nav-button;
+  @extend .nav-button !optional;
 }
 
 .view-more-arrow-sm {
