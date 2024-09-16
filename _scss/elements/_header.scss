@@ -29,18 +29,18 @@ body.menu-open {
   width: 100%;
 
   @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-    overflow-y: scroll;
+    overflow-y: auto;
 
     .navbar { overflow: hidden; }
 
     header {
       .navbar {
         height: $header-height + $header-border-width;
-        overflow-y: scroll;
+        overflow-y: auto;
       }
 
       .menu-window {
-        overflow-y: scroll;
+        overflow-y: auto;
         width: 100%;
       }
     }
@@ -169,7 +169,7 @@ header {
 
     &.menu-window {
       height: 100%;
-      overflow: scroll;
+      overflow: auto;
       -webkit-overflow-scrolling:touch;
     }
 
