@@ -1,0 +1,71 @@
+/* same variables as global/rv7/brand/armybrand.css without other styles */
+/* COLORS */
+
+:root {
+
+      /* OFFICIAL BRAND PRIMARY */ 
+
+    --armygold: #FFCC01;
+    --armyblack: #221F20;
+    --armygreen: #2F372F;
+    --armywhite: #FFFFFF;
+
+    /* BRAND SECONDARY */ 
+
+    --armyaccenttan: #F1E4C7;
+    --armyaccentfield01: #727365;
+    --armyaccentfield02: #BFB8A6; 
+    --armyaccentgrey01: #565557;
+    --armyaccentgrey02: #D5D5D7;
+
+    /* ARMY.MIL INTERACTIVE */
+
+    --armylink: #0071bb;
+    --core-darkblue: #00558c;
+    --core-lightblue: #a6cde7;
+    --core-lighterblue: #d9eaf5;
+    --core-darkgold: #f9b21b;
+    --core-lightgold: #ffeab3;
+    --core-lightergold: #fff6df;
+    --core-darkgreen: #007326;
+    --core-green: #009933;
+    --core-lightgreen: #a6dbb8;
+    --core-lightergreen: #d9f0e1;
+    --core-darkred: #990000;
+    --core-red: #cc0000;
+    --core-lightred: #eda6a6;
+    --core-lighterred: #f7d9d9;
+
+
+     /* ARMY.MIL GREY ACCENTS */ 
+
+    --greyscaleaccent100: #030000;
+    --greyscaleaccent90: #1A1A1A;
+    --greyscaleaccent80: #333333;
+    --greyscaleaccent70: #4C4C4C;
+    --greyscaleaccent60: #666666;
+    --greyscaleaccent50: #7F7F7F;
+    --greyscaleaccent40: #999999;
+    --greyscaleaccent30: #B3B3B3;
+    --greyscaleaccent20: #CCCCCC;
+    --greyscaleaccent10: #E5E5E5;
+
+     /* ARMY SPECIAL USE */ 
+
+    --armyhighlightorange: #F16521;
+    --armyhighlightgreen: #2Daa27;
+    --armyhighlightred: #CF0000;
+
+    /* MOH COLORS */ 	
+	  
+	  --mohblue: #3f6bb3;
+	  --mohdarkblue: #32548d;
+	  --mohgreen: #c3b58f;
+	  --mohpostnam: #22396b;
+	  --mohvietnam: #555847;
+	  --mohww1: #665a40;
+	  --mohww2: #e4e4e4;
+	  --mohkorea: #c4c0b2;
+	  --mohcivilwar: #394d68;
+	  --mohgold: #bfc79d;
+}
