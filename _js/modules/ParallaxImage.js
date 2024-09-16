@@ -88,9 +88,6 @@ class FullWidthParallax {
             imgContPos = this.topMargin - viewPos.top,
             imgTop = Math.round(imgContPos / 2),
             minView = this.winH - viewPos.top,
-            pPos,
-            minPos,
-            minTop = this.contH - this.imgH,
             percent;
 
         // do nothing if it's a smaller window or not in view
@@ -103,10 +100,6 @@ class FullWidthParallax {
                 // apply percent to top position of image
                 // (based on min top value)
                 imgTop = percent * (this.contH - this.imgH) / 100;
-            } else if (this.isBanner) {
-                pPos = window.pageYOffset || document.documentElement.scrollTop;
-                minPos = this.topMargin - (pPos + viewPos.top);
-                imgTop -= Math.round(minPos / 2);
             }
             imgTop += this.centered;
             imgTop = (imgTop < this.centered && this.isBanner) ?
