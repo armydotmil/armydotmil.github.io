@@ -1,9 +1,9 @@
-ARG RUBY_VERSION=3.1
+ARG RUBY_VERSION=3.3
 FROM ruby:$RUBY_VERSION-slim
 
 # Lets install all dependencies
-# including git and Bundler 2.1.4
-ENV BUNDLER_VERSION 2.1.4
+# including git and Bundler 2.5.10
+ENV BUNDLER_VERSION 2.5.10
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
@@ -11,7 +11,7 @@ RUN apt-get update && \
     git \
     locales \
     nodejs \
-    && gem install bundler:2.1.4 \
+    && gem install bundler:2.5.10 \
     && bundle config --global silence_root_warning 1
 
 RUN \
