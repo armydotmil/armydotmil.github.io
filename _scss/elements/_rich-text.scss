@@ -19,64 +19,59 @@
     }
   }
 
-  // Fake ul nested list
+  // Quill 1 and 2 styles for unordered list
+  ol li[data-list=bullet],
   ul li {
     list-style-type: disc;
     margin-left: 1.2em;
     padding-left: 0.8em;
 
+    >.ql-ui {
+      display: none;
+    }
     &::before {
       display: none;
     }
     &.ql-indent-1 {
       list-style-type: circle;
       margin-left: 3.2em;
-      padding-left: 0.8em;
     }
     &.ql-indent-2 {
       list-style-type: square;
       margin-left: 5.2em;
-      padding-left: 0.8em;
     }
     &.ql-indent-3 {
       list-style-type: disc;
       margin-left: 7.2em;
-      padding-left: 0.8em;
     }
     &.ql-indent-4 {
       list-style-type: circle;
       margin-left: 9.2em;
-      padding-left: 0.8em;
     }
     &.ql-indent-5 {
       list-style-type: square;
       margin-left: 11.2em;
-      padding-left: 0.8em;
     }
     &.ql-indent-6 {
       list-style-type: disc;
       margin-left: 13.2em;
-      padding-left: 0.8em;
     }
     &.ql-indent-7 {
       list-style-type: circle;
       margin-left: 15.2em;
-      padding-left: 0.8em;
     }
     &.ql-indent-8 {
       list-style-type: square;
       margin-left: 17.2em;
-      padding-left: 0.8em;
     }
     &.ql-indent-9 {
       list-style-type: disc;
       margin-left: 19.2em;
-      padding-left: 0.8em;
     }
   }
 
-  // Fake ol nested list
-  ol li {
+  // Quill 1 styles for ordered list
+  ol li:not([data-list=bullet], [data-list=ordered]) {
     list-style-type: none;
     counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
     counter-increment: list-0;
@@ -160,6 +155,99 @@
       counter-increment: list-9;
       padding-left: 18em;
       &:before {
+        content: counter(list-9, decimal) '. ';
+      }
+    }
+  }
+  
+  // Quill 2 styles for ordered list
+  ol li[data-list=ordered] {
+    list-style-type: none;
+    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+    counter-increment: list-0;
+    margin-left: 0;
+    padding-left: 0;
+    >.ql-ui {
+      position: relative;
+      &:before {
+        display: inline-block;
+        white-space: nowrap;
+        width: 1.8em;
+        margin-left: 0;
+        margin-right: 0.2em;
+        text-align: left;
+        padding-left: 0;
+        content: counter(list-0, decimal) '. ';
+      }
+    }
+    &.ql-indent-1 {
+      counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+      counter-increment: list-1;
+      padding-left: 2em;
+      >.ql-ui:before {
+        content: counter(list-1, lower-alpha) '. ';
+      }
+    }
+    &.ql-indent-2 {
+      counter-reset: list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+      counter-increment: list-2;
+      padding-left: 4em;
+      >.ql-ui:before {
+        content: counter(list-2, lower-roman) '. ';
+      }
+    }
+    &.ql-indent-3 {
+      counter-reset: list-4 list-5 list-6 list-7 list-8 list-9;
+      counter-increment: list-3;
+      padding-left: 6em;
+      >.ql-ui:before {
+        content: counter(list-3, decimal) '. ';
+      }
+    }
+    &.ql-indent-4 {
+      counter-reset: list-5 list-6 list-7 list-8 list-9;
+      counter-increment: list-4;
+      padding-left: 8em;
+      >.ql-ui:before {
+        content: counter(list-4, lower-alpha) '. ';
+      }
+    }
+    &.ql-indent-5 {
+      counter-reset: list-6 list-7 list-8 list-9;
+      counter-increment: list-5;
+      padding-left: 10em;
+      >.ql-ui:before {
+        content: counter(list-5, lower-roman) '. ';
+      }
+    }
+    &.ql-indent-6 {
+      counter-reset: list-7 list-8 list-9;
+      counter-increment: list-6;
+      padding-left: 12em;
+      >.ql-ui:before {
+        content: counter(list-6, decimal) '. ';
+      }
+    }
+    &.ql-indent-7 {
+      counter-reset: list-8 list-9;
+      counter-increment: list-7;
+      padding-left: 14em;
+      >.ql-ui:before {
+        content: counter(list-7, lower-alpha) '. ';
+      }
+    }
+    &.ql-indent-8 {
+      counter-reset: list-9;
+      counter-increment: list-8;
+      padding-left: 16em;
+      >.ql-ui:before {
+        content: counter(list-8, lower-roman) '. ';
+      }
+    }
+    &.ql-indent-9 {
+      counter-increment: list-9;
+      padding-left: 18em;
+      >.ql-ui:before {
         content: counter(list-9, decimal) '. ';
       }
     }
