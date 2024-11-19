@@ -1,61 +1,69 @@
+@use "colors";
+@use "variables";
+@use "mixins/breakpoints";
+@use "mixins/header-underline";
+@use "custom-mixins/custom-transition";
+
+@use "sass:map";
+
 .army-font {
-  font: normal 1em/1.625 $font-family;
-  color: map-get($army-branding, armyblack);
+  font: normal 1em/1.625 variables.$font-family;
+  color: map.get(colors.$army-branding, armyblack);
 }
 
 %h1 {
-  font: 600 1.875em/1.333 $font-family;
+  font: 600 1.875em/1.333 variables.$font-family;
 
-  @include breakpoints(nav) {
-    font: 600 2.25em/1.333 $font-family;
+  @include breakpoints.breakpoints(nav) {
+    font: 600 2.25em/1.333 variables.$font-family;
   }
 
-  @include breakpoints(tablet lg_tablet) {
-    font: 600 2.5em/1.25 $font-family;
+  @include breakpoints.breakpoints(tablet lg_tablet) {
+    font: 600 2.5em/1.25 variables.$font-family;
   }
 
-  @include breakpoints(sm_desktop desktop large really_big) {
-    font: 600 3em/1.25 $font-family;
+  @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
+    font: 600 3em/1.25 variables.$font-family;
   }
 }
 
 %h2 {
-  font: 700 1.875em/1.333 $font-family;
+  font: 700 1.875em/1.333 variables.$font-family;
 
-  @include breakpoints(tablet lg_tablet) {
-    font: 700 2.25em/1.333 $font-family;
+  @include breakpoints.breakpoints(tablet lg_tablet) {
+    font: 700 2.25em/1.333 variables.$font-family;
   }
 
-  @include breakpoints(sm_desktop desktop large really_big) {
-    font: 700 2.5em/1.25 $font-family;
+  @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
+    font: 700 2.5em/1.25 variables.$font-family;
   }
 }
 
 %h3 {
-  font: 700 1.5em/1.5 $font-family;
+  font: 700 1.5em/1.5 variables.$font-family;
 
-  @include breakpoints(tablet lg_tablet) {
-    font: 700 1.875em/1.333 $font-family;
+  @include breakpoints.breakpoints(tablet lg_tablet) {
+    font: 700 1.875em/1.333 variables.$font-family;
   }
 
-  @include breakpoints(sm_desktop desktop large really_big) {
-    font: 700 2.25em/1.333 $font-family;
+  @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
+    font: 700 2.25em/1.333 variables.$font-family;
   }
 }
 
 %h4 {
-  font: 700 1.313em/1.4 $font-family;
+  font: 700 1.313em/1.4 variables.$font-family;
   
-  @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
-    font: 700 1.5em/1.5 $font-family;
+  @include breakpoints.breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+    font: 700 1.5em/1.5 variables.$font-family;
   }
 }
 
 %h5 {
-  font: 700 1em/1.625 $font-family;
+  font: 700 1em/1.625 variables.$font-family;
   
-  @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
-    font: 700 1.125em/1.4 $font-family;
+  @include breakpoints.breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+    font: 700 1.125em/1.4 variables.$font-family;
   }
 }
 
@@ -74,11 +82,11 @@ h4 {
   
   &.subhead { margin-top: 0; }
   
-  @include header-underline(gold);
+  @include header-underline.header-underline(gold);
 }
 
 // mobile first approach
-@include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+@include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
   h4 {
     margin: 60px 0 54px;
   }
@@ -94,32 +102,32 @@ h2,
 h3,
 h4,
 h5 {
-  @include custom-transition(font-size .25s ease);
+  @include custom-transition.custom-transition(font-size .25s ease);
   text-align: center;
 }
 
-@include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+@include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
   h1, h2, h3, h4, h5 { text-align: left; }
 }
 
 p {
-  font: 400 1em/1.625 $font-family;
+  font: 400 1em/1.625 variables.$font-family;
   
   &.large { @extend %h5; }
   
   &.small {
-    font: 400 .813em/1.5 $font-family;
+    font: 400 .813em/1.5 variables.$font-family;
     
-    @include breakpoints(lg_tablet tablet sm_desktop desktop large really_big) {
-      font: 400 .875em/1.5 $font-family;
+    @include breakpoints.breakpoints(lg_tablet tablet sm_desktop desktop large really_big) {
+      font: 400 .875em/1.5 variables.$font-family;
     }
   }
   
-  &.author { font: 400 .875 $font-family; }
+  &.author { font: 400 .875 variables.$font-family; }
 }
 
 a {
-  color: map-get($army-branding, armyblack);
+  color: map.get(colors.$army-branding, armyblack);
   font-weight: 600;
   text-decoration: none;
   

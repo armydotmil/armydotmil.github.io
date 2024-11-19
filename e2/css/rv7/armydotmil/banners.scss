@@ -2,13 +2,15 @@
 # Front matter comment to ensure Jekyll properly reads file.
 ---
 
-@import "all";
+@use "all";
+@use "base/mixins/breakpoints";
+@use "base/colors";
 
 section {
   .btn {
     text-align: left;
 
-    @include breakpoints(mobile nav tablet) {
+    @include breakpoints.breakpoints(mobile nav tablet) {
       text-align: center;
     }
   }
@@ -24,8 +26,8 @@ section {
 
       .container .inner-container {
         h1 {
-          border-bottom: 1px solid map-get($army-branding, white);
-          color: map-get($army-branding, white);
+          border-bottom: 1px solid map-get(colors.$army-branding, white);
+          color: map-get(colors.$army-branding, white);
           display: inline-block;
           margin: 0 0 15px;
           padding: 0 0 15px;
@@ -42,9 +44,9 @@ section {
         }
 
         h2 {
-          color: map-get($army-branding, gold);
+          color: map-get(colors.$army-branding, gold);
           margin-bottom: 15px;
-          text-shadow: 0 0 6px map-get($army-branding, armyblack);
+          text-shadow: 0 0 6px map-get(colors.$army-branding, armyblack);
         }
 
         ul.social-links {
@@ -56,11 +58,11 @@ section {
         .left-container {
           vertical-align: bottom;
 
-          @include breakpoints(nav tablet lg_tablet sm_desktop desktop large) {
+          @include breakpoints.breakpoints(nav tablet lg_tablet sm_desktop desktop large) {
             height: 330px;
           }
 
-          @include breakpoints(really_big) {
+          @include breakpoints.breakpoints(really_big) {
             height: 430px;
           }
 
@@ -130,7 +132,7 @@ section {
       }
 
       // 481 - 699
-      @include breakpoints(nav) {
+      @include breakpoints.breakpoints(nav) {
         .inner-container {
           h1,
           h2,

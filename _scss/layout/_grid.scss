@@ -1,13 +1,16 @@
-
+@use "../base/variables";
+@use "../base/mixins/box-model";
+@use "../base/mixins/breakpoints";
+@use "grid-system";
 
 *,
 *:after,
 *:before {
-  @include box-sizing(border-box);
+  @include box-model.box-sizing(border-box);
 }
 
 .container {
-  @include container-fixed();
+  @include grid-system.container-fixed();
   margin: 50px auto;
   overflow: hidden;
   
@@ -17,21 +20,21 @@
   }
   
   // 700 - 768
-  @include breakpoints(tablet) {
+  @include breakpoints.breakpoints(tablet) {
     margin: 60px auto;
-    max-width: $container-sm;
+    max-width: variables.$container-sm;
   }
   
   // 769 - 992
-  @include breakpoints(lg_tablet) {
+  @include breakpoints.breakpoints(lg_tablet) {
     margin: 60px auto;
-    max-width: $container-md;
+    max-width: variables.$container-md;
   }
   
   // 993+
-  @include breakpoints(sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
     margin: 100px auto;
-    max-width: $container + $grid-gutter-width; // border-box includes padding in the width
+    max-width: variables.$container + variables.$grid-gutter-width; // border-box includes padding in the width
     
     .inner-container { padding: 0 15px; }
   }

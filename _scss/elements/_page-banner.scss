@@ -1,6 +1,14 @@
+@use "../base/colors";
+@use "../base/variables";
+@use "../base/custom-mixins/custom-linear-gradient";
+@use "../base/mixins/header-underline";
+@use "../base/mixins/breakpoints";
+@use "../base/mixins/opacity";
+
+@use "sass:map";
 
 .page-banner {
-  background-color: map-get($army-branding, armyblack);
+  background-color: map.get(colors.$army-branding, armyblack);
   color: #fff;
   overflow: hidden;
   position: relative;
@@ -15,7 +23,7 @@
 
       .left-container {
         text-align: center; 
-        text-shadow: 2px 2px 3px map-get($army-branding, armyblack);
+        text-shadow: 2px 2px 3px map.get(colors.$army-branding, armyblack);
       }
 
       .max-width-container {
@@ -24,25 +32,25 @@
       }
 
       h1 {
-        color: map-get($army-branding, gold);
-        font: 700 1.875em/1 $font-family;
+        color: map.get(colors.$army-branding, gold);
+        font: 700 1.875em/1 variables.$font-family;
         text-transform: uppercase;
         padding-bottom: 3px;
 
         a {
-          color: map-get($army-branding, gold);
+          color: map.get(colors.$army-branding, gold);
           font-weight: 700;
           text-decoration: none;
         }
       }
 
       h2 {
-        color: map-get($army-branding, white);
-        font: 400 1.125em $font-family;
+        color: map.get(colors.$army-branding, white);
+        font: 400 1.125em variables.$font-family;
         margin: 0;
 
         a {
-          color: map-get($army-branding, white);
+          color: map.get(colors.$army-branding, white);
           font-weight: 400;
           text-decoration: none;
         }
@@ -107,16 +115,16 @@
     }
 
     // 769 - 992
-    @include breakpoints(lg_tablet) {
-      max-width: $container-md;
+    @include breakpoints.breakpoints(lg_tablet) {
+      max-width: variables.$container-md;
     }
     
     // 700 - 768
-    @include breakpoints(tablet) {
-      max-width: $container-sm;
+    @include breakpoints.breakpoints(tablet) {
+      max-width: variables.$container-sm;
     }
 
-    @include breakpoints(mobile) {
+    @include breakpoints.breakpoints(mobile) {
       br { display: none; }
     }
 
@@ -142,27 +150,27 @@
   }
 
   .overlay-effect {
-    @include custom-linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(35, 31, 32, 0.5) 0px, rgba(35, 31, 32, 0.8) 50%, rgba(35, 31, 32, 0.5));
+    @include custom-linear-gradient.custom-linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(35, 31, 32, 0.5) 0px, rgba(35, 31, 32, 0.8) 50%, rgba(35, 31, 32, 0.5));
     height: 100%;
     position: absolute;
     width: 100%;
     z-index: 2;
 
     &::after {
-      background-image: url($e2path + "/images/rv7/banners/halftone_768.png");
+      background-image: url(variables.$e2path + "/images/rv7/banners/halftone_768.png");
       background-position: center center;
       background-size: cover;
       content: "";
       height: 100%;
-      @include opacity(0.25);
+      @include opacity.opacity(0.25);
       position: absolute;
       width: 100%;
 
-      @include breakpoints(lg_tablet sm_desktop desktop) {
-        background-image: url($e2path + "/images/rv7/banners/halftone_1200.png");
+      @include breakpoints.breakpoints(lg_tablet sm_desktop desktop) {
+        background-image: url(variables.$e2path + "/images/rv7/banners/halftone_1200.png");
       }
-      @include breakpoints(large really_big) {
-        background-image: url($e2path + "/images/rv7/banners/halftone_2500.png");
+      @include breakpoints.breakpoints(large really_big) {
+        background-image: url(variables.$e2path + "/images/rv7/banners/halftone_2500.png");
       }
     }
   }
@@ -181,9 +189,9 @@
       /* left/right side gradient */
       &::before {
         background: transparent; /* For browsers that do not support gradients */
-        @include custom-linear-gradient(to left, transparent 40%, #000);
+        @include custom-linear-gradient.custom-linear-gradient(to left, transparent 40%, #000);
 
-        @include breakpoints(mobile) {
+        @include breakpoints.breakpoints(mobile) {
           display: none;
         }
       }
@@ -194,13 +202,13 @@
     .container .inner-container {
 
       .left-container {
-        @include breakpoints(nav) {
+        @include breakpoints.breakpoints(nav) {
           height: 200px;
         }
-        @include breakpoints(tablet lg_tablet sm_desktop desktop large) {
+        @include breakpoints.breakpoints(tablet lg_tablet sm_desktop desktop large) {
           height: 250px;
         }
-        @include breakpoints(really_big) {
+        @include breakpoints.breakpoints(really_big) {
           height: 330px;
         }
         @media (min-width: 2000px) {
@@ -216,8 +224,8 @@
     }
     .container .inner-container {
       h1 {
-        @include header-underline(gold);
-        font: 700 1.125em/1.4 $font-family;
+        @include header-underline.header-underline(gold);
+        font: 700 1.125em/1.4 variables.$font-family;
         margin: 0 0 15px;
 
         &::after {
@@ -227,7 +235,7 @@
       }
 
       h2 { 
-        font: 700 1.5em/1.27 $font-family;
+        font: 700 1.5em/1.27 variables.$font-family;
 
         a {
           font-weight: 700;
@@ -238,7 +246,7 @@
       h1,
       h2 { text-align: center; }
 
-      @include breakpoints(mobile) {
+      @include breakpoints.breakpoints(mobile) {
         display: table;
         width: 100%;
 
@@ -248,7 +256,7 @@
           vertical-align: middle;
         }
       }
-      @include breakpoints(nav tablet) {
+      @include breakpoints.breakpoints(nav tablet) {
         h1 {
           font-size: 1.313em;
           margin: 0 0 20px;
@@ -256,7 +264,7 @@
         }
         h2 { font-size: 1.875em; }
       }
-      @include breakpoints(lg_tablet sm_desktop desktop) {
+      @include breakpoints.breakpoints(lg_tablet sm_desktop desktop) {
         h1 {
           font-size: 1.5em;
           line-height: 1.5em;
@@ -268,7 +276,7 @@
         h2 { font-size: 2.25em; }
       }
 
-      @include breakpoints(large really_big) {
+      @include breakpoints.breakpoints(large really_big) {
         h1 {
           font-size: 1.5em;
           line-height: 1.5em;

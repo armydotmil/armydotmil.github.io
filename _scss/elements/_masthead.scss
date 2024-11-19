@@ -1,7 +1,10 @@
+@use "../base/colors";
+
+@use "sass:map";
 .main-intro {
-  background: $secondary-background-color;
+  background: colors.$secondary-background-color;
   position: relative;
   z-index: 1;
   
-  .container h2 { color: map-get($army-branding, gold); }
+  .container h2 { color: map.get(colors.$army-branding, gold); }
 }

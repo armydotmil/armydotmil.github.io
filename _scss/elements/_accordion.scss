@@ -1,5 +1,12 @@
+@use "../base/bodytext";
+@use "../base/colors";
+@use "../base/variables";
+@use "../base/custom-mixins/custom-transition";
+@use "../base/mixins/breakpoints";
+
+@use "sass:map";
 .accordion {
-  @include bodytext-list();
+  @include bodytext.bodytext-list();
   
   ul li > ul > li a,
   ul li > ol > li a {
@@ -11,7 +18,7 @@
   input[type=checkbox] { display: none; }
   
   > a {
-    font: 600 1em/1.375em $font-family;
+    font: 600 1em/1.375em variables.$font-family;
     text-decoration: none;
     
     &:hover { text-decoration: none; }
@@ -19,12 +26,12 @@
   
   > ul {
     > li {
-      border-top: 1px solid map-get($army-branding, grey30);
+      border-top: 1px solid map.get(colors.$army-branding, grey30);
       list-style-type: none;
       margin: 0;
       padding: 0;
 
-      &:last-child { border-bottom: 1px solid map-get($army-branding, grey30); }
+      &:last-child { border-bottom: 1px solid map.get(colors.$army-branding, grey30); }
       
       > ul,
       > div {
@@ -41,9 +48,9 @@
         -webkit-animation-fill-mode: both;
         -webkit-animation-duration: 0.5s;
         
-        @include custom-transition(padding 0.5s ease);
+        @include custom-transition.custom-transition(padding 0.5s ease);
         
-        @include breakpoints(mobile) {
+        @include breakpoints.breakpoints(mobile) {
           padding-left: 10px;
           padding-right: 10px;
         }
@@ -52,13 +59,13 @@
       > label {
         cursor: pointer;
         display: block;
-        font: 600 1.125em $font-family;
+        font: 600 1.125em variables.$font-family;
         padding: 28px 45px 23px 5px;
         position: relative;
         top: 0;
         
         span {
-          background: map-get($army-branding, gold);
+          background: map.get(colors.$army-branding, gold);
           border-radius: 50%;
           display: inline-block;
           height: 34px;
@@ -69,10 +76,10 @@
           width: 34px;
           
           &:before, &:after {
-            background: map-get($army-branding, armyblack);
+            background: map.get(colors.$army-branding, armyblack);
             content: '';
             position: absolute;
-            @include custom-transition(transform .25s ease);
+            @include custom-transition.custom-transition(transform .25s ease);
           }
           &:before {
             height: 12px;

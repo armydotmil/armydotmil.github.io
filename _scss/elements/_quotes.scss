@@ -1,3 +1,9 @@
+@use "../base/colors";
+@use "../base/variables";
+@use "../base/mixins/breakpoints";
+@use "../base/custom-mixins/custom-repeating-gradient";
+
+@use "sass:map";
 
 
 blockquote {
@@ -26,14 +32,14 @@ blockquote {
 }
 
 .quote {
-  border-bottom: 1px solid map-get($army-branding, grey10);
-  border-top: 1px solid map-get($army-branding, grey10);
+  border-bottom: 1px solid map.get(colors.$army-branding, grey10);
+  border-top: 1px solid map.get(colors.$army-branding, grey10);
   text-align: center;
   
-  @include repeating-gradient(map-get($army-branding, white), map-get($army-branding, grey10));
+  @include custom-repeating-gradient.repeating-gradient(map.get(colors.$army-branding, white), map.get(colors.$army-branding, grey10));
   
   blockquote {
-    font: 600 1.5em/1.5em $font-family;
+    font: 600 1.5em/1.5em variables.$font-family;
     margin: 20px 0;
     
     p {
@@ -55,16 +61,16 @@ blockquote {
   }
   
   p {
-    font: 600 1.125em $font-family;
+    font: 600 1.125em variables.$font-family;
     margin-top: 25px;
   }
   
-  @include breakpoints(tablet nav mobile) {
+  @include breakpoints.breakpoints(tablet nav mobile) {
     blockquote { 
-      font: 600 1.3em $font-family;
+      font: 600 1.3em variables.$font-family;
       p { margin: 0 10px; }
     }
-    p { font: 600 1em $font-family; }
+    p { font: 600 1em variables.$font-family; }
   }
 }
 

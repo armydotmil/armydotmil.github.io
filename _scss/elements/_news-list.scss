@@ -1,8 +1,16 @@
+@use "../base/colors";
+@use "../base/variables";
+@use "../base/mixins/breakpoints";
+@use "../base/mixins/transform";
+@use "../base/mixins/img-grayscale-hover";
+@use "../base/custom-mixins/custom-transition";
+
+@use "sass:map";
 .news-list {
-  border-top: 8px solid map-get($army-branding, armyblack);
+  border-top: 8px solid map.get(colors.$army-branding, armyblack);
 
   .news-item {
-    border-bottom: 1px solid map-get($army-branding, grey20);
+    border-bottom: 1px solid map.get(colors.$army-branding, grey20);
     padding: 30px 0;
     position: relative;
 
@@ -11,7 +19,7 @@
     }
 
     .image-wrap {
-      background-color: map-get($army-branding, armyblack);
+      background-color: map.get(colors.$army-branding, armyblack);
       height: 0;
       overflow: hidden;
       padding-top: 21.35%;
@@ -22,7 +30,7 @@
       a {
         // gold bar
         &:after {
-          background-color: map-get($army-branding, gold);
+          background-color: map.get(colors.$army-branding, gold);
           content: '';
           height: 4px;
           left: 0;
@@ -30,18 +38,18 @@
           top: 0;
           width: 100%;
           z-index: 2;
-          @include transform(translateX, -100%);
-          @include custom-transition(transform .25s ease);
+          @include transform.transform(translateX, -100%);
+          @include custom-transition.custom-transition(transform .25s ease);
         }
 
         &:focus,
         &:hover {
           &:after {
-            @include transform(translateX, 0);
+            @include transform.transform(translateX, 0);
           }
         }
       }
-      @include img-grayscale-hover();
+      @include img-grayscale-hover.img-grayscale-hover();
     }
 
     .image-wrap + .news-right {
@@ -56,17 +64,17 @@
 
     .news-right {
       p.date {
-        color: map-get($army-branding, grey70);
+        color: map.get(colors.$army-branding, grey70);
         float: left;
         font-weight: 600;
         margin: 0 15px 0 0;
       }
 
       p.sections {
-        color: map-get($army-branding, grey60);
+        color: map.get(colors.$army-branding, grey60);
 
         &:before {
-          color: map-get($army-branding, grey60);
+          color: map.get(colors.$army-branding, grey60);
           content: "|";
           display: inline-block;
           font-weight: 300;
@@ -74,7 +82,7 @@
         }
 
         a {
-          color: map-get($army-branding, grey60);
+          color: map.get(colors.$army-branding, grey60);
           font-weight: 400;
 
           &:after {
@@ -96,7 +104,7 @@
         margin-bottom: 1.25em;
 
         a {
-          font: 700 1.313em $font-family;
+          font: 700 1.313em variables.$font-family;
         }
       }
       p.more {
@@ -110,13 +118,13 @@
         list-style-type: none;
 
         li {
-          border-left: 1px solid map-get($army-branding, grey40);
+          border-left: 1px solid map.get(colors.$army-branding, grey40);
           display: inline-block;
           line-height: 1.2em;
           padding-top: 2px;
 
           a {
-            color: map-get($army-branding, grey40);
+            color: map.get(colors.$army-branding, grey40);
             // font-size: 0.875em;
             font-weight: 400;
             padding: 0 5px 0 8px;
@@ -134,7 +142,7 @@
       }
     }
 
-    @include breakpoints(lg_tablet) {
+    @include breakpoints.breakpoints(lg_tablet) {
       .image-wrap ~ .news-right .main-content {
         min-height: 135px;
       }
@@ -143,7 +151,7 @@
         font-size: .875em;
       }
     }
-    @include breakpoints(tablet) {
+    @include breakpoints.breakpoints(tablet) {
       .image-wrap ~ .news-right .main-content {
         min-height: 120px;
       }
@@ -151,7 +159,7 @@
         font-size: .875em;
       }
     }
-    @include breakpoints(mobile nav) {
+    @include breakpoints.breakpoints(mobile nav) {
       .image-wrap {
         display: none;
       }

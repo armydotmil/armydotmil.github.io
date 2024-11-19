@@ -1,7 +1,12 @@
+@use "../base/colors";
+@use "../base/mixins/breakpoints";
+@use "../base/custom-mixins/custom-transition";
+
+@use "sass:map";
 
 
 .social {
-  color: map-get($army-branding, white);
+  color: map.get(colors.$army-branding, white);
   text-align: center;
 
   .social-button {
@@ -19,7 +24,7 @@
 #social-id .social-button {
   padding: 15px 10px;
 
-  @include breakpoints(nav tablet lg_tablet sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(nav tablet lg_tablet sm_desktop desktop large really_big) {
     padding: 15px 16px;
   }
 
@@ -31,13 +36,13 @@
   visibility: hidden;
 }
 .social-bar {
-  background-color: $dark-gray-color;
+  background-color: colors.$dark-gray-color;
   bottom: 0;
   height: 50px;
   left: 0;
   position: fixed;
   text-align: center;
-  @include custom-transition(bottom 500ms);
+  @include custom-transition.custom-transition(bottom 500ms);
   visibility: visible;
   width: 100%;
   z-index: 1;
@@ -71,13 +76,13 @@
     padding: 0;
   }
 
-  .twitter-button { background: map-get($social-branding, twitter); }
-  .facebook-button { background: map-get($social-branding, facebook); }
-  .linkedin-button { background: map-get($social-branding, linkedin); }
-  .pinterest-button { background: map-get($social-branding, pinterest); }
-  .reddit-button { background: map-get($social-branding, reddit); }
-  .email-button { background: map-get($social-branding, email); }
-  .print-button { background: map-get($social-branding, print); }
+  .twitter-button { background: map.get(colors.$social-branding, twitter); }
+  .facebook-button { background: map.get(colors.$social-branding, facebook); }
+  .linkedin-button { background: map.get(colors.$social-branding, linkedin); }
+  .pinterest-button { background: map.get(colors.$social-branding, pinterest); }
+  .reddit-button { background: map.get(colors.$social-branding, reddit); }
+  .email-button { background: map.get(colors.$social-branding, email); }
+  .print-button { background: map.get(colors.$social-branding, print); }
 
 }
 
@@ -98,7 +103,7 @@
   }
 }
 
-@include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+@include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
   .social-bar { display: none; }
   .alt-social-bar { display: block; }
 }

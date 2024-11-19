@@ -2,7 +2,12 @@
 # Front matter comment to ensure Jekyll properly reads file.
 ---
 
-@import "all";
+@use "all";
+@use "base/colors";
+@use "base/mixins/breakpoints";
+@use "base/mixins/clearfix";
+@use "layout/grid-system";
+@use "layout/grid-system-spans";
 
 section {
   .container.no-bottom {
@@ -10,19 +15,19 @@ section {
   }
 
   .github-links {
-    @include row(true);
+    @include grid-system.row(true);
 
     li {
       margin: 0 0 15px;
 
-      @include span(12);
+      @include grid-system-spans.span(12);
 
       &:last-child {
         margin: 0;
       }
     }
 
-    @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
       li {
         width: auto;
       }
@@ -34,7 +39,7 @@ section {
 
     &:after,
     &:before {
-      background: map-get($army-branding, gold);
+      background: map-get(colors.$army-branding, gold);
       content: '';
       height: 4px;
       left: 0;
@@ -50,7 +55,7 @@ section {
       top: 15px;
     }
 
-    @include breakpoints(tablet lg_tablet) {
+    @include breakpoints.breakpoints(tablet lg_tablet) {
       &:after {
         top: 10px;
       }
@@ -61,7 +66,7 @@ section {
     }
 
 
-    @include breakpoints(sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
       &:after {
         top: 30px;
       }
@@ -111,12 +116,12 @@ section {
 
       p {
   //      border: 1px solid #000;
-        color: map-get($army-branding, armyblack);
+        color: map-get(colors.$army-branding, armyblack);
         padding: 10px 0;
       }
     }
 
-    @include breakpoints(sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
       .row.hide-mobile,
       .row.hide-tablet {
         display: block;
@@ -134,7 +139,7 @@ section {
     }
 
 
-    @include breakpoints(lg_tablet) {
+    @include breakpoints.breakpoints(lg_tablet) {
       .row.hide-mobile {
         display: block;
       }
@@ -163,7 +168,7 @@ section {
   }
 
   .color-list {
-    @include breakpoints(tablet nav mobile) {
+    @include breakpoints.breakpoints(tablet nav mobile) {
       text-align: center;
     }
 
@@ -182,7 +187,7 @@ section {
   }
 
   .color-box {
-    border: 1px solid map-get($army-branding, armyblack);
+    border: 1px solid map-get(colors.$army-branding, armyblack);
     height: 200px;
     margin-bottom: 15px;
     width: 200px;
@@ -196,7 +201,7 @@ section {
     }
   }
 
-  @include breakpoints(really_big large desktop sm_desktop) {
+  @include breakpoints.breakpoints(really_big large desktop sm_desktop) {
     .color-list li {
       &:nth-child(4n) {
         margin-right: 0;
@@ -204,7 +209,7 @@ section {
     }
   }
 
-  @include breakpoints(lg_tablet) {
+  @include breakpoints.breakpoints(lg_tablet) {
     .color-list li {
       &:nth-child(3n) {
         margin-right: 0;
@@ -212,7 +217,7 @@ section {
     }
   }
 
-  @include breakpoints(tablet) {
+  @include breakpoints.breakpoints(tablet) {
     .color-list li {
       &:nth-child(2n) {
         margin-right: 0;
@@ -220,19 +225,19 @@ section {
     }
   }
 
-  @include breakpoints(nav mobile) {
+  @include breakpoints.breakpoints(nav mobile) {
     .color-list li {
       margin: 0 20px 20px 0px;
     }
   }
 
-  @include breakpoints(nav) {
+  @include breakpoints.breakpoints(nav) {
     .color-group {
       margin: 0 auto 60px;
     }
   }
 
-  @include breakpoints(mobile) {
+  @include breakpoints.breakpoints(mobile) {
     .color-group {
       margin: 0 auto 60px;
       max-width: 290px;
@@ -249,7 +254,7 @@ section {
 
 #typography {
   .font-info {
-    @include clearfix();
+    @include clearfix.clearfix();
     margin-bottom: 1.25em;
     padding-bottom: 1.25em;
     
@@ -259,10 +264,10 @@ section {
   }
   
   .fonts-list {
-    @include row();
+    @include grid-system.row();
     li {
-      @include clearfix();
-      border-bottom: 1px solid map-get($army-branding, grey30);
+      @include clearfix.clearfix();
+      border-bottom: 1px solid map-get(colors.$army-branding, grey30);
       margin-bottom: 30px;
       padding-bottom: 30px;
       
@@ -287,7 +292,7 @@ section {
     }
   }
   
-  @include breakpoints(mobile nav tablet) {
+  @include breakpoints.breakpoints(mobile nav tablet) {
     .fonts-list {
       text-align: center;
       
@@ -303,38 +308,38 @@ section {
     }
   }
   
-  @include breakpoints(nav) {
+  @include breakpoints.breakpoints(nav) {
     .fonts-list li {
       .sm { display: none; }
       .sm-md { display: block; }
     }
   }
   
-  @include breakpoints(tablet lg_tablet) {
+  @include breakpoints.breakpoints(tablet lg_tablet) {
     .fonts-list li {
       .sm,
       .sm-nav { display: none; }
     }
   }
   
-  @include breakpoints(tablet) {
+  @include breakpoints.breakpoints(tablet) {
     .fonts-list li {
       .md1 { display: block; }
     }
   }
   
-  @include breakpoints(lg_tablet) {
+  @include breakpoints.breakpoints(lg_tablet) {
     .fonts-list li {
       .md2 { display: block; }
     }
   }
   
-  @include breakpoints(sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
     .font-info {
       padding-bottom: 0;
-      p { @include span(8); }
+      p { @include grid-system-spans.span(8); }
       .rt {
-        @include span(4);
+        @include grid-system-spans.span(4);
         
         .btn {
           float: right;
@@ -374,7 +379,7 @@ section {
       
       }
       .social-button {
-        background: map-get($army-branding, armyblack);
+        background: map-get(colors.$army-branding, armyblack);
       }
     }
     
@@ -383,7 +388,7 @@ section {
     }
   }
 
-  @include breakpoints(tablet lg_tablet) {
+  @include breakpoints.breakpoints(tablet lg_tablet) {
     .elem {
       margin: 0 0 60px;
 
@@ -394,7 +399,7 @@ section {
   }
 
 
-  @include breakpoints(sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
     .elem {
       margin: 0 0 100px;
 
@@ -409,7 +414,7 @@ section {
 // overwrite top stories css here
 // so that we don't have a box fixed on the guide
 // ----------------------------------------------------------------------
-@include breakpoints(sm_desktop desktop large really_big) {
+@include breakpoints.breakpoints(sm_desktop desktop large really_big) {
   .top-stories {
     float: none;
     

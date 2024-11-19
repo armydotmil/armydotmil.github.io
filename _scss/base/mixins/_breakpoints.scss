@@ -1,3 +1,5 @@
+@use "../variables" as *;
+
 @mixin breakpoints($points) {
   @each $point in $points {
     @include do-breakpoint(#{$point}) {
@@ -15,7 +17,7 @@
   }
   @else if $point == nav {
     // 481 - 699
-    @media (min-width: $screen-mobile-max + 1) and (max-width: $screen-sm - 1) {
+    @media (min-width: ($screen-mobile-max + 1)) and (max-width: ($screen-sm - 1)) {
       @content;
     }
   }
@@ -27,31 +29,31 @@
   }
   @else if $point == lg_tablet {
     // 769 - 992
-    @media (min-width: $screen-sm-min + 1) and (max-width: $screen-md-min) {
+    @media (min-width: ($screen-sm-min + 1)) and (max-width: $screen-md-min) {
       @content;
     }
   }
   @else if $point == sm_desktop {
     // 993 - 1155
-    @media (min-width: $screen-md-min + 1) and (max-width: $screen-md-max) {
+    @media (min-width: ($screen-md-min + 1)) and (max-width: $screen-md-max) {
       @content;
     }
   }
   @else if $point == desktop {
     // 1156 - 1210
-    @media (min-width: $screen-md-max + 1) and (max-width: $screen-lg-min) {
+    @media (min-width: ($screen-md-max + 1)) and (max-width: $screen-lg-min) {
       @content;
     }
   }
   @else if $point == large {
     // 1211 - 1600
-    @media (min-width: $screen-lg-min + 1) and (max-width: $screen-lg-md) {
+    @media (min-width: ($screen-lg-min + 1)) and (max-width: $screen-lg-md) {
       @content;
     }
   }
   @else if $point == really_big {
     // 1601 and above
-    @media (min-width: $screen-lg-md + 1) {
+    @media (min-width: ($screen-lg-md + 1)) {
       @content;
     }
   }

@@ -1,7 +1,13 @@
+@use "../base/colors";
+@use "../base/mixins/breakpoints";
+@use "../base/custom-mixins/custom-transition";
+@use "../base/defaults";
+
+@use "sass:map";
 $submenu-height: 56px;
 
 nav {
-  background: map-get($army-branding, grey10);
+  background: map.get(colors.$army-branding, grey10);
   position: relative;
   z-index: 1;
   
@@ -18,7 +24,7 @@ nav {
     
     // inside bottom border
     &::before {
-      background-color: map-get($army-branding, grey30);
+      background-color: map.get(colors.$army-branding, grey30);
       bottom: 0;
       content: "";
       height: 4px;
@@ -32,12 +38,12 @@ nav {
       display: inline-block;
       margin: 0 25px;
       
-      @include breakpoints(mobile) {
+      @include breakpoints.breakpoints(mobile) {
         margin: 0 10px;
       }
       
       a {
-        @extend %h5;
+        @extend %h5 !optional;
         display: block;
         line-height: #{$submenu-height};
         position: relative;
@@ -48,7 +54,7 @@ nav {
         
         // gold bar
         &::after {
-          background: map-get($army-branding, gold);
+          background: map.get(colors.$army-branding, gold);
           bottom: 0;
           content: '';
           height: 4px;
@@ -94,8 +100,8 @@ nav {
   }
   
   label {
-    @extend %h5;
-    background: map-get($army-branding, grey10);
+    @extend %h5 !optional;
+    background: map.get(colors.$army-branding, grey10);
     bottom: $submenu-height;
     cursor: pointer;
     left: -15px;
@@ -109,7 +115,7 @@ nav {
     
     // inside bottom border
     &::before {
-      background-color: map-get($army-branding, grey30);
+      background-color: map.get(colors.$army-branding, grey30);
       bottom: 0;
       content: "";
       height: 4px;
@@ -134,7 +140,7 @@ nav {
     max-height: none;
     
     .subnav-inner {
-      background: $lighter-gray-color;
+      background: colors.$lighter-gray-color;
       max-height: none;
       height: auto;
       padding: ($submenu-height + 45px) 0 30px;
@@ -152,13 +158,13 @@ nav {
         a.active:after { display: none; }
         
         a {
-          background: map-get($army-branding, white);
-          border: 1px solid map-get($army-branding, grey30);
+          background: map.get(colors.$army-branding, white);
+          border: 1px solid map.get(colors.$army-branding, grey30);
           line-height: 47px;
           padding: 3px 20px 0;
           text-align: left;
           
-          @include custom-transition(background .25s ease);
+          @include custom-transition.custom-transition(background .25s ease);
         }
         
         a::after {
@@ -166,12 +172,12 @@ nav {
         }
         
         a.active, a:hover {
-          background-color: map-get($army-branding, gold);
+          background-color: map.get(colors.$army-branding, gold);
           outline: none;
         }
       }
 
-      @include breakpoints(mobile) {
+      @include breakpoints.breakpoints(mobile) {
         li {
           display: block;
           padding: 0;
@@ -193,11 +199,11 @@ nav {
     }
   }
   
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
     //Prevents double click issue on iOS
     ul li {
       a::after {
-        @include custom-transition(width .25s ease);
+        @include custom-transition.custom-transition(width .25s ease);
       }
       a:hover::after {
         width: 100%;

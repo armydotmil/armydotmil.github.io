@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "breakpoints";
+@use "../colors";
+@use "../custom-mixins/custom-transition";
+
 // ----------------------------------------------------------------------
 
   // Button Transition
@@ -6,9 +11,9 @@
 
 @mixin link-transition($parent: 'a') {
   span {
-    background: map-get($army-branding, armyblack);
+    background: map.get(colors.$army-branding, armyblack);
     position: absolute;
-    @include custom-transition(all .15s ease);
+    @include custom-transition.custom-transition(all .15s ease);
     
     &:nth-child(1),
     &:nth-child(5) {
@@ -63,7 +68,7 @@
     &:nth-child(6) { left: 100%; }
   }
   
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
     #{$parent}:hover {
       span {
         &:nth-child(1) { left: 0; }

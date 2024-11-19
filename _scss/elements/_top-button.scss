@@ -1,7 +1,12 @@
+@use "../base/colors";
+@use "../base/mixins/opacity";
+@use "../base/custom-mixins/custom-transition";
+
+@use "sass:map";
 
 
 .top-btn {
-  background: map-get($army-branding, grey40);
+  background: map.get(colors.$army-branding, grey40);
   border-radius: 50%;
   bottom: 30px;
   font-size: 0;
@@ -12,15 +17,15 @@
   right: 30px;
   z-index: -1;
 
-  @include opacity(0);
-  @include custom-transition(opacity .5s ease);
+  @include opacity.opacity(0);
+  @include custom-transition.custom-transition(opacity .5s ease);
 
   &.visible {
-    @include opacity(.7);
+    @include opacity.opacity(.7);
     z-index: 1;
     text-decoration: none;
 
-    &:hover { @include opacity(1); }
+    &:hover { @include opacity.opacity(1); }
   }
 
   span::before {
@@ -30,7 +35,7 @@
     display: block;
     height: 11px;
     width: 11px;
-    color: map-get($army-branding, white);
+    color: map.get(colors.$army-branding, white);
     font-size: 16px;
     font-weight: normal;
     position: relative;

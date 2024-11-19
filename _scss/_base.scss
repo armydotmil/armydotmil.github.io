@@ -1,36 +1,40 @@
 // ----------------------------------------------------------------------
 // Reset
 // ----------------------------------------------------------------------
-@import "base/reset";
+@use "base/reset";
 
 // ----------------------------------------------------------------------
 // Mixins
 // ----------------------------------------------------------------------
-@import "base/mixins";
-@import "base/custom-mixins";
+@use "base/mixins";
+@use "base/custom-mixins";
 
 // ----------------------------------------------------------------------
 // Defaults
 // ----------------------------------------------------------------------
-@import "base/variables";
-@import "base/fonts";
-@import url($e2path + '/fonts/rv7/armyicons/armyicons.css');
-@import "base/colors";
-@import "base/defaults";
-@import "base/helper-classes";
-@import "base/bodytext";
+@use "base/variables";
+@use "base/fonts";
+@use "base/colors";
+@use "base/defaults";
+@use "base/helper-classes";
+@use "base/bodytext";
 
 // ----------------------------------------------------------------------
 // Modules
 // ----------------------------------------------------------------------
-@import "modules/upgrade-warning";
+@use "modules/upgrade-warning";
 
 // ----------------------------------------------------------------------
 // Functions
 // ----------------------------------------------------------------------
-@import "base/functions";
+@use "base/functions";
 
 // ----------------------------------------------------------------------
 // Print
 // ----------------------------------------------------------------------
-@import "base/print";
+@use "base/print";
+
+// ----------------------------------------------------------------------
+// Variable dependent, absolute paths
+// ----------------------------------------------------------------------
+@import url(variables.$e2path + '/fonts/rv7/armyicons/armyicons.css');
