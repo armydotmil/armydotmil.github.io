@@ -1,23 +1,27 @@
+@use "../base/variables";
+@use "../base/mixins/clearfix";
+
+@use "sass:math";
 
 
 
 
 
 // Centered container element
-@mixin container-fixed($gutter: $grid-gutter-width) {
+@mixin container-fixed($gutter: variables.$grid-gutter-width) {
   margin-left: auto;
   margin-right: auto;
-  padding-left: floor(($gutter * 0.5));
-  padding-right: ceil(($gutter * 0.5));
-  @include clearfix();
+  padding-left: math.floor(($gutter * 0.5));
+  padding-right: math.ceil(($gutter * 0.5));
+  @include clearfix.clearfix();
 }
 
 // Creates a wrapper for a series of columns
-@mixin row($inside: false, $gutter: $grid-gutter-width) {
+@mixin row($inside: false, $gutter: variables.$grid-gutter-width) {
   @if($inside == true) {
     // Negative margin nested rows out to align the content of columns
-    margin-left: ceil($gutter * -0.5);
-    margin-right: floor($gutter * -0.5);
+    margin-left: math.ceil($gutter * -0.5);
+    margin-right: math.floor($gutter * -0.5);
   }
   @else {
     display: block;
@@ -26,7 +30,7 @@
     overflow: hidden;
   }
   
-  @include clearfix();
+  @include clearfix.clearfix();
 }
 
 // creates a class with row(true) from above

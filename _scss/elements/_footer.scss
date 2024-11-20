@@ -1,3 +1,9 @@
+@use "../base/colors";
+@use "../base/variables";
+@use "../base/mixins/breakpoints";
+@use "../base/custom-mixins/custom-transition";
+
+@use "sass:map";
 // File Name: _footer.scss
 // Description: global footer styles
 // Used by: Page.scss
@@ -5,20 +11,20 @@
 // ------------------------------------------------------------
 
 .main {
-  background: map-get($army-branding, white);
+  background: map.get(colors.$army-branding, white);
   margin-bottom: 0;
   overflow: hidden;
   z-index: 1;
   position: relative;
 
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
     margin-bottom: 13.750em;
   }
 }
 
 footer {
-  font-family: $font-family;
-  background: map-get($army-branding, armyblack);
+  font-family: variables.$font-family;
+  background: map.get(colors.$army-branding, armyblack);
   bottom: 0;
   left: 0;
   padding: 60px 0;
@@ -26,7 +32,7 @@ footer {
   width: 100%;
   z-index: 0;
 
-  @include breakpoints(mobile nav tablet) {
+  @include breakpoints.breakpoints(mobile nav tablet) {
     position: relative;
   }
   
@@ -49,14 +55,14 @@ footer {
       }
       
       a {
-        color: map-get($army-branding, white);
+        color: map.get(colors.$army-branding, white);
         display: inline-block;
         line-height: 2.5;
         position: relative;
         text-decoration: none;
         
         &:after {
-          background: map-get($army-branding, white);
+          background: map.get(colors.$army-branding, white);
           bottom: 2px;
           content: '';
           height: 1px;
@@ -64,13 +70,13 @@ footer {
           position: absolute;
           width: 0;
           
-          @include custom-transition(width .25s ease);
+          @include custom-transition.custom-transition(width .25s ease);
         }
       }
     }
   }
 
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
     .footer-bottom {
       ul {
         li {

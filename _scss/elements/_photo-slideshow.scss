@@ -1,3 +1,9 @@
+@use "../base/colors";
+@use "../base/custom-mixins/custom-transition";
+@use "../base/mixins/breakpoints";
+@use "../base/mixins/opacity";
+
+@use "sass:map";
 .photo-slideshow {
   margin: 0 0 40px;
   overflow: hidden;
@@ -8,10 +14,10 @@
     margin: 0 auto;
     max-width: 640px;
     position: absolute;
-    @include opacity(0);
+    @include opacity.opacity(0);
     top: 0;
     right: 0;
-    @include custom-transition(opacity 0.5s);
+    @include custom-transition.custom-transition(opacity 0.5s);
     width: 100%;
 
     .centered-image {
@@ -30,7 +36,7 @@
           margin: auto;
           display: block;
 
-          @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+          @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
             max-height: 550px;
           }
         }
@@ -38,8 +44,8 @@
     }
     
     figcaption {
-      background-color: $captions-background-color;
-      color: $secondary-text-color;
+      background-color: colors.$captions-background-color;
+      color: colors.$secondary-text-color;
       font-size: 0.84em;
       font-weight: 400;
       margin: 0 auto;
@@ -70,11 +76,11 @@
       .image-caption {
         overflow: hidden;
         max-height: 0;
-        @include custom-transition(max-height 500ms);
+        @include custom-transition.custom-transition(max-height 500ms);
         display: block;
         
         .caption-text {
-          border-top: 1px solid map-get($army-branding, grey20);
+          border-top: 1px solid map.get(colors.$army-branding, grey20);
           display: block;
           margin: 10px 0 0;
           padding: 10px 0 0;
@@ -85,7 +91,7 @@
         }
         
         a {
-          color: $secondary-text-color;
+          color: colors.$secondary-text-color;
           font-weight: 400;
         }
       }
@@ -94,7 +100,7 @@
 
   .photo.cur-photo {
     position: relative;
-    @include opacity(1);
+    @include opacity.opacity(1);
     z-index: 1;
   }
 
@@ -113,7 +119,7 @@
     .ss-move-button::before {
       content: "\e908";
       font-family: 'armyicons';
-      color: map-get($army-branding, white);
+      color: map.get(colors.$army-branding, white);
       font-size: 18px;
     }
     &.ss-prev {

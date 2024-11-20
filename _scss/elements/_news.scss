@@ -1,3 +1,12 @@
+@use "../base/colors";
+@use "../base/variables";
+@use "../base/mixins/breakpoints";
+@use "../base/mixins/transform";
+@use "../base/mixins/img-grayscale-hover";
+@use "../base/mixins/display-table";
+@use "../base/custom-mixins/custom-transition";
+
+@use "sass:map";
 
 
 .news {
@@ -27,7 +36,7 @@
       }
 
       a {
-        color: map-get($army-branding, grey70);
+        color: map.get(colors.$army-branding, grey70);
         text-decoration: none;
         text-transform: uppercase;
 
@@ -35,11 +44,11 @@
       }
     }
 
-    @include breakpoints(tablet) {
+    @include breakpoints.breakpoints(tablet) {
       .right { height: 60px; }
     }
 
-    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
       .right {
         height: 70px;
         margin: 60px 0 54px;
@@ -58,7 +67,7 @@
         position: relative;
 
         &:after {
-          background: map-get($army-branding, gold);
+          background: map.get(colors.$army-branding, gold);
           content: '';
           height: 4px;
           left: 0;
@@ -66,9 +75,9 @@
           top: 0;
           width: 100%;
           z-index: 2;
-          @include transform(translateX, -100%);
+          @include transform.transform(translateX, -100%);
 
-          @include custom-transition(transform .25s ease);
+          @include custom-transition.custom-transition(transform .25s ease);
         }
 
         &:focus,
@@ -80,10 +89,10 @@
         }
       }
 
-      @include img-grayscale-hover('a', '.image');
+      @include img-grayscale-hover.img-grayscale-hover('a', '.image');
 
       .image {
-        background: map-get($army-branding, armyblack);
+        background: map.get(colors.$army-branding, armyblack);
         display: block;
         height: 0;
         padding: 66.25% 0 0;
@@ -92,15 +101,15 @@
       }
 
       .date {
-        color: map-get($army-branding, grey60);
-        font: 500 .813em $font-family;
+        color: map.get(colors.$army-branding, grey60);
+        font: 500 .813em variables.$font-family;
         text-transform: uppercase;
         padding-bottom: 20px;
       }
 
       .title {
-        color: map-get($army-branding, armyblack);
-        font: 600 1em/1.3em $font-family;
+        color: map.get(colors.$army-branding, armyblack);
+        font: 600 1em/1.3em variables.$font-family;
         padding: 20px 15px 5px;
       }
 
@@ -119,16 +128,16 @@
     }
   } // end ul
 
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
     ul li {
       a:hover:after,
       a:focus:after {
-        @include transform(translateX, 0);
+        @include transform.transform(translateX, 0);
       }
     }
   }
 
-  @include breakpoints(sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
     ul {
       display: flex;
       flex-wrap: wrap;
@@ -141,13 +150,13 @@
       padding-left: 15px;
       padding-right: 15px;
 
-      .date { font: 500 .875em $font-family; }
+      .date { font: 500 .875em variables.$font-family; }
 
-      .title { font: 600 1.125em/1.4em $font-family; }
+      .title { font: 600 1.125em/1.4em variables.$font-family; }
     }
   }
   
-  @include breakpoints(tablet lg_tablet) {
+  @include breakpoints.breakpoints(tablet lg_tablet) {
     ul {
       display: flex;
       flex-wrap: wrap;
@@ -162,7 +171,7 @@
     }
   }
   
-  @include breakpoints(nav mobile) {
+  @include breakpoints.breakpoints(nav mobile) {
     max-width: 446px;
     margin: 0 auto;
 
@@ -176,10 +185,10 @@
   }
 }
 
-@include breakpoints(sm_desktop desktop large really_big) {
+@include breakpoints.breakpoints(sm_desktop desktop large really_big) {
   .two-col-news {
     margin: 100px auto 0;
-    @include display-table();
+    @include display-table.display-table();
 
     > div {
       padding-left: 15px;
@@ -196,11 +205,11 @@
     text-align: center;
 
     // nav tablet lg_tablet
-    @include breakpoints(lg_tablet) {
+    @include breakpoints.breakpoints(lg_tablet) {
       text-align: left;
     }
 
-    @include breakpoints(sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
       text-align: left;
       position: absolute;
       right: 0px;

@@ -1,9 +1,17 @@
+@use "../base/colors";
+@use "../base/variables";
+@use "../base/mixins/breakpoints";
+@use "../base/mixins/opacity";
+@use "../base/custom-mixins/custom-transition";
+
+@use "sass:color";
+@use "sass:map";
 .notification-contain {
   margin: 8px 8px 0;
   position: relative;
   
   .notification {
-    background-color: lighten(map-get($army-branding, gold), 20);
+    background-color: color.adjust(map.get(colors.$army-branding, gold), $lightness: 20%);
     display: table;
     height: 60px;
     padding: 0;
@@ -20,7 +28,7 @@
     
     .notification-title,
     .notification-header {
-      font: 700 1em/1.3 $font-family;
+      font: 700 1em/1.3 variables.$font-family;
       display: table-cell;
     }
     
@@ -30,7 +38,7 @@
     }
     
     .notification-header {
-      background: map-get($army-branding, gold);
+      background: map.get(colors.$army-branding, gold);
       overflow: hidden;
       padding: 3px 15px 0;
       text-overflow: ellipsis;
@@ -39,38 +47,38 @@
       white-space: nowrap;
       width: 1px;
       
-      @include breakpoints(nav) {
+      @include breakpoints.breakpoints(nav) {
         max-width: 160px;
       }
-      @include breakpoints(tablet) {
+      @include breakpoints.breakpoints(tablet) {
         max-width: 250px;
       }
-      @include breakpoints(lg_tablet) {
+      @include breakpoints.breakpoints(lg_tablet) {
         max-width: 350px;
       }
     }
     
-    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
       .notification-title,
       .notification-header {
-        font: 700 1.125em/1.3 $font-family;
+        font: 700 1.125em/1.3 variables.$font-family;
       }
       
       .view-more-arrow-sm {
-        @include opacity(0);
+        @include opacity.opacity(0);
         margin-left: 40px;
-        @include custom-transition(opacity .25s ease, margin-left .25s ease);
+        @include custom-transition.custom-transition(opacity .25s ease, margin-left .25s ease);
       }
       
       &:hover, &:focus {
         .view-more-arrow-sm {
-          @include opacity(1);
+          @include opacity.opacity(1);
           margin-left: 5px;
         }
       }
     }
     
-    @include breakpoints(mobile) {
+    @include breakpoints.breakpoints(mobile) {
       display: block;
       height: auto;
       
@@ -97,7 +105,7 @@
       position: static;
       width: auto;
       
-      @include breakpoints(mobile) {
+      @include breakpoints.breakpoints(mobile) {
         padding: 8px 15px;
       }
     }

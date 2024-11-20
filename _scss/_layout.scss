@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 // Layout
 // ----------------------------------------------------------------------
-@import "layout/grid-system";
-@import "layout/grid-system-spans";
-@import "layout/grid";
+@use "layout/grid-system";
+@use "layout/grid-system-spans";
+@use "layout/grid";

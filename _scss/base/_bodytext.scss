@@ -1,3 +1,6 @@
+@use "colors";
+
+@use "sass:map";
 // ----------------------------------------------------------------------
 //
 // bodytext element is for areas used with WYSIWYG, markdown, etc. 
@@ -10,13 +13,13 @@
   a {
     text-decoration: none;
     font-weight: normal;
-    color: $input-focus;
-    border-bottom: 1px solid map-get($army-branding, grey20);
+    color: colors.$input-focus;
+    border-bottom: 1px solid map.get(colors.$army-branding, grey20);
     &:hover,
     &:focus {
       text-decoration: none;
-      color: $input-focus-dark;
-      border-bottom-color: $input-focus-dark;
+      color: colors.$input-focus-dark;
+      border-bottom-color: colors.$input-focus-dark;
     }
   }
 }
@@ -60,13 +63,13 @@
 }
 @mixin bodytext-blockquote() {
   blockquote {
-    border-left: 4px solid map-get($army-branding, gold);
+    border-left: 4px solid map.get(colors.$army-branding, gold);
     padding: 5px 30px;
     margin: 0 0 1.25em 0;
     font-style: italic;
     font-size: 1.25em;
     line-height: 1.625;
-    color: map-get($army-branding, grey60);
+    color: map.get(colors.$army-branding, grey60);
     &:before, &:after {
       display: none;
     }

@@ -6,10 +6,10 @@
 
 // ----------------------------------------------------------------------
 
-@import "custom-mixins/custom-calc";
-@import "custom-mixins/custom-filter";
-@import "custom-mixins/custom-linear-gradient";
-@import "custom-mixins/custom-mastheads";
-@import "custom-mixins/custom-repeating-gradient";
-@import "custom-mixins/custom-transition";
-@import "custom-mixins/custom-transform";
+@use "custom-mixins/custom-calc";
+@use "custom-mixins/custom-filter";
+@use "custom-mixins/custom-linear-gradient";
+@use "custom-mixins/custom-mastheads";
+@use "custom-mixins/custom-repeating-gradient";
+@use "custom-mixins/custom-transition";
+@use "custom-mixins/custom-transform";

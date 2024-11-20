@@ -1,9 +1,12 @@
+@use "../base/colors";
+@use "../base/mixins/breakpoints";
+
 .announcements {
-  background: $light-gray-color;
+  background: colors.$light-gray-color;
   overflow: hidden;
 
   .news {
-    @include breakpoints(sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
       ul li {
         flex: 0 0 25%;
       }

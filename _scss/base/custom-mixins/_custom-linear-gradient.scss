@@ -1,3 +1,7 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
 @mixin custom-linear-gradient($direction, $color-stops...) {
   // Direction has been omitted and happens to be a color-stop
   @if is-direction($direction) == false {
@@ -5,7 +9,7 @@
     $direction: 180deg;
   }
 
-  background-color: nth(nth($color-stops, 1), 1);
+  background-color: list.nth(list.nth($color-stops, 1), 1);
   background-image: -moz-linear-gradient(legacy-direction($direction), $color-stops);
   background-image: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
   background-image: linear-gradient($direction, $color-stops);
@@ -15,14 +19,14 @@
 /// @param {*} $value - Value to test
 /// @return {Bool}
 @function is-direction($value) {
-  $is-keyword: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
-  $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+  $is-keyword: list.index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+  $is-angle: meta.type-of($value) == 'number' and list.index('deg' 'grad' 'turn' 'rad', math.unit($value));
 
   @return $is-keyword or $is-angle;
 }
 
 @function to-string($value) {
-  @return inspect($value);
+  @return meta.inspect($value);
 }
 
 /// Convert a direction to legacy syntax
@@ -50,8 +54,8 @@
     'to top left'     : bottom right
   );
 
-  @if map-has-key($conversion-map, to-string($value)) {
-    @return map-get($conversion-map, to-string($value));
+  @if map.has-key($conversion-map, to-string($value)) {
+    @return map.get($conversion-map, to-string($value));
   }
 
   @return 90deg - $value;

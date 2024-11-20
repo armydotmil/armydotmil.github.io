@@ -1,9 +1,16 @@
+@use "../base/colors";
+@use "../base/variables";
+@use "../base/mixins/box-model";
+@use "../base/mixins/breakpoints";
+@use "../base/custom-mixins/custom-transition";
+
+@use "sass:map";
 .custom-select {
   background-color: #fff;
-  border: 1px solid map-get($army-branding, grey30);
-  font: 700 0.875em $font-family;
+  border: 1px solid map.get(colors.$army-branding, grey30);
+  font: 700 0.875em variables.$font-family;
   position: relative;
-  @include box-sizing(content-box);
+  @include box-model.box-sizing(content-box);
 
   select {
     -moz-appearance: none;
@@ -35,7 +42,7 @@
 
   // grey line
   &::before {
-    border-right: 1px solid map-get($army-branding, grey30);
+    border-right: 1px solid map.get(colors.$army-branding, grey30);
     background-color: #fff;
     content: '';
     display: block;
@@ -70,7 +77,7 @@
   .custom-overlay,
   .custom-options { display: none; }
 
-  @include breakpoints(sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
     .custom-overlay {
       position: absolute;
       cursor: pointer;
@@ -83,7 +90,7 @@
     }
     .custom-options {
       background-color: #ffffff;
-      border: 1px solid map-get($army-branding, grey30);
+      border: 1px solid map.get(colors.$army-branding, grey30);
       left: -1px;
       max-height: 275px;
       overflow-x: hidden;
@@ -91,21 +98,21 @@
       position: absolute;
       width: 100%;
       z-index: 2;
-      @include box-sizing(content-box);
+      @include box-model.box-sizing(content-box);
 
       ul {
         li {
-          border-bottom: 1px solid map-get($army-branding, grey30);
+          border-bottom: 1px solid map.get(colors.$army-branding, grey30);
           cursor: pointer;
           font-weight: 600;
           padding: 11px 20px 8px;
           text-transform: uppercase;
 
-          @include custom-transition(background-color .25s ease);
+          @include custom-transition.custom-transition(background-color .25s ease);
 
           &:last-child { border-width: 0; }
 
-          &:hover { background-color: map-get($army-branding, gold); }
+          &:hover { background-color: map.get(colors.$army-branding, gold); }
         }
       }
     }

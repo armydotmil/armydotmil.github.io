@@ -30,7 +30,8 @@ class Header {
         }
     }
 
-    toggleNavOption() {
+    toggleNavOption(e) {
+        e.preventDefault();
         var curTaptime = new Date().getTime();
         // only continue if the current tap is at least 100 milliseconds after the previous
         // (prevents the duplicate tap event issue caused on mobile devices)

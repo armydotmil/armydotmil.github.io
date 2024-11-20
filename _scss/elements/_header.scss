@@ -1,3 +1,14 @@
+@use "../base/colors";
+@use "../base/variables";
+@use "../layout/grid-system";
+@use "../base/mixins/breakpoints";
+@use "../base/mixins/box-model";
+@use "../base/mixins/transform";
+@use "../base/mixins/replace-text";
+@use "../base/mixins/opacity";
+@use "../base/mixins/animations";
+@use "../base/custom-mixins/custom-transition";
+
 // File Name: _header.scss
 // Description: global header styles
 // Used by: Page.scss
@@ -10,9 +21,11 @@
 // ----------------------------------------------------------------------
 // Modules
 // ----------------------------------------------------------------------
-@import "../modules/usagov-sayt";
-@import "../modules/armybrand";
-@import "../modules/official-gov-banner";
+@use "sass:color";
+@use "sass:map";
+@use "../modules/usagov-sayt";
+@use "../modules/armybrand";
+@use "../modules/official-gov-banner";
 
 // ----------------------------------------------------------------------
 // CSS
@@ -28,7 +41,7 @@ html.menu-open { overflow: hidden; }
 body.menu-open {
   width: 100%;
 
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
     overflow-y: auto;
 
     .navbar { overflow: hidden; }
@@ -48,13 +61,13 @@ body.menu-open {
 }
 
 body.menu-open header.scrolled-down .navbar {
-  @include transform(translateY, 0);
+  @include transform.transform(translateY, 0);
 }
 
 header *,
 header *:after,
 header *:before {
-  @include box-sizing(content-box);
+  @include box-model.box-sizing(content-box);
 }
 
 header {
@@ -65,7 +78,7 @@ header {
 }
 
 header {
-  font-family: $font-family;
+  font-family: variables.$font-family;
   height: $header-height + $header-border-width;
   left: 0;
   position: relative;
@@ -74,11 +87,11 @@ header {
   z-index: 100;
 
   .nav-army-star {
-    background: map-get($army-branding, armyblack);
+    background: map.get(colors.$army-branding, armyblack);
     left: 50%;
     line-height: 0;
     position: absolute;
-    @include transform(translateX, -50%);
+    @include transform.transform(translateX, -50%);
     z-index: 1;
     display: flex;
     align-content: center;
@@ -109,19 +122,19 @@ header {
     label {
       display: block;
       margin: 0;
-      @include replace-text;
+      @include replace-text.replace-text;
     }
 
     input.usagov-search-autocomplete {
       border: 0 none;
-      color: map-get($army-branding, grey70);
-      font: 400 .938em/2 $font-family;
+      color: map.get(colors.$army-branding, grey70);
+      font: 400 .938em/2 variables.$font-family;
       height: 30px;
       outline: none;
       padding: 0 10px;
       width: 100%;
 
-      @include box-sizing(border-box);
+      @include box-model.box-sizing(border-box);
     }
 
     .search-submit-button {
@@ -140,30 +153,30 @@ header {
     z-index: 1;
 
     .navbar-container {
-      background: map-get($army-branding, armyblack);
-      border-bottom: $header-border-width solid map-get($army-branding, gold);
+      background: map.get(colors.$army-branding, armyblack);
+      border-bottom: $header-border-width solid map.get(colors.$army-branding, gold);
       height: $header-height;
     }
   }
 
-  @include breakpoints(mobile nav) {
-    .navbar { @include custom-transition(transform .4s ease); }
+  @include breakpoints.breakpoints(mobile nav) {
+    .navbar { @include custom-transition.custom-transition(transform .4s ease); }
 
     &.scrolled-down .navbar {
-      @include transform(translateY, -130%);
+      @include transform.transform(translateY, -130%);
     }
   }
 
 
   .nav-window {
-    background-color: map-get($army-branding, armyblack);
+    background-color: map.get(colors.$army-branding, armyblack);
     left: 0;
     position: fixed;
     right: 0;
     top: 0;
 
-    @include transform(translateY, -100%);
-    @include custom-transition(transform .25s ease);
+    @include transform.transform(translateY, -100%);
+    @include custom-transition.custom-transition(transform .25s ease);
 
     &.search-window { height: 82px; }
 
@@ -174,7 +187,7 @@ header {
     }
 
     &.open-window {
-      @include transform(translateY, 0);
+      @include transform.transform(translateY, 0);
       top: $header-height + $header-border-width;
     }
   }
@@ -190,7 +203,7 @@ header {
       margin: 0;
 
       > li {
-        border-bottom: 1px solid map-get($army-branding, grey80);
+        border-bottom: 1px solid map.get(colors.$army-branding, grey80);
 
         &.social {
           border-bottom-width: 0;
@@ -225,7 +238,7 @@ header {
         a { outline: 0 none; }
 
         label {
-          color: map-get($army-branding, grey20);
+          color: map.get(colors.$army-branding, grey20);
           display: block;
           font-size: 1.125em;
           font-weight: 700;
@@ -269,8 +282,8 @@ header {
         padding-top: 10px;
 
         a {
-          background: map-get($army-branding, grey80);
-          color: map-get($army-branding, grey20);
+          background: map.get(colors.$army-branding, grey80);
+          color: map.get(colors.$army-branding, grey20);
           display: block;
           text-decoration: none;
           text-transform: uppercase;
@@ -279,7 +292,7 @@ header {
       }
     }
 
-    @include breakpoints(mobile nav tablet) {
+    @include breakpoints.breakpoints(mobile nav tablet) {
       .list-container > ul > li {
 
         ul {
@@ -293,7 +306,7 @@ header {
             // add padding to the anchor tag
             // to make the clickable area bigger
             padding: 10px 30px;
-            color: map-get($army-branding, grey20);
+            color: map.get(colors.$army-branding, grey20);
           }
         }
 
@@ -304,7 +317,7 @@ header {
         }
 
         input[type=checkbox]:checked ~ label {
-          border-bottom: 1px solid map-get($army-branding, grey80);
+          border-bottom: 1px solid map.get(colors.$army-branding, grey80);
 
           span::before { 
             content: "\ea0b";
@@ -313,7 +326,7 @@ header {
       }
     }
 
-    @include breakpoints(mobile) {
+    @include breakpoints.breakpoints(mobile) {
       .quicklinks li {
         text-align: center;
         a {
@@ -324,13 +337,13 @@ header {
       }
     }
 
-    @include breakpoints(nav tablet lg_tablet) {
+    @include breakpoints.breakpoints(nav tablet lg_tablet) {
       .quicklinks {
-        @include row(true);
+        @include grid-system.row(true);
 
         *,
         *:after,
-        *:before { @include box-sizing(border-box); }
+        *:before { @include box-model.box-sizing(border-box); }
 
         li {
           // @include span-clear(6);
@@ -358,7 +371,7 @@ header {
       }
     }
 
-    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
       padding: 60px;
 
       .list-container {
@@ -375,11 +388,11 @@ header {
             width: 33.3333%;
 
             label {
-              color: map-get($army-branding, gold);
+              color: map.get(colors.$army-branding, gold);
               padding: 0 0 15px;
 
               span {
-                background: map-get($army-branding, white);
+                background: map.get(colors.$army-branding, white);
                 background-image: none;
                 bottom: 0;
                 height: 1px;
@@ -399,34 +412,34 @@ header {
               li {
 
                 a {
-                  color: map-get($army-branding, white);
+                  color: map.get(colors.$army-branding, white);
                   padding: .469em 45px .469em 0;
                   position: relative;
 
-                  @include custom-transition(color .2s linear 0s);
+                  @include custom-transition.custom-transition(color .2s linear 0s);
 
                   &:after {
                     content: "\ea3c";
                     font-family: 'armyicons';
-                    color: map-get($army-branding, gold);
+                    color: map.get(colors.$army-branding, gold);
 
                     height: 17px;
                     margin-left: 30px;
                     position: absolute;
                     width: 15px;
 
-                    @include opacity(0);
+                    @include opacity.opacity(0);
 
-                    @include custom-transition(margin .2s linear 0s, opacity .2s linear 0s);
+                    @include custom-transition.custom-transition(margin .2s linear 0s, opacity .2s linear 0s);
                   }
 
                   &:hover,
                   &:focus {
-                    color: map-get($army-branding, gold);
+                    color: map.get(colors.$army-branding, gold);
 
                     &:after {
                       margin-left: 10px;
-                      @include opacity(1);
+                      @include opacity.opacity(1);
                     }
                   }
                 }
@@ -457,7 +470,7 @@ header {
       } // end .list-container
     } // end breakpoints(lg_tablet sm_desktop desktop large really_big)
 
-    @include breakpoints(sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
       .list-container {
         float: left;
         width: 80%;
@@ -478,18 +491,18 @@ header {
             padding: 20px;
             position: relative;
 
-            @include custom-transition(background .2s linear 0s, color .2s linear 0s);
+            @include custom-transition.custom-transition(background .2s linear 0s, color .2s linear 0s);
 
             &:hover,
             &:focus {
-              background: lighten(map-get($army-branding, grey90), 6.25); //#2a2a2a;
-              color: map-get($army-branding, gold);
+              background: color.adjust(map.get(colors.$army-branding, grey90), $lightness: 6.25%); //#2a2a2a;
+              color: map.get(colors.$army-branding, gold);
             }
 
             &:after {
               content: "\ea3c";
               font-family: 'armyicons';
-              color: map-get($army-branding, gold);
+              color: map.get(colors.$army-branding, gold);
               font-size: 16px;
               height: 17px;
               position: absolute;
@@ -502,7 +515,7 @@ header {
       } // end .quicklinks
     } // end breakpoints(sm_desktop desktop large really_big)
 
-    @include breakpoints(sm_desktop) {
+    @include breakpoints.breakpoints(sm_desktop) {
       .list-container{
         width: 75%;
       }
@@ -511,7 +524,7 @@ header {
       }
     }
 
-    @include breakpoints(desktop) {
+    @include breakpoints.breakpoints(desktop) {
       .list-container{
         width: 78%;
       }
@@ -523,8 +536,8 @@ header {
 
   .nav-button {
     border-style: solid;
-    border-color: map-get($army-branding, grey80);
-    color: map-get($army-branding, white);
+    border-color: map.get(colors.$army-branding, grey80);
+    color: map.get(colors.$army-branding, white);
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -546,7 +559,7 @@ header {
       &::before {
         content: "\e96d";
         font-family: 'armyicons';
-        color: map-get($army-branding, white);
+        color: map.get(colors.$army-branding, white);
         font-size: 32px;
         -webkit-font-smoothing: none;
         -moz-osx-font-smoothing: grayscale;
@@ -564,7 +577,7 @@ header {
       &::after {
         content: "\e96e";
         font-family: 'armyicons';
-        color: map-get($army-branding, white);
+        color: map.get(colors.$army-branding, white);
         font-size: 28px;
         font-weight: normal;
         position: relative;
@@ -573,7 +586,7 @@ header {
       }
     }
   
-    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
       &.menu-button, &.search-button {
         border: none;
         span {
@@ -598,7 +611,7 @@ header {
     &.close-button {
       &.black-close span::before,
       &.black-close span::after {
-        color: map-get($army-branding, black);
+        color: map.get(colors.$army-branding, black);
       }
     }
   
@@ -627,6 +640,6 @@ header {
 }
 
 // Mixins
-@include slideInDown;
+@include animations.slideInDown;
 
-@include slideInUp;
+@include animations.slideInUp;

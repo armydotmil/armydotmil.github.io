@@ -1,7 +1,12 @@
+@use "../base/bodytext";
+@use "../layout/grid-system";
+@use "../layout/grid-system-spans";
+@use "../base/mixins/breakpoints";
+
 .links-list,
 .simple-list {
-  @include bodytext-list();
-  @include row(true);
+  @include bodytext.bodytext-list();
+  @include grid-system.row(true);
   margin-bottom: 1.625em;
 
   &:last-child {
@@ -9,7 +14,7 @@
   }
 
   > ul, > ol {
-    @include span(12);
+    @include grid-system-spans.span(12);
 
     &[class$="column"] {
       margin-bottom: 14px;
@@ -19,9 +24,9 @@
       margin-bottom: 0;
     }
 
-    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
       &[class$="column"] {
-        @include span(6);
+        @include grid-system-spans.span(6);
         margin-bottom: 0;
       }
     }

@@ -1,3 +1,11 @@
+@use "../base/colors";
+@use "../base/variables";
+@use "../base/mixins/breakpoints";
+@use "../base/mixins/transform";
+@use "../base/mixins/opacity";
+@use "../base/custom-mixins/custom-transition";
+
+@use "sass:map";
 
 
 .headlines {
@@ -10,22 +18,22 @@
       &:last-child { border: 0; margin: 0; padding: 0; }
       
       .date {
-        color: map-get($army-branding, grey60);
+        color: map.get(colors.$army-branding, grey60);
         padding-right: 15px;
         text-transform: uppercase;
       }
       
       a {
         padding-right: 23px;
-        color: map-get($army-branding, armyblack);
-        font: 600 1em/1.3em $font-family;
+        color: map.get(colors.$army-branding, armyblack);
+        font: 600 1em/1.3em variables.$font-family;
 
         .view-more-arrow-sm { display: none; }
 
         &:after {
           content: "\ea3c";
           font-family: 'armyicons';
-          color: map-get($army-branding, gold);
+          color: map.get(colors.$army-branding, gold);
           position: relative;
           height: 12px;
           margin-left: 9px;
@@ -40,48 +48,48 @@
     }
   }
   
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
     ul li {
       a {
         padding-right: 54px;
 
         &:after {
-          @include opacity(0);
-          @include transform(translateX, 40px);
-          @include custom-transition(all .25s ease);
+          @include opacity.opacity(0);
+          @include transform.transform(translateX, 40px);
+          @include custom-transition.custom-transition(all .25s ease);
         }
 
         &:hover, &:focus {
           &:after {
-            @include opacity(1);
-            @include transform(translateX, 0);
+            @include opacity.opacity(1);
+            @include transform.transform(translateX, 0);
           }
         }
       }
     }
   }
   
-  @include breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
     ul li {
       display: table;
       width: 100%;
 
       a, .date {
         display: table-cell;
-        font: 600 1em/1.375em $font-family;
+        font: 600 1em/1.375em variables.$font-family;
       }
       
       .date { width: 140px; }
     }
   }
   
-  @include breakpoints(mobile nav) {
+  @include breakpoints.breakpoints(mobile nav) {
     ul li {
-      border-bottom: 1px solid map-get($army-branding, grey20);
+      border-bottom: 1px solid map.get(colors.$army-branding, grey20);
       padding-bottom: 20px;
       
       .date {
-        font: 400 .875em $font-family;
+        font: 400 .875em variables.$font-family;
         margin: 0 0 5px;
       }
     }

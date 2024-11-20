@@ -1,3 +1,8 @@
+@use "../base/colors";
+@use "../base/variables";
+@use "../base/mixins/button-transition";
+
+@use "sass:map";
 
 
 
@@ -7,10 +12,10 @@
   
   &:last-child { margin: 0; }
   
-  @include link-transition('> div');
+  @include button-transition.link-transition('> div');
 
   > div {
-    background: map-get($army-branding, gold);
+    background: map.get(colors.$army-branding, gold);
     display: inline-block;
     margin: 0 auto;
     padding: 5px;
@@ -25,20 +30,20 @@
     }
     
     &.black {
-      background: map-get($army-branding, armyblack);
+      background: map.get(colors.$army-branding, armyblack);
       
       a,
       input[type="button"],
       input[type="submit"] {
-        color: map-get($army-branding, white);
+        color: map.get(colors.$army-branding, white);
       }
 
-      span { background: map-get($army-branding, white); }
+      span { background: map.get(colors.$army-branding, white); }
     }
     
     &.white {
-      background: map-get($army-branding, white);
-      border: 1px solid map-get($army-branding, armyblack);
+      background: map.get(colors.$army-branding, white);
+      border: 1px solid map.get(colors.$army-branding, armyblack);
     }
   }
   
@@ -49,7 +54,7 @@
     border-width: 0;
     display: block;
     cursor: pointer;
-    font: 600 .875em $font-family;
+    font: 600 .875em variables.$font-family;
     min-width: 100%; // if containing div is set to block
     padding: 11px 30px 9px;
     position: relative;
@@ -75,13 +80,13 @@
   &::before {
     content: "\ea3c";
     font-family: 'armyicons';
-    color: map-get($army-branding, gold);
+    color: map.get(colors.$army-branding, gold);
   }
   &.black-arrow::before {
-    color: map-get($army-branding, black);
+    color: map.get(colors.$army-branding, black);
   }
   &.gray-arrow::before {
-    color: map-get($army-branding, grey40);
+    color: map.get(colors.$army-branding, grey40);
   }
 }
 
@@ -94,7 +99,7 @@
     &::before {
       content: "\e96f";
       font-family: 'armyicons';
-      color: map-get($army-branding, white);
+      color: map.get(colors.$army-branding, white);
       font-size: 20px;
     }
   }
@@ -106,13 +111,13 @@
   height: 24px;
   width: 24px;
   background-color: transparent;
-  color: map-get($army-branding, white);
+  color: map.get(colors.$army-branding, white);
   font-size: 25px;
 }
 
 .greater-than-button {
   .greater-than-button-image {
-    background: transparent $social-button-sprite no-repeat scroll -341px 0;
+    background: transparent variables.$social-button-sprite no-repeat scroll -341px 0;
     height: 18px;
     width: 11px;
   }
@@ -120,7 +125,7 @@
 
 .less-than-button {
   .less-than-button {
-    background: transparent $social-button-sprite no-repeat scroll -331px 0;
+    background: transparent variables.$social-button-sprite no-repeat scroll -331px 0;
     height: 18px;
     width: 10px;
   }
@@ -130,20 +135,20 @@
 .social-button-black a {
   i[class*=' armyicons'],i[class^='armyicons'] {
     font-size: 25px;
-    color: map-get($army-branding, white);
+    color: map.get(colors.$army-branding, white);
     line-height: 25px;
   }
   &:not(.no-hover):hover,
   &:not(.no-hover):focus {
     i[class*=' armyicons'],i[class^='armyicons'] {
-      color: map-get($army-branding, gold);
+      color: map.get(colors.$army-branding, gold);
     }
   }
 }
 
 .social-button-black a {
   i[class*=' armyicons'],i[class^='armyicons'] {
-    color: map-get($army-branding, black);
+    color: map.get(colors.$army-branding, black);
   }
 }
 
@@ -159,7 +164,7 @@
   }
   a span::before {
     font: normal 25px/25px 'armyicons';
-    color: map-get($army-branding, white);
+    color: map.get(colors.$army-branding, white);
   }
   &.facebook-button a span::before {
     content: "\ea90";
@@ -200,23 +205,23 @@
   &:not(.no-hover):hover,
   &:not(.no-hover):focus {
     span::before {
-      color: map-get($army-branding, gold);
+      color: map.get(colors.$army-branding, gold);
     }
   }
 }
 .social-button-gold-lg a {
   span::before {
-    color: map-get($army-branding, gold);
+    color: map.get(colors.$army-branding, gold);
   }
   &:not(.no-hover):hover,
   &:not(.no-hover):focus {
     span::before {
-      color: map-get($army-branding, black);
+      color: map.get(colors.$army-branding, black);
     }
   }
 }
 .social-button-black a span::before {
-  color: map-get($army-branding, black);
+  color: map.get(colors.$army-branding, black);
 }
 .social-button-sm a span::before {
   font-size: 22px;
@@ -228,7 +233,7 @@
   text-indent: -99999px;
 
   span {
-    background: transparent $army-logo no-repeat scroll;
+    background: transparent variables.$army-logo no-repeat scroll;
     display: block;
     height: 36px;
     width: 150px;
@@ -242,7 +247,7 @@ a.play-button {
     &::before {
       content: "\ea1c";
       font-family: 'armyicons';
-      color: map-get($army-branding, white);
+      color: map.get(colors.$army-branding, white);
     }
   }
 }
@@ -254,7 +259,7 @@ a.plus-thick {
   &::before {
     content: "\ea0a";
     font-family: 'armyicons';
-    color: map-get($army-branding, white);
+    color: map.get(colors.$army-branding, white);
   }
 }
 
@@ -265,7 +270,7 @@ a.minus-thick {
   &::before {
     content: "\ea0b";
     font-family: 'armyicons';
-    color: map-get($army-branding, white);
+    color: map.get(colors.$army-branding, white);
   }
 }
 
@@ -276,7 +281,7 @@ a.plus-black {
   &::before {
     content: "\ea0a";
     font-family: 'armyicons';
-    color: map-get($army-branding, black);
+    color: map.get(colors.$army-branding, black);
   }
 }
 
@@ -287,7 +292,7 @@ a.minus-black {
   &::before {
     content: "\ea0b";
     font-family: 'armyicons';
-    color: map-get($army-branding, black);
+    color: map.get(colors.$army-branding, black);
   }
 }
 
@@ -306,7 +311,7 @@ a.toggle-button {
 
 .directional-arrow,
 a.directional-arrow {
-  color: map-get($army-branding, black);
+  color: map.get(colors.$army-branding, black);
   display: inline-block;
   text-decoration: none;
   &::before {
@@ -322,10 +327,10 @@ a.directional-arrow {
     &::before {
       content: "\e90c";
     }
-    color: map-get($army-branding, grey60);
+    color: map.get(colors.$army-branding, grey60);
   }
 
   &.gray-right {
-    color: map-get($army-branding, grey60);
+    color: map.get(colors.$army-branding, grey60);
   }
 }
