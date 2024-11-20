@@ -103,7 +103,9 @@ h3,
 h4,
 h5 {
   @include custom-transition.custom-transition(font-size .25s ease);
-  text-align: center;
+  & {
+    text-align: center;
+  }
 }
 
 @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {

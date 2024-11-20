@@ -255,8 +255,10 @@ section {
 #typography {
   .font-info {
     @include clearfix.clearfix();
-    margin-bottom: 1.25em;
-    padding-bottom: 1.25em;
+    & {
+      margin-bottom: 1.25em;
+      padding-bottom: 1.25em;
+    }
     
     .rt .btn {
       text-align: center;
@@ -267,9 +269,11 @@ section {
     @include grid-system.row();
     li {
       @include clearfix.clearfix();
-      border-bottom: 1px solid map-get(colors.$army-branding, grey30);
-      margin-bottom: 30px;
-      padding-bottom: 30px;
+      & {
+        border-bottom: 1px solid map-get(colors.$army-branding, grey30);
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+      }
       
       &:last-child { margin: 0; }
       

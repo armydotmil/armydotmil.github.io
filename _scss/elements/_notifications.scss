@@ -65,15 +65,15 @@
       }
       
       .view-more-arrow-sm {
-        @include opacity.opacity(0);
         margin-left: 40px;
+        @include opacity.opacity(0);
         @include custom-transition.custom-transition(opacity .25s ease, margin-left .25s ease);
       }
       
       &:hover, &:focus {
         .view-more-arrow-sm {
-          @include opacity.opacity(1);
           margin-left: 5px;
+          @include opacity.opacity(1);
         }
       }
     }

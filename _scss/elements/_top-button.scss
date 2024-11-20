@@ -21,9 +21,9 @@
   @include custom-transition.custom-transition(opacity .5s ease);
 
   &.visible {
-    @include opacity.opacity(.7);
     z-index: 1;
     text-decoration: none;
+    @include opacity.opacity(.7);
 
     &:hover { @include opacity.opacity(1); }
   }
