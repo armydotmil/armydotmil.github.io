@@ -7,7 +7,9 @@
 .simple-list {
   @include bodytext.bodytext-list();
   @include grid-system.row(true);
-  margin-bottom: 1.625em;
+  & {
+    margin-bottom: 1.625em;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -27,7 +29,9 @@
     @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
       &[class$="column"] {
         @include grid-system-spans.span(6);
-        margin-bottom: 0;
+        & {
+          margin-bottom: 0;
+        }
       }
     }
   }

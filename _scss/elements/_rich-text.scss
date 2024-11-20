@@ -262,31 +262,28 @@
   h2 {
     font-size: 1.875em;
     line-height: 1.333em;
-
-    @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
-      font-size: 2.25em;
-      line-height: 1.333em;
-    }
-
     margin: 0.675em 0;
     text-transform: none;
     font-weight: 600;
     text-align: left;
+    @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
+      font-size: 2.25em;
+      line-height: 1.333em;
+    }
   }
 
   // "subheader" style
   h5 {
     font-size: 1.313em;
     line-height: 1.4em;
-  
-    @include breakpoints.breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
-      font-size: 1.5em;
-      line-height: 1.5em;
-    }
     margin: 1em 0;
     text-transform: none;
     font-weight: 600;
     text-align: left;
+    @include breakpoints.breakpoints(tablet lg_tablet sm_desktop desktop large really_big) {
+      font-size: 1.5em;
+      line-height: 1.5em;
+    }
   }
 
   .ql-editor blockquote,
@@ -345,7 +342,6 @@
             &:before {
               position: absolute;
               z-index: 1;
-              @include custom-transition.custom-transition(opacity .25s ease);
               opacity: 0.5;
               content: "\e976";
               font-family: 'armyicons';
@@ -359,6 +355,7 @@
               right: 10px;
               bottom: 10px;
               text-shadow: 0 0 5px map.get(colors.$army-branding, black);
+              @include custom-transition.custom-transition(opacity .25s ease);
             }
 
             &:hover:before,

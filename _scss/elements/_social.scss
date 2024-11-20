@@ -42,10 +42,10 @@
   left: 0;
   position: fixed;
   text-align: center;
-  @include custom-transition.custom-transition(bottom 500ms);
   visibility: visible;
   width: 100%;
   z-index: 1;
+  @include custom-transition.custom-transition(bottom 500ms);
 
   .hidden { display: none; }
 

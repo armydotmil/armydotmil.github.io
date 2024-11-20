@@ -91,7 +91,6 @@ header {
     left: 50%;
     line-height: 0;
     position: absolute;
-    @include transform.transform(translateX, -50%);
     z-index: 1;
     display: flex;
     align-content: center;
@@ -99,6 +98,7 @@ header {
     padding: 0 10px 3px;
     flex-wrap: wrap;
     max-width: 45%;
+    @include transform.transform(translateX, -50%);
     
     span {
       transition: transform 0.1s ease;
@@ -187,8 +187,8 @@ header {
     }
 
     &.open-window {
-      @include transform.transform(translateY, 0);
       top: $header-height + $header-border-width;
+      @include transform.transform(translateY, 0);
     }
   }
 
