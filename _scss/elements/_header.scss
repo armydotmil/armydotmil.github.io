@@ -178,7 +178,10 @@ header {
     @include transform.transform(translateY, -100%);
     @include custom-transition.custom-transition(transform .25s ease);
 
-    &.search-window { height: 82px; }
+    &.search-window {
+      position: sticky;
+      height: 82px;
+    }
 
     &.menu-window {
       height: 100%;
