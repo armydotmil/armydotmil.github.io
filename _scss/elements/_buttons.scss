@@ -324,10 +324,10 @@ a.directional-arrow {
   }
 
   &.gray-left {
+    color: map.get(colors.$army-branding, grey60);
     &::before {
       content: "\e90c";
     }
-    color: map.get(colors.$army-branding, grey60);
   }
 
   &.gray-right {
