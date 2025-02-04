@@ -259,17 +259,16 @@ header {
           -webkit-text-size-adjust: none;
 
           span {
-            &::before {
-              content: "\ea0a";
-              font-family: 'armyicons';
-            }
-
             height: 18px;
             position: absolute;
             right: 12px;
             top: 26px;
             width: 12px;
             font-size: 14px;
+            &::before {
+              content: "\ea0a";
+              font-family: 'armyicons';
+            }
           }
         }
 
