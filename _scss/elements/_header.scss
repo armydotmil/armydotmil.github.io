@@ -348,18 +348,15 @@ header {
         *:before { @include box-model.box-sizing(border-box); }
 
         li {
-          // @include span-clear(6);
-          /* include span-clear styles directly, instead of using mixin... */
           float: left;
           padding-left: 15px;
           padding-right: 15px;
           width: 50%;
+          text-align: center;
           &:nth-child(2n+3) {
             clear: left;
           }
           /* END span-clear styles */
-
-          text-align: center;
 
           &:nth-child(2n) { padding-left: 5px; }
           &:nth-child(2n+1) { padding-right: 5px; }

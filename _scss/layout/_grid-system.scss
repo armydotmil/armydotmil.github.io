@@ -18,16 +18,18 @@
 
 // Creates a wrapper for a series of columns
 @mixin row($inside: false, $gutter: variables.$grid-gutter-width) {
-  @if($inside == true) {
-    // Negative margin nested rows out to align the content of columns
-    margin-left: math.ceil($gutter * -0.5);
-    margin-right: math.floor($gutter * -0.5);
-  }
-  @else {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
+  & {
+    @if($inside == true) {
+      // Negative margin nested rows out to align the content of columns
+      margin-left: math.ceil($gutter * -0.5);
+      margin-right: math.floor($gutter * -0.5);
+    }
+    @else {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: hidden;
+    }
   }
   
   @include clearfix.clearfix();
