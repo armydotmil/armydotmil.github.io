@@ -13,6 +13,10 @@ import Helper from './modules/Helper';
         pos,
         topBtn = document.getElementsByClassName('top-btn')[0];
 
+    // if no top-btn html is present, exit early
+    if (topBtn.length === 0) return;
+    topBtn = topBtn[0];
+
     window.onscroll = function () {
         pos = body.scrollTop || doc.scrollTop;
 
