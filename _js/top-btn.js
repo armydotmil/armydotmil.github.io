@@ -11,7 +11,7 @@ import Helper from './modules/Helper';
         increment = 16,
         lastScrollTop = 0,
         pos,
-        topBtn = document.getElementsByClassName('top-btn')[0];
+        topBtn = document.getElementsByClassName('top-btn');
 
     // if no top-btn html is present, exit early
     if (topBtn.length === 0) return;
