@@ -22,6 +22,24 @@
     li {
       margin: 0 0 0.5em 0;
     }
+
+    @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
+      column-count: 2; /* Creates two columns */
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-gap: 20px;
+
+      li {
+        break-inside: avoid;
+        
+        // if 5 or more bullets, switch to multicolumn format
+        column-span: all;
+        &:nth-last-child(n+5),
+        &:nth-last-child(n+5) ~ * {
+          column-span: none;
+        }
+      }
+    }
   }
 
   // Quill 1 and 2 styles for unordered list
