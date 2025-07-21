@@ -4,6 +4,51 @@
 
 @use "sass:map";
 .leaders {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 20px 2.6%;
+
+  li {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    .leaders-content {
+      display: flex;
+      flex-flow: column;
+      height: 100%;
+      justify-content: space-between;
+    }
+    .leaders-title {
+      font-weight: bold;
+    }
+    .leaders-bio.btn {
+      margin-top: 15px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+
+  @include breakpoints.breakpoints(nav tablet) {
+    gap: 20px 4%;
+    li {
+      width: 48%;
+    }
+  }
+
+  @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    li {
+      width: 23%;
+    }
+  }
+}
+.leaders.small-list {
   li {
     border: 2px solid map.get(colors.$army-branding, grey50);
     margin: 0 0 30px;
