@@ -208,11 +208,11 @@ class VideoBlot extends BlockEmbed {
     html += '<div class="playlist-panel">';
     html += '<div class="playlist-overlay"></div>';
     html += '<div class="playlist-toggle">';
-    html += '<a href="javascript:;" title="Show videos playlist"><span></span></a>';
+    html += '<a href="#" title="Show videos playlist"><span></span></a>';
     html += '</div>';
     html += '<div class="playlist-info">';
     html += '<div class="table">';
-    html += '<h5><a href="javascript:;" title="Hide videos playlist">' + playlist.title + '<span></span></a></h5>';
+    html += '<h5><a href="#" title="Hide videos playlist">' + playlist.title + '<span></span></a></h5>';
     html += '</div>';
     html += '</div>';
     if (playlist.videos.length > 0 && playlist.videos[0].video !== playlist.video) {
