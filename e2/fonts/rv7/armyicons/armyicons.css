@@ -1,19 +1,19 @@
 @font-face {
   font-family: 'armyicons';
-  src:  url('armyicons.eot');
-  src:  url('armyicons.eot') format('embedded-opentype'),
-    url('armyicons.woff2') format('woff2'),
-    url('armyicons.ttf') format('truetype'),
-    url('armyicons.woff') format('woff'),
-    url('armyicons.svg') format('svg');
+  src:  url('/e2/fonts/rv7/armyicons/armyicons.eot?hpod4r');
+  src:  url('/e2/fonts/rv7/armyicons/armyicons.eot?hpod4r#iefix') format('embedded-opentype'),
+    url('/e2/fonts/rv7/armyicons/armyicons.woff2?hpod4r') format('woff2'),
+    url('/e2/fonts/rv7/armyicons/armyicons.ttf?hpod4r') format('truetype'),
+    url('/e2/fonts/rv7/armyicons/armyicons.woff?hpod4r') format('woff'),
+    url('/e2/fonts/rv7/armyicons/armyicons.svg?hpod4r#armyicons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-.armyicons i, i.armyicons, i[class^="armyicons"], .icomoon-liga {
+i, .icomoon-liga {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'armyicons';
+  font-family: 'armyicons' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -37,634 +37,650 @@
 }
 
 .armyicons-star:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e90e";
 }
 .armyicons-advancement:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e94b";
 }
 .armyicons-army_brand:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e922";
 }
 .armyicons-army_core_cms:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e925";
 }
 .armyicons-army_mobile:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e963";
 }
 .armyicons-army_patch:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e943";
 }
 .armyicons-arrow_medium_left:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e909";
 }
 .armyicons-arrow_medium_right:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e90a";
 }
 .armyicons-backpack:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e968";
 }
 .armyicons-badge_army_aviator:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e921";
 }
 .armyicons-badge_combat_infantry:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e92f";
 }
 .armyicons-badge_parachutists:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e919";
 }
 .armyicons-bonuses:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e966";
 }
 .armyicons-bookmark:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e96c";
 }
 .armyicons-branch_adjuntant_general_corps:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e929";
 }
 .armyicons-branch_air_defense_artillery:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e92d";
 }
 .armyicons-branch_armor:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e90f";
 }
 .armyicons-branch_artillery:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e92e";
 }
 .armyicons-branch_chemical_corps:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e926";
 }
 .armyicons-branch_engineer_corps:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e92c";
 }
 .armyicons-branch_finance_corps:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e91b";
 }
 .armyicons-branch_infantry:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e930";
 }
 .armyicons-branch_judge_advocate_general_corps:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e91f";
 }
 .armyicons-branch_medical_corps:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e928";
 }
 .armyicons-branch_military_intelligence:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e920";
 }
 .armyicons-branch_military_police_corps:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e92a";
 }
 .armyicons-branch_ordinance_corps:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e927";
 }
 .armyicons-branch_quartermaster_corps:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e91c";
 }
 .armyicons-branch_signal_corps:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e92b";
 }
 .armyicons-branch_transportation_corps:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e91a";
 }
 .armyicons-branch_womens_corps:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e91e";
 }
 .armyicons-calculator:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e965";
 }
 .armyicons-calendar:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e964";
 }
 .armyicons-chat:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e962";
 }
 .armyicons-chemistry:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e961";
 }
 .armyicons-chevron_left:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e90c";
 }
 .armyicons-chevron_light_left:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e908";
 }
 .armyicons-chevron_light_right:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e907";
 }
 .armyicons-chevron_right:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e90d";
 }
 .armyicons-childcare:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e959";
 }
 .armyicons-close:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e96f";
 }
 .armyicons-computers:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e960";
 }
 .armyicons-contact:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e95f";
 }
 .armyicons-doc_01:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e95e";
 }
 .armyicons-download:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e970";
 }
 .armyicons-education:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e95d";
 }
 .armyicons-employment:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e958";
 }
 .armyicons-expand:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e976";
 }
 .armyicons-external_link:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e975";
 }
 .armyicons-fitness:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e95c";
 }
 .armyicons-fort:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e967";
 }
 .armyicons-healthcare_01:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e95b";
 }
 .armyicons-healthcare_02:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e95a";
 }
 .armyicons-helicopter:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e956";
 }
 .armyicons-helmet:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e955";
 }
 .armyicons-housing_01:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e953";
 }
 .armyicons-housing_02:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e952";
 }
 .armyicons-humvee:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e954";
 }
 .armyicons-info:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e951";
 }
 .armyicons-location:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e950";
 }
 .armyicons-maintenance:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e94f";
 }
 .armyicons-map:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e94e";
 }
 .armyicons-menu:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e96d";
 }
 .armyicons-moh_stars:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e931";
 }
 .armyicons-moving:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e957";
 }
 .armyicons-parachute:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e94c";
 }
 .armyicons-pentagon:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e90b";
 }
 .armyicons-plane:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e94d";
 }
 .armyicons-playlist:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e977";
 }
 .armyicons-print:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e905";
 }
 .armyicons-radar:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e94a";
 }
 .armyicons-radio:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e949";
 }
 .armyicons-rank_brigadier_general:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e935";
 }
 .armyicons-rank_captain:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e918";
 }
 .armyicons-rank_colonel:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e91d";
 }
 .armyicons-rank_command_sergeant_major:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e941";
 }
 .armyicons-rank_corporal:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e93f";
 }
 .armyicons-rank_cw1:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e917";
 }
 .armyicons-rank_cw2:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e916";
 }
 .armyicons-rank_cw3:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e915";
 }
 .armyicons-rank_cw4:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e914";
 }
 .armyicons-rank_cw5:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e913";
 }
 .armyicons-rank_first_sergeant:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e940";
 }
 .armyicons-rank_general:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e933";
 }
 .armyicons-rank_general_of_the_army:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e932";
 }
 .armyicons-rank_lieutenant:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e912";
 }
 .armyicons-rank_lieutenant_colonel:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e910";
 }
 .armyicons-rank_lieutenant_general:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e911";
 }
 .armyicons-rank_major_general:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e934";
 }
 .armyicons-rank_master_sergeant:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e93e";
 }
 .armyicons-rank_private:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e93a";
 }
 .armyicons-rank_private_first_class:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e93b";
 }
 .armyicons-rank_sergeant:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e938";
 }
 .armyicons-rank_sergeant_first_class:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e93d";
 }
 .armyicons-rank_sergeant_major:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e939";
 }
 .armyicons-rank_sergeant_major_of_the_army:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e93c";
 }
 .armyicons-rank_specialist:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e936";
 }
 .armyicons-rank_staff_sergeant:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e937";
 }
 .armyicons-robotics:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e948";
 }
 .armyicons-rss:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e974";
 }
 .armyicons-search:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e96e";
 }
 .armyicons-sm_armyyoutube:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e971";
 }
 .armyicons-sm_x:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e979";
 }
 .armyicons-sm_hootsuite:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e923";
 }
 .armyicons-sm_reddit:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e96a";
 }
 .armyicons-sm_sprinklr:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e924";
 }
 .armyicons-soldiers:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e947";
 }
 .armyicons-sound:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e973";
 }
 .armyicons-tab_airborne:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e900";
 }
 .armyicons-tab_honor_guard:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e902";
 }
 .armyicons-tab_ranger:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e901";
 }
 .armyicons-tab_sapper:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e903";
 }
 .armyicons-tab_special_forces:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e904";
 }
 .armyicons-target:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e945";
 }
 .armyicons-thumbnail:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e906";
 }
 .armyicons-thumbnail_grid:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e96b";
 }
 .armyicons-tools:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e946";
 }
 .armyicons-training:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e944";
 }
 .armyicons-us_flag:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e942";
 }
 .armyicons-warning:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e972";
 }
 .armyicons-wellness:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e969";
 }
 .armyicons-film:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9cf";
 }
 .armyicons-file-picture:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9d0";
 }
 .armyicons-file-music:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9d1";
 }
 .armyicons-file-play:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9d2";
 }
 .armyicons-file-video:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9d3";
 }
 .armyicons-file-zip:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9d4";
 }
 .armyicons-location2:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e978";
 }
 .armyicons-bubbles2:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9d5";
 }
 .armyicons-enlarge:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9d6";
 }
 .armyicons-shrink:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9d7";
 }
 .armyicons-enlarge2:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9d8";
 }
 .armyicons-shrink2:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9d9";
 }
 .armyicons-lock:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e98f";
 }
 .armyicons-pie-chart:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9da";
 }
 .armyicons-stats-dots:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9db";
 }
 .armyicons-stats-bars:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9dc";
 }
 .armyicons-stats-bars2:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\e9dd";
 }
 .armyicons-plus:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\ea0a";
 }
 .armyicons-minus:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\ea0b";
 }
 .armyicons-play3:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\ea1c";
 }
 .armyicons-pause2:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\ea1d";
 }
 .armyicons-arrow-right2:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\ea3c";
 }
 .armyicons-arrow-left2:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\ea40";
 }
 .armyicons-embed:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\ea7f";
 }
 .armyicons-share2:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\ea82";
 }
 .armyicons-sm_facebook:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\ea90";
 }
 .armyicons-sm_instagram:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\ea92";
 }
 .armyicons-sm_twitter:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\ea96";
 }
 .armyicons-sm_youtube:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\ea9d";
 }
 .armyicons-sm_vimeo:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\eaa0";
 }
 .armyicons-sm_flickr3:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\eaa5";
 }
-.armyicons-sm_tumblr:before { 
+.armyicons-sm_flickr:before { 
   font-family: 'armyicons';
+    content: "\eaa5";
+  }
+.armyicons-sm_tumblr:before { 
+font-family: 'armyicons';
   content: "\eab9";
 }
-.armyicons-sm_linkedin2:before { 
-  font-family: 'armyicons';
+.armyicons-sm_linkedin2:before, .armyicons-sm_linkedin:before { 
+font-family: 'armyicons';
   content: "\eaca";
 }
 .armyicons-sm_pinterest:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\ead1";
 }
 .armyicons-file-pdf:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\eadf";
 }
 .armyicons-file-word:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\eae1";
 }
 .armyicons-file-excel:before { 
-  font-family: 'armyicons';
+font-family: 'armyicons';
   content: "\eae2";
+}
+.armyicons-sm_threads:before {
+  font-family: 'armyicons';
+  content: "\e97a";
+}
+.armyicons-sm_slideshare:before {
+  font-family: 'armyicons';
+  content: "\e97b";
+}
+.armyicons-sm_soundcloud:before {
+  content: "\eac3";
+  font-family: 'armyicons';
 }
