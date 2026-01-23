@@ -108,6 +108,107 @@
   .alt-social-bar { display: block; }
 }
 
+// ----------------------------------------------------------------------
+// Social Media Icon Styles
+// Brand colors and icon codes for individual social networks
+// ----------------------------------------------------------------------
 
+.icons .social-icon-container.facebook-button a::before {
+  content: "\ea90";
+  color: #1877F2;
+}
 
+.icons .social-icon-container.x-button a::before,
+.icons .social-icon-container.twitter-button a::before {
+  content: "\e979";
+  color: #000000;
+}
 
+.icons .social-icon-container.flickr-button a::before {
+  content: "\eaa5";
+  color: #0063DC;
+}
+
+.icons .social-icon-container.youtube-button a::before {
+  content: "\ea9d";
+  color: #FF0000;
+}
+
+.icons .social-icon-container.email-button a::before {
+  content: "\e95f";
+  color: #000;
+}
+
+.icons .social-icon-container.instagram-button a::before {
+  content: "";
+  display: block;
+  width: 1em;
+  height: 1em;
+  font-size: 25px;
+  margin: 0 auto;
+  background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-mask-image: url('/e2/images/rv7/instagram-multicolor.svg');
+  mask-image: url('/e2/images/rv7/instagram-multicolor.svg');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  vertical-align: middle;
+}
+
+.icons .social-icon-container.linkedin-button a::before {
+  content: "\eaca";
+  color: #0A66C2;
+}
+
+.icons .social-icon-container.rss-button a::before {
+  content: "\e974";
+  color: #FF6600;
+}
+
+.icons .social-icon-container.pinterest-button a::before {
+  content: "\ead1";
+  color: #E60023;
+}
+
+.icons .social-icon-container.vimeo-button a::before {
+  content: "\eaa0";
+  color: #1AB7EA;
+}
+
+.icons .social-icon-container.threads-button a::before {
+  content: "\e97a";
+  color: #000000;
+}
+
+.icons .social-icon-container.soundcloud-button a::before {
+  content: "\eac3";
+  color: #FF5500;
+}
+
+.icons .social-icon-container.slideshare-button a::before {
+  content: "\e97b";
+  color: #E68523;
+}
+
+.icons .social-icon-container.tumblr-button a::before {
+  content: "\eab9";
+  color: #35465C;
+}
+
+.icons .social-icon-container.other-button a::before {
+  content: "\e971";
+}
+
+.icons .social-icon-container.snapchat-button a::before {
+  content: "\e977";
+  color: #FFFC00;
+}
+
+.icons .social-button.libsyn-button a::before, 
+.icons .social-button.ustream-button a::before {
+  content: "\ea82";
+  color: #bababa;
+}
