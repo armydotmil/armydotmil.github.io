@@ -198,6 +198,21 @@
   color: #35465C;
 }
 
+.icons .social-icon-container.reddit-button a::before {
+  content: "\e96a";
+  color: #FF4500;
+}
+
+.icons .social-icon-container.hootsuite-button a::before {
+  content: "\e923";
+  color: #000000;
+}
+
+.icons .social-icon-container.sprinklr-button a::before {
+  content: "\e924";
+  color: #1877f2;
+}
+
 .icons .social-icon-container.other-button a::before {
   content: "\e971";
 }
@@ -211,4 +226,92 @@
 .icons .social-button.ustream-button a::before {
   content: "\ea82";
   color: #bababa;
+}
+
+// ----------------------------------------------------------------------
+// .social-icon pattern for span-based implementations
+// Used by projects that render icons directly in <span> elements
+// ----------------------------------------------------------------------
+
+.social-icon {
+  font-family: 'armyicons';
+  width: 16px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1em;
+
+  // default "other"
+  &:before {
+    content: "\e971";
+    color: #000;
+  }
+
+  &.facebook:before {
+    content: "\ea90";
+    color: #3b5999;
+  }
+  &.x:before,
+  &.twitter:before {
+    content: "\e979";
+    color: #000000;
+  }
+  &.threads:before {
+    content: "\e97a";
+    color: #000000;
+  }
+  &.youtube:before {
+    content: "\ea9d";
+    color: #FF0000;
+  }
+  &.instagram:before {
+    content: "\ea92";
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  &.flickr:before {
+    content: "\eaa5";
+    color: #0063DC;
+  }
+  &.pinterest:before {
+    content: "\ead1";
+    color: #bd081c;
+  }
+  &.linkedin:before {
+    content: "\eaca";
+    color: #0077b5;
+  }
+  &.vimeo:before {
+    content: "\eaa0";
+    color: #1ab7ea;
+  }
+  &.soundcloud:before {
+    content: "\eac3";
+    color: #ff5500;
+  }
+  &.slideshare:before {
+    content: "\e97b";
+    color: #E68523;
+  }
+  &.tumblr:before {
+    content: "\eab9";
+    color: #35465c;
+  }
+  &.reddit:before {
+    content: "\e96a";
+    color: #ff4500;
+  }
+  &.hootsuite:before {
+    content: "\e923";
+    color: #000000;
+  }
+  &.sprinklr:before {
+    content: "\e924";
+    color: #1877f2;
+  }
+  &.rss:before {
+    content: "\e974";
+  }
 }
