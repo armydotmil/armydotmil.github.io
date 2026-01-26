@@ -238,43 +238,18 @@
 // Used by projects that render icons directly in <span> elements
 // ----------------------------------------------------------------------
 
-// Container styles for social-links lists
-ul.social-links {
-  li {
-    display: inline-block;
-    line-height: 0;
-    
-    a {
-      display: block;
-      line-height: 0;
-      padding: 5px 10px;
-      text-decoration: none;
-      
-      &:hover .social-icon:before,
-      &:focus .social-icon:before {
-        color: map.get(colors.$army-branding, gold) !important;
-      }
-    }
-  }
-}
-
 .social-icon {
   font-family: 'armyicons';
-  font-size: 25px;
-  width: 25px;
-  height: 25px;
+  width: 16px;
+  height: 18px;
   display: inline-block;
   vertical-align: middle;
-  line-height: 25px;
+  line-height: 1em;
 
-  // Override all icon colors to white
-  &:before {
-    color: map.get(colors.$army-branding, white) !important;
-  }
-
-  // Default "other" icon
+  // default "other"
   &:before {
     content: "\e971";
+    color: #000;
   }
 
   &.facebook:before {
@@ -296,10 +271,10 @@ ul.social-links {
   }
   &.instagram:before {
     content: "\ea92";
-    background: none !important;
-    -webkit-background-clip: unset !important;
-    -webkit-text-fill-color: unset !important;
-    background-clip: unset !important;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   &.flickr:before {
     content: "\eaa5";
@@ -345,20 +320,7 @@ ul.social-links {
     content: "\e971";
     color: #000;
   }
-  &.armylive:before {
-    content: "\e971";
-    color: #000000;
-  }
   &.rss:before {
     content: "\e974";
-    color: #FF6600;
-  }
-  &.snapchat:before {
-    content: "\e977";
-    color: #FFFC00;
-  }
-  &.email:before {
-    content: "\e95f";
-    color: #000;
   }
 }
