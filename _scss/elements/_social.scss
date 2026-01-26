@@ -108,7 +108,7 @@
   .alt-social-bar { display: block; }
 }
 
-// ----------------------------------------------------------------------
+/* // ----------------------------------------------------------------------
 // Social Media Icon Styles
 // Brand colors and icon codes for individual social networks
 // ----------------------------------------------------------------------
@@ -226,7 +226,7 @@
 .icons .social-button.ustream-button a::before {
   content: "\ea82";
   color: #bababa;
-}
+} */
 
 // ----------------------------------------------------------------------
 // .social-icon pattern for span-based implementations
@@ -310,6 +310,10 @@
   &.sprinklr:before {
     content: "\e924";
     color: #1877f2;
+  }
+  &.other:before {
+    content: "\e971";
+    color: #000;
   }
   &.rss:before {
     content: "\e974";
