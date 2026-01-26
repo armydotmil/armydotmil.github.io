@@ -169,7 +169,7 @@
   &.facebook-button a span::before {
     content: "\ea90";
   }
-  &.twitter-button a span::before {
+  &.twitter-button a span::before, &.x-button a span::before {
     content: "\e979";
   }
   &.pinterest-button a span::before {
@@ -198,6 +198,9 @@
   }
   &.rss-button a span::before {
     content: "\e974";
+  }
+  &.armylive-button a span::before {
+    content: "\e971";
   }
 }
 .social-button a,
