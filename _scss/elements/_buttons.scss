@@ -202,6 +202,18 @@
   &.armylive-button a span::before {
     content: "\e971";
   }
+  &.threads-button a span::before {
+    content: "\e97a";
+  }
+  &.other-button a span::before {
+    content: "\e971";
+  }
+  &.soundcloud-button a span::before {
+    content: "\eac3";
+  }
+  &.slideshare-button a span::before {
+    content: "\e97b";
+  }
 }
 .social-button a,
 .social-button-black a {
