@@ -364,13 +364,14 @@ section {
     
     .social {
       overflow: auto;
-      .social-button, .social-button-black {
+      .social-button, .social-button-white {
         float: left;
         margin: 0 10px 10px 0;
       
         a {
           padding: 12px 0;
           width: 50px;
+          height: 50px;
           text-align: center;
           display: block;
         
@@ -378,11 +379,9 @@ section {
             vertical-align: middle;
           }
         }
-
-        &.soundcloud-button a { width: 75px; }
       
       }
-      .social-button {
+      .social-button-white {
         background: map-get(colors.$army-branding, armyblack);
       }
     }
