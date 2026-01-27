@@ -161,68 +161,68 @@
   a {
     text-decoration: none;
   }
-  a span {
+  a span:first-of-type {
     font-size: 0;
   }
-  a span::before {
+  a span:first-of-type::before {
     font: normal 25px/25px 'armyicons';
     color: map.get(colors.$army-branding, black);
   }
-  &.facebook-button a span::before {
+  &.facebook-button a span:first-of-type::before {
     content: "\ea90";
   }
-  &.twitter-button a span::before, &.x-button a span::before {
+  &.twitter-button a span:first-of-type::before, &.x-button a span:first-of-type::before {
     content: "\e979";
   }
-  &.pinterest-button a span::before {
+  &.pinterest-button a span:first-of-type::before {
     content: "\ead1";
   }
-  &.flickr-button a span::before {
+  &.flickr-button a span:first-of-type::before {
     content: "\eaa5";
   }
-  &.youtube-button a span::before {
+  &.youtube-button a span:first-of-type::before {
     content: "\ea9d";
   }
-  &.instagram-button a span::before {
+  &.instagram-button a span:first-of-type::before {
     content: "\ea92";
   }
-  &.vimeo-button a span::before {
+  &.vimeo-button a span:first-of-type::before {
     content: "\eaa0";
   }
-  &.linkedin-button a span::before {
+  &.linkedin-button a span:first-of-type::before {
     content: "\eaca";
   }
-  &.email-button a span::before {
+  &.email-button a span:first-of-type::before {
     content: "\e95f";
   }
-  &.reddit-button a span::before {
+  &.reddit-button a span:first-of-type::before {
     content: "\e96a";
   }
-  &.rss-button a span::before {
+  &.rss-button a span:first-of-type::before {
     content: "\e974";
   }
-  &.contact-button a span::before {
+  &.contact-button a span:first-of-type::before {
     content: "\e95f";
   }
-  &.armylive-button a span::before {
+  &.armylive-button a span:first-of-type::before {
     content: "\e971";
   }
-  &.threads-button a span::before {
+  &.threads-button a span:first-of-type::before {
     content: "\e97a";
   }
-  &.other-button a span::before {
+  &.other-button a span:first-of-type::before {
     content: "\e971";
   }
-  &.soundcloud-button a span::before {
+  &.soundcloud-button a span:first-of-type::before {
     content: "\eac3";
   }
-  &.slideshare-button a span::before {
+  &.slideshare-button a span:first-of-type::before {
     content: "\e97b";
   }
-  &.tumblr-button a span::before {
+  &.tumblr-button a span:first-of-type::before {
     content: "\eab9";
   }
-  &.sprinklr-button a span::before {
+  &.sprinklr-button a span:first-of-type::before {
     content: "\e924";
   }
 }
@@ -234,27 +234,27 @@
 .social-button-white.color-icon,
 .social-button-sm.color-icon {
 
-  &.facebook-button a span::before,
+  &.facebook-button a span:first-of-type::before,
   a i.armyicons-sm_facebook,
   .armyicons-sm_facebook {
     color: #3b5999;
   }
-  &.pinterest-button a span::before,
+  &.pinterest-button a span:first-of-type::before,
   a i.armyicons-sm_pinterest,
   .armyicons-sm_pinterest {
     color: #bd081c;
   }
-  &.flickr-button a span::before,
+  &.flickr-button a span:first-of-type::before,
   a i.armyicons-sm_flickr,
   .armyicons-sm_flickr {
     color: #0063DC;
   }
-  &.youtube-button a span::before,
+  &.youtube-button a span:first-of-type::before,
   a i.armyicons-sm_youtube,
   .armyicons-sm_youtube {
     color: #FF0000;
   }
-  &.instagram-button a span::before,
+  &.instagram-button a span:first-of-type::before,
   a i.armyicons-sm_instagram,
   .armyicons-sm_instagram {
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
@@ -262,37 +262,37 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  &.vimeo-button a span::before,
+  &.vimeo-button a span:first-of-type::before,
   a i.armyicons-sm_vimeo,
   .armyicons-sm_vimeo {
     color: #1ab7ea;
   }
-  &.linkedin-button a span::before,
+  &.linkedin-button a span:first-of-type::before,
   a i.armyicons-sm_linkedin,
   .armyicons-sm_linkedin {
     color: #0077b5;
   }
-  &.reddit-button a span::before,
+  &.reddit-button a span:first-of-type::before,
   a i.armyicons-sm_reddit,
   .armyicons-sm_reddit {
     color: #ff4500;
   }
-  &.tumblr-button a span::before,
+  &.tumblr-button a span:first-of-type::before,
   a i.armyicons-sm_tumblr,
   .armyicons-sm_tumblr {
     color: #35465c;
   }
-  &.sprinklr-button a span::before,
+  &.sprinklr-button a span:first-of-type::before,
   a i.armyicons-sm_sprinklr,
   .armyicons-sm_sprinklr {
     color: #1877f2;
   }
-  &.soundcloud-button a span::before,
+  &.soundcloud-button a span:first-of-type::before,
   a i.armyicons-sm_soundcloud,
   .armyicons-sm_soundcloud {
     color: #ff5500;
   }
-  &.slideshare-button a span::before,
+  &.slideshare-button a span:first-of-type::before,
   a i.armyicons-sm_slideshare,
   .armyicons-sm_slideshare {
     color: #E68523;
@@ -303,7 +303,7 @@
 .social-button-white a {
   &:not(.no-hover):hover,
   &:not(.no-hover):focus {
-    span::before {
+    span:first-of-type::before {
       color: map.get(colors.$army-branding, gold);
       background: none;
       -webkit-text-fill-color: inherit;
@@ -311,22 +311,22 @@
   }
 }
 .social-button-gold-lg a {
-  span::before {
+  span:first-of-type::before {
     color: map.get(colors.$army-branding, gold);
   }
   &:not(.no-hover):hover,
   &:not(.no-hover):focus {
-    span::before {
+    span:first-of-type::before {
       color: map.get(colors.$army-branding, black);
       background: none;
       -webkit-text-fill-color: inherit;
     }
   }
 }
-.social-button-white a span::before {
+.social-button-white a span:first-of-type::before {
   color: map.get(colors.$army-branding, white);
 }
-.social-button-sm a span::before {
+.social-button-sm a span:first-of-type::before {
   font-size: 22px;
   line-height: 22px;
 }
