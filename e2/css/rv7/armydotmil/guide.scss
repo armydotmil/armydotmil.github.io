@@ -364,7 +364,7 @@ section {
     
     .social {
       overflow: auto;
-      .social-button, .social-button-white {
+      .social-button, .social-button-black {
         float: left;
         margin: 0 10px 10px 0;
       
@@ -381,7 +381,7 @@ section {
         }
       
       }
-      .social-button-white {
+      .social-button {
         background: map-get(colors.$army-branding, armyblack);
       }
     }

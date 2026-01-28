@@ -132,10 +132,10 @@
 }
 
 .social-button a,
-.social-button-white a {
+.social-button-black a {
   i[class*=' armyicons'],i[class^='armyicons'] {
     font-size: 25px;
-    color: map.get(colors.$army-branding, black);
+    color: map.get(colors.$army-branding, white);
     line-height: 25px;
   }
   &:not(.no-hover):hover,
@@ -148,14 +148,14 @@
   }
 }
 
-.social-button-white a {
+.social-button-black a {
   i[class*=' armyicons'],i[class^='armyicons'] {
-    color: map.get(colors.$army-branding, white);
+    color: map.get(colors.$army-branding, black);
   }
 }
 
 .social-button,
-.social-button-white,
+.social-button-black,
 .social-button-gold-lg,
 .social-button-sm {
   a {
@@ -166,7 +166,7 @@
   }
   a span:first-of-type::before {
     font: normal 25px/25px 'armyicons';
-    color: map.get(colors.$army-branding, black);
+    color: map.get(colors.$army-branding, white);
   }
   &.facebook-button a span:first-of-type::before {
     content: "\ea90";
@@ -228,10 +228,10 @@
 }
 
 .color-icon .social-button,
-.color-icon .social-button-white,
+.color-icon .social-button-black,
 .color-icon .social-button-sm,
 .social-button.color-icon,
-.social-button-white.color-icon,
+.social-button-black.color-icon,
 .social-button-sm.color-icon {
 
   &.facebook-button a span:first-of-type::before,
@@ -300,7 +300,7 @@
 }
 
 .social-button a,
-.social-button-white a {
+.social-button-black a {
   &:not(.no-hover):hover,
   &:not(.no-hover):focus {
     span:first-of-type::before {
@@ -323,8 +323,8 @@
     }
   }
 }
-.social-button-white a span:first-of-type::before {
-  color: map.get(colors.$army-branding, white);
+.social-button-black a span:first-of-type::before {
+  color: map.get(colors.$army-branding, black);
 }
 .social-button-sm a span:first-of-type::before {
   font-size: 22px;
