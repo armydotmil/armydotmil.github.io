@@ -32,10 +32,10 @@
       li {
         break-inside: avoid;
         
-        // if 5 or more bullets, switch to multicolumn format
+        // if 11 or more bullets, switch to multicolumn format
         column-span: all;
-        &:nth-last-child(n+5),
-        &:nth-last-child(n+5) ~ * {
+        &:nth-last-child(n+11),
+        &:nth-last-child(n+11) ~ * {
           column-span: none;
         }
       }
