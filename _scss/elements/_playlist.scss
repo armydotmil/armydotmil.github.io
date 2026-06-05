@@ -46,6 +46,14 @@
     .video-player {
       position: relative;
       z-index: 1;
+
+      &:focus {
+        outline: none;
+      }
+      &:focus-visible {
+        outline: 3px solid map.get(colors.$army-branding, gold);;
+        outline-offset: -3px;
+      }
       
       .video-wrapper {
         height: 0;
