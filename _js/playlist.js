@@ -6,3 +6,5 @@ import Playlist from './modules/Playlist';
     var playlist = new Playlist();
     playlist.loadYTPlayer();
 })();
+// accordion and other accessibility hooks
+import './modules/AccordionHooks';
