@@ -1,6 +1,7 @@
 // Accordion accessibility extension — canonical implementation
 (function(){
 	function init(root){
+		try{ console.debug('[ACCORDION HOOK] init called on', root||document); }catch(e){}
 		(root || document).querySelectorAll('.accordion').forEach(function(ac, ai){
 			ac.querySelectorAll('li').forEach(function(li, liIndex){
 				var input = li.querySelector('input[type="checkbox"]');
@@ -8,6 +9,7 @@
 				if(!input || !label) return;
 				if(label._accordionHookInit) return;
 				label._accordionHookInit = true;
+				try{ console.debug('[ACCORDION HOOK] attaching handlers for label', label, 'input', input); }catch(e){}
 				label.setAttribute('tabindex','0');
 				label.setAttribute('role','button');
 				if(!label.getAttribute('aria-controls')) label.setAttribute('aria-controls', input.id || '');
@@ -26,6 +28,7 @@
 		var mo = new MutationObserver(function(mutations){
 			mutations.forEach(function(m){
 				m.addedNodes && m.addedNodes.forEach(function(node){
+				try{ console.debug('[ACCORDION HOOK] mutation observer added node', node); }catch(e){}
 					if(!(node instanceof Element)) return;
 					if(node.classList && node.classList.contains('accordion')){
 						init(node);

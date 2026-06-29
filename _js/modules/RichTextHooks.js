@@ -1,6 +1,41 @@
-// Compatibility shim — import canonical extension implementation in this module
-import './RichTextHooksExtension';
+// RichText accessibility extension — ensure external links have rel and aria-label
+(function(){
+	function patchRichTextLinks(root){
+		var doc = root || document;
+		// target all anchors that open in a new window/tab
+		var specific = doc.querySelectorAll('a[target="_blank"]');
+		for(var i=0;i<specific.length;i++){
+			var a = specific[i];
+			try{ if(!a.getAttribute('rel')) a.setAttribute('rel','noopener'); }catch(e){}
+			try{
+				if(!a.getAttribute('aria-label')){
+					var label = a.getAttribute('title') || (a.textContent||'').trim() || a.getAttribute('href') || 'Opens in a new window';
+					if(label.indexOf('mailto:')===0) label = 'Opens email client';
+					a.setAttribute('aria-label', label + ' (opens in a new window)');
+				}
+			}catch(e){}
+		}
+	}
 
-// Re-export the runtime handle for callers
-window.RICH_TEXT_HOOKS = window.RICH_TEXT_HOOKS || {};
+	if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', function(){ patchRichTextLinks(document); }); else patchRichTextLinks(document);
+
+	window.RICH_TEXT_HOOKS = window.RICH_TEXT_HOOKS || {};
+	window.RICH_TEXT_HOOKS.patch = patchRichTextLinks;
+
+	if(window.MutationObserver){
+		var obs = new MutationObserver(function(mutations){
+			mutations.forEach(function(m){
+				if(m.addedNodes && m.addedNodes.length){
+					for(var i=0;i<m.addedNodes.length;i++){
+						var n = m.addedNodes[i];
+						if(n.nodeType===1) try{ patchRichTextLinks(n); }catch(e){}
+					}
+				}
+			});
+		});
+		obs.observe(document.documentElement||document.body, { childList:true, subtree:true });
+	}
+
+})();
+
 export default window.RICH_TEXT_HOOKS;

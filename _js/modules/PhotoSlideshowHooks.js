@@ -75,14 +75,23 @@
 
   // register hooks on global object
   window.PHOTO_SLIDESHOW_HOOKS = window.PHOTO_SLIDESHOW_HOOKS || {};
-  window.PHOTO_SLIDESHOW_HOOKS.onSlideChange = function(slideshow){ initSlideshowTabManagement(slideshow); initKeyActivation(slideshow); };
-  window.PHOTO_SLIDESHOW_HOOKS.onCaptionToggle = function(slideshow){ syncCaptionAria(slideshow); };
+  window.PHOTO_SLIDESHOW_HOOKS.onSlideChange = function(slideshow){
+    try{ console.debug('[PS HOOK] onSlideChange', slideshow); }catch(e){}
+    initSlideshowTabManagement(slideshow);
+    initKeyActivation(slideshow);
+  };
+  window.PHOTO_SLIDESHOW_HOOKS.onCaptionToggle = function(slideshow){
+    try{ console.debug('[PS HOOK] onCaptionToggle', slideshow); }catch(e){}
+    syncCaptionAria(slideshow);
+  };
 
   // Initialize existing slideshows on DOM ready
   function initAll(){
     var nodes = document.querySelectorAll('.photo-slideshow');
+    try{ console.debug('[PS HOOK] initAll found slideshows', nodes.length); }catch(e){}
     // initAll: initialize hooks for found slideshows
     for(var i=0;i<nodes.length;i++){
+      try{ console.debug('[PS HOOK] initAll initializing slideshow', i, nodes[i]); }catch(e){}
       initSlideshowTabManagement(nodes[i]);
       syncCaptionAria(nodes[i]);
       initKeyActivation(nodes[i]);
@@ -99,6 +108,7 @@
     if(!mover) return;
     // if this mover was individually initialized (has its own key handler), skip delegated handling
     if(mover._psHookInit) return;
+    try{ console.debug('[PS HOOK] delegatedMoverKeydown triggered on', mover, 'key', key); }catch(e){}
     e.preventDefault();
     try{ var ev = new MouseEvent('click',{bubbles:true}); mover.dispatchEvent(ev); }catch(err){ if(typeof mover.click === 'function') mover.click(); }
     try{
