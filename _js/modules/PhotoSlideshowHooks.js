@@ -101,10 +101,12 @@
   // register hooks on global object
   window.PHOTO_SLIDESHOW_HOOKS = window.PHOTO_SLIDESHOW_HOOKS || {};
   window.PHOTO_SLIDESHOW_HOOKS.onSlideChange = function(slideshow){
+    console.log('PhotoSlideshowHooks.onSlideChange called for', slideshow && (slideshow.id || slideshow));
     initSlideshowTabManagement(slideshow);
     initKeyActivation(slideshow);
   };
   window.PHOTO_SLIDESHOW_HOOKS.onCaptionToggle = function(slideshow){
+    console.log('PhotoSlideshowHooks.onCaptionToggle called for', slideshow && (slideshow.id || slideshow));
     syncCaptionAria(slideshow);
     // Ensure focus remains on a live element within the slideshow after DOM/aria updates.
     // Some caption toggles replace or update nodes; refocusing the active element
@@ -123,10 +125,11 @@
   // Initialize existing slideshows on DOM ready
   function initAll(){
     var nodes = document.querySelectorAll('.photo-slideshow');
+    // console.log('PhotoSlideshowHooks.initAll found', nodes.length, 'slideshows');
     // initAll
     // initAll: initialize hooks for found slideshows
     for(var i=0;i<nodes.length;i++){
-      // initializing slideshow
+      // console.log('PhotoSlideshowHooks.initAll initializing slideshow', nodes[i].id || i);
       initSlideshowTabManagement(nodes[i]);
       syncCaptionAria(nodes[i]);
       initKeyActivation(nodes[i]);

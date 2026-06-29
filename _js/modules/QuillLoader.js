@@ -9,6 +9,7 @@ class QuillLoader {
 
     for (i = 0; i < richTextElems.length; i++) {
       if (textDelta = richTextElems[i].getAttribute('data-delta')) {
+        console.log('QuillLoader found rich-text element', richTextElems[i]);
         this.setQuillElement(richTextElems[i], textDelta);
         richTextElems[i].removeAttribute('data-delta');
       }
@@ -32,8 +33,10 @@ class QuillLoader {
       readOnly: true,
       formats: this.formats
     });
+    console.log('QuillLoader created Quill instance for', el);
     
     quillModel.setContents(delta.ops, 'silent');
+    console.log('QuillLoader setContents for', el);
   }
 
   replaceEntity(match, dec) {
