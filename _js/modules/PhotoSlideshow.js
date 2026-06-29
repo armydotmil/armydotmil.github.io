@@ -7,18 +7,17 @@ class PhotoSlideshow {
 	}
 
 	static init(){
-		try{ /* console.log('PhotoSlideshow.init() called'); */ }catch(e){}
+		
 		// create an instance which will run initAll()
-		try{ new PhotoSlideshow(); }catch(e){}
+		new PhotoSlideshow();
 	}
 
 	initAll(){
 		var nodes = document.querySelectorAll('.photo-slideshow');
 		if(!window.__PHOTO_SLIDESHOW_INSTANCES) window.__PHOTO_SLIDESHOW_INSTANCES = {};
 		nodes.forEach(function(root){
-			try{
-				// console.warn('PhotoSlideshow.initAll checking root', root.id || root);
-				var id = root.id || ('ps-' + Math.random().toString(36).slice(2,9));
+					try{
+						var id = root.id || ('ps-' + Math.random().toString(36).slice(2,9));
 				root.id = id;
 				var ss = root.__photoSlideshowInstance || { el: root };
 				ss.next = function(){ return PhotoSlideshow._move(root, 1); };
@@ -36,7 +35,6 @@ class PhotoSlideshow {
 						if(mv){
 							try{ /* console.log('PhotoSlideshow detected mover element', mv.className, 'on root', root.id); */ }catch(err){}
 							if(mv.classList.contains('ss-prev')){
-								try{ /* console.log('PhotoSlideshow calling prev for', root.id); */ }catch(err){}
 								ss.prev();
 							} else {
 								try{ /* console.log('PhotoSlideshow calling next for', root.id); */ }catch(err){}
@@ -47,7 +45,7 @@ class PhotoSlideshow {
 						}
 						var cb = e.target.closest && e.target.closest('.image-caption-button');
 						if(cb){
-							try{ /* console.log('PhotoSlideshow detected caption-button on', root.id); */ }catch(err){}
+							/* caption button detected */
 							ss.toggleCaptions();
 							e.preventDefault();
 							return;

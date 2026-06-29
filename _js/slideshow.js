@@ -7,9 +7,6 @@ import './modules/PhotoSlideshowHooks';
 
 // Ensure slideshows are initialized when this module loads
 if (PhotoSlideshow && typeof PhotoSlideshow.init === 'function') {
-	/*
-	try { /* enable guarded debug logs */ window.PHOTO_SLIDESHOW_DEBUG = true; /* console.log('slideshow.js calling PhotoSlideshow.init'); */ PhotoSlideshow.init(); } catch (e) { console.error('slideshow.init failed', e); }
-	*/
 	try { PhotoSlideshow.init(); } catch (e) { console.error('slideshow.init failed', e); }
 }
 
@@ -26,7 +23,7 @@ if (PhotoSlideshow && typeof PhotoSlideshow.init === 'function') {
 		try {
 			var ps = e.target.closest && e.target.closest('.photo-slideshow');
 			if (ps) {
-				/* console.log('DELEGATED CLICK on slideshow:', { target: e.target, classes: e.target.className }); */
+                
 			}
 		} catch (err) { }
 	}, true);

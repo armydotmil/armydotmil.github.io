@@ -34,7 +34,7 @@ DocumentLinkBlot.className = 'documentlink';
 class ImageBlot extends BlockEmbed {
   static create(data) {
     let node = super.create(data);
-    // console.log('Quill.updatePhotoSlideshows called, count=', ss.length);
+    
     data.forEach(ImageBlot.createImageNode.bind(null, node, data.length));
 
     return node;
@@ -89,7 +89,7 @@ class ImageBlot extends BlockEmbed {
       images = this.domNode.getElementsByClassName('photo'),
       len = images.length;
 
-    // console.log('Quill.updateViewClasses called, images=', len, 'viewtype=', viewtype);
+    
 
     if (len === 1) {
       this.domNode.classList.add('single');
@@ -108,10 +108,10 @@ class ImageBlot extends BlockEmbed {
 
   updatePhotoSlideshows() {
     let ss = document.getElementsByClassName('photo-slideshow'), i;
-    // console.log('Quill.updatePhotoSlideshows found slideshows count=', ss.length);
+    
     for (i = 0; i < ss.length; i++) {
         try{
-        // console.log('Quill.createSSMarkup for', ss[i], 'hasInstance=', !!ss[i].__photoSlideshowInstance, 'wired=', !!ss[i]._psWired);
+      
       }catch(err){}
       this.createSSMarkup(ss[i]);
     }
@@ -137,7 +137,7 @@ class ImageBlot extends BlockEmbed {
       captHTML = '';
 
     if (imgCont.length > 0 && img.length > 0) {
-      // console.log('Quill.createPhotoMarkup for index', index, 'of', total);
+      
       imgCont[0].innerHTML = img[0].outerHTML;
       imgCont[0].innerHTML += '<span class="ss-move ss-prev"><span class="ss-move-button"></span></span>';
       imgCont[0].innerHTML += '<span class="ss-move ss-next"><span class="ss-move-button"></span></span>';
@@ -145,7 +145,7 @@ class ImageBlot extends BlockEmbed {
     }
 
     if (imgCaptCont.length > 0 && imgCapt.length > 0) {
-      // console.log('Quill.createPhotoMarkup adding caption for index', index);
+      
       captHTML = '<span class="image-count">' + (index + 1) + ' / ' + total + '</span>';
       captHTML += '<span class="image-caption-button">';
       captHTML += '<span class="caption-button-text caption-button-hide">Show Caption +</span>';

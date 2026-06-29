@@ -49,7 +49,7 @@
 
   function initForSlideshow(ss) {
     try {
-      // console.log('PhotoSlideshowExtension.initForSlideshow for', ss && ss.el && ss.el.id);
+      
       // init for slideshow (no debug logs)
       setCaptionToggleAccessibility(ss);
       setFigureTabindex(ss);
@@ -100,5 +100,5 @@
     setCaptionToggleAccessibility,
     setFigureTabindex
   };
-  // console.log('PhotoSlideshowExtension registered');
+  
 })();
