@@ -1,6 +1,5 @@
 // Re-export the canonical PhotoSlideshow from the submodule to keep a single source
 // Minimal PhotoSlideshow class placeholder to avoid circular import initialization
-console.log('PhotoSlideshow (resources) module evaluated');
 class PhotoSlideshow {
 	constructor(){
 		// Minimal runtime wiring so extensions/hooks can attach and rely on `ss` instances.
@@ -8,7 +7,7 @@ class PhotoSlideshow {
 	}
 
 	static init(){
-		try{ console.log('PhotoSlideshow.init() called'); }catch(e){}
+		try{ /* console.log('PhotoSlideshow.init() called'); */ }catch(e){}
 		// create an instance which will run initAll()
 		try{ new PhotoSlideshow(); }catch(e){}
 	}
@@ -31,16 +30,16 @@ class PhotoSlideshow {
 					// console.warn('PhotoSlideshow (resources) wiring handlers for', id);
 					root.addEventListener('click', function(e){
 						try{
-							console.log('PhotoSlideshow.click handler', { target: e.target, root: root.id || null });
+							// console.log('PhotoSlideshow.click handler', { target: e.target, root: root.id || null });
 						}catch(err){}
 						var mv = e.target.closest && e.target.closest('.ss-move');
 						if(mv){
-							try{ console.log('PhotoSlideshow detected mover element', mv.className, 'on root', root.id); }catch(err){}
+							try{ /* console.log('PhotoSlideshow detected mover element', mv.className, 'on root', root.id); */ }catch(err){}
 							if(mv.classList.contains('ss-prev')){
-								try{ console.log('PhotoSlideshow calling prev for', root.id); }catch(err){}
+								try{ /* console.log('PhotoSlideshow calling prev for', root.id); */ }catch(err){}
 								ss.prev();
 							} else {
-								try{ console.log('PhotoSlideshow calling next for', root.id); }catch(err){}
+								try{ /* console.log('PhotoSlideshow calling next for', root.id); */ }catch(err){}
 								ss.next();
 							}
 							e.preventDefault();
@@ -48,7 +47,7 @@ class PhotoSlideshow {
 						}
 						var cb = e.target.closest && e.target.closest('.image-caption-button');
 						if(cb){
-							try{ console.log('PhotoSlideshow detected caption-button on', root.id); }catch(err){}
+							try{ /* console.log('PhotoSlideshow detected caption-button on', root.id); */ }catch(err){}
 							ss.toggleCaptions();
 							e.preventDefault();
 							return;
@@ -72,7 +71,7 @@ class PhotoSlideshow {
 			figs[curIndex].classList.remove('cur-photo');
 			figs[next].classList.add('cur-photo');
 			if(window.PHOTO_SLIDESHOW_HOOKS && typeof window.PHOTO_SLIDESHOW_HOOKS.onSlideChange === 'function'){
-				console.log('PhotoSlideshow._move triggered for', root.id, 'dir=', dir, 'from', curIndex, 'to', next);
+					// console.log('PhotoSlideshow._move triggered for', root.id, 'dir=', dir, 'from', curIndex, 'to', next);
 				window.PHOTO_SLIDESHOW_HOOKS.onSlideChange(root);
 			}
 		}catch(e){}
@@ -82,7 +81,7 @@ class PhotoSlideshow {
 		try{
 			root.classList.toggle('show-captions');
 			if(window.PHOTO_SLIDESHOW_HOOKS && typeof window.PHOTO_SLIDESHOW_HOOKS.onCaptionToggle === 'function'){
-				console.log('PhotoSlideshow._toggleCaptions triggered for', root.id);
+					// console.log('PhotoSlideshow._toggleCaptions triggered for', root.id);
 				window.PHOTO_SLIDESHOW_HOOKS.onCaptionToggle(root);
 			}
 		}catch(e){}
