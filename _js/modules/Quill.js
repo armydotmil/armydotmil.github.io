@@ -111,7 +111,7 @@ class ImageBlot extends BlockEmbed {
       this.createSSMarkup(ss[i]);
     }
     // adds JS transitions and butten events for slideshows
-    new PhotoSlideshow();
+    // PhotoSlideshow auto-initializes on import; do not construct here.
   }
 
   createSSMarkup(ss) {

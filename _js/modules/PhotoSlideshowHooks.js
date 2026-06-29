@@ -35,6 +35,13 @@
     }catch(e){}
   }
 
+  function logFocusState(prefix){
+    try{
+      var ae = document.activeElement;
+      // no-op: debug logging removed
+    }catch(e){}
+  }
+
   function initKeyActivation(slideshow){
     try{
       var captionBtns = slideshow.getElementsByClassName('image-caption-button');
@@ -44,7 +51,12 @@
           btn._psHookInit = true;
           btn.addEventListener('keydown', function(e){
             var k = e.key || e.code;
-            if(k === 'Enter' || k === ' ' || k === 'Spacebar' || k === 'Space'){ e.preventDefault(); btn.click(); }
+            if(k === 'Enter' || k === ' ' || k === 'Spacebar' || k === 'Space'){
+              e.preventDefault();
+              logFocusState('caption-before');
+              btn.click();
+              setTimeout(function(){ logFocusState('caption-after'); }, 0);
+            }
           });
         })(captionBtns[i]);
       }
@@ -58,13 +70,26 @@
             var k = e.key || e.code;
             if(k === 'Enter' || k === ' ' || k === 'Spacebar' || k === 'Space'){
               e.preventDefault();
+              logFocusState('move-before');
               try{ var ev = new MouseEvent('click',{bubbles:true}); mv.dispatchEvent(ev); }catch(err){ if(typeof mv.click === 'function') mv.click(); }
               setTimeout(function(){
                 var cur = slideshow.querySelector('figure.photo.cur-photo');
                 if(!cur) return;
+                // ensure tab indices on all slides are correct for current slide
+                try{ initSlideshowTabManagement(slideshow); }catch(e){}
                 var isPrev = mv.classList.contains('ss-prev');
                 var target = cur.querySelector(isPrev ? '.ss-prev' : '.ss-next');
-                if(target) target.focus();
+                if(target){
+                  try{ target.setAttribute('tabindex','0'); }catch(e){}
+                  try{ target.focus(); }catch(e){}
+                } else {
+                  // If mover itself was focused, prefer focusing first logical element
+                  try{
+                    var first = cur.querySelector('a.rich-text-img-link, .image-caption-button, .ss-next, .ss-prev');
+                    if(first){ try{ first.setAttribute && first.setAttribute('tabindex','0'); }catch(e){}; try{ first.focus && first.focus(); }catch(e){} }
+                  }catch(e){}
+                }
+                logFocusState('move-after');
               },0);
             }
           });
@@ -76,22 +101,32 @@
   // register hooks on global object
   window.PHOTO_SLIDESHOW_HOOKS = window.PHOTO_SLIDESHOW_HOOKS || {};
   window.PHOTO_SLIDESHOW_HOOKS.onSlideChange = function(slideshow){
-    try{ console.debug('[PS HOOK] onSlideChange', slideshow); }catch(e){}
     initSlideshowTabManagement(slideshow);
     initKeyActivation(slideshow);
   };
   window.PHOTO_SLIDESHOW_HOOKS.onCaptionToggle = function(slideshow){
-    try{ console.debug('[PS HOOK] onCaptionToggle', slideshow); }catch(e){}
     syncCaptionAria(slideshow);
+    // Ensure focus remains on a live element within the slideshow after DOM/aria updates.
+    // Some caption toggles replace or update nodes; refocusing the active element
+    // prevents the tab order from getting stuck on a detached node.
+    setTimeout(function(){
+      try{
+        var ae = document.activeElement;
+        if(ae && slideshow.contains(ae)){
+          try{ ae.setAttribute && ae.setAttribute('tabindex','0'); }catch(e){}
+          try{ ae.focus(); }catch(e){}
+        }
+      }catch(e){}
+    }, 0);
   };
 
   // Initialize existing slideshows on DOM ready
   function initAll(){
     var nodes = document.querySelectorAll('.photo-slideshow');
-    try{ console.debug('[PS HOOK] initAll found slideshows', nodes.length); }catch(e){}
+    // initAll
     // initAll: initialize hooks for found slideshows
     for(var i=0;i<nodes.length;i++){
-      try{ console.debug('[PS HOOK] initAll initializing slideshow', i, nodes[i]); }catch(e){}
+      // initializing slideshow
       initSlideshowTabManagement(nodes[i]);
       syncCaptionAria(nodes[i]);
       initKeyActivation(nodes[i]);
@@ -108,7 +143,7 @@
     if(!mover) return;
     // if this mover was individually initialized (has its own key handler), skip delegated handling
     if(mover._psHookInit) return;
-    try{ console.debug('[PS HOOK] delegatedMoverKeydown triggered on', mover, 'key', key); }catch(e){}
+    // delegated mover keydown
     e.preventDefault();
     try{ var ev = new MouseEvent('click',{bubbles:true}); mover.dispatchEvent(ev); }catch(err){ if(typeof mover.click === 'function') mover.click(); }
     try{
