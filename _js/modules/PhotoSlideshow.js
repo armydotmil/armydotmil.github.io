@@ -87,3 +87,12 @@ class PhotoSlideshow {
 }
 
 export default PhotoSlideshow;
+
+// Initialize when QuillLoader signals it's ready (ensures markup exists)
+try{
+	if(document && document.addEventListener){
+		document.addEventListener('photo-slideshow:quill-ready', function(){ try{ PhotoSlideshow.init(); }catch(e){} }, false);
+		// Also initialize on DOMContentLoaded as a fallback
+		document.addEventListener('DOMContentLoaded', function(){ try{ PhotoSlideshow.init(); }catch(e){} }, false);
+	}
+}catch(e){}

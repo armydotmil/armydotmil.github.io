@@ -137,67 +137,6 @@
 
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initAll); else initAll();
 
-  // Fallback: delegated keydown handler to catch Enter/Space on .ss-move
-  function delegatedMoverKeydown(e){
-    var key = e.key || e.code;
-    if(!(key === 'Enter' || key === ' ' || key === 'Spacebar' || key === 'Space')) return;
-    var mover = e.target.closest && e.target.closest('.ss-move');
-    if(!mover) return;
-    // if this mover was individually initialized (has its own key handler), skip delegated handling
-    if(mover._psHookInit) return;
-    // delegated mover keydown
-    e.preventDefault();
-    try{ var ev = new MouseEvent('click',{bubbles:true}); mover.dispatchEvent(ev); }catch(err){ if(typeof mover.click === 'function') mover.click(); }
-    try{
-      var slideshow = mover.closest && mover.closest('.photo-slideshow');
-      if(slideshow && window.PHOTO_SLIDESHOW_HOOKS && typeof window.PHOTO_SLIDESHOW_HOOKS.onSlideChange === 'function'){
-        window.PHOTO_SLIDESHOW_HOOKS.onSlideChange(slideshow);
-      }
-    }catch(e){}
-  }
-  document.addEventListener('keydown', delegatedMoverKeydown, true);
-
-  // Fallback: delegated click handler to activate movers and caption toggles
-  function delegatedClickHandler(e){
-    try{
-      var mv = e.target.closest && e.target.closest('.ss-move');
-      if(mv){
-        // find slideshow root
-        var slideshow = mv.closest && mv.closest('.photo-slideshow');
-        if(!slideshow) return;
-        // if wired instance exists, let root handler handle it by returning
-        if(slideshow._psWired && slideshow.__photoSlideshowInstance) return;
-        e.preventDefault();
-        // perform move fallback
-        try{
-          var figs = slideshow.getElementsByClassName('photo');
-          if(!figs || figs.length === 0) return;
-          var curIndex = -1;
-          for(var i=0;i<figs.length;i++){ if(figs[i].classList.contains('cur-photo')) { curIndex = i; break; } }
-          if(curIndex === -1) curIndex = 0;
-          var dir = mv.classList.contains('ss-prev') ? -1 : 1;
-          var next = (curIndex + dir + figs.length) % figs.length;
-          figs[curIndex].classList.remove('cur-photo');
-          figs[next].classList.add('cur-photo');
-          if(window.PHOTO_SLIDESHOW_HOOKS && typeof window.PHOTO_SLIDESHOW_HOOKS.onSlideChange === 'function'){
-            window.PHOTO_SLIDESHOW_HOOKS.onSlideChange(slideshow);
-          }
-        }catch(err){}
-        return;
-      }
-
-      var cb = e.target.closest && e.target.closest('.image-caption-button');
-      if(cb){
-        var slideshow = cb.closest && cb.closest('.photo-slideshow');
-        if(!slideshow) return;
-        if(slideshow._psWired && slideshow.__photoSlideshowInstance) return;
-        e.preventDefault();
-        try{ slideshow.classList.toggle('show-captions'); }catch(err){}
-        try{ if(window.PHOTO_SLIDESHOW_HOOKS && typeof window.PHOTO_SLIDESHOW_HOOKS.onCaptionToggle === 'function'){ window.PHOTO_SLIDESHOW_HOOKS.onCaptionToggle(slideshow); } }catch(err){}
-        return;
-      }
-    }catch(e){}
-  }
-  document.addEventListener('click', delegatedClickHandler, true);
+  // No delegated fallbacks — initialization is deterministic via QuillLoader event.
 
 })();
