@@ -144,3 +144,50 @@
 .photo-slideshow.show-captions .photo figcaption .image-caption-button .caption-button-show {
   display: inline;
 }
+
+/* Additional rules merged from e2/global photoslideshows.css to avoid duplicates */
+.photo-slideshow {
+  max-width: 1280px;
+}
+
+.photo-slideshow .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.photo-slideshow .contain img {
+  object-fit: contain;
+}
+
+.photo-slideshow .ss-move {
+  z-index: 2;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: clamp(20px, 3em, 68px);
+  line-height: 0;
+  text-align: center;
+  width: 10%;
+  min-width: 40px;
+  max-width: 80px;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-slideshow .ss-move.disabled { opacity: 0; }
+.photo-slideshow .ss-move.border { border: 1px solid yellow !important; }
+.photo-slideshow .ss-move::before { display: none; }
+
+.photo-slideshow figure figcaption label { display: block; padding: 10px 0; cursor: pointer; }
+.photo-slideshow figure figcaption input[type=checkbox] { display: none; }
+.photo-slideshow figure figcaption input[type=checkbox] ~ label::before { content: "SHOW CAPTION +"; }
+.photo-slideshow figure figcaption input[type=checkbox]:checked ~ label::before { color: yellow; content: "HIDE CAPTION -"; }
+.photo-slideshow figure figcaption input[type=checkbox] ~ div { display: block; overflow: hidden; max-height: 0; transition: all 0s linear; border-top: 1px solid #333; }
+.photo-slideshow figure figcaption input[type=checkbox]:checked ~ div { border-top: 1px solid #fff; padding-top: 10px; max-height: 2500px; transition: max-height .5s ease-in-out; }
+
+.photo-slideshow .photo { background-color: black; }
+.photo-slideshow #cur-photo { position: relative; opacity: 1; z-index: 1; }
+.photo-slideshow figcaption .image-caption a { color: red; font-weight: 400; }
