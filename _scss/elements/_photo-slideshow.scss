@@ -58,23 +58,14 @@
 				font-weight: 700;
 				font-size: 0.97em;
 			}
-      
-				.image-caption-button {
-					/* normalize when this is authored as a <button> instead of a <span> */
-					&, button.image-caption-button {
-						cursor: pointer;
-						display: block;
-						text-transform: uppercase;
-						/* reset native button chrome */
-						border: none;
-						background: transparent;
-						padding: 0;
-						font: inherit;
-						line-height: inherit;
-						appearance: none;
-						-webkit-appearance: none;
-						-moz-appearance: none;
-					}
+
+			// `.image-caption-button` is a native <label> associated with the
+			// slideshow's shared `.show-captions-toggle` checkbox (see below) —
+			// no button chrome/reset needed since it's not a <button>.
+			.image-caption-button {
+				cursor: pointer;
+				display: block;
+				text-transform: uppercase;
 
 				.caption-button-hide {
 					display: inline;
@@ -106,15 +97,50 @@
 					color: colors.$secondary-text-color;
 					font-weight: 400;
 				}
-
-					/* Legacy checkbox-driven caption toggle support (migrated from modules/_photoslideshow.scss) */
-					input[type=checkbox] { display: none; }
-					input[type=checkbox] ~ label::before { content: "SHOW CAPTION +"; }
-					input[type=checkbox]:checked ~ label::before { color: yellow; content: "HIDE CAPTION -"; }
-					input[type=checkbox] ~ div { display: block; overflow: hidden; max-height: 0; transition: all 0s linear; border-top: 1px solid #333; }
-					input[type=checkbox]:checked ~ div { border-top: 1px solid #fff; padding-top: 10px; max-height: 2500px; transition: max-height .5s ease-in-out; }
 			}
 		} // end figcaption
+	}
+
+	// Single checkbox shared by every slide's caption-toggle <label> in this
+	// slideshow. It's placed last in the markup (after every `.photo`) so it
+	// falls at the end of the tab order — right after the current slide's
+	// prev/next controls, matching where the old <button> used to sit.
+	// `:has()` (rather than a `~`/`+` sibling combinator) is used below so the
+	// checked/focus state can still style `.photo` even though the checkbox
+	// now comes after it in the DOM. Visually hidden but still
+	// focusable/operable (not display:none), so it keeps native checkbox
+	// semantics and keyboard support (Space toggles) with zero JavaScript.
+	> input.show-captions-toggle {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	&:has(> input.show-captions-toggle:focus-visible) .photo figcaption .image-caption-button {
+		outline: 3px solid map.get(colors.$army-branding, gold);
+		outline-offset: -3px;
+	}
+
+	&:has(> input.show-captions-toggle:checked) .photo figcaption {
+		.image-caption {
+			max-height: 500px;
+		}
+
+		.image-caption-button {
+			.caption-button-hide {
+				display: none;
+			}
+
+			.caption-button-show {
+				display: inline;
+			}
+		}
 	}
 
 	.photo.cur-photo {
@@ -151,22 +177,6 @@
 			.ss-move-button::before {
 				content: "\e907";
 			}
-		}
-	}
-}
-
-.photo-slideshow.show-captions .photo figcaption {
-	.image-caption {
-		max-height: 500px;
-	}
-
-	.image-caption-button {
-		.caption-button-hide {
-			display: none;
-		}
-
-		.caption-button-show {
-			display: inline;
 		}
 	}
 }

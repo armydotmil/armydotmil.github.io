@@ -22,7 +22,6 @@ class PhotoSlideshow {
 				var ss = root.__photoSlideshowInstance || { el: root };
 				ss.next = function(){ return PhotoSlideshow._move(root, 1); };
 				ss.prev = function(){ return PhotoSlideshow._move(root, -1); };
-				ss.toggleCaptions = function(){ return PhotoSlideshow._toggleCaptions(root); };
 				root.__photoSlideshowInstance = ss;
 				window.__PHOTO_SLIDESHOW_INSTANCES[id] = ss;
 				if(!root._psWired){
@@ -43,16 +42,9 @@ class PhotoSlideshow {
 							e.preventDefault();
 							return;
 						}
-						var cb = e.target.closest && e.target.closest('.image-caption-button');
-						if(cb){
-							/* caption button detected */
-							ss.toggleCaptions();
-							e.preventDefault();
-							return;
-						}
 					});
 					root._psWired = true;
-					// console.warn('PhotoSlideshow.initAll status for', id, { hasInstance: !!root.__photoSlideshowInstance, wired: !!root._psWired, api: root.__photoSlideshowInstance ? { hasNext: !!root.__photoSlideshowInstance.next, hasPrev: !!root.__photoSlideshowInstance.prev, hasToggle: !!root.__photoSlideshowInstance.toggleCaptions } : null });
+					// console.warn('PhotoSlideshow.initAll status for', id, { hasInstance: !!root.__photoSlideshowInstance, wired: !!root._psWired, api: root.__photoSlideshowInstance ? { hasNext: !!root.__photoSlideshowInstance.next, hasPrev: !!root.__photoSlideshowInstance.prev } : null });
 				}
 			}catch(e){}
 		});
@@ -71,16 +63,6 @@ class PhotoSlideshow {
 			if(window.PHOTO_SLIDESHOW_HOOKS && typeof window.PHOTO_SLIDESHOW_HOOKS.onSlideChange === 'function'){
 					// console.log('PhotoSlideshow._move triggered for', root.id, 'dir=', dir, 'from', curIndex, 'to', next);
 				window.PHOTO_SLIDESHOW_HOOKS.onSlideChange(root);
-			}
-		}catch(e){}
-	}
-
-	static _toggleCaptions(root){
-		try{
-			root.classList.toggle('show-captions');
-			if(window.PHOTO_SLIDESHOW_HOOKS && typeof window.PHOTO_SLIDESHOW_HOOKS.onCaptionToggle === 'function'){
-					// console.log('PhotoSlideshow._toggleCaptions triggered for', root.id);
-				window.PHOTO_SLIDESHOW_HOOKS.onCaptionToggle(root);
 			}
 		}catch(e){}
 	}

@@ -1,6 +1,6 @@
 // Hook implementation to sync ARIA and tabindex with PhotoSlideshow visual state
 (function(){
-  var SLIDE_FOCUSABLE = 'a.rich-text-img-link, .ss-move, .image-caption-button';
+  var SLIDE_FOCUSABLE = 'a.rich-text-img-link, .ss-move';
 
   function setFigureTabindex(figure, isCurrent){
     figure.querySelectorAll(SLIDE_FOCUSABLE).forEach(function(el){
@@ -17,24 +17,6 @@
     }catch(e){}
   }
 
-  function syncCaptionAria(slideshow){
-    try{
-      var isOpen = slideshow.classList.contains('show-captions');
-      var btns = slideshow.getElementsByClassName('image-caption-button');
-      for(var i=0;i<btns.length;i++){
-        var btn = btns[i];
-        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        var cid = btn.getAttribute('aria-controls');
-        var cap = cid ? document.getElementById(cid) : null;
-        if(cap){
-          cap.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
-          var links = cap.getElementsByTagName('a');
-          for(var j=0;j<links.length;j++){ if(isOpen) links[j].removeAttribute('tabindex'); else links[j].setAttribute('tabindex','-1'); }
-        }
-      }
-    }catch(e){}
-  }
-
   function logFocusState(prefix){
     try{
       var ae = document.activeElement;
@@ -44,23 +26,6 @@
 
   function initKeyActivation(slideshow){
     try{
-      var captionBtns = slideshow.getElementsByClassName('image-caption-button');
-      for(var i=0;i<captionBtns.length;i++){
-        (function(btn){
-          if(btn._psHookInit) return;
-          btn._psHookInit = true;
-          btn.addEventListener('keydown', function(e){
-            var k = e.key || e.code;
-            if(k === 'Enter' || k === ' ' || k === 'Spacebar' || k === 'Space'){
-              e.preventDefault();
-              logFocusState('caption-before');
-              btn.click();
-              setTimeout(function(){ logFocusState('caption-after'); }, 0);
-            }
-          });
-        })(captionBtns[i]);
-      }
-
       var movers = slideshow.getElementsByClassName('ss-move');
       for(var i=0;i<movers.length;i++){
         (function(mv){
@@ -85,7 +50,7 @@
                 } else {
                   // If mover itself was focused, prefer focusing first logical element
                   try{
-                    var first = cur.querySelector('a.rich-text-img-link, .image-caption-button, .ss-next, .ss-prev');
+                    var first = cur.querySelector('a.rich-text-img-link, .ss-next, .ss-prev');
                     if(first){ try{ first.setAttribute && first.setAttribute('tabindex','0'); }catch(e){}; try{ first.focus && first.focus(); }catch(e){} }
                   }catch(e){}
                 }
@@ -105,22 +70,6 @@
     initSlideshowTabManagement(slideshow);
     initKeyActivation(slideshow);
   };
-  window.PHOTO_SLIDESHOW_HOOKS.onCaptionToggle = function(slideshow){
-    
-    syncCaptionAria(slideshow);
-    // Ensure focus remains on a live element within the slideshow after DOM/aria updates.
-    // Some caption toggles replace or update nodes; refocusing the active element
-    // prevents the tab order from getting stuck on a detached node.
-    setTimeout(function(){
-      try{
-        var ae = document.activeElement;
-        if(ae && slideshow.contains(ae)){
-          try{ ae.setAttribute && ae.setAttribute('tabindex','0'); }catch(e){}
-          try{ ae.focus(); }catch(e){}
-        }
-      }catch(e){}
-    }, 0);
-  };
 
   // Initialize existing slideshows on DOM ready
   function initAll(){
@@ -130,7 +79,6 @@
     for(var i=0;i<nodes.length;i++){
       // initializing slideshow
       initSlideshowTabManagement(nodes[i]);
-      syncCaptionAria(nodes[i]);
       initKeyActivation(nodes[i]);
     }
   }
