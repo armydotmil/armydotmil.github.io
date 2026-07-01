@@ -1,22 +1,20 @@
 // Accordion accessibility extension — canonical implementation
 (function(){
 	function init(root){
-		// init called
 		(root || document).querySelectorAll('.accordion').forEach(function(ac, ai){
-			ac.querySelectorAll('li').forEach(function(li, liIndex){
+			ac.querySelectorAll('li').forEach(function(li){
 				var input = li.querySelector('input[type="checkbox"]');
 				var label = li.querySelector('label');
 				if(!input || !label) return;
 				if(label._accordionHookInit) return;
 				label._accordionHookInit = true;
-				// attaching handlers for label
 				label.setAttribute('tabindex','0');
 				label.setAttribute('role','button');
 				if(!label.getAttribute('aria-controls')) label.setAttribute('aria-controls', input.id || '');
 				label.setAttribute('aria-expanded', input.checked ? 'true' : 'false');
 				input.addEventListener('change', function(){ label.setAttribute('aria-expanded', input.checked ? 'true' : 'false'); });
 				label.addEventListener('keydown', function(e){ var k = e.key || e.code; if(k==='Enter'){ e.preventDefault(); try{ input.checked = !input.checked; input.dispatchEvent(new Event('change',{bubbles:true})); }catch(err){ input.click(); } } });
-				label.addEventListener('keyup', function(e){ var k = e.key || e.code; if(k===' ' || k==='Spacebar' || k==='Space' || k==='Space'){ e.preventDefault(); try{ input.checked = !input.checked; input.dispatchEvent(new Event('change',{bubbles:true})); }catch(err){ input.click(); } } });
+				label.addEventListener('keyup', function(e){ var k = e.key || e.code; if(k===' ' || k==='Spacebar' || k==='Space'){ e.preventDefault(); try{ input.checked = !input.checked; input.dispatchEvent(new Event('change',{bubbles:true})); }catch(err){ input.click(); } } });
 			});
 		});
 	}
@@ -27,7 +25,6 @@
 		var mo = new MutationObserver(function(mutations){
 			mutations.forEach(function(m){
 				m.addedNodes && m.addedNodes.forEach(function(node){
-				// mutation observer added node
 					if(!(node instanceof Element)) return;
 					if(node.classList && node.classList.contains('accordion')){
 						init(node);
