@@ -59,10 +59,22 @@
 				font-size: 0.97em;
 			}
       
-			.image-caption-button {
-				cursor: pointer;
-				display: block;
-				text-transform: uppercase;
+				.image-caption-button {
+					/* normalize when this is authored as a <button> instead of a <span> */
+					&, button.image-caption-button {
+						cursor: pointer;
+						display: block;
+						text-transform: uppercase;
+						/* reset native button chrome */
+						border: none;
+						background: transparent;
+						padding: 0;
+						font: inherit;
+						line-height: inherit;
+						appearance: none;
+						-webkit-appearance: none;
+						-moz-appearance: none;
+					}
 
 				.caption-button-hide {
 					display: inline;
@@ -94,6 +106,13 @@
 					color: colors.$secondary-text-color;
 					font-weight: 400;
 				}
+
+					/* Legacy checkbox-driven caption toggle support (migrated from modules/_photoslideshow.scss) */
+					input[type=checkbox] { display: none; }
+					input[type=checkbox] ~ label::before { content: "SHOW CAPTION +"; }
+					input[type=checkbox]:checked ~ label::before { color: yellow; content: "HIDE CAPTION -"; }
+					input[type=checkbox] ~ div { display: block; overflow: hidden; max-height: 0; transition: all 0s linear; border-top: 1px solid #333; }
+					input[type=checkbox]:checked ~ div { border-top: 1px solid #fff; padding-top: 10px; max-height: 2500px; transition: max-height .5s ease-in-out; }
 			}
 		} // end figcaption
 	}
