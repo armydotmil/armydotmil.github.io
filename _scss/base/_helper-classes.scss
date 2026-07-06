@@ -160,3 +160,26 @@
   @include custom-transition.custom-transition(opacity .25s ease, height .25s ease, min-height .25s ease, max-height .25s ease, visibility .5s linear);
 }
 
+// Screen-reader-only utility (visually hidden but accessible when focused)
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.sr-only:focus,
+.sr-only:active {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+

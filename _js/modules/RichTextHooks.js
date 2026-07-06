@@ -11,7 +11,17 @@
 				if(!a.getAttribute('aria-label')){
 					var label = a.getAttribute('title') || (a.textContent||'').trim() || a.getAttribute('href') || 'Opens in a new window';
 					if(label.indexOf('mailto:')===0) label = 'Opens email client';
-					a.setAttribute('aria-label', label + ' (opens in a new window)');
+					// Set a concise aria-label and append an inline sr-only hint inside the link
+					a.setAttribute('aria-label', label);
+					try{
+						// Don't duplicate the sr-only span if present
+						if(!a.querySelector('.sr-only')){
+							var span = document.createElement('span');
+							span.className = 'sr-only';
+							span.textContent = ' (opens in a new window)';
+							a.appendChild(span);
+						}
+					}catch(e){}
 				}
 			}catch(e){}
 		}
