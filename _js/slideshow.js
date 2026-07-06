@@ -16,15 +16,3 @@ if (PhotoSlideshow && typeof PhotoSlideshow.init === 'function') {
 			document.addEventListener('DOMContentLoaded', function(){ try{ PhotoSlideshow.init(); }catch(e){} });
 		}
 	}catch(e){}
-
-	// Temporary delegated listener was added for debugging and is now commented out
-	/*
-	document.addEventListener('click', function (e) {
-		try {
-			var ps = e.target.closest && e.target.closest('.photo-slideshow');
-			if (ps) {
-                
-			}
-		} catch (err) { }
-	}, true);
-	*/
