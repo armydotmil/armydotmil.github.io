@@ -6,162 +6,162 @@
 
 @use "sass:map";
 .accordion {
-	@include bodytext.bodytext-list();
+  @include bodytext.bodytext-list();
   
-	ul li > ul > li a,
-	ul li > ol > li a {
-		font-weight: 400;
-		position: relative;
-		top: 2px;
-	}
+  ul li > ul > li a,
+  ul li > ol > li a {
+    font-weight: 400;
+    position: relative;
+    top: 2px;
+  }
 
-	// Visually hidden but still focusable/operable (unlike display:none), so the
-	// native checkbox keeps its place in the tab order and its built-in
-	// checked/unchecked semantics for keyboard and AT users — no JS required.
-	input[type=checkbox] {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		margin: -1px;
-		padding: 0;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border: 0;
+  // Visually hidden but still focusable/operable (unlike display:none), so the
+  // native checkbox keeps its place in the tab order and its built-in
+  // checked/unchecked semantics for keyboard and AT users — no JS required.
+  input[type=checkbox] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 
-		&:focus-visible + label {
-			outline: 3px solid map.get(colors.$army-branding, gold);
-			outline-offset: -3px;
-		}
-	}
+    &:focus-visible + label {
+      outline: 3px solid map.get(colors.$army-branding, gold);
+      outline-offset: -3px;
+    }
+  }
   
-	> a {
-		font: 600 1em/1.375em variables.$font-family;
-		text-decoration: none;
+  > a {
+    font: 600 1em/1.375em variables.$font-family;
+    text-decoration: none;
     
-		&:hover { text-decoration: none; }
-	}
+    &:hover { text-decoration: none; }
+  }
   
-	> ul {
-		> li {
-			border-top: 1px solid map.get(colors.$army-branding, grey30);
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
+  > ul {
+    > li {
+      border-top: 1px solid map.get(colors.$army-branding, grey30);
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
 
-			&:last-child { border-bottom: 1px solid map.get(colors.$army-branding, grey30); }
+      &:last-child { border-bottom: 1px solid map.get(colors.$army-branding, grey30); }
       
-			> ul,
-			> div {
-				max-height: 0;
-				overflow: hidden;
-				padding: 0 30px;
+      > ul,
+      > div {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 30px;
 
-				animation: shrink;
-				animation-iteration-count: 1;
-				animation-fill-mode: both;
-				animation-duration: 0.5s;
-				-webkit-animation: shrink;
-				-webkit-animation-iteration-count: 1;
-				-webkit-animation-fill-mode: both;
-				-webkit-animation-duration: 0.5s;
+        animation: shrink;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+        animation-duration: 0.5s;
+        -webkit-animation: shrink;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-fill-mode: both;
+        -webkit-animation-duration: 0.5s;
         
-				@include custom-transition.custom-transition(padding 0.5s ease);
+        @include custom-transition.custom-transition(padding 0.5s ease);
         
-				@include breakpoints.breakpoints(mobile) {
-					padding-left: 10px;
-					padding-right: 10px;
-				}
-			}
+        @include breakpoints.breakpoints(mobile) {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+      }
       
-			> label {
-				cursor: pointer;
-				display: block;
-				font: 600 1.125em variables.$font-family;
-				padding: 28px 45px 23px 5px;
-				position: relative;
-				top: 0;
+      > label {
+        cursor: pointer;
+        display: block;
+        font: 600 1.125em variables.$font-family;
+        padding: 28px 45px 23px 5px;
+        position: relative;
+        top: 0;
         
-				span {
-					background: map.get(colors.$army-branding, gold);
-					border-radius: 50%;
-					display: inline-block;
-					height: 34px;
-					margin-top: -17px;
-					position: absolute;
-					right: 5px;
-					top: 50%;
-					width: 34px;
+        span {
+          background: map.get(colors.$army-branding, gold);
+          border-radius: 50%;
+          display: inline-block;
+          height: 34px;
+          margin-top: -17px;
+          position: absolute;
+          right: 5px;
+          top: 50%;
+          width: 34px;
           
-					&:before, &:after {
-						background: map.get(colors.$army-branding, armyblack);
-						content: '';
-						position: absolute;
-						@include custom-transition.custom-transition(transform .25s ease);
-					}
-					&:before {
-						height: 12px;
-						left: 50%;
-						margin-left: -2px;
-						margin-top: -6px;
-						top: 50%;
-						width: 4px;
-					}
-					&:after {
-						height: 4px;
-						left: 50%;
-						margin-left: -6px;
-						margin-top: -2px;
-						top: 50%;
-						width: 12px;
-					}
-				}
-			}
-		} // end li
+          &:before, &:after {
+            background: map.get(colors.$army-branding, armyblack);
+            content: '';
+            position: absolute;
+            @include custom-transition.custom-transition(transform .25s ease);
+          }
+          &:before {
+            height: 12px;
+            left: 50%;
+            margin-left: -2px;
+            margin-top: -6px;
+            top: 50%;
+            width: 4px;
+          }
+          &:after {
+            height: 4px;
+            left: 50%;
+            margin-left: -6px;
+            margin-top: -2px;
+            top: 50%;
+            width: 12px;
+          }
+        }
+      }
+    } // end li
     
-		// expanded state, based on checkbox status
-		> li input[type=checkbox]:checked ~ ul,
-		> li input[type=checkbox]:checked ~ div {
-			padding-bottom: 1.8em;
-			animation: grow;
-			animation-duration: 0.5s;
-			-webkit-animation: grow;
-			-webkit-animation-duration: 0.5s;
-			max-height: 1000000px;
-		}
+    // expanded state, based on checkbox status
+    > li input[type=checkbox]:checked ~ ul,
+    > li input[type=checkbox]:checked ~ div {
+      padding-bottom: 1.8em;
+      animation: grow;
+      animation-duration: 0.5s;
+      -webkit-animation: grow;
+      -webkit-animation-duration: 0.5s;
+      max-height: 1000000px;
+    }
     
-		// spinning plus/minus symbol
-		> li input[type=checkbox]:checked ~ label span {
-			&:before {
-				-ms-transform: rotate(90deg);
-						transform: rotate(90deg);
-			}
+    // spinning plus/minus symbol
+    > li input[type=checkbox]:checked ~ label span {
+      &:before {
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+      }
       
-			&:after {
-				-ms-transform: rotate(180deg);
-						transform: rotate(180deg);
-			}
-		}
-	}
-	@keyframes grow {
-		0% { max-height: 0px; }
-		99% { max-height: 1000px; }
-		100% { max-height: 1000000px; }
-	}
-	@-webkit-keyframes grow {
-		0% { max-height: 0px; }
-		99% { max-height: 1000px; }
-		100% { max-height: 1000000px; }
-	}
+      &:after {
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+      }
+    }
+  }
+  @keyframes grow {
+    0% { max-height: 0px; }
+    99% { max-height: 1000px; }
+    100% { max-height: 1000000px; }
+  }
+  @-webkit-keyframes grow {
+    0% { max-height: 0px; }
+    99% { max-height: 1000px; }
+    100% { max-height: 1000000px; }
+  }
 
-	@keyframes shrink {
-		0% { max-height: 1000000px; }
-		1% { max-height: 1000px; }
-		100% { max-height: 0px; }
-	}
-	@-webkit-keyframes shrink {
-		0% { max-height: 1000000px; }
-		1% { max-height: 1000px; }
-		100% { max-height: 0px; }
-	}
+  @keyframes shrink {
+    0% { max-height: 1000000px; }
+    1% { max-height: 1000px; }
+    100% { max-height: 0px; }
+  }
+  @-webkit-keyframes shrink {
+    0% { max-height: 1000000px; }
+    1% { max-height: 1000px; }
+    100% { max-height: 0px; }
+  }
 }

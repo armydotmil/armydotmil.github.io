@@ -21,7 +21,7 @@ class QuillLoader {
   /**
     * Expects an element id, and delta string
     */
-   setQuillElement(el, textDelta) {
+  setQuillElement(el, textDelta) {
     var delta, quillModel;
     
     // replace quote entities (otherwise quill double-encodes them)

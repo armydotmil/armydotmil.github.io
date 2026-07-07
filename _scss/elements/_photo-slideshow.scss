@@ -5,178 +5,178 @@
 
 @use "sass:map";
 .photo-slideshow {
-	margin: 0 0 40px;
-	overflow: hidden;
-	position: relative;
+  margin: 0 0 40px;
+  overflow: hidden;
+  position: relative;
 
-	.photo {
-		left: 0;
-		margin: 0 auto;
-		max-width: 640px;
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 100%;
-		@include opacity.opacity(0);
-		@include custom-transition.custom-transition(opacity 0.5s);
+  .photo {
+    left: 0;
+    margin: 0 auto;
+    max-width: 640px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    @include opacity.opacity(0);
+    @include custom-transition.custom-transition(opacity 0.5s);
 
-		.centered-image {
-			position: relative;
+    .centered-image {
+      position: relative;
       
-			.img-container {
-				display: block;
-				position: relative;
-				text-align: center;
-				overflow: hidden;
-				background-color: #000;
+      .img-container {
+        display: block;
+        position: relative;
+        text-align: center;
+        overflow: hidden;
+        background-color: #000;
         
-				img {
-					max-width: 100%;
-					max-height: 75vh;
-					margin: auto;
-					display: block;
+        img {
+          max-width: 100%;
+          max-height: 75vh;
+          margin: auto;
+          display: block;
 
-					@include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
-						max-height: 550px;
-					}
-				}
-			}
-		}
+          @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
+            max-height: 550px;
+          }
+        }
+      }
+    }
     
-		figcaption {
-			background-color: colors.$captions-background-color;
-			color: colors.$secondary-text-color;
-			font-size: 0.84em;
-			font-weight: 400;
-			margin: 0 auto;
-			max-width: 640px;
-			overflow: hidden;
-			padding: 10px;
+    figcaption {
+      background-color: colors.$captions-background-color;
+      color: colors.$secondary-text-color;
+      font-size: 0.84em;
+      font-weight: 400;
+      margin: 0 auto;
+      max-width: 640px;
+      overflow: hidden;
+      padding: 10px;
       
-			.image-count {
-				float: right;
-				font-weight: 700;
-				font-size: 0.97em;
-			}
+      .image-count {
+        float: right;
+        font-weight: 700;
+        font-size: 0.97em;
+      }
 
-			// `.image-caption-button` is a native <label> associated with the
-			// slideshow's shared `.show-captions-toggle` checkbox (see below) —
-			// no button chrome/reset needed since it's not a <button>.
-			.image-caption-button {
-				cursor: pointer;
-				display: block;
-				text-transform: uppercase;
+      // `.image-caption-button` is a native <label> associated with the
+      // slideshow's shared `.show-captions-toggle` checkbox (see below) —
+      // no button chrome/reset needed since it's not a <button>.
+      .image-caption-button {
+        cursor: pointer;
+        display: block;
+        text-transform: uppercase;
 
-				.caption-button-hide {
-					display: inline;
-				}
+        .caption-button-hide {
+          display: inline;
+        }
 
-				.caption-button-show {
-					display: none;
-				}
-			}
+        .caption-button-show {
+          display: none;
+        }
+      }
       
-			.image-caption {
-				overflow: hidden;
-				max-height: 0;
-				display: block;
-				@include custom-transition.custom-transition(max-height 500ms);
+      .image-caption {
+        overflow: hidden;
+        max-height: 0;
+        display: block;
+        @include custom-transition.custom-transition(max-height 500ms);
         
-				.caption-text {
-					border-top: 1px solid map.get(colors.$army-branding, grey20);
-					display: block;
-					margin: 10px 0 0;
-					padding: 10px 0 0;
-				}
+        .caption-text {
+          border-top: 1px solid map.get(colors.$army-branding, grey20);
+          display: block;
+          margin: 10px 0 0;
+          padding: 10px 0 0;
+        }
         
-				.caption-author {
-					font-style: italic;
-				}
+        .caption-author {
+          font-style: italic;
+        }
         
-				a {
-					color: colors.$secondary-text-color;
-					font-weight: 400;
-				}
-			}
-		} // end figcaption
-	}
+        a {
+          color: colors.$secondary-text-color;
+          font-weight: 400;
+        }
+      }
+    } // end figcaption
+  }
 
-	// Single checkbox shared by every slide's caption-toggle <label> in this
-	// slideshow. It's placed last in the markup (after every `.photo`) so it
-	// falls at the end of the tab order — right after the current slide's
-	// prev/next controls, matching where the old <button> used to sit.
-	// `:has()` (rather than a `~`/`+` sibling combinator) is used below so the
-	// checked/focus state can still style `.photo` even though the checkbox
-	// now comes after it in the DOM. Visually hidden but still
-	// focusable/operable (not display:none), so it keeps native checkbox
-	// semantics and keyboard support (Space toggles) with zero JavaScript.
-	> input.show-captions-toggle {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		margin: -1px;
-		padding: 0;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border: 0;
-	}
+  // Single checkbox shared by every slide's caption-toggle <label> in this
+  // slideshow. It's placed last in the markup (after every `.photo`) so it
+  // falls at the end of the tab order — right after the current slide's
+  // prev/next controls, matching where the old <button> used to sit.
+  // `:has()` (rather than a `~`/`+` sibling combinator) is used below so the
+  // checked/focus state can still style `.photo` even though the checkbox
+  // now comes after it in the DOM. Visually hidden but still
+  // focusable/operable (not display:none), so it keeps native checkbox
+  // semantics and keyboard support (Space toggles) with zero JavaScript.
+  > input.show-captions-toggle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 
-	&:has(> input.show-captions-toggle:focus-visible) .photo figcaption .image-caption-button {
-		outline: 3px solid map.get(colors.$army-branding, gold);
-		outline-offset: -3px;
-	}
+  &:has(> input.show-captions-toggle:focus-visible) .photo figcaption .image-caption-button {
+    outline: 3px solid map.get(colors.$army-branding, gold);
+    outline-offset: -3px;
+  }
 
-	&:has(> input.show-captions-toggle:checked) .photo figcaption {
-		.image-caption {
-			max-height: 500px;
-		}
+  &:has(> input.show-captions-toggle:checked) .photo figcaption {
+    .image-caption {
+      max-height: 500px;
+    }
 
-		.image-caption-button {
-			.caption-button-hide {
-				display: none;
-			}
+    .image-caption-button {
+      .caption-button-hide {
+        display: none;
+      }
 
-			.caption-button-show {
-				display: inline;
-			}
-		}
-	}
+      .caption-button-show {
+        display: inline;
+      }
+    }
+  }
 
-	.photo.cur-photo {
-		position: relative;
-		z-index: 1;
-		@include opacity.opacity(1);
-	}
+  .photo.cur-photo {
+    position: relative;
+    z-index: 1;
+    @include opacity.opacity(1);
+  }
 
-	.ss-move {
-		background-color: rgba(0,0,0,0.5);
-		cursor: pointer;
-		transform: translateY(-50%);
-		position: absolute;
-		top: 50%;
+  .ss-move {
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
 
-		&:hover,
-		&:focus {
-			background-color: rgba(0,0,0,0.9);
-		}
+    &:hover,
+    &:focus {
+      background-color: rgba(0,0,0,0.9);
+    }
 
-		.ss-move-button::before {
-			content: "\e908";
-			font-family: 'armyicons';
-			color: map.get(colors.$army-branding, white);
-			font-size: 18px;
-		}
-		&.ss-prev {
-			left: 0;
-			padding: 22px 21px 20px 19px;
-		}
-		&.ss-next {
-			right: 0;
-			padding: 22px 18px 20px 22px;
-			.ss-move-button::before {
-				content: "\e907";
-			}
-		}
-	}
+    .ss-move-button::before {
+      content: "\e908";
+      font-family: 'armyicons';
+      color: map.get(colors.$army-branding, white);
+      font-size: 18px;
+    }
+    &.ss-prev {
+      left: 0;
+      padding: 22px 21px 20px 19px;
+    }
+    &.ss-next {
+      right: 0;
+      padding: 22px 18px 20px 22px;
+      .ss-move-button::before {
+        content: "\e907";
+      }
+    }
+  }
 }

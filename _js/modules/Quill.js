@@ -113,9 +113,7 @@ class ImageBlot extends BlockEmbed {
       this.createSSMarkup(ss[i]);
     }
     // adds JS transitions and button events for slideshows
-    // console.log('Quill creating PhotoSlideshow instance (before) windowInstances=', window.__PHOTO_SLIDESHOW_INSTANCES ? Object.keys(window.__PHOTO_SLIDESHOW_INSTANCES).length : 0);
     new PhotoSlideshow();
-    // console.log('Quill created PhotoSlideshow instance (after) windowInstances=', window.__PHOTO_SLIDESHOW_INSTANCES ? Object.keys(window.__PHOTO_SLIDESHOW_INSTANCES).length : 0);
   }
 
   createSSMarkup(ss) {
