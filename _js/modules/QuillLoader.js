@@ -15,7 +15,7 @@ class QuillLoader {
       }
     }
     // After Quill has created any slideshow markup, notify listeners so PhotoSlideshow can initialize deterministically
-    try{ document.dispatchEvent(new CustomEvent('photo-slideshow:quill-ready')); }catch(e){}
+    document.dispatchEvent(new CustomEvent('photo-slideshow:quill-ready'));
   }
 
   /**

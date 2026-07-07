@@ -11,8 +11,6 @@ if (PhotoSlideshow && typeof PhotoSlideshow.init === 'function') {
 }
 
 	// Also ensure initialization runs on DOMContentLoaded in case slideshows are injected later
-	try{
-		if(document && document.addEventListener){
-			document.addEventListener('DOMContentLoaded', function(){ try{ PhotoSlideshow.init(); }catch(e){} });
-		}
-	}catch(e){}
+	if(document && document.addEventListener){
+		document.addEventListener('DOMContentLoaded', function(){ PhotoSlideshow.init(); });
+	}

@@ -110,9 +110,6 @@ class ImageBlot extends BlockEmbed {
     let ss = document.getElementsByClassName('photo-slideshow'), i;
     
     for (i = 0; i < ss.length; i++) {
-        try{
-      
-      }catch(err){}
       this.createSSMarkup(ss[i]);
     }
     // adds JS transitions and button events for slideshows

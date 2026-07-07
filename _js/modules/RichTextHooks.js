@@ -2,28 +2,25 @@
 (function(){
 	function patchRichTextLinks(root){
 		var doc = root || document;
+		if(!doc || typeof doc.querySelectorAll !== 'function') return;
 		// target all anchors that open in a new window/tab
 		var specific = doc.querySelectorAll('a[target="_blank"]');
 		for(var i=0;i<specific.length;i++){
 			var a = specific[i];
-			try{ if(!a.getAttribute('rel')) a.setAttribute('rel','noopener'); }catch(e){}
-			try{
-				if(!a.getAttribute('aria-label')){
-					var label = a.getAttribute('title') || (a.textContent||'').trim() || a.getAttribute('href') || 'Opens in a new window';
-					if(label.indexOf('mailto:')===0) label = 'Opens email client';
-					// Set a concise aria-label and append an inline sr-only hint inside the link
-					a.setAttribute('aria-label', label);
-					try{
-						// Don't duplicate the sr-only span if present
-						if(!a.querySelector('.sr-only')){
-							var span = document.createElement('span');
-							span.className = 'sr-only';
-							span.textContent = ' (opens in a new window)';
-							a.appendChild(span);
-						}
-					}catch(e){}
+			if(!a.getAttribute('rel')) a.setAttribute('rel','noopener');
+			if(!a.getAttribute('aria-label')){
+				var label = a.getAttribute('title') || (a.textContent||'').trim() || a.getAttribute('href') || 'Opens in a new window';
+				if(label.indexOf('mailto:')===0) label = 'Opens email client';
+				// Set a concise aria-label and append an inline sr-only hint inside the link
+				a.setAttribute('aria-label', label);
+				// Don't duplicate the sr-only span if present
+				if(!a.querySelector('.sr-only')){
+					var span = (a.ownerDocument || document).createElement('span');
+					span.className = 'sr-only';
+					span.textContent = ' (opens in a new window)';
+					a.appendChild(span);
 				}
-			}catch(e){}
+			}
 		}
 	}
 
@@ -38,7 +35,7 @@
 				if(m.addedNodes && m.addedNodes.length){
 					for(var i=0;i<m.addedNodes.length;i++){
 						var n = m.addedNodes[i];
-						if(n.nodeType===1) try{ patchRichTextLinks(n); }catch(e){}
+						if(n.nodeType===1) patchRichTextLinks(n);
 					}
 				}
 			});

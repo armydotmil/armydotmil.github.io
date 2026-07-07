@@ -9,58 +9,54 @@
   }
 
   function initSlideshowTabManagement(slideshow){
-    try{
-      var figures = slideshow.getElementsByClassName('photo');
-      for(var i=0;i<figures.length;i++){
-        setFigureTabindex(figures[i], figures[i].classList.contains('cur-photo'));
-      }
-    }catch(e){}
+    if(!slideshow || !slideshow.getElementsByClassName) return;
+    var figures = slideshow.getElementsByClassName('photo');
+    for(var i=0;i<figures.length;i++){
+      setFigureTabindex(figures[i], figures[i].classList.contains('cur-photo'));
+    }
   }
 
   function logFocusState(prefix){
-    try{
-      var ae = document.activeElement;
-      // no-op: debug logging removed
-    }catch(e){}
+    var ae = document.activeElement;
   }
 
   function initKeyActivation(slideshow){
-    try{
-      var movers = slideshow.getElementsByClassName('ss-move');
-      for(var i=0;i<movers.length;i++){
-        (function(mv){
-          if(mv._psHookInit) return;
-          mv._psHookInit = true;
-          mv.addEventListener('keydown', function(e){
-            var k = e.key || e.code;
-            if(k === 'Enter' || k === ' ' || k === 'Spacebar' || k === 'Space'){
-              e.preventDefault();
-              logFocusState('move-before');
-              try{ var ev = new MouseEvent('click',{bubbles:true}); mv.dispatchEvent(ev); }catch(err){ if(typeof mv.click === 'function') mv.click(); }
-              setTimeout(function(){
-                var cur = slideshow.querySelector('figure.photo.cur-photo');
-                if(!cur) return;
-                // ensure tab indices on all slides are correct for current slide
-                try{ initSlideshowTabManagement(slideshow); }catch(e){}
-                var isPrev = mv.classList.contains('ss-prev');
-                var target = cur.querySelector(isPrev ? '.ss-prev' : '.ss-next');
-                if(target){
-                  try{ target.setAttribute('tabindex','0'); }catch(e){}
-                  try{ target.focus(); }catch(e){}
-                } else {
-                  // If mover itself was focused, prefer focusing first logical element
-                  try{
-                    var first = cur.querySelector('a.rich-text-img-link, .ss-next, .ss-prev');
-                    if(first){ try{ first.setAttribute && first.setAttribute('tabindex','0'); }catch(e){}; try{ first.focus && first.focus(); }catch(e){} }
-                  }catch(e){}
+    if(!slideshow || !slideshow.getElementsByClassName) return;
+    var movers = slideshow.getElementsByClassName('ss-move');
+    for(var i=0;i<movers.length;i++){
+      (function(mv){
+        if(mv._psHookInit) return;
+        mv._psHookInit = true;
+        mv.addEventListener('keydown', function(e){
+          var k = e.key || e.code;
+          if(k === 'Enter' || k === ' ' || k === 'Spacebar' || k === 'Space'){
+            e.preventDefault();
+            logFocusState('move-before');
+            try{ var ev = new MouseEvent('click',{bubbles:true}); mv.dispatchEvent(ev); }catch(err){ if(typeof mv.click === 'function') mv.click(); }
+            setTimeout(function(){
+              var cur = slideshow.querySelector('figure.photo.cur-photo');
+              if(!cur) return;
+              // Ensure tab indices stay aligned to current slide.
+              initSlideshowTabManagement(slideshow);
+              var isPrev = mv.classList.contains('ss-prev');
+              var target = cur.querySelector(isPrev ? '.ss-prev' : '.ss-next');
+              if(target){
+                target.setAttribute('tabindex','0');
+                if(typeof target.focus === 'function') target.focus();
+              } else {
+                // If mover itself was focused, prefer focusing first logical element.
+                var first = cur.querySelector('a.rich-text-img-link, .ss-next, .ss-prev');
+                if(first){
+                  if(typeof first.setAttribute === 'function') first.setAttribute('tabindex','0');
+                  if(typeof first.focus === 'function') first.focus();
                 }
-                logFocusState('move-after');
-              },0);
-            }
-          });
-        })(movers[i]);
-      }
-    }catch(e){}
+              }
+              logFocusState('move-after');
+            },0);
+          }
+        });
+      })(movers[i]);
+    }
   }
 
   // register hooks on global object
@@ -74,7 +70,6 @@
   // Initialize existing slideshows on DOM ready
   function initAll(){
     var nodes = document.querySelectorAll('.photo-slideshow');
-    // initAll
     // initAll: initialize hooks for found slideshows
     for(var i=0;i<nodes.length;i++){
       // initializing slideshow
