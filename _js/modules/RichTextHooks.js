@@ -9,17 +9,10 @@
       var a = specific[i];
       if(!a.getAttribute('rel')) a.setAttribute('rel','noopener');
       if(!a.getAttribute('aria-label')){
-        var label = a.getAttribute('title') || (a.textContent||'').trim() || a.getAttribute('href') || 'Opens in a new window';
+        var label = a.getAttribute('title') || (a.textContent||'').trim() || a.getAttribute('href') || 'Link';
         if(label.indexOf('mailto:')===0) label = 'Opens email client';
-        // Set a concise aria-label and append an inline sr-only hint inside the link
+        // Set a concise aria-label for links that open in a new tab/window.
         a.setAttribute('aria-label', label);
-        // Don't duplicate the sr-only span if present
-        if(!a.querySelector('.sr-only')){
-          var span = (a.ownerDocument || document).createElement('span');
-          span.className = 'sr-only';
-          span.textContent = ' (opens in a new window)';
-          a.appendChild(span);
-        }
       }
     }
   }
