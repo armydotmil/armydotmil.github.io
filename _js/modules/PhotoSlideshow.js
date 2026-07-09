@@ -1,67 +1,144 @@
-// Re-export the canonical PhotoSlideshow from the submodule to keep a single source
-// Minimal PhotoSlideshow class placeholder to avoid circular import initialization
-class PhotoSlideshow {
-    constructor(){
-        // Minimal runtime wiring so extensions/hooks can attach and rely on `ss` instances.
-        this.initAll();
-    }
+/*global document, require*/
+/*jshint -W032 */ /* ignore unnecessary semicolon */
+import Helper from './Helper';
 
-    static init(){
-        // create an instance which will run initAll()
-        new PhotoSlideshow();
-    }
+/* Accessibility helper functions ported from PhotoSlideshowHooks.js.
+   These are the canonical in-file implementation so the slideshow
+   provides tabindex and keyboard activation behavior directly. */
+var SLIDE_FOCUSABLE = 'a.rich-text-img-link, .ss-move';
 
-    initAll(){
-        var nodes = document.querySelectorAll('.photo-slideshow');
-        if(!window.__PHOTO_SLIDESHOW_INSTANCES) window.__PHOTO_SLIDESHOW_INSTANCES = {};
-        nodes.forEach(function(root){
-            if(!root) return;
-            var id = root.id || ('ps-' + Math.random().toString(36).slice(2,9));
-            root.id = id;
-            var ss = root.__photoSlideshowInstance || { el: root };
-            ss.next = function(){ return PhotoSlideshow._move(root, 1); };
-            ss.prev = function(){ return PhotoSlideshow._move(root, -1); };
-            root.__photoSlideshowInstance = ss;
-            window.__PHOTO_SLIDESHOW_INSTANCES[id] = ss;
-            if(!root._psWired){
-                root.addEventListener('click', function(e){
-                    var mv = e.target.closest && e.target.closest('.ss-move');
-                    if(mv){
-                        if(mv.classList.contains('ss-prev')){
-                            ss.prev();
+function setFigureTabindex(figure, isCurrent) {
+    var nodes = figure.querySelectorAll ? figure.querySelectorAll(SLIDE_FOCUSABLE) : [];
+    for (var i = 0; i < nodes.length; i++) {
+        try { nodes[i].setAttribute('tabindex', isCurrent ? '0' : '-1'); } catch (err) {}
+    }
+}
+
+function initSlideshowTabManagement(slideshow) {
+    if (!slideshow || !slideshow.getElementsByClassName) return;
+    var figures = slideshow.getElementsByClassName('photo');
+    for (var i = 0; i < figures.length; i++) {
+        setFigureTabindex(figures[i], figures[i].classList && figures[i].classList.contains('cur-photo'));
+    }
+}
+
+function initKeyActivation(slideshow) {
+    if (!slideshow || !slideshow.getElementsByClassName) return;
+    var movers = slideshow.getElementsByClassName('ss-move');
+    for (var i = 0; i < movers.length; i++) {
+        (function(mv){
+            if (mv._psHookInit) return;
+            mv._psHookInit = true;
+            mv.addEventListener('keydown', function(e){
+                var k = e.key || e.code;
+                if (k === 'Enter' || k === ' ' || k === 'Spacebar' || k === 'Space') {
+                    e.preventDefault();
+                    try { var ev = new MouseEvent('click', { bubbles: true }); mv.dispatchEvent(ev); } catch (err) { if (typeof mv.click === 'function') mv.click(); }
+                    setTimeout(function(){
+                        var cur = slideshow.querySelector ? slideshow.querySelector('figure.photo.cur-photo') : null;
+                        if (!cur) return;
+                        initSlideshowTabManagement(slideshow);
+                        var isPrev = mv.classList && mv.classList.contains('ss-prev');
+                        var target = cur.querySelector(isPrev ? '.ss-prev' : '.ss-next');
+                        if (target) {
+                            try { target.setAttribute('tabindex','0'); } catch (err) {}
+                            if (typeof target.focus === 'function') target.focus();
                         } else {
-                            ss.next();
+                            var first = cur.querySelector ? cur.querySelector('a.rich-text-img-link, .ss-next, .ss-prev') : null;
+                            if (first) {
+                                try { first.setAttribute('tabindex','0'); } catch (err) {}
+                                if (typeof first.focus === 'function') first.focus();
+                            }
                         }
-                        e.preventDefault();
-                        return;
-                    }
-                });
-                root._psWired = true;
-            }
-        });
+                    }, 0);
+                }
+            });
+        })(movers[i]);
     }
+}
 
-    static _move(root, dir){
-        if(!root || !root.getElementsByClassName) return;
-        var figs = root.getElementsByClassName('photo');
-        if(!figs || figs.length === 0) return;
-        var curIndex = -1;
-        for(var i=0;i<figs.length;i++){ if(figs[i].classList.contains('cur-photo')) { curIndex = i; break; } }
-        if(curIndex === -1) curIndex = 0;
-        var next = (curIndex + dir + figs.length) % figs.length;
-        figs[curIndex].classList.remove('cur-photo');
-        figs[next].classList.add('cur-photo');
-        if(window.PHOTO_SLIDESHOW_HOOKS && typeof window.PHOTO_SLIDESHOW_HOOKS.onSlideChange === 'function'){
-            window.PHOTO_SLIDESHOW_HOOKS.onSlideChange(root);
+class PhotoSlideshow {
+    constructor() {
+        var slideshows = document.getElementsByClassName('photo-slideshow'),
+            i;
+
+        for (i = 0; i < slideshows.length; i++) {
+            this.addClicks(slideshows[i]);
+        }
+
+        // Initialize accessibility hooks for existing slideshows
+        for (i = 0; i < slideshows.length; i++) {
+            var ss = slideshows[i];
+            initSlideshowTabManagement(ss);
+            initKeyActivation(ss);
         }
     }
-}
+
+    toggleCaption(el, ss) {
+        if (!Helper.hasClass(el, 'has-click')) {
+            el.addEventListener(
+                'click',
+                function() {
+                    Helper.toggleClass(ss, 'show-captions');
+                },
+                false
+            );
+            Helper.addClass(el, 'has-click');
+        }
+    }
+
+    navigateSlideshow(el, p, ss) {
+        if (!Helper.hasClass(el, 'has-click')) {
+            el.addEventListener(
+                'click',
+                function() {
+                    Helper.removeClass(p[ss.curPos], 'cur-photo');
+
+                    if (Helper.hasClass(this, 'ss-next')) {
+                        ss.curPos++;
+                    } else {
+                        ss.curPos--;
+                    }
+
+                    if (ss.curPos < 0) ss.curPos = p.length - 1;
+                    if (ss.curPos >= p.length) ss.curPos = 0;
+
+                    Helper.addClass(p[ss.curPos], 'cur-photo');
+
+                    // update accessibility state after navigation
+                    initSlideshowTabManagement(ss);
+                    initKeyActivation(ss);
+                },
+                false
+            );
+            Helper.addClass(el, 'has-click');
+        }
+    }
+
+    addClicks(ss) {
+        var captionBtn = ss.getElementsByClassName('image-caption-button'),
+            moveBtn = ss.getElementsByClassName('ss-move'),
+            photos = ss.getElementsByClassName('photo'),
+            context = this,
+            i, j;
+
+        /*
+         * save curPos value to slideshow object
+         * allows us to have multiple slideshows
+         * on one page if its ever necessary
+         */
+        ss.curPos = 0;
+
+        // click event for caption toggle
+        for (i = 0; i < captionBtn.length; i++) {
+            context.toggleCaption(captionBtn[i], ss);
+        }
+
+        // click event for prev/next navigation
+        for (j = 0; j < moveBtn.length; j++) {
+            context.navigateSlideshow(moveBtn[j], photos, ss);
+        }
+    }
+};
 
 export default PhotoSlideshow;
-
-// Initialize when QuillLoader signals it's ready (ensures markup exists)
-if(typeof document !== 'undefined' && document.addEventListener){
-    document.addEventListener('photo-slideshow:quill-ready', function(){ try{ PhotoSlideshow.init(); }catch(e){ if(window.DEBUG) console.warn('PhotoSlideshow.init failed (quill-ready)', e); } }, false);
-    // Also initialize on DOMContentLoaded as a fallback
-    document.addEventListener('DOMContentLoaded', function(){ try{ PhotoSlideshow.init(); }catch(e){ if(window.DEBUG) console.warn('PhotoSlideshow.init failed (DOMContentLoaded)', e); } }, false);
-}
