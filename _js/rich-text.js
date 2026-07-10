@@ -1,7 +1,5 @@
 /*global document*/
 
-import QuillLoader from './modules/QuillLoader';
-
-new QuillLoader();
-// ensure rich-text link accessibility hooks
-import './modules/RichTextHooks';
+// QuillLoader removed: server-side rendering will provide rich-text HTML
+// link accessibility hooks migrated to server-side via RichtextToPOPO
+// (client-side hook removed)
