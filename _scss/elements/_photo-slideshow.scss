@@ -101,33 +101,10 @@
     } // end figcaption
   }
 
-  // Single checkbox shared by every slide's caption-toggle <label> in this
-  // slideshow. It's placed last in the markup (after every `.photo`) so it
-  // falls at the end of the tab order — right after the current slide's
-  // prev/next controls, matching where the old <button> used to sit.
-  // `:has()` (rather than a `~`/`+` sibling combinator) is used below so the
-  // checked/focus state can still style `.photo` even though the checkbox
-  // now comes after it in the DOM. Visually hidden but still
-  // focusable/operable (not display:none), so it keeps native checkbox
-  // semantics and keyboard support (Space toggles) with zero JavaScript.
-  > input.show-captions-toggle {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  &:has(> input.show-captions-toggle:focus-visible) .photo figcaption .image-caption-button {
-    outline: 3px solid map.get(colors.$army-branding, gold);
-    outline-offset: -3px;
-  }
-
-  &:has(> input.show-captions-toggle:checked) .photo figcaption {
+  // JS-driven caption toggle: the slideshow container receives the
+  // `show-captions` class to reveal captions. The `.image-caption-button`
+  // is a button that toggles this class.
+  &.show-captions .photo figcaption {
     .image-caption {
       max-height: 500px;
     }

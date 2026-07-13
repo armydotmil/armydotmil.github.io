@@ -89,28 +89,24 @@ class PhotoSlideshow {
 
     navigateSlideshow(el, p, ss) {
         if (!Helper.hasClass(el, 'has-click')) {
-            el.addEventListener(
-                'click',
-                function() {
-                    Helper.removeClass(p[ss.curPos], 'cur-photo');
+            el.addEventListener('click', function() {
+                Helper.removeClass(p[ss.curPos], 'cur-photo');
 
-                    if (Helper.hasClass(this, 'ss-next')) {
-                        ss.curPos++;
-                    } else {
-                        ss.curPos--;
-                    }
+                if (Helper.hasClass(this, 'ss-next')) {
+                    ss.curPos++;
+                } else {
+                    ss.curPos--;
+                }
 
-                    if (ss.curPos < 0) ss.curPos = p.length - 1;
-                    if (ss.curPos >= p.length) ss.curPos = 0;
+                if (ss.curPos < 0) ss.curPos = p.length - 1;
+                if (ss.curPos >= p.length) ss.curPos = 0;
 
-                    Helper.addClass(p[ss.curPos], 'cur-photo');
+                Helper.addClass(p[ss.curPos], 'cur-photo');
 
-                    // update accessibility state after navigation
-                    initSlideshowTabManagement(ss);
-                    initKeyActivation(ss);
-                },
-                false
-            );
+                // update accessibility state after navigation
+                initSlideshowTabManagement(ss);
+                initKeyActivation(ss);
+            }, false);
             Helper.addClass(el, 'has-click');
         }
     }
@@ -140,5 +136,26 @@ class PhotoSlideshow {
         }
     }
 };
+
+// Static initializer for compatibility with callers that expect `PhotoSlideshow.init()`
+// Safe to call multiple times; it constructs a singleton that wires existing slideshows.
+PhotoSlideshow.init = function() {
+    try {
+        if (window.__PHOTO_SLIDESHOW_SINGLETON) return window.__PHOTO_SLIDESHOW_SINGLETON;
+        window.__PHOTO_SLIDESHOW_SINGLETON = new PhotoSlideshow();
+        return window.__PHOTO_SLIDESHOW_SINGLETON;
+    } catch (e) {
+        if (window && window.DEBUG) console.warn('PhotoSlideshow.init failed', e);
+        return null;
+    }
+};
+
+// Expose a safe global initializer so callers outside webpack scope can
+// ensure the same singleton is used.
+try {
+    if (typeof window !== 'undefined') {
+        window.PhotoSlideshowInit = PhotoSlideshow.init;
+    }
+} catch (e) {}
 
 export default PhotoSlideshow;
