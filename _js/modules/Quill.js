@@ -106,7 +106,7 @@ class ImageBlot extends BlockEmbed {
 
   updatePhotoSlideshows() {
     let ss = document.getElementsByClassName('photo-slideshow'), i;
-    
+
     for (i = 0; i < ss.length; i++) {
       this.createSSMarkup(ss[i]);
     }
