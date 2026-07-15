@@ -35,7 +35,6 @@ class QuillLoader {
     });
 
     quillModel.setContents(delta.ops, 'silent');
-
   }
 
   replaceEntity(match, dec) {
