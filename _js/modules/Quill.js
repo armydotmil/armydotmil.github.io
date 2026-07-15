@@ -89,8 +89,6 @@ class ImageBlot extends BlockEmbed {
       images = this.domNode.getElementsByClassName('photo'),
       len = images.length;
 
-    
-
     if (len === 1) {
       this.domNode.classList.add('single');
     } else {
@@ -132,7 +130,6 @@ class ImageBlot extends BlockEmbed {
       captHTML = '';
 
     if (imgCont.length > 0 && img.length > 0) {
-      
       imgCont[0].innerHTML = img[0].outerHTML;
       imgCont[0].innerHTML += '<span class="ss-move ss-prev"><span class="ss-move-button"></span></span>';
       imgCont[0].innerHTML += '<span class="ss-move ss-next"><span class="ss-move-button"></span></span>';
@@ -140,7 +137,6 @@ class ImageBlot extends BlockEmbed {
     }
 
     if (imgCaptCont.length > 0 && imgCapt.length > 0) {
-      
       captHTML = '<span class="image-count">' + (index + 1) + ' / ' + total + '</span>';
       captHTML += '<span class="image-caption-button">';
       captHTML += '<span class="caption-button-text caption-button-hide">Show Caption +</span>';
