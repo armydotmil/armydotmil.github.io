@@ -156,6 +156,8 @@ try {
     if (typeof window !== 'undefined') {
         window.PhotoSlideshowInit = PhotoSlideshow.init;
     }
-} catch (e) {}
+} catch (e) {
+    if (typeof window !== 'undefined' && window.DEBUG) console.warn('PhotoSlideshow: failed to set global initializer', e);
+}
 
 export default PhotoSlideshow;
