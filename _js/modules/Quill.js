@@ -112,8 +112,8 @@ class ImageBlot extends BlockEmbed {
     for (i = 0; i < ss.length; i++) {
       this.createSSMarkup(ss[i]);
     }
-    // adds JS transitions and button events for slideshows
-    new PhotoSlideshow();
+    // adds JS transitions and button events for slideshows (idempotent singleton via PhotoSlideshow.init)
+    try { PhotoSlideshow.init(); } catch (e) { if (window.DEBUG) console.warn('PhotoSlideshow.init failed', e); }
   }
 
   createSSMarkup(ss) {
