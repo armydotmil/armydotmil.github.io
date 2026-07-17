@@ -19,6 +19,14 @@ module.exports = function(grunt) {
                     transform: ['babelify']
                 }
             },
+            slideshow: {
+                files: {
+                    '_js/bundled/slideshow.js': '_js/slideshow.js'
+                },
+                options: {
+                    transform: ['babelify']
+                }
+            },
             video: {
                 files: {
                     '_js/bundled/playlist.js': '_js/playlist.js'
@@ -27,9 +35,9 @@ module.exports = function(grunt) {
                     transform: ['babelify']
                 }
             },
-            slideshow: {
+            richtext: {
                 files: {
-                    '_js/bundled/slideshow.js': '_js/slideshow.js'
+                    '_js/bundled/rich-text.js': '_js/rich-text.js'
                 },
                 options: {
                     transform: ['babelify']
@@ -90,9 +98,7 @@ module.exports = function(grunt) {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
                 mangle: true,
-                compress: {
-                    drop_console: true
-                },
+                compress: true,
                 beautify: false
             },
             build: {
@@ -102,6 +108,7 @@ module.exports = function(grunt) {
                         '_js/bundled/navs.js',
                         '_js/bundled/slideshow.js',
                         '_js/bundled/playlist.js',
+                        '_js/bundled/rich-text.js',
                         '_js/bundled/selects.js',
                         '_js/bundled/parallax-images.js',
                         '_js/bundled/top-btn.js',

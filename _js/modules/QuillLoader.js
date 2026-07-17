@@ -38,7 +38,7 @@ class QuillLoader {
   }
 
   replaceEntity(match, dec) {
-    return String.fromCharCode(dec).replace('"', '\\"');
+    return String.fromCharCode(dec).replace('\"', '\\\"');
   }
 
 };
