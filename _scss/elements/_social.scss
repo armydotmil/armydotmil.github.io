@@ -31,9 +31,9 @@
   a { padding: 0; }
 }
 
-.social-bar.scrolled-down {
+// when the social bar has focus override any hidden state
+.social-bar.scrolled-down:not(.focus-in) {
   bottom: -50px;
-  visibility: hidden;
 }
 .social-bar {
   background-color: colors.$dark-gray-color;
@@ -42,7 +42,6 @@
   left: 0;
   position: fixed;
   text-align: center;
-  visibility: visible;
   width: 100%;
   z-index: 1;
   @include custom-transition.custom-transition(bottom 500ms);
