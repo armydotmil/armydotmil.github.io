@@ -51,21 +51,29 @@
       margin: 0 auto;
       max-width: 640px;
       overflow: hidden;
-      padding: 10px;
+      position: relative;
       
       .image-count {
-        float: right;
+        position: absolute;
+        top: 12px;
+        right: 10px;
         font-weight: 700;
         font-size: 0.97em;
+        line-height: normal;
       }
 
-      // `.image-caption-button` is a native <label> associated with the
-      // slideshow's shared `.show-captions-toggle` checkbox (see below) —
-      // no button chrome/reset needed since it's not a <button>.
+      // `.image-caption-button` toggles the `show-captions` class on the top-level `.photo-slideshow`
       .image-caption-button {
         cursor: pointer;
         display: block;
         text-transform: uppercase;
+        width: 100%;
+        text-align: left;
+        background-color: transparent;
+        border: none;
+        color: inherit;
+        padding: 12px 10px;
+        line-height: normal;
 
         .caption-button-hide {
           display: inline;
@@ -85,8 +93,7 @@
         .caption-text {
           border-top: 1px solid map.get(colors.$army-branding, grey20);
           display: block;
-          margin: 10px 0 0;
-          padding: 10px 0 0;
+          padding: 10px;
         }
         
         .caption-author {
@@ -99,11 +106,9 @@
         }
       }
     } // end figcaption
-  }
+  } // end .photo
 
-  // JS-driven caption toggle: the slideshow container receives the
-  // `show-captions` class to reveal captions. The `.image-caption-button`
-  // is a button that toggles this class.
+  // `.image-caption-button` toggles this class with JS
   &.show-captions .photo figcaption {
     .image-caption {
       max-height: 500px;
@@ -132,6 +137,8 @@
     transform: translateY(-50%);
     position: absolute;
     top: 50%;
+    border: none;
+    line-height: normal;
 
     &:hover,
     &:focus {
@@ -146,11 +153,11 @@
     }
     &.ss-prev {
       left: 0;
-      padding: 22px 21px 20px 19px;
+      padding: 27px 21px 25px 19px;
     }
     &.ss-next {
       right: 0;
-      padding: 22px 18px 20px 22px;
+      padding: 27px 18px 25px 22px;
       .ss-move-button::before {
         content: "\e907";
       }
