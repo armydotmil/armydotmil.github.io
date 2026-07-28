@@ -2,112 +2,78 @@
 /*jshint -W032 */ /* ignore unnecessary semicolon */
 import Helper from './Helper';
 
-/* Accessibility helper functions ported from PhotoSlideshowHooks.js.
-   These are the canonical in-file implementation so the slideshow
-   provides tabindex and keyboard activation behavior directly. */
-var SLIDE_FOCUSABLE = 'a.rich-text-img-link, .ss-move';
-
-function setFigureTabindex(figure, isCurrent) {
-    var nodes = figure.querySelectorAll ? figure.querySelectorAll(SLIDE_FOCUSABLE) : [];
-    for (var i = 0; i < nodes.length; i++) {
-        try { nodes[i].setAttribute('tabindex', isCurrent ? '0' : '-1'); } catch (err) {}
-    }
-}
-
-function initSlideshowTabManagement(slideshow) {
-    if (!slideshow || !slideshow.getElementsByClassName) return;
-    var figures = slideshow.getElementsByClassName('photo');
-    for (var i = 0; i < figures.length; i++) {
-        setFigureTabindex(figures[i], figures[i].classList && figures[i].classList.contains('cur-photo'));
-    }
-}
-
-function initKeyActivation(slideshow) {
-    if (!slideshow || !slideshow.getElementsByClassName) return;
-    var movers = slideshow.getElementsByClassName('ss-move');
-    for (var i = 0; i < movers.length; i++) {
-        (function(mv){
-            if (mv._psHookInit) return;
-            mv._psHookInit = true;
-            mv.addEventListener('keydown', function(e){
-                var k = e.key || e.code;
-                if (k === 'Enter' || k === ' ' || k === 'Spacebar' || k === 'Space') {
-                    e.preventDefault();
-                    try { var ev = new MouseEvent('click', { bubbles: true }); mv.dispatchEvent(ev); } catch (err) { if (typeof mv.click === 'function') mv.click(); }
-                    setTimeout(function(){
-                        var cur = slideshow.querySelector ? slideshow.querySelector('figure.photo.cur-photo') : null;
-                        if (!cur) return;
-                        initSlideshowTabManagement(slideshow);
-                        var isPrev = mv.classList && mv.classList.contains('ss-prev');
-                        var target = cur.querySelector(isPrev ? '.ss-prev' : '.ss-next');
-                        if (target) {
-                            try { target.setAttribute('tabindex','0'); } catch (err) {}
-                            if (typeof target.focus === 'function') target.focus();
-                        } else {
-                            var first = cur.querySelector ? cur.querySelector('a.rich-text-img-link, .ss-next, .ss-prev') : null;
-                            if (first) {
-                                try { first.setAttribute('tabindex','0'); } catch (err) {}
-                                if (typeof first.focus === 'function') first.focus();
-                            }
-                        }
-                    }, 0);
-                }
-            });
-        })(movers[i]);
-    }
-}
-
 class PhotoSlideshow {
+    static SLIDE_FOCUSABLE = 'a.rich-text-img-link, .ss-move, .image-caption-button';
+
     constructor() {
-        var slideshows = document.getElementsByClassName('photo-slideshow'),
-            i;
+        let slideshows = document.querySelectorAll('.photo-slideshow'), current;
 
-        for (i = 0; i < slideshows.length; i++) {
-            this.addClicks(slideshows[i]);
-        }
+        slideshows.forEach(element => {
 
-        // Initialize accessibility hooks for existing slideshows
-        for (i = 0; i < slideshows.length; i++) {
-            var ss = slideshows[i];
-            initSlideshowTabManagement(ss);
-            initKeyActivation(ss);
-        }
+            this.addClicks(element);
+            this.setTabindex(element, element.querySelector('.cur-photo'));
+        });
+    }
+
+    setTabindex(ss, current) {
+        // set tabindex to -1 on buttons for every slide
+        ss.querySelectorAll(PhotoSlideshow.SLIDE_FOCUSABLE).forEach(element => {
+            element.setAttribute('tabindex', '-1');
+        });
+
+        // set tabindex to 0 on buttons in current slide
+        current?.querySelectorAll(PhotoSlideshow.SLIDE_FOCUSABLE).forEach(element => {
+            element.setAttribute('tabindex', '0');
+        });
     }
 
     toggleCaption(el, ss) {
         if (!Helper.hasClass(el, 'has-click')) {
-            el.addEventListener(
-                'click',
-                function() {
-                    Helper.toggleClass(ss, 'show-captions');
-                },
-                false
-            );
-            Helper.addClass(el, 'has-click');
+            ['click', 'keydown'].forEach(eventType => {
+                el.addEventListener(eventType, function(e) {
+                    let k = e.key || e.code || null;
+                    if (e.type === 'click' || (e.type === 'keydown' && (k === 'Enter' || k === ' ' || k === 'Spacebar' || k === 'Space'))) {
+                        e.preventDefault();
+                        Helper.toggleClass(ss, 'show-captions');
+                    }
+                }, false);
+                Helper.addClass(el, 'has-click');
+            });
         }
     }
 
-    navigateSlideshow(el, p, ss) {
-        if (!Helper.hasClass(el, 'has-click')) {
-            el.addEventListener('click', function() {
-                Helper.removeClass(p[ss.curPos], 'cur-photo');
+    navigateSlideshow(moveBtn, photos, ss) {
+        const context = this;
+        if (!Helper.hasClass(moveBtn, 'has-click')) {
+            ['click', 'keydown'].forEach(eventType => {
+                moveBtn.addEventListener(eventType, function(e) {
+                    let k = e.key || e.code || null;
+                    let isNext;
+                    if (e.type === 'click' || (e.type === 'keydown' && (k === 'Enter' || k === ' ' || k === 'Spacebar' || k === 'Space'))) {
+                        e.preventDefault();
+                        Helper.removeClass(photos[ss.curPos], 'cur-photo');
 
-                if (Helper.hasClass(this, 'ss-next')) {
-                    ss.curPos++;
-                } else {
-                    ss.curPos--;
-                }
+                        if (Helper.hasClass(this, 'ss-next')) {
+                            isNext = true;
+                            ss.curPos++;
+                        } else {
+                            isNext = false;
+                            ss.curPos--;
+                        }
 
-                if (ss.curPos < 0) ss.curPos = p.length - 1;
-                if (ss.curPos >= p.length) ss.curPos = 0;
+                        if (ss.curPos < 0) ss.curPos = photos.length - 1;
+                        if (ss.curPos >= photos.length) ss.curPos = 0;
 
-                Helper.addClass(p[ss.curPos], 'cur-photo');
+                        Helper.addClass(photos[ss.curPos], 'cur-photo');
 
-                // update accessibility state after navigation
-                initSlideshowTabManagement(ss);
-                initKeyActivation(ss);
-            }, false);
-            Helper.addClass(el, 'has-click');
+                        // update accessibility state after navigation
+                        context.setTabindex(ss, photos[ss.curPos]);
+                        // set focus to the appropriate button after navigation
+                        photos[ss.curPos].querySelector((isNext) ? '.ss-next' : '.ss-prev')?.focus();
+                    }
+                }, false);
+                Helper.addClass(moveBtn, 'has-click');
+            });
         }
     }
 
@@ -135,29 +101,6 @@ class PhotoSlideshow {
             context.navigateSlideshow(moveBtn[j], photos, ss);
         }
     }
-};
-
-// Static initializer for compatibility with callers that expect `PhotoSlideshow.init()`
-// Safe to call multiple times; it constructs a singleton that wires existing slideshows.
-PhotoSlideshow.init = function() {
-    try {
-        if (window.__PHOTO_SLIDESHOW_SINGLETON) return window.__PHOTO_SLIDESHOW_SINGLETON;
-        window.__PHOTO_SLIDESHOW_SINGLETON = new PhotoSlideshow();
-        return window.__PHOTO_SLIDESHOW_SINGLETON;
-    } catch (e) {
-        if (window && window.DEBUG) console.warn('PhotoSlideshow.init failed', e);
-        return null;
-    }
-};
-
-// Expose a safe global initializer so callers outside webpack scope can
-// ensure the same singleton is used.
-try {
-    if (typeof window !== 'undefined') {
-        window.PhotoSlideshowInit = PhotoSlideshow.init;
-    }
-} catch (e) {
-    if (typeof window !== 'undefined' && window.DEBUG) console.warn('PhotoSlideshow: failed to set global initializer', e);
 }
 
 export default PhotoSlideshow;
