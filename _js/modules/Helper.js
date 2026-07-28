@@ -34,6 +34,28 @@ class Helper {
     static randomNumberToken() {
         return new Date().valueOf();
     }
+
+    static showWhileFocused(containerEl) {
+        if (containerEl) {
+            containerEl.addEventListener('focusin', () => {
+                this.addClass(containerEl, 'focus-in');
+            });
+            containerEl.addEventListener('focusout', () => {
+                // the document.activeElement is not available until after a timeout
+                setTimeout(() => {
+                    var active = document.activeElement;
+                    // if the active element is the container, something in the container, or the body element
+                    // (body element is returned for click events)
+                    var inside = (containerEl == active || containerEl.contains(active) || active === document.body);
+                    
+                    // if the active element is no longer in the container, close it
+                    if (!inside) {
+                        this.removeClass(containerEl, 'focus-in');
+                    }
+                }, 1);
+            });
+        }
+    }
 };
 
 export default Helper;
