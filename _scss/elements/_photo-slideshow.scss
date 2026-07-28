@@ -102,7 +102,12 @@
         
         a {
           color: colors.$secondary-text-color;
-          font-weight: 400;
+          font-weight: 600;
+          line-height: normal;
+          margin-top: 7px;
+          display: block;
+          width: max-content;
+          text-transform: uppercase;
         }
       }
     } // end figcaption
