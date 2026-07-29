@@ -35,10 +35,11 @@ class Helper {
         return new Date().valueOf();
     }
 
-    static showWhileFocused(containerEl) {
+    static showWhileFocused(containerEl, callback) {
         if (containerEl) {
             containerEl.addEventListener('focusin', () => {
                 this.addClass(containerEl, 'focus-in');
+                callback?.('focus-in');
             });
             containerEl.addEventListener('focusout', () => {
                 // the document.activeElement is not available until after a timeout
@@ -51,6 +52,7 @@ class Helper {
                     // if the active element is no longer in the container, close it
                     if (!inside) {
                         this.removeClass(containerEl, 'focus-in');
+                        callback?.('focus-out');
                     }
                 }, 1);
             });
