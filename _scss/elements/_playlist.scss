@@ -5,6 +5,7 @@
 @use "../base/mixins/breakpoints";
 
 @use "sass:map";
+
 .playlist .playlist-player *,
 .main .playlist .playlist-player * {
   @include box-model.box-sizing(content-box);
@@ -359,7 +360,7 @@
     //       display: none;
     //       max-height: 300px;
     //       position: static;
-    //       border-top: 1px solid map-get($army-branding, gold);
+    //       border-top: 1px solid map.get($army-branding, gold);
     //     }
 
     //     .playlist-info h5 {

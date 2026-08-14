@@ -6,6 +6,8 @@
 @use "base/mixins/breakpoints";
 @use "base/colors";
 
+@use "sass:map";
+
 section {
   .btn {
     text-align: left;
@@ -26,8 +28,8 @@ section {
 
       .container .inner-container {
         h1 {
-          border-bottom: 1px solid map-get(colors.$army-branding, white);
-          color: map-get(colors.$army-branding, white);
+          border-bottom: 1px solid map.get(colors.$army-branding, white);
+          color: map.get(colors.$army-branding, white);
           display: inline-block;
           margin: 0 0 15px;
           padding: 0 0 15px;
@@ -44,9 +46,9 @@ section {
         }
 
         h2 {
-          color: map-get(colors.$army-branding, gold);
+          color: map.get(colors.$army-branding, gold);
           margin-bottom: 15px;
-          text-shadow: 0 0 6px map-get(colors.$army-branding, armyblack);
+          text-shadow: 0 0 6px map.get(colors.$army-branding, armyblack);
         }
 
         ul.social-links {
