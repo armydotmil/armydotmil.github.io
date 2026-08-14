@@ -1,94 +1,13 @@
+const esbuild = require('esbuild');
+
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        browserify: {
-            libs: {
-                files: {
-                    '_js/bundled/header.js': '_js/header.js'
-                },
-                options: {
-                    transform: ['babelify']
-                }
-            },
-            navs: {
-                files: {
-                    '_js/bundled/navs.js': '_js/navs.js'
-                },
-                options: {
-                    transform: ['babelify']
-                }
-            },
-            slideshow: {
-                files: {
-                    '_js/bundled/slideshow.js': '_js/slideshow.js'
-                },
-                options: {
-                    transform: ['babelify']
-                }
-            },
-            video: {
-                files: {
-                    '_js/bundled/playlist.js': '_js/playlist.js'
-                },
-                options: {
-                    transform: ['babelify']
-                }
-            },
-            richtext: {
-                files: {
-                    '_js/bundled/rich-text.js': '_js/rich-text.js'
-                },
-                options: {
-                    transform: ['babelify']
-                }
-            },
-            /* richtext target removed — rich-text is now server-rendered / out of build */
-            select: {
-                files: {
-                    '_js/bundled/selects.js': '_js/selects.js'
-                },
-                options: {
-                    transform: ['babelify']
-                }
-            },
-            parallax: {
-                files: {
-                    '_js/bundled/parallax-images.js': '_js/parallax-images.js'
-                },
-                options: {
-                    transform: ['babelify']
-                }
-            },
-            banners: {
-                files: {
-                    '_js/bundled/page-banners.js': '_js/page-banners.js'
-                },
-                options: {
-                    transform: ['babelify']
-                }
-            },
-            top: {
-                files: {
-                    '_js/bundled/top-btn.js': '_js/top-btn.js'
-                },
-                options: {
-                    transform: ['babelify']
-                }
-            },
-            carousel: {
-                files: {
-                    '_js/bundled/carousel.js': '_js/carousel.js'
-                },
-                options: {
-                    transform: ['babelify']
-                }
-            }
-        },
         watch: {
             scripts: {
                 files: ['_js/*.js', '_js/modules/*.js'],
-                tasks: ['browserify', 'uglify'],
+                tasks: ['bundle', 'uglify'],
                 options: {
                     spawn: false
                 }
@@ -126,11 +45,42 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-browserify');
+    // replaces the old "browserify" dependency
+    grunt.registerTask('bundle', 'Fast and secure bundling with esbuild', async function() {
+        const done = this.async();
+        
+        try {
+            await esbuild.build({
+                entryPoints: {
+                    'header.js': '_js/header.js',
+                    'navs.js': '_js/navs.js',
+                    'slideshow.js': '_js/slideshow.js',
+                    'playlist.js': '_js/playlist.js',
+                    'rich-text.js': '_js/rich-text.js',
+                    'selects.js': '_js/selects.js',
+                    'parallax-images.js': '_js/parallax-images.js',
+                    'page-banners.js': '_js/page-banners.js',
+                    'top-btn.js': '_js/top-btn.js',
+                    'carousel.js': '_js/carousel.js'
+                },
+                outdir: '_js/bundled',
+                bundle: true,
+                minify: true,
+                sourcemap: true,
+                target: ['es2020'],
+            });
+            grunt.log.ok('esbuild completed successfully.');
+            done();
+        } catch (error) {
+            grunt.log.error('esbuild failed: ', error);
+            done(false);
+        }
+    });
+
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['browserify', 'uglify']);
-    grunt.registerTask('production', ['browserify', 'uglify']);
+    grunt.registerTask('default', ['bundle', 'uglify']);
+    grunt.registerTask('production', ['bundle', 'uglify']);
 
 };
