@@ -9,6 +9,8 @@
 @use "layout/grid-system";
 @use "layout/grid-system-spans";
 
+@use "sass:map";
+
 section {
   .container.no-bottom {
     margin-bottom: 0;
@@ -39,7 +41,7 @@ section {
 
     &:after,
     &:before {
-      background: map-get(colors.$army-branding, gold);
+      background: map.get(colors.$army-branding, gold);
       content: '';
       height: 4px;
       left: 0;
@@ -116,7 +118,7 @@ section {
 
       p {
   //      border: 1px solid #000;
-        color: map-get(colors.$army-branding, armyblack);
+        color: map.get(colors.$army-branding, armyblack);
         padding: 10px 0;
       }
     }
@@ -187,7 +189,7 @@ section {
   }
 
   .color-box {
-    border: 1px solid map-get(colors.$army-branding, armyblack);
+    border: 1px solid map.get(colors.$army-branding, armyblack);
     height: 200px;
     margin-bottom: 15px;
     width: 200px;
@@ -270,7 +272,7 @@ section {
     li {
       @include clearfix.clearfix();
       & {
-        border-bottom: 1px solid map-get(colors.$army-branding, grey30);
+        border-bottom: 1px solid map.get(colors.$army-branding, grey30);
         margin-bottom: 30px;
         padding-bottom: 30px;
       }
@@ -382,7 +384,7 @@ section {
       
       }
       .social-button {
-        background: map-get(colors.$army-branding, armyblack);
+        background: map.get(colors.$army-branding, armyblack);
       }
     }
     
