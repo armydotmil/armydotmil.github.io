@@ -10,6 +10,16 @@
       position: relative;
     }
 
+    // card-level anchor (Section 508: single activation target wrapping
+    // .image-wrap + .news-right). Restores normal block flow so the
+    // absolutely-positioned .image-wrap and offset .news-right lay out
+    // the same as when they were direct siblings of .news-inner.
+    .news-card {
+      color: inherit;
+      display: block;
+      text-decoration: none;
+    }
+
     .image-wrap {
       background-color: map-get($army-branding, armyblack);
       height: 0;
@@ -18,30 +28,31 @@
       position: absolute;
       width: 33%;
 
+      // gold bar (hover/focus now triggered by the card anchor, an
+      // ancestor of .image-wrap, instead of a nested <a>)
+      &:after {
+        background-color: map-get($army-branding, gold);
+        content: '';
+        height: 4px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+        @include transform(translateX, -100%);
+        @include custom-transition(transform .25s ease);
+      }
 
-      a {
-        // gold bar
-        &:after {
-          background-color: map-get($army-branding, gold);
-          content: '';
-          height: 4px;
-          left: 0;
-          position: absolute;
-          top: 0;
-          width: 100%;
-          z-index: 2;
-          @include transform(translateX, -100%);
-          @include custom-transition(transform .25s ease);
-        }
+      @include img-grayscale-hover();
+    }
 
-        &:focus,
-        &:hover {
-          &:after {
-            @include transform(translateX, 0);
-          }
+    .news-card {
+      &:focus,
+      &:hover {
+        .image-wrap:after {
+          @include transform(translateX, 0);
         }
       }
-      @include img-grayscale-hover();
     }
 
     .image-wrap + .news-right {
@@ -91,16 +102,26 @@
           }
         }
       }
-      p.title {
+      // title is rendered as <h3 class="title"> (no nested <a>) since
+      // the card itself is now the single link; override the global h3
+      // heading style (uppercase, centered) it now inherits
+      .title {
         clear: both;
         margin-bottom: 1.25em;
-
-        a {
-          font: 700 1.313em $font-family;
-        }
+        font: 700 1.313em $font-family;
+        text-align: left;
+        text-transform: none;
       }
       p.more {
         height: 19px;
+
+        // "READ MORE" is decorative (aria-hidden) text inside the card
+        // link; match the default link styling previously provided by
+        // the nested <a> it replaced.
+        .read-more {
+          color: map-get($army-branding, armyblack);
+          font-weight: 600;
+        }
 
         .view-more-arrow-sm {
           margin-bottom: 0.12em;
@@ -131,6 +152,13 @@
             }
           }
         }
+      }
+    }
+
+    .news-card:hover,
+    .news-card:focus {
+      .more .read-more {
+        text-decoration: underline;
       }
     }
 
@@ -166,7 +194,7 @@
       .news-right {
         font-size: .875em;
 
-        p.title a {
+        .title {
           font-size: 1.2em;
         }
       }
