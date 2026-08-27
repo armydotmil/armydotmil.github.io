@@ -7,7 +7,8 @@ nav {
   
   ul {
     overflow-x: auto;
-    overflow-y: hidden;
+    // allow vertical overflow so outer focus halos are not clipped
+    overflow-y: visible;
     -webkit-user-select: none;
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
@@ -73,7 +74,9 @@ nav {
     overflow: hidden;
     
     ul {
-      overflow: hidden;
+      // allow overflow so dropdown and focus halos can render outside
+      // the inner list box when needed
+      overflow: visible;
       white-space: normal;
       &.container {
         margin: 0 auto;
