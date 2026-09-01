@@ -1,3 +1,4 @@
+@use "sass:map";
 // ----------------------------------------------------------------------
 // Official Army Branding Colors
 // ----------------------------------------------------------------------
@@ -47,7 +48,7 @@ $social-branding: (
 // ----------------------------------------------------------------------
 // Colors 
 // ----------------------------------------------------------------------
-$primary-text-color: map-get($army-branding, armyblack);
+$primary-text-color: map.get($army-branding, armyblack);
 $secondary-background-color: #221F20;
 $secondary-text-color: #FFF;
 $secondary-border-color: #57584f;
@@ -56,5 +57,5 @@ $dark-gray-color: #57584F;
 $captions-background-color: #2F312B;
 $light-gray-color: #f7f7f7;
 $lighter-gray-color: #f2f2f2;
-$input-focus: #0071bb;
+$input-focus: #0069b3;
 $input-focus-dark: #00558c;

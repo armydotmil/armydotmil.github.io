@@ -1,3 +1,10 @@
+@use "sass:map";
+@use "breakpoints";
+@use "opacity";
+@use "../custom-mixins/custom-transition";
+@use "../custom-mixins/custom-filter";
+@use "../colors";
+
 // ----------------------------------------------------------------------
 
   // Consistent grayscale filter to be applied to images on hover
@@ -15,10 +22,10 @@
     width: 100%;
   }
   
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
     #{$parent} {
       #{$img-cont}:before {
-        background-color: map-get($army-branding, armyblack);
+        background-color: map.get(colors.$army-branding, armyblack);
         content: '';
         height: 100%;
         left: 0;
@@ -26,17 +33,17 @@
         top: 0;
         width: 100%;
         z-index: 1;
-        @include opacity(0);
-        @include custom-transition(opacity 0.25s ease 0s);
+        @include opacity.opacity(0);
+        @include custom-transition.custom-transition(opacity 0.25s ease 0s);
       }
     }
     #{$parent}:focus,
     #{$parent}:hover {
       #{$img-cont}:before {
-        @include opacity(0.25);
+        @include opacity.opacity(0.25);
       }
       img {
-        @include custom-filter(grayscale(75%));
+        @include custom-filter.custom-filter(grayscale(75%));
       }
     }
   }

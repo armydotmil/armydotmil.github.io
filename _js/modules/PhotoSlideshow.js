@@ -3,49 +3,77 @@
 import Helper from './Helper';
 
 class PhotoSlideshow {
-    constructor() {
-        var slideshows = document.getElementsByClassName('photo-slideshow'),
-            i;
+    static SLIDE_FOCUSABLE = 'a.rich-text-img-link, .ss-move, .image-caption-button';
 
-        for (i = 0; i < slideshows.length; i++) {
-            this.addClicks(slideshows[i]);
-        }
+    constructor() {
+        let slideshows = document.querySelectorAll('.photo-slideshow'), current;
+
+        slideshows.forEach(element => {
+
+            this.addClicks(element);
+            this.setTabindex(element, element.querySelector('.cur-photo'));
+        });
+    }
+
+    setTabindex(ss, current) {
+        // set tabindex to -1 on buttons for every slide
+        ss.querySelectorAll(PhotoSlideshow.SLIDE_FOCUSABLE).forEach(element => {
+            element.setAttribute('tabindex', '-1');
+        });
+
+        // set tabindex to 0 on buttons in current slide
+        current?.querySelectorAll(PhotoSlideshow.SLIDE_FOCUSABLE).forEach(element => {
+            element.setAttribute('tabindex', '0');
+        });
     }
 
     toggleCaption(el, ss) {
         if (!Helper.hasClass(el, 'has-click')) {
-            el.addEventListener(
-                'click',
-                function() {
-                    Helper.toggleClass(ss, 'show-captions');
-                },
-                false
-            );
-            Helper.addClass(el, 'has-click');
+            ['click', 'keydown'].forEach(eventType => {
+                el.addEventListener(eventType, function(e) {
+                    let k = e.key || e.code || null;
+                    if (e.type === 'click' || (e.type === 'keydown' && (k === 'Enter' || k === ' ' || k === 'Spacebar' || k === 'Space'))) {
+                        e.preventDefault();
+                        Helper.toggleClass(ss, 'show-captions');
+                    }
+                }, false);
+                Helper.addClass(el, 'has-click');
+            });
         }
     }
 
-    navigateSlideshow(el, p, ss) {
-        if (!Helper.hasClass(el, 'has-click')) {
-            el.addEventListener(
-                'click',
-                function() {
-                    Helper.removeClass(p[ss.curPos], 'cur-photo');
+    navigateSlideshow(moveBtn, photos, ss) {
+        const context = this;
+        if (!Helper.hasClass(moveBtn, 'has-click')) {
+            ['click', 'keydown'].forEach(eventType => {
+                moveBtn.addEventListener(eventType, function(e) {
+                    let k = e.key || e.code || null;
+                    let isNext;
+                    if (e.type === 'click' || (e.type === 'keydown' && (k === 'Enter' || k === ' ' || k === 'Spacebar' || k === 'Space'))) {
+                        e.preventDefault();
+                        Helper.removeClass(photos[ss.curPos], 'cur-photo');
 
-                    if (Helper.hasClass(this, 'ss-next')) {
-                        ss.curPos++;
-                    } else {
-                        ss.curPos--;
+                        if (Helper.hasClass(this, 'ss-next')) {
+                            isNext = true;
+                            ss.curPos++;
+                        } else {
+                            isNext = false;
+                            ss.curPos--;
+                        }
+
+                        if (ss.curPos < 0) ss.curPos = photos.length - 1;
+                        if (ss.curPos >= photos.length) ss.curPos = 0;
+
+                        Helper.addClass(photos[ss.curPos], 'cur-photo');
+
+                        // update accessibility state after navigation
+                        context.setTabindex(ss, photos[ss.curPos]);
+                        // set focus to the appropriate button after navigation
+                        photos[ss.curPos].querySelector((isNext) ? '.ss-next' : '.ss-prev')?.focus();
                     }
-
-                    if (ss.curPos < 0) ss.curPos = p.length - 1;
-                    if (ss.curPos >= p.length) ss.curPos = 0;
-
-                    Helper.addClass(p[ss.curPos], 'cur-photo');
-                },
-                false
-            );
-            Helper.addClass(el, 'has-click');
+                }, false);
+                Helper.addClass(moveBtn, 'has-click');
+            });
         }
     }
 
@@ -73,6 +101,6 @@ class PhotoSlideshow {
             context.navigateSlideshow(moveBtn[j], photos, ss);
         }
     }
-};
+}
 
 export default PhotoSlideshow;

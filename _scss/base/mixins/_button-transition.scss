@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "breakpoints";
+@use "../colors";
+@use "../custom-mixins/custom-transition";
+
 // ----------------------------------------------------------------------
 
   // Button Transition
@@ -6,9 +11,9 @@
 
 @mixin link-transition($parent: 'a') {
   span {
-    background: map-get($army-branding, armyblack);
+    background: map.get(colors.$army-branding, armyblack);
     position: absolute;
-    @include custom-transition(all .15s ease);
+    @include custom-transition.custom-transition(all .15s ease);
     
     &:nth-child(1),
     &:nth-child(5) {
@@ -19,7 +24,7 @@
     &:nth-child(1) { left: 50%; }
     
     &:nth-child(2),
-    &:last-child {
+    &:nth-child(6) {
       left: 50%;
       height: 1px;
       width: 0;
@@ -29,9 +34,9 @@
     &:nth-child(2) { top: 0; }
     
     &:nth-child(5),
-    &:last-child { bottom: 0; }
+    &:nth-child(6) { bottom: 0; }
     
-    &:nth-child(5), &:last-child {
+    &:nth-child(5), &:nth-child(6) {
       bottom: -1px;
       top: auto;
     }
@@ -60,10 +65,10 @@
     
     &:nth-child(5) { left: 0; }
     
-    &:last-child { left: 100%; }
+    &:nth-child(6) { left: 100%; }
   }
   
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+  @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
     #{$parent}:hover {
       span {
         &:nth-child(1) { left: 0; }
@@ -71,7 +76,7 @@
         &:nth-child(1),
         &:nth-child(2),
         &:nth-child(5),
-        &:last-child { width: 50%; }
+        &:nth-child(6) { width: 50%; }
         
         &:nth-child(3),&:nth-child(4) {
           height: 100%;
@@ -82,9 +87,9 @@
           transition-delay: 0s;
         }
         
-        &:last-child { left: 50%; }
+        &:nth-child(6) { left: 50%; }
         
-        &:nth-child(5),&:last-child {
+        &:nth-child(5),&:nth-child(6) {
           transition-delay: .3s;
         }
       }

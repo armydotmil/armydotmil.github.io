@@ -1,3 +1,14 @@
+@use "../base/colors";
+@use "../base/variables";
+@use "../layout/grid-system";
+@use "../base/mixins/breakpoints";
+@use "../base/mixins/box-model";
+@use "../base/mixins/transform";
+@use "../base/mixins/replace-text";
+@use "../base/mixins/opacity";
+@use "../base/mixins/animations";
+@use "../base/custom-mixins/custom-transition";
+
 // File Name: _header.scss
 // Description: global header styles
 // Used by: Page.scss
@@ -10,7 +21,11 @@
 // ----------------------------------------------------------------------
 // Modules
 // ----------------------------------------------------------------------
-@import "../modules/usagov-sayt";
+@use "sass:color";
+@use "sass:map";
+@use "../modules/usagov-sayt";
+@use "../modules/armybrand";
+@use "../modules/official-gov-banner";
 
 // ----------------------------------------------------------------------
 // CSS
@@ -26,19 +41,19 @@ html.menu-open { overflow: hidden; }
 body.menu-open {
   width: 100%;
 
-  @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
-    overflow-y: scroll;
+  @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    overflow-y: auto;
 
     .navbar { overflow: hidden; }
 
     header {
       .navbar {
         height: $header-height + $header-border-width;
-        overflow-y: scroll;
+        overflow-y: auto;
       }
 
       .menu-window {
-        overflow-y: scroll;
+        overflow-y: auto;
         width: 100%;
       }
     }
@@ -46,13 +61,13 @@ body.menu-open {
 }
 
 body.menu-open header.scrolled-down .navbar {
-  @include transform(translateY, 0);
+  @include transform.transform(translateY, 0);
 }
 
 header *,
 header *:after,
 header *:before {
-  @include box-sizing(content-box);
+  @include box-model.box-sizing(content-box);
 }
 
 header {
@@ -63,6 +78,7 @@ header {
 }
 
 header {
+  font-family: variables.$font-family;
   height: $header-height + $header-border-width;
   left: 0;
   position: relative;
@@ -71,11 +87,10 @@ header {
   z-index: 100;
 
   .nav-army-star {
-    background: map-get($army-branding, armyblack);
+    background: map.get(colors.$army-branding, armyblack);
     left: 50%;
     line-height: 0;
     position: absolute;
-    @include transform(translateX, -50%);
     z-index: 1;
     display: flex;
     align-content: center;
@@ -83,6 +98,7 @@ header {
     padding: 0 10px 3px;
     flex-wrap: wrap;
     max-width: 45%;
+    @include transform.transform(translateX, -50%);
     
     span {
       transition: transform 0.1s ease;
@@ -106,19 +122,19 @@ header {
     label {
       display: block;
       margin: 0;
-      @include replace-text;
+      @include replace-text.replace-text;
     }
 
     input.usagov-search-autocomplete {
       border: 0 none;
-      color: map-get($army-branding, grey70);
-      font: 400 .938em/2 $font-family;
+      color: map.get(colors.$army-branding, grey70);
+      font: 400 .938em/2 variables.$font-family;
       height: 30px;
       outline: none;
       padding: 0 10px;
       width: 100%;
 
-      @include box-sizing(border-box);
+      @include box-model.box-sizing(border-box);
     }
 
     .search-submit-button {
@@ -137,42 +153,45 @@ header {
     z-index: 1;
 
     .navbar-container {
-      background: map-get($army-branding, armyblack);
-      border-bottom: $header-border-width solid map-get($army-branding, gold);
+      background: map.get(colors.$army-branding, armyblack);
+      border-bottom: $header-border-width solid map.get(colors.$army-branding, gold);
       height: $header-height;
     }
   }
 
-  @include breakpoints(mobile nav) {
-    .navbar { @include custom-transition(transform .4s ease); }
+  @include breakpoints.breakpoints(mobile nav) {
+    .navbar { @include custom-transition.custom-transition(transform .4s ease); }
 
     &.scrolled-down .navbar {
-      @include transform(translateY, -130%);
+      @include transform.transform(translateY, -130%);
     }
   }
 
 
   .nav-window {
-    background-color: map-get($army-branding, armyblack);
+    background-color: map.get(colors.$army-branding, armyblack);
     left: 0;
     position: fixed;
     right: 0;
     top: 0;
 
-    @include transform(translateY, -100%);
-    @include custom-transition(transform .25s ease);
+    @include transform.transform(translateY, -100%);
+    @include custom-transition.custom-transition(transform .25s ease);
 
-    &.search-window { height: 82px; }
+    &.search-window {
+      position: sticky;
+      height: 82px;
+    }
 
     &.menu-window {
       height: 100%;
-      overflow: scroll;
+      overflow: auto;
       -webkit-overflow-scrolling:touch;
     }
 
     &.open-window {
-      @include transform(translateY, 0);
       top: $header-height + $header-border-width;
+      @include transform.transform(translateY, 0);
     }
   }
 
@@ -187,7 +206,7 @@ header {
       margin: 0;
 
       > li {
-        border-bottom: 1px solid map-get($army-branding, grey80);
+        border-bottom: 1px solid map.get(colors.$army-branding, grey80);
 
         &.social {
           border-bottom-width: 0;
@@ -214,12 +233,15 @@ header {
           }
         }
 
-        input[type=checkbox] { display: none; }
+        input[type=checkbox] {
+          position: absolute;
+          left: -10000px;
+        }
 
         a { outline: 0 none; }
 
         label {
-          color: map-get($army-branding, grey20);
+          color: map.get(colors.$army-branding, grey20);
           display: block;
           font-size: 1.125em;
           font-weight: 700;
@@ -228,18 +250,25 @@ header {
           padding: 25px 10px;
           position: relative;
           text-decoration: none;
+          text-transform: uppercase;
+          border: none;
+          background-color: transparent;
 
           // iOS Safari had an issue where it would resize the text automatically.
           // This should prevent it.
           -webkit-text-size-adjust: none;
 
           span {
-            background: transparent $social-button-sprite no-repeat scroll -305px 5px;
             height: 18px;
             position: absolute;
             right: 12px;
             top: 26px;
             width: 12px;
+            font-size: 14px;
+            &::before {
+              content: "\ea0a";
+              font-family: 'armyicons';
+            }
           }
         }
 
@@ -255,8 +284,8 @@ header {
         padding-top: 10px;
 
         a {
-          background: map-get($army-branding, grey80);
-          color: map-get($army-branding, grey20);
+          background: map.get(colors.$army-branding, grey80);
+          color: map.get(colors.$army-branding, grey20);
           display: block;
           text-decoration: none;
           text-transform: uppercase;
@@ -265,53 +294,69 @@ header {
       }
     }
 
-    @include breakpoints(mobile nav tablet) {
+    @include breakpoints.breakpoints(mobile nav tablet) {
       .list-container > ul > li {
 
         ul {
-          display: none;
-          padding: 18px 0;
+          // display: none;
+          max-height: 0px;
+          overflow: hidden;
+          padding: 0;
+          transition: all .25s ease-in;
 
           li a {
-            color: map-get($army-branding, grey20);
-
             // add padding to the anchor tag
             // to make the clickable area bigger
             padding: 10px 30px;
+            color: map.get(colors.$army-branding, grey20);
           }
         }
 
-        input[type=checkbox]:checked ~ ul { display: block; }
+        input[type=checkbox]:checked ~ ul {
+          // display: block;
+          max-height: 300px;
+          padding: 18px 0;
+        }
 
         input[type=checkbox]:checked ~ label {
-          border-bottom: 1px solid map-get($army-branding, grey80);
+          border-bottom: 1px solid map.get(colors.$army-branding, grey80);
 
-          span { background-position: -318px 10px; }
+          span::before { 
+            content: "\ea0b";
+          }
         }
       }
     }
 
-    @include breakpoints(mobile nav tablet lg_tablet) {
+    @include breakpoints.breakpoints(mobile) {
+      .quicklinks li {
+        text-align: center;
+        a {
+          font-size: .813em;
+          margin: 0 auto;
+          padding: 25px 0;
+        }
+      }
+    }
+
+    @include breakpoints.breakpoints(nav tablet lg_tablet) {
       .quicklinks {
-        @include row(true);
+        @include grid-system.row(true);
 
         *,
         *:after,
-        *:before { @include box-sizing(border-box); }
+        *:before { @include box-model.box-sizing(border-box); }
 
         li {
-          // @include span-clear(6);
-          /* include span-clear styles directly, instead of using mixin... */
           float: left;
           padding-left: 15px;
           padding-right: 15px;
           width: 50%;
+          text-align: center;
           &:nth-child(2n+3) {
             clear: left;
           }
           /* END span-clear styles */
-
-          text-align: center;
 
           &:nth-child(2n) { padding-left: 5px; }
           &:nth-child(2n+1) { padding-right: 5px; }
@@ -325,7 +370,7 @@ header {
       }
     }
 
-    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
       padding: 60px;
 
       .list-container {
@@ -342,11 +387,11 @@ header {
             width: 33.3333%;
 
             label {
-              color: map-get($army-branding, gold);
+              color: map.get(colors.$army-branding, gold);
               padding: 0 0 15px;
 
               span {
-                background: map-get($army-branding, white);
+                background: map.get(colors.$army-branding, white);
                 background-image: none;
                 bottom: 0;
                 height: 1px;
@@ -354,6 +399,9 @@ header {
                 right: auto;
                 top: auto;
                 width: 40px;
+                &::before {
+                  content: "";
+                }
               }
             }
 
@@ -363,32 +411,34 @@ header {
               li {
 
                 a {
-                  color: map-get($army-branding, white);
+                  color: map.get(colors.$army-branding, white);
                   padding: .469em 45px .469em 0;
                   position: relative;
 
-                  @include custom-transition(color .2s linear 0s);
+                  @include custom-transition.custom-transition(color .2s linear 0s);
 
                   &:after {
-                    background: transparent $social-button-sprite no-repeat scroll -427px 5px;
-                    content: '';
+                    content: "\ea3c";
+                    font-family: 'armyicons';
+                    color: map.get(colors.$army-branding, gold);
+
                     height: 17px;
                     margin-left: 30px;
                     position: absolute;
                     width: 15px;
 
-                    @include opacity(0);
+                    @include opacity.opacity(0);
 
-                    @include custom-transition(margin .2s linear 0s, opacity .2s linear 0s);
+                    @include custom-transition.custom-transition(margin .2s linear 0s, opacity .2s linear 0s);
                   }
 
                   &:hover,
                   &:focus {
-                    color: map-get($army-branding, gold);
+                    color: map.get(colors.$army-branding, gold);
 
                     &:after {
                       margin-left: 10px;
-                      @include opacity(1);
+                      @include opacity.opacity(1);
                     }
                   }
                 }
@@ -419,7 +469,7 @@ header {
       } // end .list-container
     } // end breakpoints(lg_tablet sm_desktop desktop large really_big)
 
-    @include breakpoints(sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(sm_desktop desktop large really_big) {
       .list-container {
         float: left;
         width: 80%;
@@ -440,17 +490,19 @@ header {
             padding: 20px;
             position: relative;
 
-            @include custom-transition(background .2s linear 0s, color .2s linear 0s);
+            @include custom-transition.custom-transition(background .2s linear 0s, color .2s linear 0s);
 
             &:hover,
             &:focus {
-              background: lighten(map-get($army-branding, grey90), 6.25); //#2a2a2a;
-              color: map-get($army-branding, gold);
+              background: color.adjust(map.get(colors.$army-branding, grey90), $lightness: 6.25%); //#2a2a2a;
+              color: map.get(colors.$army-branding, gold);
             }
 
             &:after {
-              background: transparent $social-button-sprite no-repeat scroll -427px 5px;
-              content: '';
+              content: "\ea3c";
+              font-family: 'armyicons';
+              color: map.get(colors.$army-branding, gold);
+              font-size: 16px;
               height: 17px;
               position: absolute;
               right: 20px;
@@ -462,7 +514,7 @@ header {
       } // end .quicklinks
     } // end breakpoints(sm_desktop desktop large really_big)
 
-    @include breakpoints(sm_desktop) {
+    @include breakpoints.breakpoints(sm_desktop) {
       .list-container{
         width: 75%;
       }
@@ -471,7 +523,7 @@ header {
       }
     }
 
-    @include breakpoints(desktop) {
+    @include breakpoints.breakpoints(desktop) {
       .list-container{
         width: 78%;
       }
@@ -481,10 +533,112 @@ header {
     }
   }
 
-  // end .menu-container
+  .nav-button {
+    border-style: solid;
+    border-color: map.get(colors.$army-branding, grey80);
+    color: map.get(colors.$army-branding, white);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 23px;
+    outline: 0 none;
+    padding: 17px 20px 15px;
+    position: absolute;
+    text-decoration: none;
+    text-transform: uppercase;
+  
+    span {
+      display: none;
+    }
+  
+    &.menu-button {
+      border-width: 0 1px 0 0;
+      left: 0;
+  
+      &::before {
+        content: "\e96d";
+        font-family: 'armyicons';
+        color: map.get(colors.$army-branding, white);
+        font-size: 32px;
+        -webkit-font-smoothing: none;
+        -moz-osx-font-smoothing: grayscale;
+        font-weight: normal;
+        position: relative;
+        line-height: 7px;
+        top: 7px;
+      }
+    }
+  
+    &.search-button {
+      border-width: 0 0 0 1px;
+      right: 0;
+  
+      &::after {
+        content: "\e96e";
+        font-family: 'armyicons';
+        color: map.get(colors.$army-branding, white);
+        font-size: 28px;
+        font-weight: normal;
+        position: relative;
+        line-height: 7px;
+        top: 7px;
+      }
+    }
+  
+    @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
+      &.menu-button, &.search-button {
+        border: none;
+        span {
+          display: inline;
+        }
+      }
+  
+      &::before {
+        margin-right: 10px;
+      }
+      &::after {
+        margin-left: 10px;
+      }
+      &.close-button.menu-button::before {
+        margin-right: 10px;
+      }
+      &.close-button.search-button::after {
+        margin-left: 10px;
+      }
+    }
+  
+    &.close-button {
+      &.black-close span::before,
+      &.black-close span::after {
+        color: map.get(colors.$army-branding, black);
+      }
+    }
+  
+    &.close-button {
+      &.menu-button::before {
+        content: "\e96f";
+        font-size: 26px;
+        top: 5px;
+        left: 0px;
+        width: 33px;
+        display: inline-block;
+        text-align: center;
+      }
+      &.search-button::after {
+        content: "\e96f";
+        font-size: 26px;
+        top: 5px;
+        width: 29px;
+        display: inline-block;
+        text-align: center;
+      }
+    }
+  }
+
+  // end header
 }
 
 // Mixins
-@include slideInDown;
+@include animations.slideInDown;
 
-@include slideInUp;
+@include animations.slideInUp;

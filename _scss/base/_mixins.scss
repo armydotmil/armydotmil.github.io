@@ -8,85 +8,85 @@
   // Alignment
 
 // ----------------------------------------------------------------------
-@import "mixins/margin-auto";
+@use "mixins/margin-auto";
 
 // ----------------------------------------------------------------------
 
   // Animation
 
 // ----------------------------------------------------------------------
-@import "mixins/animate-link";
-@import "mixins/animation";
-@import "mixins/animations";
-@import "mixins/backface-visibility";
-@import "mixins/keyframes";
-@import "mixins/single-transform";
-@import "mixins/transform";
-@import "mixins/transitions";
-@import "mixins/translate";
-@import "mixins/button-transition";
-@import "mixins/img-grayscale-hover";
+@use "mixins/animate-link";
+@use "mixins/animation";
+@use "mixins/animations";
+@use "mixins/backface-visibility";
+@use "mixins/keyframes";
+@use "mixins/single-transform";
+@use "mixins/transform";
+@use "mixins/transitions";
+@use "mixins/translate";
+@use "mixins/button-transition";
+@use "mixins/img-grayscale-hover";
 
 // ----------------------------------------------------------------------
 
   // Functional
 
 // ----------------------------------------------------------------------
-@import "mixins/hide-text";
-@import "mixins/hover-focus";
-@import "mixins/replace-text";
+@use "mixins/hide-text";
+@use "mixins/hover-focus";
+@use "mixins/replace-text";
 
 // ----------------------------------------------------------------------
 
   // Gradients
 
 // ----------------------------------------------------------------------
-@import "mixins/linear-gradient";
-@import "mixins/linear-gradient-angle";
+@use "mixins/linear-gradient";
+@use "mixins/linear-gradient-angle";
 
 // ----------------------------------------------------------------------
 
   // Layout
 
 // ----------------------------------------------------------------------
-@import "mixins/background-cover";
-@import "mixins/box-model";
-@import "mixins/clearfix";
-@import "mixins/inline-block";
-@import "mixins/word-wrap";
-@import "mixins/display-table";
+@use "mixins/background-cover";
+@use "mixins/box-model";
+@use "mixins/clearfix";
+@use "mixins/inline-block";
+@use "mixins/word-wrap";
+@use "mixins/display-table";
 
 // ----------------------------------------------------------------------
 
   // Media Queries
 
 // ----------------------------------------------------------------------
-@import "mixins/breakpoint";
-@import "mixins/breakpoints";
-@import "mixins/min-breakpoint";
-@import "mixins/retina";
+@use "mixins/breakpoint";
+@use "mixins/breakpoints";
+@use "mixins/min-breakpoint";
+@use "mixins/retina";
 
 // ----------------------------------------------------------------------
 
   // Styles
 
 // ----------------------------------------------------------------------
-@import "mixins/box-shadow";
-@import "mixins/inner-shadow";
-@import "mixins/opacity";
-@import "mixins/placeholder";
-@import "mixins/rounded-corners";
-@import "mixins/text-shadow";
-@import "mixins/triangles";
-@import "mixins/grayscale";
-@import "mixins/header-underline";
+@use "mixins/box-shadow";
+@use "mixins/inner-shadow";
+@use "mixins/opacity";
+@use "mixins/placeholder";
+@use "mixins/rounded-corners";
+@use "mixins/text-shadow";
+@use "mixins/triangles";
+@use "mixins/grayscale";
+@use "mixins/header-underline";
 
 // ----------------------------------------------------------------------
 
   // Values
 
 // ----------------------------------------------------------------------
-@import "mixins/rem";
+@use "mixins/rem";
 
 
 

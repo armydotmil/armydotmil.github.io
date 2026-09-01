@@ -1,3 +1,6 @@
+@use "rem";
+@use "transitions";
+
 // ----------------------------------------------------------------------
 
   // Animated link that has a fade-in underline
@@ -7,16 +10,13 @@
 // example: @include animate-link($screenGreen, $gothamMedium, 14);
 
 @mixin animate-link($color, $font, $fontSize) {
-
   font-family:$font;
-  
-  @include single-transition(border, 0.2s, ease-in-out, 0);
   text-decoration:none;
-
   color: $color;
   border-bottom:1px solid transparent;
 
-  @include rem("font-size", $fontSize);
+  @include transitions.single-transition(border, 0.2s, ease-in-out, 0);
+  @include rem.rem("font-size", $fontSize);
   
   &:focus,
   &:hover {

@@ -1,3 +1,9 @@
+@use "../base/colors";
+@use "../base/custom-mixins/custom-transition";
+@use "../base/mixins/breakpoints";
+@use "../base/mixins/opacity";
+
+@use "sass:map";
 .photo-slideshow {
   margin: 0 0 40px;
   overflow: hidden;
@@ -8,11 +14,11 @@
     margin: 0 auto;
     max-width: 640px;
     position: absolute;
-    @include opacity(0);
     top: 0;
     right: 0;
-    @include custom-transition(opacity 0.5s);
     width: 100%;
+    @include opacity.opacity(0);
+    @include custom-transition.custom-transition(opacity 0.5s);
 
     .centered-image {
       position: relative;
@@ -30,7 +36,7 @@
           margin: auto;
           display: block;
 
-          @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+          @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
             max-height: 550px;
           }
         }
@@ -38,25 +44,36 @@
     }
     
     figcaption {
-      background-color: $captions-background-color;
-      color: $secondary-text-color;
+      background-color: colors.$captions-background-color;
+      color: colors.$secondary-text-color;
       font-size: 0.84em;
       font-weight: 400;
       margin: 0 auto;
       max-width: 640px;
       overflow: hidden;
-      padding: 10px;
+      position: relative;
       
       .image-count {
-        float: right;
+        position: absolute;
+        top: 12px;
+        right: 10px;
         font-weight: 700;
         font-size: 0.97em;
+        line-height: normal;
       }
-      
+
+      // `.image-caption-button` toggles the `show-captions` class on the top-level `.photo-slideshow`
       .image-caption-button {
         cursor: pointer;
         display: block;
         text-transform: uppercase;
+        width: 100%;
+        text-align: left;
+        background-color: transparent;
+        border: none;
+        color: inherit;
+        padding: 12px 10px;
+        line-height: normal;
 
         .caption-button-hide {
           display: inline;
@@ -70,14 +87,13 @@
       .image-caption {
         overflow: hidden;
         max-height: 0;
-        @include custom-transition(max-height 500ms);
         display: block;
+        @include custom-transition.custom-transition(max-height 500ms);
         
         .caption-text {
-          border-top: 1px solid map-get($army-branding, grey20);
+          border-top: 1px solid map.get(colors.$army-branding, grey20);
           display: block;
-          margin: 10px 0 0;
-          padding: 10px 0 0;
+          padding: 10px;
         }
         
         .caption-author {
@@ -85,66 +101,71 @@
         }
         
         a {
-          color: $secondary-text-color;
-          font-weight: 400;
+          color: colors.$secondary-text-color;
+          font-weight: 600;
+          line-height: normal;
+          margin-top: 7px;
+          display: block;
+          width: max-content;
+          text-transform: uppercase;
         }
       }
     } // end figcaption
+  } // end .photo
+
+  // `.image-caption-button` toggles this class with JS
+  &.show-captions .photo figcaption {
+    .image-caption {
+      max-height: 500px;
+    }
+
+    .image-caption-button {
+      .caption-button-hide {
+        display: none;
+      }
+
+      .caption-button-show {
+        display: inline;
+      }
+    }
   }
 
   .photo.cur-photo {
     position: relative;
-    @include opacity(1);
     z-index: 1;
+    @include opacity.opacity(1);
   }
 
   .ss-move {
     background-color: rgba(0,0,0,0.5);
     cursor: pointer;
-    margin: -29px 0 0; // half = 20px padding top plus 9px (1/2 of span height)
-    padding: 20px;
+    transform: translateY(-50%);
     position: absolute;
     top: 50%;
+    border: none;
+    line-height: normal;
 
     &:hover,
     &:focus {
       background-color: rgba(0,0,0,0.9);
     }
 
-    .ss-move-button {
-      display: inline-block;
-      height: 8px;
-      width: 8px;
+    .ss-move-button::before {
+      content: "\e908";
+      font-family: 'armyicons';
+      color: map.get(colors.$army-branding, white);
+      font-size: 18px;
     }
-  }
-
-  .ss-move.ss-prev {
-    left: 0;
-    .ss-move-button {
-      background: transparent $social-button-sprite no-repeat scroll -131px -50px;
+    &.ss-prev {
+      left: 0;
+      padding: 27px 21px 25px 19px;
     }
-  }
-
-  .ss-move.ss-next {
-    right: 0;
-    .ss-move-button {
-      background: transparent $social-button-sprite no-repeat scroll -138px -50px;
-    }
-  }
-}
-
-.photo-slideshow.show-captions .photo figcaption {
-  .image-caption {
-    max-height: 500px;
-  }
-
-  .image-caption-button {
-    .caption-button-hide {
-      display: none;
-    }
-
-    .caption-button-show {
-      display: inline;
+    &.ss-next {
+      right: 0;
+      padding: 27px 18px 25px 22px;
+      .ss-move-button::before {
+        content: "\e907";
+      }
     }
   }
 }

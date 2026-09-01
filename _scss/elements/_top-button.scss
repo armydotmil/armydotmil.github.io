@@ -1,7 +1,12 @@
+@use "../base/colors";
+@use "../base/mixins/opacity";
+@use "../base/custom-mixins/custom-transition";
+
+@use "sass:map";
 
 
 .top-btn {
-  background: map-get($army-branding, grey40);
+  background: map.get(colors.$army-branding, grey40);
   border-radius: 50%;
   bottom: 30px;
   font-size: 0;
@@ -10,24 +15,32 @@
   padding: 20px;
   position: fixed;
   right: 30px;
-  text-indent: -99999px;
   z-index: -1;
 
-  @include opacity(0);
-  @include custom-transition(opacity .5s ease);
+  @include opacity.opacity(0);
+  @include custom-transition.custom-transition(opacity .5s ease);
 
   &.visible {
-    @include opacity(.7);
     z-index: 1;
+    text-decoration: none;
+    @include opacity.opacity(.7);
 
-    &:hover { @include opacity(1); }
+    &:hover { @include opacity.opacity(1); }
   }
 
-  span {
-    background: transparent $social-button-sprite no-repeat scroll -181px -59px;
+  span::before {
+    transform: rotate(-90deg);
+    content: "\e90d";
+    font-family: 'armyicons';
     display: block;
     height: 11px;
     width: 11px;
+    color: map.get(colors.$army-branding, white);
+    font-size: 16px;
+    font-weight: normal;
+    position: relative;
+    top: 2px;
+    left: 6px;
   }
 }
 

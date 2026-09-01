@@ -1,0 +1,167 @@
+/* OFFICIAL GOV SITE BANNER */ 
+
+/* General overrides for standard header */
+#officialgovsite ~ header {
+    position: sticky;
+    .navbar {
+        position: relative;
+    }
+}
+body.menu-open #officialgovsite ~ header .navbar {
+    position: fixed;
+}
+body.menu-open #officialgovsite {
+    visibility: hidden;
+    height: 0;
+}
+#officialgovsite {
+    position: relative;
+    z-index: 101;
+}
+/* END general overrides */
+
+#officialgovsite {
+  background-color: #111;
+  color: #FFF;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#officialgovsite strong {
+  color: var(--armygold);
+  font-weight: 500;
+}
+#officialgovsite details {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+#officialgovsite details summary {
+ font-weight: 100;
+ padding: 7.5px 2em;
+ background-color: #373737;
+ user-select: none;
+}
+
+/* hover and open state on link */ 
+#officialgovsite details summary:hover .govbanner_how_expand, #officialgovsite details[open] summary .govbanner_how_expand {
+  color: var(--armygold);
+}
+#officialgovsite details summary:hover .icon_expand, #officialgovsite details[open] summary .icon_expand {
+  fill: var(--armygold);
+}
+#officialgovsite details summary::marker, #officialgovsite details summary::before  {
+  content: "";
+}
+#officialgovsite details summary::-webkit-details-marker /* Safari */ { display: none; }
+
+#officialgovsite details summary span.govbanner_flag {
+  content: "";
+  display: inline-block;
+  width: 1.2em;
+  aspect-ratio: 4/3;
+  margin-right:.5em;
+  background-image: url('/e2/global/rv7/topnav/images/icon-us-flag.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#officialgovsite  .govbannercontent {
+  background-color: #111;
+  overflow: hidden;
+  max-height: 0vh;
+  transition: max-height .3s ease-in-out;
+} 
+#officialgovsite .govbannercontent ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0px;
+  padding: 1.5em 0px;
+  overflow: hidden; 
+}
+     
+#officialgovsite details[open] ~ .govbannercontent {
+  max-height: 100vh;
+  transition: max-height 1s ease-in-out;
+}
+#officialgovsite .govbannercontent ul li {
+  display: inline-block;
+  width: 41%;
+  padding: 1% 1% 1% 60px;
+  margin-left: 5%;
+  box-sizing: border-box;
+  list-style-type: none;
+  font-size: 1.15em;
+  line-height: 1.7em;
+  font-weight: 100;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+#officialgovsite .govbannercontent ul li::before {
+  content:"";
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  width:50px;
+  box-sizing: border-box;
+  color: var(--armygold);
+  border: .5px solid #000;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  background-color: transparent;
+  position: absolute;
+  left:0px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: .7em;
+  filter: brightness(0) saturate(100%) invert(88%) sepia(13%) saturate(7138%) hue-rotate(356deg) brightness(101%) contrast(104%);
+}
+#officialgovsite .govbannercontent ul li:first-child:before {
+  background-image: url('/e2/global/rv7/topnav/images/icon-dot-gov.svg');
+}
+#officialgovsite .govbannercontent ul li:last-child:before {
+  background-image: url('/e2/global/rv7/topnav/images/icon-https.svg');
+}
+#officialgovsite .govbannercontent ul li span.title {
+  font-size: 1.3em;
+  margin-bottom: .2em;
+  display: block;
+}
+#officialgovsite .govbannercontent .govbanner_icon_lock,  
+#officialgovsite .govbanner_icon_expand  {
+  display: inline-block;
+  position: relative;
+}
+#officialgovsite .govbanner_icon_expand  {
+  transform: rotate(90deg);
+  transition: transform .3s ease-in-out;
+  margin-left:.5em;
+  width: 1em;
+}
+#officialgovsite .govbannercontent .govbanner_icon_lock {
+ width: 1.5em; 
+}
+
+#officialgovsite details[open] summary .govbanner_icon_expand {
+  transform: rotate(-90deg);
+}
+#officialgovsite .govbannercontent .govbanner_icon_lock svg {
+  height: 1em;
+  width: 1em;
+}
+#officialgovsite .govbannercontent .govbanner_icon_lock .icon_lock {
+  fill: var(--armygold);
+}
+#officialgovsite .govbanner_icon_expand .icon_expand {
+  fill: #fff;
+}
+@media screen and (max-width:750px) {
+  #officialgovsite .govbannercontent ul li {
+      width: 90%;
+      margin-top: 1em;
+  }
+  #officialgovsite {
+      font-size: 12px;
+  }
+}

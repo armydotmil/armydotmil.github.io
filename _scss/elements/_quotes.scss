@@ -1,38 +1,45 @@
+@use "../base/colors";
+@use "../base/variables";
+@use "../base/mixins/breakpoints";
+@use "../base/custom-mixins/custom-repeating-gradient";
+
+@use "sass:map";
 
 
 blockquote {
   position: relative;
   
   &:before, &:after {
-    content: '';
-    height: 60px;
+    content: "“";
     position: absolute;
-    width: 82px;
     z-index: 0;
+    color: #ffcc01;
+    opacity: 0.7;
+    font: bold 170px/40px "Times New Roman";
   }
   
   &:before {
-    background: transparent $social-button-sprite no-repeat -330px -100px;
     left: 0;
-    top: -20px;
+    top: 17px;
+    
   }
   
   &:after {
-    background: transparent $social-button-sprite no-repeat -413px -100px;
-    bottom: -20px;
+    content: "”";
+    bottom: -40px;
     right: 0;
   }
 }
 
 .quote {
-  border-bottom: 1px solid map-get($army-branding, grey10);
-  border-top: 1px solid map-get($army-branding, grey10);
+  border-bottom: 1px solid map.get(colors.$army-branding, grey10);
+  border-top: 1px solid map.get(colors.$army-branding, grey10);
   text-align: center;
   
-  @include repeating-gradient(map-get($army-branding, white), map-get($army-branding, grey10));
+  @include custom-repeating-gradient.repeating-gradient(map.get(colors.$army-branding, white), map.get(colors.$army-branding, grey10));
   
   blockquote {
-    font: 600 1.5em/1.5em $font-family;
+    font: 600 1.5em/1.5em variables.$font-family;
     margin: 20px 0;
     
     p {
@@ -54,16 +61,16 @@ blockquote {
   }
   
   p {
-    font: 600 1.125em $font-family;
+    font: 600 1.125em variables.$font-family;
     margin-top: 25px;
   }
   
-  @include breakpoints(tablet nav mobile) {
+  @include breakpoints.breakpoints(tablet nav mobile) {
     blockquote { 
-      font: 600 1.3em $font-family;
+      font: 600 1.3em variables.$font-family;
       p { margin: 0 10px; }
     }
-    p { font: 600 1em $font-family; }
+    p { font: 600 1em variables.$font-family; }
   }
 }
 

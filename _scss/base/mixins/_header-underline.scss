@@ -1,6 +1,10 @@
+@use "sass:map";
+@use "breakpoints";
+@use "../colors";
+
 @mixin header-underline($color) {
     &:after {
-      background: map-get($army-branding, $color);
+      background: map.get(colors.$army-branding, $color);
       content: '';
       display: block;
       height: 5px;
@@ -8,7 +12,7 @@
       width: 60px;
     }
     
-    @include breakpoints(lg_tablet sm_desktop desktop large really_big) {
+    @include breakpoints.breakpoints(lg_tablet sm_desktop desktop large really_big) {
       &:after { margin: 20px 0 0; }
     }
 }

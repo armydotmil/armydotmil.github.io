@@ -1,3 +1,4 @@
+@use "sass:list";
 // ----------------------------------------------------------------------
 
   // REM Units with PX fallback
@@ -8,21 +9,21 @@
  // example: @include rem("font-size", 14);
 
 @mixin rem($property, $values...) {
-  $n: length($values);
+  $n: list.length($values);
   $i: 1;
 
   $pxlist: ();
   $remlist: ();
 
   @while $i <= $n {
-    $itemVal: (nth($values, $i));
+    $itemVal: (list.nth($values, $i));
     @if $itemVal != "auto"{
-      $pxlist: append($pxlist, $itemVal + px);
+      $pxlist: list.append($pxlist, $itemVal + px);
       //$remlist: append($remlist, ($itemVal / 10) + rem); // Use this if you've set HTML font size value to 62.5%
-      $remlist: append($remlist, ($itemVal / 16) + rem);
+      $remlist: list.append($remlist, ($itemVal / 16) + rem);
     } @else {
-      $pxlist: append($pxlist, auto);
-      $remlist: append($remlist, auto);
+      $pxlist: list.append($pxlist, auto);
+      $remlist: list.append($remlist, auto);
     }
 
     $i: $i + 1;

@@ -27,7 +27,8 @@ class Playlist {
 
                 plHeader[i].addEventListener(
                     'click',
-                    function() {
+                    function(e) {
+                        e.preventDefault();
                         _this.toggle(this.parentNode.parentNode);
                     },
                     false
@@ -41,7 +42,8 @@ class Playlist {
 
                 toggles[i].addEventListener(
                     'click',
-                    function() {
+                    function(e) {
+                        e.preventDefault();
                         _this.toggle(this.parentNode.parentNode);
                     },
                     false

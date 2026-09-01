@@ -1,38 +1,40 @@
+@use "sass:list";
+@use "sass:string";
 // ----------------------------------------------------------------------
 
 // Transform
 
 // ----------------------------------------------------------------------
 
-// example: @include transform(translate, 0, 0);
-// update: can use @include transform(none);
+// example: @include transform.transform(translate, 0, 0);
+// update: can use @include transform.transform(none);
 
 @mixin transform($type, $values...) {
   $i: 1;
   $n: 0;
   $transform: $type;
 
-  @if length($values) {
-    $n: length($values);
+  @if list.length($values) {
+    $n: list.length($values);
   }
 
   $originVal: ();
 
   @while $i <= $n {
-    $val: nth($values, $i);
+    $val: list.nth($values, $i);
 
     @if $type == "rotate" or $type == "rotateY" or $type == "rotateX" {
-      $originVal: append($originVal, $val + deg);
+      $originVal: list.append($originVal, $val + deg);
     }
     @else {
-      $originVal: append($originVal, $val);
+      $originVal: list.append($originVal, $val);
     }
 
     $i: $i + 1;
   }
 
   @if $type != "none" {
-    $transform: unquote("#{$type}(#{$originVal})");
+    $transform: string.unquote("#{$type}(#{$originVal})");
   }
 
   -webkit-transform: $transform;

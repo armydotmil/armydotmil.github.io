@@ -13,14 +13,15 @@ class QuillLoader {
         richTextElems[i].removeAttribute('data-delta');
       }
     }
+    // After Quill has created any slideshow markup, PhotoSlideshow will initialize based on DOM content.
   }
 
   /**
     * Expects an element id, and delta string
     */
-   setQuillElement(el, textDelta) {
+  setQuillElement(el, textDelta) {
     var delta, quillModel;
-    
+
     // replace quote entities (otherwise quill double-encodes them)
     textDelta = textDelta.replace(/&#(34|39);/g, this.replaceEntity);
     delta = JSON.parse(textDelta);
@@ -32,7 +33,7 @@ class QuillLoader {
       readOnly: true,
       formats: this.formats
     });
-    
+
     quillModel.setContents(delta.ops, 'silent');
   }
 
