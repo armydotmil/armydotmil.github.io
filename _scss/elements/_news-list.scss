@@ -65,10 +65,13 @@
 
     // back-compat: consumers whose markup nests <a> inside .image-wrap
     // instead of wrapping it with .news-card (pre-508 shape) still get the
-    // gold-bar hover/focus animation.
-    .image-wrap a {
-      &:focus,
-      &:hover {
+    // gold-bar hover/focus animation. Hovering/focusing the nested <a> also
+    // puts the ancestor .image-wrap into :hover/:focus-within, which is what
+    // drives the existing .image-wrap:after bar (an `a:after` here would be
+    // an unstyled pseudo-element of its own and never touch that bar).
+    .image-wrap {
+      &:hover,
+      &:focus-within {
         &:after {
           @include transform.transform(translateX, 0);
         }
