@@ -63,6 +63,18 @@
       }
     }
 
+    // back-compat: consumers whose markup nests <a> inside .image-wrap
+    // instead of wrapping it with .news-card (pre-508 shape) still get the
+    // gold-bar hover/focus animation.
+    .image-wrap a {
+      &:focus,
+      &:hover {
+        &:after {
+          @include transform.transform(translateX, 0);
+        }
+      }
+    }
+
     .image-wrap + .news-right {
       padding-left: 30px;
       margin-left: 33%;
