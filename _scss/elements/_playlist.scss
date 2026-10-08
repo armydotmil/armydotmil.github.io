@@ -52,7 +52,7 @@
         outline: none;
       }
       &:focus-visible {
-        outline: 3px solid map.get(colors.$army-branding, gold);;
+        outline: 3px solid map.get(colors.$army-branding, gold);
         outline-offset: -3px;
       }
       
