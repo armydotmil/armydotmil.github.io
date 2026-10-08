@@ -68,6 +68,13 @@
           top: 0;
           width: 100%;
         }
+
+        // DVIDS embeds default to dark text and transparent background
+        // (without a lighter BG the text is barely visible)
+        &.dvids-wrapper iframe,
+        &.dvids-webcast-wrapper iframe {
+          background-color: map.get(colors.$army-branding, grey30);
+        }
       }
     }
     
